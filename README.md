@@ -2,14 +2,14 @@
 
 Web interactiva de acompañamiento al Trabajo de Fin de Máster **«Secuencia Didáctica 5E para la Determinación de la Edad y el Tamaño del Universo»** — Máster Universitario en Astronomía y Astrofísica (VIU) · Javier Piay Pombo · 2026.
 
-Una web **didáctica, interactiva y offline** (HTML/CSS/JS puro, sin dependencias externas) que recorre las cinco fases del modelo **5E** para que el alumnado de 2.º de Bachillerato **mida por sí mismo** la edad y el tamaño del universo a partir de **datos reales de galaxias**.
+Una web **didáctica e interactiva** (HTML/CSS/JS puro, sin dependencias externas) que recorre las cinco fases del modelo **5E** para que el alumnado de 2.º de Bachillerato **mida por sí mismo** la edad y el tamaño del universo a partir de **datos reales de galaxias**.
 
 ## Uso
 
 Hay dos formas de usarla:
 
 - **En línea:** abre directamente **[https://mrpiay.github.io/Cosmos5E/](https://mrpiay.github.io/Cosmos5E/)** en cualquier navegador.
-- **Sin conexión:** descarga el repositorio (botón **Code → Download ZIP**), descomprímelo y abre **`index.html`** con doble clic. Funciona **offline**, sin instalar nada.
+- **En local:** descarga el repositorio (botón **Code → Download ZIP**), descomprímelo y abre **`index.html`** con doble clic. No hay que instalar nada.
 
 ## Fases
 
