@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cosmos 5E · Explain</title>
+<style>
+  :root{--naranja:#E65113; --naranja-suave:#fbe9e0; --negro:#1a1a1a; --gris:#6b6b6b; --gris-claro:#e9e9e9; --blanco:#fff; --azulgris:#8a8a8a;}
+  *{box-sizing:border-box}
+  body{margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--negro); background:#f6f6f6; line-height:1.5;}
+  header{background:var(--naranja); color:#fff; padding:18px 20px;}
+  header .marca{font-size:1.5rem; font-weight:500; letter-spacing:.5px; color:#fff; text-decoration:none;}
+  header .marca span{font-weight:800;}
+  .fases{display:flex; flex-wrap:wrap; gap:6px; margin-top:12px;}
+  .fases a, .fases span{display:flex; flex-direction:column; line-height:1.15; background:rgba(255,255,255,.16); padding:5px 11px; border-radius:8px; font-size:.72rem; color:#fff; text-decoration:none;}
+  .fases a b, .fases span b{font-size:.82rem; font-weight:700;}
+  .fases a small, .fases span small{opacity:.9;}
+  .fases a:not(.activa):hover{background:rgba(255,255,255,.30);}
+  .fases .activa{background:#fff; color:var(--naranja);}
+  .fases .activa small{color:var(--naranja); opacity:1;}
+  .fases .deshab{opacity:.55;}
+  .fases .inicio{justify-content:center; align-items:center; font-weight:700;}
+  header .sub{font-size:.95rem; opacity:.97; margin-top:10px;}
+  main{max-width:920px; margin:0 auto; padding:20px 16px 60px;}
+  .card{background:#fff; border:1px solid var(--gris-claro); border-radius:12px; padding:18px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  h2{font-size:1.15rem; margin:0 0 8px;}
+  h3{font-size:1rem; margin:16px 0 6px; color:var(--naranja);}
+  h4{margin:0 0 6px; color:var(--naranja); font-size:.95rem;}
+  p{margin:8px 0;}
+  .nota{border-left:4px solid var(--naranja); background:var(--naranja-suave); padding:10px 14px; border-radius:0 8px 8px 0; margin:12px 0; font-size:.94rem;}
+  .nota b{color:var(--naranja);}
+  .hilo{display:flex; flex-wrap:wrap; gap:6px; font-size:.8rem; margin:2px 0 8px;}
+  .hilo span{background:var(--gris-claro); color:var(--gris); padding:3px 10px; border-radius:20px; white-space:nowrap;}
+  .hilo span.activo{background:var(--naranja); color:#fff; font-weight:700;}
+  .instru{font-size:.9rem; color:var(--gris);}
+  /* calculadora */
+  .tarjeta{border:1px solid var(--gris-claro); border-radius:10px; padding:14px 16px; margin:12px 0; background:#faf9f8;}
+  .tj-cab{font-weight:700; color:var(--naranja); margin-bottom:8px;}
+  input[type=number]{font:inherit; padding:5px 8px; border:1px solid var(--gris); border-radius:6px; width:92px;}
+  .src{font-size:.85rem; color:var(--gris); margin-top:8px;}
+  .ayudas{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
+  details.ayuda{border:1px solid var(--gris-claro); border-radius:8px; background:#fff; flex:1 1 240px;}
+  details.ayuda summary{cursor:pointer; padding:8px 12px; font-size:.85rem; font-weight:600; color:var(--naranja); list-style:none;}
+  details.ayuda summary::-webkit-details-marker{display:none;}
+  details.ayuda summary::before{content:"› "; font-weight:700;}
+  details.ayuda[open] summary::before{content:"⌄ ";}
+  details.ayuda[open] summary{border-bottom:1px solid var(--gris-claro);}
+  details.ayuda .cont{padding:9px 12px; font-size:.88rem;}
+  .conv{list-style:none; margin:8px 0 0; padding:0;}
+  .conv li{padding:7px 0; border-bottom:1px dashed var(--gris-claro);}
+  .conv li:last-child{border-bottom:none;}
+  .conv .f{font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.94rem;}
+  .conv .f b{color:var(--naranja);}
+  .conv .c{color:var(--gris); font-size:.82rem; margin-top:3px;}
+  .aviso{background:#fff7f2; border:1px dashed var(--naranja); border-radius:8px; padding:9px 12px; font-size:.85rem; margin-top:10px;}
+  .resultado{background:var(--naranja); color:#fff; border-radius:10px; padding:14px 16px; font-size:1.1rem; font-weight:600; text-align:center; margin:14px 0;}
+  .resultado b{font-weight:800;}
+  button{font:inherit; background:var(--naranja); color:#fff; border:none; border-radius:8px; padding:9px 16px; font-weight:600; cursor:pointer;}
+  button:disabled{background:var(--azulgris); cursor:default;}
+  .msg{font-size:.88rem; color:#137a2b; margin-top:8px; min-height:1.1em;}
+  /* gráficos */
+  .grafico-wrap{overflow-x:auto;}
+  svg{display:block; max-width:100%; height:auto;}
+  .grafico-wrap svg{width:100%;}
+  input[type=range]{width:100%; accent-color:var(--naranja); margin:6px 0;}
+  .rango-lbl{display:flex; justify-content:space-between; font-size:.8rem; color:var(--gris);}
+  /* calendario cósmico */
+  .cal-bar{position:relative; display:flex; height:36px; border-radius:8px; overflow:hidden; margin:16px 0 6px; border:1px solid var(--gris-claro);}
+  .cal-bar .mes{flex:1; border-right:1px solid rgba(0,0,0,.06); font-size:.64rem; color:var(--gris); text-align:center; padding-top:3px; background:linear-gradient(#faf7f5,#fff);}
+  .cal-bar .mes:last-child{border-right:none;}
+  .cal-dot{position:absolute; top:0; width:3px; height:36px; background:var(--naranja); opacity:.8;}
+  .cal-pointer{position:absolute; top:-5px; width:0; height:0; margin-left:-6px; border-left:6px solid transparent; border-right:6px solid transparent; border-top:10px solid var(--negro);}
+  .cal-lectura{background:var(--naranja); color:#fff; border-radius:10px; padding:12px 16px; margin-top:12px; text-align:center;}
+  .cal-lectura .fecha{font-size:1.3rem; font-weight:800;}
+  .cal-lectura .ev{font-size:.98rem; margin-top:4px;}
+  .cal-lectura .hace{font-size:.82rem; opacity:.9; margin-top:4px;}
+  /* doppler */
+  .cols{display:flex; flex-wrap:wrap; gap:12px; margin-top:8px;}
+  .cols>div{flex:1 1 250px; border:1px solid var(--gris-claro); border-radius:10px; padding:12px 14px; background:#fff;}
+  footer{background:var(--naranja-suave); text-align:center; padding:20px 16px 16px; font-size:.8rem; color:var(--gris);}
+  footer p{max-width:920px; margin:0 auto;}
+  a{color:var(--naranja); font-weight:600;}
+  .logo-viu{width:190px; max-width:55%; height:auto; margin-top:12px;}
+  .marca-o{font-style:normal; font-size:.7em; vertical-align:-.02em; margin:0 .03em;}
+</style>
+</head>
+<body>
+<header>
+  <a class="marca" href="index.html">C<i class="marca-o">✪︎</i>sm<i class="marca-o">✪︎</i>s<span>5E</span></a>
+  <nav class="fases" aria-label="Las cinco fases del recorrido 5E">
+    <a class="inicio" href="index.html">← Inicio</a>
+    <a href="engage.html"><b>1 · Engage</b><small>motivar</small></a>
+    <a href="explore-espectro.html"><b>2 · Explore</b><small>indagar</small></a>
+    <a href="explain.html" class="activa" aria-current="page"><b>3 · Explain</b><small>formalizar</small></a>
+    <a href="elaborate.html"><b>4 · Elaborate</b><small>elaborar</small></a>
+    <span class="deshab"><b>5 · Evaluate</b><small>evaluar</small></span>
+  </nav>
+  <div class="sub">Estás en la fase <b>Explain</b>: ya mediste <b>H₀</b> en el diagrama; ahora lo convertirás en la <b>edad del universo</b> viendo cada paso, entenderás <b>por qué</b> invertir H₀ da una edad y aclararás qué es el <b>corrimiento al rojo</b> de la luz.</div>
+</header>
+
+<main>
+
+  <!-- QUÉ ES -->
+  <div class="card">
+    <h2>Tu etapa en la secuencia de medida</h2>
+    <div class="hilo" aria-label="La cadena de la medida">
+      <span>espectro</span><span>z</span><span>v = c·z</span><span>H₀</span><span class="activo">edad</span><span>tamaño</span>
+    </div>
+    <p>En Explore obtuviste <b>H₀</b>, la <b>constante de Hubble</b>, que podemos <b>interpretar</b> como el ritmo al que se expande el universo. Aquí usarás
+    la <b>calculadora didáctica</b> para <b>estimar</b> la edad a partir de ese H₀.</p>
+    <p>La idea clave: si la expansión hubiera sido siempre igual, el tiempo transcurrido desde que todo estaba junto
+    (el Big Bang) sería <b>t ≈ 1/H₀</b>, el <b>tiempo de Hubble</b>. Invertir el ritmo de expansión da un tiempo: la
+    <b>edad</b>.</p>
+  </div>
+
+  <!-- CALCULADORA -->
+  <div class="card">
+    <h2>La calculadora: de H₀ a la edad</h2>
+    <p class="instru">Introduce tu H₀ (el que mediste en el diagrama). Cada tarjeta muestra el dato, la fórmula y, con
+    los botones, qué es y por qué interviene.</p>
+
+    <!-- entrada H0 -->
+    <div class="tarjeta">
+      <div class="tj-cab">1 · Tu dato de partida: H₀</div>
+      <label>H₀ = <input id="h0" type="number" min="40" max="110" step="0.1" value="70"> km/s/Mpc</label>
+      <div class="src" id="h0src"></div>
+      <div class="ayudas">
+        <details class="ayuda"><summary>¿Qué es H₀?</summary><div class="cont">La <b>constante de Hubble</b>: el <b>ritmo de expansión</b> del universo, es decir, cuánta velocidad de recesión gana una galaxia por cada unidad de distancia (km/s por cada Mpc). Ojo: <b>no es una velocidad</b>, es una velocidad <b>por</b> distancia.</div></details>
+        <details class="ayuda"><summary>¿Por qué interviene?</summary><div class="cont">Es el <b>punto de partida</b> de todo el cálculo: lo único que hemos medido sobre la expansión (su ritmo, la <b>pendiente</b> del diagrama de Hubble). De él se deducen la edad —y, más adelante, el tamaño—.</div></details>
+      </div>
+    </div>
+
+    <!-- conversion -->
+    <div class="tarjeta">
+      <div class="tj-cab">2 · El cálculo: t ≈ 1/H₀ (con las unidades a la vista)</div>
+      <ol class="conv" id="conv"></ol>
+      <div class="ayudas">
+        <details class="ayuda"><summary>¿Qué es el tiempo de Hubble?</summary><div class="cont"><b>t ≈ 1/H₀</b>: el tiempo que habría pasado desde el Big Bang <b>si la expansión hubiera sido siempre igual</b>. Es una primera estimación de la edad del universo.</div></details>
+        <details class="ayuda"><summary>¿Por qué 1/H₀ da un tiempo?</summary><div class="cont">Porque H₀ es <b>velocidad ÷ distancia</b>; su inverso es <b>distancia ÷ velocidad = tiempo</b>. Las unidades lo confirman: al invertir km/s/Mpc y convertir el Mpc a km, los kilómetros se cancelan y queda un tiempo (segundos → años).</div></details>
+      </div>
+      <div class="aviso">⚠ <b>t = 1/H₀ es una estimación muy buena de la edad</b> (el valor exacto difiere solo un poco). Lo que más cambia el número es <b>qué valor de H₀ se use</b>: lo verás en <b>Elaborate</b> (la tensión de Hubble).</div>
+    </div>
+
+    <div class="resultado" id="res"></div>
+
+  </div>
+
+  <!-- REBOBINA LA EXPANSIÓN -->
+  <div class="card">
+    <h2>¿Por qué invertir H₀ da una edad? Rebobina la expansión</h2>
+    <p>El diagrama mostró que <b>todas</b> las galaxias se alejan y las <b>lejanas más deprisa</b> (v ∝ d). ¿Estamos en
+    el centro? <b>No</b>: desde <b>cualquier</b> galaxia se vería exactamente lo mismo, así que lo que ocurre es que
+    <b>el espacio se expande</b> (sin centro). Y aquí está lo bueno: <b>invertir el ritmo</b> (1/H₀) no es solo cambiar
+    unidades, es <b>rebobinar</b> esa expansión hasta cuando todo estaba junto. Retrocede en el tiempo:</p>
+
+    <div class="grafico-wrap">
+      <svg id="rebobina" viewBox="0 0 720 150" role="img" aria-label="Las galaxias vuelven al mismo punto al retroceder en el tiempo"></svg>
+    </div>
+    <div class="rango-lbl"><span>hoy</span><span>Big Bang</span></div>
+    <input id="rebob" type="range" min="0" max="1" step="0.01" value="0">
+    <div class="resultado" id="resRebob"></div>
+
+    <div class="nota">
+      Como las <b>lejanas</b> van <b>proporcionalmente más rápido</b>, al rebobinar <b>todas llegan al mismo punto a la
+      vez</b>, hace <b>1/H₀</b>: ese instante es el <b>Big Bang</b>. Por eso <b>1/H₀ es la edad del universo</b> —el
+      tiempo desde que todo estaba junto—, y <b>no</b> el tiempo que tardó en llegarnos la luz de una galaxia (que sería
+      d/c, mucho menor).
+    </div>
+  </div>
+
+  <!-- DOPPLER vs COSMOLOGICO -->
+  <div class="card">
+    <h2>El corrimiento al rojo de la luz</h2>
+    <p>La luz de las galaxias nos llega <b>estirada hacia el rojo</b>, y la causa es la <b>misma para todas</b> —cercanas
+    y lejanas—: <b>el espacio por el que viaja se estira</b> mientras la luz está en camino, y estira con ella la onda.
+    Eso es el <b>corrimiento cosmológico</b>; siempre se debe a la <b>expansión del espacio</b>, no a que la galaxia
+    «vuele» a través de él.</p>
+
+    <h3>Entonces, ¿qué cambia entre una galaxia cercana y una lejana?</h3>
+    <p>Solo los <b>números</b>, no la causa:</p>
+    <ul style="margin:6px 0; padding-left:22px">
+      <li><b>Cercana (z pequeño):</b> el estiramiento es poco y la <b>fórmula del efecto Doppler</b>, v = c·z, da el
+      número correcto —por eso en Explore la usamos como <b>atajo</b> para obtener la velocidad—.</li>
+      <li><b>Lejana (z grande):</b> el estiramiento es enorme y esa fórmula <b>ya no vale</b> (daría velocidades mayores
+      que c); hay que usar la cosmología completa (queda para el modo experto).</li>
+    </ul>
+
+    <div class="aviso">
+      <b>Dos errores que aquí evitamos:</b><br>
+      ① Que a z pequeño el número <b>coincida</b> con el del Doppler <b>no</b> significa que la galaxia se <b>mueva por
+      el espacio</b> (como un coche que pita al alejarse): el Doppler sirve para <b>calcular</b>, pero
+      <b>cualitativamente es falso</b> —la galaxia casi no viaja; es el <b>espacio el que se estira</b>—. <i>(Su pequeño
+      movimiento propio —las velocidades peculiares que dispersaban el diagrama— sí es un Doppler real, pero es ruido,
+      no la señal de la expansión.)</i><br>
+      ② <b>No todo se expande:</b> los <b>sistemas ligados</b> —galaxias, el Sistema Solar, tú— los mantiene unida la
+      gravedad; solo crece el espacio <b>entre</b> ellos.
+    </div>
+  </div>
+
+  <!-- CALENDARIO CÓSMICO (cierre: la edad en perspectiva) -->
+  <div class="card">
+    <h2>El calendario cósmico: lo que significan esos años</h2>
+    <p><b>¿Recuerdas la gran pregunta de Engage —qué ha pasado en todo este tiempo, y cuándo—?</b> Ha llegado el momento de
+    responderla. Acabas de estimar que el universo ronda los <b>14 000 millones de años</b> (la medida más precisa da
+    <b>13 800</b>); una cifra <b>imposible de imaginar</b>, así que comprimamos <b>toda</b> su historia en <b>un año de calendario</b>: el
+    <b>Big Bang</b> sería el <b>1 de enero a las 00:00</b>; <b>ahora mismo</b>, el <b>31 de diciembre a medianoche</b>. Mueve
+    el deslizador y mira cuándo aparece cada cosa:</p>
+
+    <div class="cal-bar" id="calBar" aria-hidden="true"></div>
+    <input id="calRange" type="range" min="0" max="1000" value="0">
+    <div class="rango-lbl"><span>Big Bang (1 ene)</span><span>hoy (31 dic)</span></div>
+
+    <div class="cal-lectura">
+      <div class="fecha" id="calFecha">1 de enero</div>
+      <div class="ev" id="calEv">El Big Bang: nace el espacio, el tiempo y la energía.</div>
+      <div class="hace" id="calHace">hace 13 800 millones de años</div>
+    </div>
+
+    <div class="nota">
+      Para hacerte una idea: los <b>dinosaurios</b> se extinguen el <b>30 de diciembre</b>, los primeros <b>humanos</b>
+      aparecen a las <b>23:52</b> del 31 de diciembre, y <b>toda</b> la historia escrita —las pirámides, la imprenta,
+      internet— cabe en los <b>últimos segundos</b> del año. Somos <b>nuevísimos</b> en un cosmos <b>antiquísimo</b>… y aun
+      así <b>acabas de estimar</b> su edad.
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>Web interactiva de la secuencia 5E para la determinación de la edad y el tamaño del universo (TFM, Javier Piay Pombo, VIU - 2026).</p>
+  <img class="logo-viu" src="logo.png" alt="Universidad Internacional de Valencia (VIU)">
+</footer>
+
+<script>
+/* ---------- utilidades de notacion cientifica ---------- */
+const SUP={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+const sup=n=>String(n).split('').map(c=>SUP[c]).join('');
+function exp(x,d=2){ if(!isFinite(x)||x===0) return '0'; const e=Math.floor(Math.log10(Math.abs(x))); const m=x/Math.pow(10,e); return m.toLocaleString('es-ES',{minimumFractionDigits:d,maximumFractionDigits:d})+'·10'+sup(e); }
+const esN=n=>n.toLocaleString('es-ES');
+
+/* ---------- calculadora: de H0 a la edad ---------- */
+const KMPMPC=3.086e19, SPYR=3.156e7;
+const h0=document.getElementById('h0'), conv=document.getElementById('conv'),
+      res=document.getElementById('res'), h0src=document.getElementById('h0src');
+
+function calc(){
+  let H0=parseFloat(h0.value); if(!isFinite(H0)||H0<=0) H0=70;
+  const seg=KMPMPC/H0, anos=seg/SPYR, mill=Math.round(anos/1e6/100)*100;
+  const lineas=[
+    ['t = 1 / H₀ = 1 Mpc / ('+esN(H0)+' km/s)','Invertimos el ritmo de expansión: un megapársec dividido por la velocidad que le corresponde.'],
+    ['= (3,086·10¹⁹ km) / ('+esN(H0)+' km/s)','Escribimos el megapársec en kilómetros (1 Mpc = 3,086·10¹⁹ km) para que se cancelen los km.'],
+    ['= <b>'+exp(seg)+' s</b>','Al cancelarse los km queda un tiempo, en segundos.'],
+    ['= '+exp(seg)+' s ÷ (3,156·10⁷ s/año)','Pasamos de segundos a años (1 año ≈ 3,156·10⁷ s).'],
+    ['≈ '+exp(anos)+' años ≈ <b>'+esN(mill)+' millones de años</b>','La edad estimada del universo: el tiempo de Hubble.']
+  ];
+  conv.innerHTML=lineas.map(l=>`<li><div class="f">${l[0]}</div><div class="c">${l[1]}</div></li>`).join('');
+  res.innerHTML='Edad estimada del universo ≈ <b>'+esN(mill)+' millones de años</b> &nbsp;(≈ '+esN(mill/1000)+' mil millones de años)';
+  return mill;
+}
+h0.addEventListener('input',()=>{calc();});
+
+/* mensaje de partida y primer cálculo */
+h0src.innerHTML='Introduce el <b>H₀</b> que mediste en el diagrama de Hubble (<b>Explore</b>). Como ejemplo partimos de <b>70</b>.';
+calc();
+
+/* ---------- rebobina la expansión (1/H₀ = edad) ---------- */
+const SVGNS="http://www.w3.org/2000/svg";
+const el=(t,at)=>{const e=document.createElementNS(SVGNS,t);for(const k in at)e.setAttribute(k,at[k]);return e;};
+const svgR=document.getElementById('rebobina'), rebob=document.getElementById('rebob'), resRebob=document.getElementById('resRebob');
+const X0R=58, YR=62, SC=132, GALS=[1,2,3,4];   // nosotros a la izq; galaxias a distancias 1..4
+function dibujaRebobina(){
+  let H0=parseFloat(h0.value); if(!isFinite(H0)||H0<=0) H0=70;
+  const edad=Math.round(977.8/H0*1000/100)*100, s=parseFloat(rebob.value), f=1-s;
+  svgR.innerHTML='';
+  svgR.appendChild(el('line',{x1:X0R,y1:YR,x2:X0R+4*SC+56,y2:YR,stroke:'#ededed','stroke-width':1}));
+  // galaxias, con flecha de velocidad de recesión (∝ distancia)
+  GALS.forEach((d,i)=>{
+    const x=X0R+d*SC*f, al=10+d*11;
+    svgR.appendChild(el('line',{x1:x,y1:YR,x2:x+al,y2:YR,stroke:'#E65113','stroke-width':2}));
+    svgR.appendChild(el('polygon',{points:`${x+al},${YR} ${x+al-6},${YR-3.5} ${x+al-6},${YR+3.5}`,fill:'#E65113'}));
+    svgR.appendChild(el('circle',{cx:x,cy:YR,r:5,fill:'#E65113'}));
+    if(i===GALS.length-1){ const t=el('text',{x:x,y:YR-12,'text-anchor':'middle',fill:'#E65113','font-size':11}); t.textContent='galaxias (v ∝ distancia)'; svgR.appendChild(t); }
+  });
+  // nosotros (encima)
+  svgR.appendChild(el('circle',{cx:X0R,cy:YR,r:6,fill:'#1a1a1a'}));
+  const tn=el('text',{x:X0R,y:YR+28,'text-anchor':'middle',fill:'#1a1a1a','font-size':12,'font-weight':700}); tn.textContent='nosotros'; svgR.appendChild(tn);
+  // lectura
+  resRebob.innerHTML = s>=0.985
+    ? 'Hace <b>'+esN(edad)+' millones de años</b> (= 1/H₀): <b>todas juntas en el mismo punto</b> = el <b>Big Bang</b>.'
+    : 'Retrocediendo… hace <b>'+esN(Math.round(s*edad/100)*100)+' millones de años</b>.';
+}
+rebob.addEventListener('input',dibujaRebobina);
+dibujaRebobina();
+
+/* ---------- calendario cósmico (la edad en perspectiva) ---------- */
+const EDAD_MA=13800;   // millones de años
+const MESES=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+const DIAS=[31,28,31,30,31,30,31,31,30,31,30,31];
+const EVENTOS=[
+  {f:0,       txt:"El Big Bang: nace el espacio, el tiempo y la energía."},
+  {f:0.029,   txt:"Se encienden las primeras estrellas y galaxias."},
+  {f:0.13,    txt:"Se forma nuestra galaxia, la Vía Láctea."},
+  {f:0.667,   txt:"Nacen el Sol y la Tierra."},
+  {f:0.746,   txt:"Aparecen los primeros seres vivos en la Tierra."},
+  {f:0.956,   txt:"Estalla la vida compleja: los primeros animales."},
+  {f:0.9952,  txt:"Un asteroide extingue a los dinosaurios."},
+  {f:0.99998, txt:"Aparecen los primeros seres humanos."},
+  {f:1,       txt:"Ahora mismo: tú, leyendo esto."}
+];
+const MARCAS=[
+  {f:0.029, l:"primeras galaxias"},
+  {f:0.13,  l:"Vía Láctea"},
+  {f:0.667, l:"Sol y Tierra"},
+  {f:0.746, l:"vida"},
+  {f:0.9952,l:"dinosaurios"}
+];
+const $bar=document.getElementById('calBar');
+["E","F","M","A","M","J","J","A","S","O","N","D"].forEach(m=>{ const c=document.createElement('div'); c.className='mes'; c.textContent=m; $bar.appendChild(c); });
+MARCAS.forEach(mk=>{ const dd=document.createElement('div'); dd.className='cal-dot'; dd.style.left=(mk.f*100)+'%'; dd.title=mk.l; $bar.appendChild(dd); });
+const $pt=document.createElement('div'); $pt.className='cal-pointer'; $bar.appendChild($pt);
+function fechaCosmica(s){
+  const totalSec=s*365*86400;
+  let doy=Math.floor(totalSec/86400)+1; if(doy>365) doy=365;
+  if(doy>=365){
+    let rem=totalSec-364*86400; if(rem>86399) rem=86399;
+    const h=Math.floor(rem/3600), mi=Math.floor((rem%3600)/60), se=Math.floor(rem%60);
+    const p=n=>String(n).padStart(2,'0');
+    return "31 de diciembre, "+p(h)+":"+p(mi)+":"+p(se);
+  }
+  let m=0,dw=doy; while(dw>DIAS[m]){ dw-=DIAS[m]; m++; }
+  return dw+" de "+MESES[m];
+}
+function textoHace(s){
+  const agoMa=(1-s)*EDAD_MA;
+  if(agoMa>=1) return "hace "+Math.round(agoMa).toLocaleString('es-ES')+" millones de años";
+  const agoAnos=agoMa*1e6;
+  if(agoAnos>=1000) return "hace "+Math.round(agoAnos).toLocaleString('es-ES')+" años";
+  return agoAnos<1 ? "¡el presente!" : "hace unos "+Math.round(agoAnos)+" años";
+}
+const $rc=document.getElementById('calRange'), $f=document.getElementById('calFecha'),
+      $e=document.getElementById('calEv'), $h=document.getElementById('calHace');
+function pintaCal(){
+  const s=parseInt($rc.value)/1000;
+  $pt.style.left=(s*100)+'%';
+  let ev=EVENTOS[0]; for(const x of EVENTOS){ if(s>=x.f) ev=x; }
+  $f.textContent=fechaCosmica(s);
+  $e.textContent=ev.txt;
+  $h.textContent=textoHace(s);
+}
+$rc.addEventListener('input',pintaCal); pintaCal();
+</script>
+</body>
+</html>

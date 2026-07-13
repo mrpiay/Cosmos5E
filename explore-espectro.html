@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cosmos 5E · Explore</title>
+<style>
+  :root{--naranja:#E65113; --naranja-suave:#fbe9e0; --negro:#1a1a1a; --gris:#6b6b6b; --gris-claro:#e9e9e9; --blanco:#fff; --azulgris:#8a8a8a;}
+  *{box-sizing:border-box}
+  body{margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--negro); background:#f6f6f6; line-height:1.5;}
+  header{background:var(--naranja); color:#fff; padding:18px 20px;}
+  header .marca{font-size:1.5rem; font-weight:500; letter-spacing:.5px; color:#fff; text-decoration:none;}
+  header .marca span{font-weight:800;}
+  .fases{display:flex; flex-wrap:wrap; gap:6px; margin-top:12px;}
+  .fases a, .fases span{display:flex; flex-direction:column; line-height:1.15; background:rgba(255,255,255,.16); padding:5px 11px; border-radius:8px; font-size:.72rem; color:#fff; text-decoration:none;}
+  .fases a b, .fases span b{font-size:.82rem; font-weight:700;}
+  .fases a small, .fases span small{opacity:.9;}
+  .fases a:not(.activa):hover{background:rgba(255,255,255,.30);}
+  .fases .activa{background:#fff; color:var(--naranja);}
+  .fases .activa small{color:var(--naranja); opacity:1;}
+  .fases .deshab{opacity:.55;}
+  .fases .inicio{justify-content:center; align-items:center; font-weight:700;}
+  header .sub{font-size:.95rem; opacity:.97; margin-top:10px;}
+  main{max-width:920px; margin:0 auto; padding:20px 16px 60px;}
+  .card{background:#fff; border:1px solid var(--gris-claro); border-radius:12px; padding:18px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  h2{font-size:1.15rem; margin:0 0 8px;}
+  h3{font-size:1rem; margin:16px 0 6px; color:var(--naranja);}
+  .nota{border-left:4px solid var(--naranja); background:var(--naranja-suave); padding:10px 14px; border-radius:0 8px 8px 0; margin:12px 0; font-size:.94rem;}
+  .nota b{color:var(--naranja);}
+  .hilo{display:flex; flex-wrap:wrap; gap:6px; font-size:.8rem; margin:2px 0 8px;}
+  .hilo span{background:var(--gris-claro); color:var(--gris); padding:3px 10px; border-radius:20px; white-space:nowrap;}
+  .hilo span.activo{background:var(--naranja); color:#fff; font-weight:700;}
+  .grafico-wrap{overflow-x:auto;}
+  svg{display:block; width:100%; height:auto; min-width:520px; touch-action:none;}
+  .instru{font-size:.9rem; color:var(--gris); margin:6px 0;}
+  .pasos-calc{list-style:none; margin:14px 0 0; padding:0;}
+  .pasos-calc li{background:#faf7f5; border:1px solid var(--gris-claro); border-left:4px solid var(--naranja); border-radius:0 8px 8px 0; padding:9px 13px; margin:8px 0;}
+  .pasos-calc .form{font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.95rem;}
+  .pasos-calc .exp{font-size:.85rem; color:var(--gris); margin-top:3px;}
+  .pasos-calc b{color:var(--naranja);}
+  .fuente{font-size:.8rem; color:var(--gris); margin-top:10px;}
+  footer{background:var(--naranja-suave); text-align:center; padding:20px 16px 16px; font-size:.8rem; color:var(--gris);}
+  footer p{max-width:920px; margin:0 auto;}
+  a{color:var(--naranja); font-weight:600;}
+  .logo-viu{width:190px; max-width:55%; height:auto; margin-top:12px;}
+  .marca-o{font-style:normal; font-size:.7em; vertical-align:-.02em; margin:0 .03em;}
+</style>
+</head>
+<body>
+<header>
+  <a class="marca" href="index.html">C<i class="marca-o">✪︎</i>sm<i class="marca-o">✪︎</i>s<span>5E</span></a>
+  <nav class="fases" aria-label="Las cinco fases del recorrido 5E">
+    <a class="inicio" href="index.html">← Inicio</a>
+    <a href="engage.html"><b>1 · Engage</b><small>motivar</small></a>
+    <a href="explore-espectro.html" class="activa" aria-current="page"><b>2 · Explore</b><small>indagar</small></a>
+    <a href="explain.html"><b>3 · Explain</b><small>formalizar</small></a>
+    <a href="elaborate.html"><b>4 · Elaborate</b><small>elaborar</small></a>
+    <span class="deshab"><b>5 · Evaluate</b><small>evaluar</small></span>
+  </nav>
+  <div class="sub">Estás en la fase <b>Explore</b>: primero aprenderás cómo se obtiene la <b>velocidad</b> de una galaxia a partir de su <b>espectro</b>. Luego lo aplicarás a galaxias reales en el diagrama de Hubble.</div>
+</header>
+
+<main>
+
+  <!-- QUÉ ES -->
+  <div class="card">
+    <h2>Tu etapa en la secuencia de medida</h2>
+    <div class="hilo" aria-label="La cadena de la medida">
+      <span class="activo">espectro</span><span class="activo">z</span><span class="activo">v = c·z</span><span>H₀</span><span>edad</span><span>tamaño</span>
+    </div>
+    <p>Cada elemento químico emite luz en <b>longitudes de onda muy concretas</b>, como un código de barras. La línea
+    <b>H-alfa</b> del hidrógeno está, en el laboratorio, en <b>656,28 nm</b>. Pero si una galaxia <b>se aleja</b> de
+    nosotros, esa misma línea nos llega <b>desplazada hacia longitudes de onda mayores</b> (hacia el rojo): es el
+    <b>corrimiento al rojo</b>. Cuanto más deprisa se aleja, <b>más se desplaza</b> la línea. Midiendo ese desplazamiento,
+    obtenemos su velocidad.</p>
+
+    <h3>¿Qué vas a hacer?</h3>
+    <ol style="margin:6px 0 0; padding-left:20px">
+      <li><b>Arrastra la línea H-alfa</b> de tu galaxia (la naranja) para alejarla de nosotros.</li>
+      <li>Observa <b>en vivo</b> cómo aparecen su corrimiento al rojo <b>z</b> y su velocidad <b>v = c·z</b>.</li>
+      <li>Si la sueltas sobre la línea gris (reposo), la galaxia estaría <b>quieta</b> (z = 0).</li>
+    </ol>
+  </div>
+
+  <!-- ESPECTRO INTERACTIVO -->
+  <div class="card">
+    <h2>Experimenta con «tu galaxia»</h2>
+    <p class="instru">El gráfico muestra la <b>intensidad</b> de la luz de <b>tu galaxia</b> (hipotética) según la
+    <b>longitud de onda</b>; el <b>pico naranja</b> es su línea H-alfa. La línea gris discontinua marca dónde estaría
+    <b>en reposo</b> (656,28 nm). <b>Arrástrala</b> hacia la derecha para alejar la galaxia.</p>
+
+    <div class="grafico-wrap">
+      <svg id="espectro" viewBox="0 0 760 300" role="img" aria-label="Espectro interactivo con la línea H-alfa"></svg>
+    </div>
+
+    <ol class="pasos-calc" id="pasos"></ol>
+
+    <div class="nota">
+      <b>¿Por qué v = c·z?</b> Se deduce con un sencillo argumento de <b>crestas de onda</b>. La galaxia emite una cresta de onda y,
+      un periodo <b>T</b> después, la siguiente. En ese tiempo la luz recorre <b>una</b> longitud de onda: <b>λ = c·T</b>.
+      Pero si la galaxia se aleja a velocidad <b>v</b>, durante ese mismo <b>T</b> se ha alejado <b>v·T</b>, así que la segunda
+      cresta sale desde más lejos y las crestas nos llegan <b>más separadas</b>: la onda se estira exactamente <b>Δλ = v·T</b>.
+      Al dividir una cosa entre la otra, el periodo se cancela:
+      <b>z = Δλ/λ = v·T / (c·T) = v/c</b>. Despejando, <b>v = c·z</b>, con <b>c ≈ 300 000 km/s</b> (299 792 km/s) la velocidad
+      de la luz. (Vale mientras <b>v</b> sea mucho menor que <b>c</b>.)
+    </div>
+
+    <div class="nota">
+      Acabas de ver cómo, midiendo el desplazamiento de una línea conocida, se obtiene la <b>velocidad</b> de una galaxia.
+      En la siguiente actividad, el <b>diagrama de Hubble</b>, usarás las velocidades ya medidas de <b>15 galaxias reales</b>
+      para descubrir el ritmo de expansión del universo, H₀.
+    </div>
+
+    <p class="fuente">La línea H-alfa del hidrógeno tiene su longitud de onda de reposo en 656,28 nm (dato de laboratorio).
+    «Tu galaxia» es hipotética: sirve para entender la relación desplazamiento → velocidad. Las galaxias reales, con su
+    corrimiento fijo, están en el diagrama de Hubble.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p>Web interactiva de la secuencia 5E para la determinación de la edad y el tamaño del universo (TFM, Javier Piay Pombo, VIU - 2026).</p>
+  <img class="logo-viu" src="logo.png" alt="Universidad Internacional de Valencia (VIU)">
+</footer>
+
+<script>
+const C=299792.458, HALPHA=656.28, LMAX=670;
+let lobs=660;   // posición de la línea de la galaxia (nm), arrastrable
+
+const SVGNS="http://www.w3.org/2000/svg";
+const svg=document.getElementById('espectro');
+const PX0=60, PX1=730, BASE=225, TOP=70;
+const px=l=>PX0+(l-650)/(LMAX-650)*(PX1-PX0);
+const lam=x=>Math.max(HALPHA,Math.min(LMAX, 650+(x-PX0)/(PX1-PX0)*(LMAX-650)));
+const el=(t,a)=>{const e=document.createElementNS(SVGNS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
+
+function dibujar(){
+  svg.innerHTML='';
+  // eje X
+  svg.appendChild(el('line',{x1:PX0,y1:BASE,x2:PX1,y2:BASE,stroke:'#1a1a1a','stroke-width':1.3}));
+  for(let l=650;l<=670;l+=5){
+    svg.appendChild(el('line',{x1:px(l),y1:BASE,x2:px(l),y2:BASE+5,stroke:'#6b6b6b'}));
+    const t=el('text',{x:px(l),y:BASE+19,'text-anchor':'middle',fill:'#6b6b6b','font-size':12}); t.textContent=l; svg.appendChild(t);
+  }
+  const xl=el('text',{x:(PX0+PX1)/2,y:BASE+40,'text-anchor':'middle',fill:'#1a1a1a','font-size':13,'font-weight':600});
+  xl.textContent='longitud de onda (nm)'; svg.appendChild(xl);
+  // eje Y (intensidad)
+  svg.appendChild(el('line',{x1:PX0,y1:42,x2:PX0,y2:BASE,stroke:'#1a1a1a','stroke-width':1.3}));
+  const yl=el('text',{x:-(42+BASE)/2,y:16,'text-anchor':'middle',fill:'#6b6b6b','font-size':12,transform:'rotate(-90)'});
+  yl.textContent='intensidad'; svg.appendChild(yl);
+  // reposo (gris discontinua) — su etiqueta va arriba del todo para no quedar tapada
+  svg.appendChild(el('line',{x1:px(HALPHA),y1:56,x2:px(HALPHA),y2:BASE,stroke:'#8a8a8a','stroke-width':1.6,'stroke-dasharray':'5 4'}));
+  const rl=el('text',{x:px(HALPHA),y:48,'text-anchor':'middle',fill:'#6b6b6b','font-size':11});
+  rl.textContent='reposo (656,28)'; svg.appendChild(rl);
+  // pico de la galaxia (arrastrable), más bajo para no tapar «reposo» al arrastrarlo allí
+  const xo=px(lobs), APEX=104;
+  svg.appendChild(el('polygon',{points:`${xo-6},${BASE} ${xo},${APEX} ${xo+6},${BASE}`,fill:'#E65113'}));
+  svg.appendChild(el('circle',{cx:xo,cy:APEX,r:7,fill:'#E65113',stroke:'#fff','stroke-width':2}));   // asa
+  const ol=el('text',{x:xo,y:80,'text-anchor':'middle',fill:'#E65113','font-size':11,'font-weight':700});
+  ol.textContent='H-alfa de tu galaxia'; svg.appendChild(ol);
+  const guia=el('text',{x:xo,y:92,'text-anchor':'middle',fill:'#E65113','font-size':10}); guia.textContent='↔ arrástrame'; svg.appendChild(guia);
+}
+
+function actualizar(){
+  const dl=lobs-HALPHA, z=dl/HALPHA, v=C*z;
+  const f=n=>n.toLocaleString('es-ES',{maximumFractionDigits:4});
+  const quieta = lobs<=HALPHA+0.001;
+  const pasos=[
+    {form:'λ en reposo = <b>656,28 nm</b>', exp:'La que tendría H-alfa si la galaxia no se alejara (laboratorio).'},
+    {form:'λ observada = <b>'+lobs.toLocaleString('es-ES',{minimumFractionDigits:2,maximumFractionDigits:2})+' nm</b>', exp:'La posición de la línea de tu galaxia (arrástrala).'},
+    {form:'Δλ = λ_obs − λ_reposo = <b>'+f(dl)+' nm</b>', exp:'Cuánto se ha «estirado» la luz.'},
+    {form:'z = Δλ / λ_reposo = <b>'+f(z)+'</b>', exp:'El corrimiento al rojo: el estiramiento relativo (sin unidades).'},
+    {form:'v = c · z ≈ <b>'+Math.round(v).toLocaleString('es-ES')+' km/s</b>', exp: quieta ? 'c ≈ 300 000 km/s es la velocidad de la luz. En reposo, z = 0, así que la galaxia no se aleja (v = 0).' : 'c ≈ 300 000 km/s es la velocidad de la luz. Como z = v/c, la velocidad de recesión es v = c·z (válido para z pequeño).'}
+  ];
+  const ol=document.getElementById('pasos'); ol.innerHTML='';
+  pasos.forEach(p=>{const li=document.createElement('li'); li.innerHTML=`<div class="form">${p.form}</div><div class="exp">${p.exp}</div>`; ol.appendChild(li);});
+}
+
+function refrescar(){ dibujar(); actualizar(); }
+
+/* arrastrar el pico */
+function mover(ev){
+  const r=svg.getBoundingClientRect();
+  const cx=(ev.touches?ev.touches[0].clientX:ev.clientX);
+  const sx=(cx-r.left)/r.width*760;
+  lobs=Math.round(lam(sx)*100)/100;
+  refrescar();
+}
+let drag=false;
+svg.addEventListener('pointerdown',e=>{drag=true; mover(e);});
+svg.addEventListener('pointermove',e=>{if(drag) mover(e);});
+window.addEventListener('pointerup',()=>drag=false);
+
+refrescar();
+</script>
+</body>
+</html>

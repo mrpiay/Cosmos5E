@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cosmos 5E · Engage</title>
+<style>
+  :root{
+    --naranja:#E65113; --naranja-suave:#fbe9e0; --negro:#1a1a1a; --gris:#6b6b6b;
+    --gris-claro:#e9e9e9; --blanco:#ffffff; --azulgris:#8a8a8a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--negro); background:#f6f6f6; line-height:1.5;}
+  header{background:var(--naranja); color:#fff; padding:18px 20px;}
+  header .marca{font-size:1.5rem; font-weight:500; letter-spacing:.5px; color:#fff; text-decoration:none;}
+  header .marca span{font-weight:800;}
+  .fases{display:flex; flex-wrap:wrap; gap:6px; margin-top:12px;}
+  .fases a, .fases span{display:flex; flex-direction:column; line-height:1.15; background:rgba(255,255,255,.16); padding:5px 11px; border-radius:8px; font-size:.72rem; color:#fff; text-decoration:none;}
+  .fases a b, .fases span b{font-size:.82rem; font-weight:700;}
+  .fases a small, .fases span small{opacity:.9;}
+  .fases a:not(.activa):hover{background:rgba(255,255,255,.30);}
+  .fases .activa{background:#fff; color:var(--naranja);}
+  .fases .activa small{color:var(--naranja); opacity:1;}
+  .fases .deshab{opacity:.55;}
+  .fases .inicio{justify-content:center; align-items:center; font-weight:700;}
+  .sub{font-size:.95rem; opacity:.97; margin-top:10px;}
+  main{max-width:920px; margin:0 auto; padding:20px 16px 60px;}
+  .card{background:#fff; border:1px solid var(--gris-claro); border-radius:12px; padding:18px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  h2{font-size:1.15rem; margin:0 0 8px;}
+  h3{font-size:1rem; margin:16px 0 6px; color:var(--naranja);}
+  p{margin:8px 0;}
+  .pregunta-motriz{font-size:1.25rem; font-weight:800; color:var(--naranja); margin:0 0 10px; line-height:1.3;}
+  .nota{border-left:4px solid var(--naranja); background:var(--naranja-suave); padding:10px 14px; border-radius:0 8px 8px 0; margin:12px 0; font-size:.94rem;}
+  .nota b{color:var(--naranja);}
+  .instru{font-size:.9rem; color:var(--gris);}
+  footer{background:var(--naranja-suave); text-align:center; padding:20px 16px 16px; font-size:.8rem; color:var(--gris);}
+  footer p{max-width:920px; margin:0 auto;}
+  a{color:var(--naranja); font-weight:600;}
+  /* misión */
+  /* diagnóstico: afirmaciones */
+  .afirm{border:1px solid var(--gris-claro); border-radius:10px; padding:12px 14px; margin:10px 0;}
+  .afirm .frase{font-weight:600; margin-bottom:8px;}
+  .opciones{display:flex; flex-wrap:wrap; gap:8px;}
+  .opc{border:2px solid var(--gris-claro); background:#fff; color:var(--negro); border-radius:20px; padding:6px 14px; font:inherit; font-weight:600; font-size:.86rem; cursor:pointer;}
+  .opc.sel{border-color:var(--naranja); background:var(--naranja-suave); color:var(--naranja);}
+  /* términos */
+  .terminos{display:grid; grid-template-columns:1fr; gap:12px; margin-top:10px;}
+  @media(min-width:620px){ .terminos{grid-template-columns:1fr 1fr;} }
+  .termino{border:1px solid var(--gris-claro); border-left:4px solid var(--naranja); border-radius:10px; padding:14px 16px; cursor:pointer; background:#fff; transition:box-shadow .15s;}
+  .termino:hover{box-shadow:0 3px 10px rgba(0,0,0,.06);}
+  .termino h4{margin:0; color:var(--naranja); font-size:1.02rem;}
+  .termino .crees{font-size:.9rem; color:var(--gris); margin:6px 0 0;}
+  .termino .rev{display:none; margin-top:8px; font-size:.94rem;}
+  .termino.abierta .rev{display:block;}
+  .termino .toggle{font-size:.8rem; color:var(--naranja); font-weight:700; margin-top:8px;}
+  /* línea de tiempo */
+  .tl{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
+  .tl-item{border:2px solid var(--gris-claro); background:#fff; border-radius:8px; padding:7px 11px; cursor:pointer; text-align:left; font:inherit; flex:1 1 130px;}
+  .tl-item b{display:block; color:var(--naranja); font-size:.78rem;}
+  .tl-item span{font-size:.9rem; font-weight:600;}
+  .tl-item.on{border-color:var(--naranja); background:var(--naranja-suave);}
+  .tl-det{margin-top:12px; border-left:4px solid var(--naranja); background:var(--naranja-suave); border-radius:0 8px 8px 0; padding:12px 14px;}
+  .tl-det .tec{display:block; margin-top:8px; font-size:.85rem; color:var(--gris);}
+  .tl-det .tec b{color:var(--naranja);}
+  /* Olbers */
+  .cielo{height:150px; border-radius:10px; background:#0b0b1a; position:relative; overflow:hidden; transition:background .45s; margin:10px 0;}
+  .cielo.brillante{background:#fff;}
+  .estrella{position:absolute; width:2px; height:2px; background:#fff; border-radius:50%; transition:opacity .3s;}
+  .cielo.brillante .estrella{opacity:0;}
+  .olbers-canvas{position:absolute; inset:0; width:100%; height:100%; opacity:0; transition:opacity .3s;}
+  .cielo.brillante .olbers-canvas{opacity:1;}
+  .switch{display:inline-flex; align-items:center; gap:9px; cursor:pointer; font-weight:600;}
+  .switch input{width:18px; height:18px; accent-color:var(--naranja);}
+  .logo-viu{width:190px; max-width:55%; height:auto; margin-top:12px;}
+  .marca-o{font-style:normal; font-size:.7em; vertical-align:-.02em; margin:0 .03em;}
+</style>
+</head>
+<body>
+<header>
+  <a class="marca" href="index.html">C<i class="marca-o">✪︎</i>sm<i class="marca-o">✪︎</i>s<span>5E</span></a>
+  <nav class="fases" aria-label="Las cinco fases del recorrido 5E">
+    <a class="inicio" href="index.html">← Inicio</a>
+    <a href="engage.html" class="activa" aria-current="page"><b>1 · Engage</b><small>motivar</small></a>
+    <a href="explore-espectro.html"><b>2 · Explore</b><small>indagar</small></a>
+    <a href="explain.html"><b>3 · Explain</b><small>formalizar</small></a>
+    <a href="elaborate.html"><b>4 · Elaborate</b><small>elaborar</small></a>
+    <span class="deshab"><b>5 · Evaluate</b><small>evaluar</small></span>
+  </nav>
+  <div class="sub">Estás en la fase <b>Engage</b>: aquí no medimos todavía. Primero, <b>engancharte</b> a una de las preguntas más grandes que existen —y descubrir qué queremos hacer, por qué y cómo hemos llegado a poder hacerlo—.</div>
+</header>
+
+<main>
+
+  <!-- 1 · LA MISIÓN -->
+  <div class="card">
+    <p class="pregunta-motriz">¿Qué edad tiene el universo? ¿Cómo de grande es? ¿Y cómo puede saberlo la ciencia sin salir de aquí?</p>
+    <p>Durante <b>milenios</b> solo pudimos <b>imaginar</b> respuestas. Hoy, por primera vez, podemos <b>medir</b> la edad
+    y el tamaño del universo con <b>observaciones reales</b>. Y no hace falta un telescopio gigante: los astrónomos
+    <b>comparten sus datos con el mundo</b>, y tú vas a usar los <b>mismos datos que cambiaron la historia</b>.</p>
+    <p>Tu <b>misión</b> es sencilla de plantear, pero asombrosa en el fondo: <b>medir tú mismo</b> la edad y el tamaño del
+    universo a partir de <b>datos galácticos reales</b>. El objetivo no es memorizar un dato, sino comprender una de las
+    <b>mayores conquistas del pensamiento humano</b>: cómo la ciencia es capaz de averiguar de dónde venimos y qué lugar
+    ocupamos en el cosmos. Una aventura para descubrir que <b>tú también puedes descifrar las leyes del universo</b>.</p>
+  </div>
+
+  <!-- 2 · ¿Y TÚ QUÉ CREES? (diagnóstico) -->
+  <div class="card">
+    <h2>Antes de empezar: ¿y tú qué crees?</h2>
+    <p class="instru">Posiciónate ante estas frases con lo que crees <b>ahora mismo</b>. No hay respuestas a la vista y no
+    cuenta para nota: es una <b>foto de tus ideas de hoy</b>. Al final de la secuencia volverás a ellas y verás <b>cuánto
+    has cambiado</b>. Sé sincero: aquí nadie acierta ni falla.</p>
+    <div id="afirmaciones"></div>
+  </div>
+
+  <!-- 3 · DEFINICIÓN DE TÉRMINOS -->
+  <div class="card">
+    <h2>Un momento… ¿qué significan «edad» y «tamaño» del universo?</h2>
+    <p>Suenan simples, pero <b>esconden trampas</b>: casi todo el mundo entiende mal estas palabras. Pulsa cada tarjeta
+    y deja que te sorprendan.</p>
+    <div class="terminos" id="terminos"></div>
+    <div class="nota">
+      Fíjate en la idea que lo cambia todo: <b>no vamos a viajar a ninguna galaxia</b>. Toda la información nos llega en
+      la <b>luz</b> —y, como tarda en venir, esa luz es también una <b>máquina del tiempo</b>—. Aprender a leerla es de lo
+      que va esta secuencia.
+    </div>
+  </div>
+
+  <!-- 4 · LÍNEA DE TIEMPO -->
+  <div class="card">
+    <h2>Cómo llegamos hasta aquí: la aventura de la cosmología</h2>
+    <p>Nadie nació sabiendo la edad del universo: la humanidad tardó <b>siglos</b> en conseguirlo, y <b>cada gran salto
+    llegó con una tecnología nueva</b> para captar más luz. Recorre esa historia —pulsa cada hito—:</p>
+    <div class="tl" id="timeline"></div>
+    <div class="tl-det" id="tlDet">Pulsa un hito de la línea para ver <b>qué cambió</b> y <b>gracias a qué tecnología</b>.</div>
+    <div class="nota">
+      La ciencia <b>no es una lista de verdades fijas</b>: es una historia que sigue abierta y avanza cuando podemos
+      <b>ver más y mejor</b>. Y aquí viene lo bueno: en la fase <b>Explore</b> usarás los <b>mismos datos que Hubble</b>
+      —la luz de galaxias reales y sus distancias— para medir el universo <b>por ti mismo</b>.
+    </div>
+  </div>
+
+  <!-- 6 · OLBERS -->
+  <div class="card">
+    <h2>Una última provocación: ¿por qué es oscura la noche?</h2>
+    <p>Parece una tontería, pero escondió un misterio durante siglos (la <b>paradoja de Olbers</b>). Imagina un universo
+    <b>infinito, eterno y estático</b>, lleno de estrellas por todas partes. Entonces, mires hacia donde mires, tu línea de
+    visión acabaría <b>tarde o temprano en una estrella</b>… así que <b>el cielo entero debería brillar como el Sol</b>.
+    Prueba el interruptor:</p>
+
+    <div class="cielo" id="cielo" aria-label="Simulación del cielo nocturno"></div>
+    <label class="switch"><input type="checkbox" id="swOlbers"> <span id="swTxt">Enciende: «universo infinito y eterno»</span></label>
+
+    <div class="nota">
+      Pero la noche <b>es oscura</b>. Algo falla en «infinito y eterno»: el universo <b>tiene una edad finita</b> (y además
+      se expande), así que solo nos llega luz de una <b>región limitada</b>. Ese cielo oscuro es, en sí mismo, una
+      <b>pista de que el universo tuvo un principio</b> —justo lo que vas a medir—.
+    </div>
+    <p>Ya sabes <b>qué</b> vamos a hacer, <b>por qué</b> importa y <b>cómo</b> hemos llegado a poder hacerlo. Ahora te toca
+    a ti: en <b>Explore</b> empezarás a medir de verdad, leyendo la luz de las galaxias. →</p>
+    <p>Y te dejamos una <b>gran pregunta</b> rondando: en un universo tan antiguo, <b>¿qué ha pasado en todo ese tiempo… y
+    cuándo?</b> Guárdala —la responderás tú mismo en <b>Explain</b>—.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p>Web interactiva de la secuencia 5E para la determinación de la edad y el tamaño del universo (TFM, Javier Piay Pombo, VIU - 2026).</p>
+  <img class="logo-viu" src="logo.png" alt="Universidad Internacional de Valencia (VIU)">
+</footer>
+
+<script>
+/* ---------- 2 · Diagnóstico: afirmaciones ---------- */
+const AFIRMACIONES=[
+  "El Big Bang fue una explosión que ocurrió en algún lugar del espacio.",
+  "Al expandirse el universo, también se hacen más grandes las galaxias, el Sistema Solar y tú.",
+  "El universo tiene un centro y un borde.",
+  "La edad del universo se conoce con total exactitud.",
+  "La luz de una galaxia lejana nos muestra cómo es esa galaxia ahora mismo."
+];
+const OPC=["De acuerdo","En desacuerdo","No lo sé"];
+const $af=document.getElementById('afirmaciones');
+AFIRMACIONES.forEach((f,i)=>{
+  const d=document.createElement('div'); d.className='afirm';
+  const g=document.createElement('div'); g.className='opciones';
+  OPC.forEach(o=>{
+    const b=document.createElement('button'); b.className='opc'; b.textContent=o;
+    b.onclick=()=>{ g.querySelectorAll('.opc').forEach(x=>x.classList.remove('sel')); b.classList.add('sel'); };
+    g.appendChild(b);
+  });
+  d.innerHTML=`<div class="frase">${i+1}. ${f}</div>`;
+  d.appendChild(g); $af.appendChild(d);
+});
+
+/* ---------- 3 · Términos ---------- */
+const TERMINOS=[
+  {t:"Edad del universo", crees:"Quizá piensas: la edad de la Tierra, o la del Sol, o de las estrellas.",
+   rev:"No es el tiempo que llevan existiendo las cosas <b>dentro</b> del espacio… ¡es la edad del <b>espacio mismo</b>! ¿Cómo puede <b>cumplir años</b> el espacio vacío?"},
+  {t:"Tamaño del universo", crees:"Quizá piensas: lo que mide «todo» el universo.",
+   rev:"Si el universo fuese <b>infinito</b>, no tendría tamaño. Entonces… ¿qué es <b>exactamente</b> lo que vas a medir en la siguiente fase?"},
+  {t:"Universo observable", crees:"Quizá piensas en un límite físico, una frontera real del espacio.",
+   rev:"La realidad es más sutil. Imagina el universo como un <b>escenario a oscuras que se va iluminando</b> poco a poco: el «universo observable» es solo la parte que <b>ya hemos visto encenderse</b> —nuestra <b>«burbuja de luz»</b>—. Su borde no es el final del espacio, sino el <b>límite de lo que la luz nos ha dejado ver hasta hoy</b>."},
+  {t:"Medir sin viajar", crees:"¿Cómo medir algo a donde nadie puede ir?",
+   rev:"Nadie puede ir a una galaxia… pero su <b>luz</b> sí llega hasta nosotros, con un <b>mensaje escondido</b> dentro. En <b>Explore</b> aprenderás a <b>leerlo</b>."}
+];
+const $ter=document.getElementById('terminos');
+TERMINOS.forEach(o=>{
+  const c=document.createElement('div'); c.className='termino';
+  c.innerHTML=`<h4>${o.t}</h4><div class="crees">${o.crees}</div><div class="rev">${o.rev}</div><div class="toggle">pulsa para descubrirlo ▸</div>`;
+  c.onclick=()=>{ const ab=c.classList.toggle('abierta'); c.querySelector('.toggle').textContent = ab ? '▾ ocultar' : 'pulsa para descubrirlo ▸'; };
+  $ter.appendChild(c);
+});
+
+/* ---------- 4 · Línea de tiempo ---------- */
+const HITOS=[
+  {a:"Antigüedad", t:"La Tierra, en el centro", d:"Durante milenios el cosmos se explicó con mitos y a simple vista: la Tierra, inmóvil, en el centro de todo, y las estrellas como puntos fijos en una bóveda.", tec:"Solo el ojo humano."},
+  {a:"1543", t:"Copérnico mueve la Tierra", d:"Copérnico propone que es el Sol, y no la Tierra, quien está en el centro. La Tierra se convierte en un planeta más: el primer golpe a nuestra posición privilegiada.", tec:"Cálculo y observación a simple vista."},
+  {a:"1610", t:"Galileo y el telescopio", d:"Galileo apunta el primer telescopio al cielo: la Vía Láctea resulta estar hecha de estrellas y Júpiter tiene lunas. El instrumento amplía de golpe lo que podemos ver.", tec:"El telescopio óptico."},
+  {a:"1925–1929", t:"Hubble: ¿por qué se alejan?", d:"Con el telescopio de 2,5 m de Monte Wilson, Hubble descubre que Andrómeda es <b>otra galaxia</b> (¡el universo es enorme!) y detecta un <b>patrón desconcertante</b>: casi todas las galaxias parecen <b>alejarse</b> de nosotros, y las más lejanas más deprisa. ¿Qué está pasando ahí fuera? Esa es justo la pista que <b>seguirás en Explore</b>.", tec:"Telescopio de 2,5 m + espectroscopía (analizar la luz de cada galaxia)."},
+  {a:"1965", t:"Una señal de todo el cielo", d:"Penzias y Wilson captan por casualidad un <b>débil resplandor</b> que llega por igual <b>desde todas las direcciones</b>. No es ninguna estrella ni galaxia: parece el <b>eco</b> de algo que ocurrió hace muchísimo tiempo. ¿El eco de qué?", tec:"La radioastronomía (antenas de microondas)."},
+  {a:"2013", t:"Planck: por fin, una cifra", d:"El satélite Planck mide ese resplandor con una precisión asombrosa y logra algo que durante siglos pareció imposible: <b>ponerle un número a la edad del universo</b>. ¿Cuál? Ese es, precisamente, el número que <b>vas a estimar tú</b> en esta secuencia.", tec:"Un observatorio en el espacio."}
+];
+const $tl=document.getElementById('timeline'), $det=document.getElementById('tlDet');
+HITOS.forEach((h,i)=>{
+  const b=document.createElement('button'); b.className='tl-item';
+  b.innerHTML=`<b>${h.a}</b><span>${h.t}</span>`;
+  b.onclick=()=>{
+    $tl.querySelectorAll('.tl-item').forEach(x=>x.classList.remove('on')); b.classList.add('on');
+    $det.innerHTML=`<b>${h.a} · ${h.t}.</b> ${h.d}<span class="tec">🔧 Tecnología clave: <b>${h.tec}</b></span>`;
+  };
+  $tl.appendChild(b);
+});
+
+/* ---------- 6 · Paradoja de Olbers ---------- */
+const cielo=document.getElementById('cielo');
+for(let i=0;i<60;i++){const s=document.createElement('div');s.className='estrella';s.style.left=(Math.random()*100)+'%';s.style.top=(Math.random()*100)+'%';cielo.appendChild(s);}
+// Olbers "encendido": ruido pixel a pixel con la paleta (blanco · naranja pálido · naranja · negro),
+// con probabilidad DECRECIENTE para cada color
+const olbCanvas=document.createElement('canvas'); olbCanvas.className='olbers-canvas'; cielo.appendChild(olbCanvas);
+const OLB_PAL=[
+  {p:0.55, c:[255,255,255]},   // blanco
+  {p:0.28, c:[255,214,178]},   // naranja pálido
+  {p:0.13, c:[230, 81, 19]},   // naranja
+  {p:0.04, c:[ 26, 26, 26]}    // negro
+];
+function pintaOlbers(){
+  const w=Math.max(1,Math.round(cielo.clientWidth)), h=Math.max(1,Math.round(cielo.clientHeight));
+  olbCanvas.width=w; olbCanvas.height=h;
+  const ctx=olbCanvas.getContext('2d'), img=ctx.createImageData(w,h), d=img.data;
+  for(let i=0;i<w*h;i++){
+    let r=Math.random(), acc=0, col=OLB_PAL[0].c;
+    for(const s of OLB_PAL){ acc+=s.p; if(r<=acc){ col=s.c; break; } }
+    const k=i*4; d[k]=col[0]; d[k+1]=col[1]; d[k+2]=col[2]; d[k+3]=255;
+  }
+  ctx.putImageData(img,0,0);
+}
+pintaOlbers();
+window.addEventListener('resize',pintaOlbers);
+document.getElementById('swOlbers').addEventListener('change',e=>{
+  cielo.classList.toggle('brillante',e.target.checked);
+  if(e.target.checked) pintaOlbers();
+  document.getElementById('swTxt').textContent = e.target.checked
+    ? 'Universo infinito y eterno → ¡el cielo entero brilla!'
+    : 'Enciende: «universo infinito y eterno»';
+});
+</script>
+</body>
+</html>
