@@ -6,7 +6,10 @@ Una web **didáctica, interactiva y offline** (HTML/CSS/JS puro, sin dependencia
 
 ## Uso
 
-Abre **`index.html`** en cualquier navegador. Funciona **sin conexión** (doble clic sobre el archivo).
+Hay dos formas de usarla:
+
+- **En línea:** abre directamente **[https://mrpiay.github.io/Cosmos5E/](https://mrpiay.github.io/Cosmos5E/)** en cualquier navegador.
+- **Sin conexión:** descarga el repositorio (botón **Code → Download ZIP**), descomprímelo y abre **`index.html`** con doble clic. Funciona **offline**, sin instalar nada.
 
 ## Fases
 
