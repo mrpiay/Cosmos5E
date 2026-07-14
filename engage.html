@@ -31,17 +31,31 @@
   .pregunta-motriz{font-size:1.25rem; font-weight:800; color:var(--naranja); margin:0 0 10px; line-height:1.3;}
   .nota{border-left:4px solid var(--naranja); background:var(--naranja-suave); padding:10px 14px; border-radius:0 8px 8px 0; margin:12px 0; font-size:.94rem;}
   .nota b{color:var(--naranja);}
+  .nota p{margin:8px 0;}
+  .nota p:first-child{margin-top:0;}
+  .nota p:last-child{margin-bottom:0;}
+  .nota ul{margin:8px 0; padding-left:22px;}
+  .nota li{margin:5px 0;}
+  .cita{margin:16px 0 4px; padding:10px 16px; border-left:4px solid var(--naranja); border-radius:0 8px 8px 0; background:#f5f5f5; font-style:italic; font-size:1.06rem; color:var(--negro); line-height:1.5;}
+  .detalle{margin:10px 0; border-left:4px solid var(--naranja); background:#f5f5f5; border-radius:0 8px 8px 0; padding:8px 14px; font-size:.93rem;}
+  .detalle summary{cursor:pointer; font-weight:700; color:var(--naranja);}
+  .detalle p{margin:8px 0 2px;}
+  .detalle .aclara{margin-top:10px; padding-top:8px; border-top:1px solid #ddd; font-size:.85rem; color:var(--gris);}
+  .detalle .aclara b{color:var(--negro);}
   .instru{font-size:.9rem; color:var(--gris);}
   footer{background:var(--naranja-suave); text-align:center; padding:20px 16px 16px; font-size:.8rem; color:var(--gris);}
   footer p{max-width:920px; margin:0 auto;}
   a{color:var(--naranja); font-weight:600;}
   /* misión */
-  /* diagnóstico: afirmaciones */
-  .afirm{border:1px solid var(--gris-claro); border-radius:10px; padding:12px 14px; margin:10px 0;}
-  .afirm .frase{font-weight:600; margin-bottom:8px;}
-  .opciones{display:flex; flex-wrap:wrap; gap:8px;}
-  .opc{border:2px solid var(--gris-claro); background:#fff; color:var(--negro); border-radius:20px; padding:6px 14px; font:inherit; font-weight:600; font-size:.86rem; cursor:pointer;}
-  .opc.sel{border-color:var(--naranja); background:var(--naranja-suave); color:var(--naranja);}
+  /* autoevaluación: tabla de familiaridad */
+  .fam-wrap{overflow-x:auto; margin-top:12px;}
+  .fam{width:100%; min-width:460px; table-layout:fixed; border-collapse:collapse; font-size:.92rem;}
+  .fam thead th{font-size:.8rem; color:var(--gris); font-weight:600; text-align:center; vertical-align:bottom; width:22%; padding:6px 8px; border-bottom:2px solid var(--naranja);}
+  .fam thead th:first-child{text-align:left; width:34%;}
+  .fam .term{text-align:left; color:var(--naranja); font-weight:400; padding:11px 10px 11px 2px; border-bottom:1px solid var(--gris-claro);}
+  .fam td{text-align:center; padding:11px 8px; border-bottom:1px solid var(--gris-claro);}
+  .fam tbody tr:hover{background:var(--naranja-suave);}
+  .fam input[type=radio]{width:18px; height:18px; accent-color:var(--naranja); cursor:pointer; margin:0;}
   /* términos */
   .terminos{display:grid; grid-template-columns:1fr; gap:12px; margin-top:10px;}
   @media(min-width:620px){ .terminos{grid-template-columns:1fr 1fr;} }
@@ -62,14 +76,14 @@
   .tl-det .tec{display:block; margin-top:8px; font-size:.85rem; color:var(--gris);}
   .tl-det .tec b{color:var(--naranja);}
   /* Olbers */
-  .cielo{height:150px; border-radius:10px; background:#0b0b1a; position:relative; overflow:hidden; transition:background .45s; margin:10px 0;}
-  .cielo.brillante{background:#fff;}
-  .estrella{position:absolute; width:2px; height:2px; background:#fff; border-radius:50%; transition:opacity .3s;}
-  .cielo.brillante .estrella{opacity:0;}
-  .olbers-canvas{position:absolute; inset:0; width:100%; height:100%; opacity:0; transition:opacity .3s;}
-  .cielo.brillante .olbers-canvas{opacity:1;}
-  .switch{display:inline-flex; align-items:center; gap:9px; cursor:pointer; font-weight:600;}
-  .switch input{width:18px; height:18px; accent-color:var(--naranja);}
+  .cielo{height:150px; border-radius:10px; background:#0b0b1a; position:relative; overflow:hidden; margin:10px 0;}
+  .olbers-canvas{position:absolute; inset:0; width:100%; height:100%;}
+  .olb-control{margin:10px 0 4px;}
+  .olb-row{display:flex; align-items:center; gap:10px;}
+  .olb-row input[type=range]{flex:1; accent-color:var(--naranja); cursor:pointer;}
+  .olb-row small{color:var(--gris); font-size:.76rem; white-space:nowrap;}
+  .olb-txt{margin:6px 0 0; font-size:.9rem; color:var(--gris); text-align:center;}
+  .olb-txt b{color:var(--naranja);}
   .logo-viu{width:190px; max-width:55%; height:auto; margin-top:12px;}
   .marca-o{font-style:normal; font-size:.7em; vertical-align:-.02em; margin:0 .03em;}
 </style>
@@ -101,20 +115,17 @@
     ocupamos en el cosmos. Una aventura para descubrir que <b>tú también puedes descifrar las leyes del universo</b>.</p>
   </div>
 
-  <!-- 2 · ¿Y TÚ QUÉ CREES? (diagnóstico) -->
+  <!-- 2 · ¿QUÉ TE RESULTA FAMILIAR? (autoevaluación) -->
   <div class="card">
-    <h2>Antes de empezar: ¿y tú qué crees?</h2>
-    <p class="instru">Posiciónate ante estas frases con lo que crees <b>ahora mismo</b>. No hay respuestas a la vista y no
-    cuenta para nota: es una <b>foto de tus ideas de hoy</b>. Al final de la secuencia volverás a ellas y verás <b>cuánto
-    has cambiado</b>. Sé sincero: aquí nadie acierta ni falla.</p>
-    <div id="afirmaciones"></div>
+    <h2>Antes de empezar: ¿qué te resulta familiar?</h2>
+    <p class="instru">Sería bueno que indicases cuánto te suenan estos <b>términos y conceptos</b>, para así identificar tu <b>punto de partida</b>. Al terminar la secuencia didáctica podrás volver a esta lista y comprobar <b>cuánto ha evolucionado tu comprensión</b>.</p>
+    <div id="familiaridad"></div>
   </div>
 
   <!-- 3 · DEFINICIÓN DE TÉRMINOS -->
   <div class="card">
-    <h2>Un momento… ¿qué significan «edad» y «tamaño» del universo?</h2>
-    <p>Suenan simples, pero <b>esconden trampas</b>: casi todo el mundo entiende mal estas palabras. Pulsa cada tarjeta
-    y deja que te sorprendan.</p>
+    <h2>Empecemos por lo fundamental: ¿qué significan «edad» y «tamaño» del universo?</h2>
+    <p>Son los dos <b>conceptos clave</b> de tu misión. Pulsa cada tarjeta para <b>ayudarte a comprenderlos</b>.</p>
     <div class="terminos" id="terminos"></div>
     <div class="nota">
       Fíjate en la idea que lo cambia todo: <b>no vamos a viajar a ninguna galaxia</b>. Toda la información nos llega en
@@ -139,24 +150,56 @@
 
   <!-- 6 · OLBERS -->
   <div class="card">
-    <h2>Una última provocación: ¿por qué es oscura la noche?</h2>
-    <p>Parece una tontería, pero escondió un misterio durante siglos (la <b>paradoja de Olbers</b>). Imagina un universo
-    <b>infinito, eterno y estático</b>, lleno de estrellas por todas partes. Entonces, mires hacia donde mires, tu línea de
-    visión acabaría <b>tarde o temprano en una estrella</b>… así que <b>el cielo entero debería brillar como el Sol</b>.
-    Prueba el interruptor:</p>
+    <h2>¿Te has preguntado alguna vez por qué el cielo nocturno es oscuro?</h2>
+    <p>Aunque parece una pregunta ingenua, dio origen a una de las <b>paradojas más famosas de la cosmología</b>. Suele
+    conocerse como la <b>paradoja de Olbers</b> (siglo XIX), aunque la idea ya la habían planteado Kepler y Halley siglos antes.</p>
+    <p>Imagina un universo <b>infinito, eterno y estático</b>, con estrellas repartidas uniformemente por todas partes.
+    Sería como un <b>bosque infinito</b>: mires hacia donde mires, tu vista acabaría encontrando el tronco de un árbol.
+    Del mismo modo, cualquier línea de visión terminaría encontrándose con la <b>superficie de una estrella</b>.</p>
+    <p>Es cierto que las estrellas más lejanas parecen más débiles, porque su brillo disminuye con el <b>cuadrado de la
+    distancia</b>. Pero también hay muchas más estrellas cuanto más lejos miramos: su número aumenta aproximadamente con
+    ese mismo cuadrado. <b>Ambos efectos se compensan.</b></p>
+    <p>La conclusión parece inevitable: <b>todo el cielo debería brillar con una intensidad comparable a la superficie del
+    Sol</b>, incluso de noche.</p>
+
+    <details class="detalle">
+      <summary>¿Por qué «brillar» y no solo más puntitos de luz?</summary>
+      <p>Quizá pienses —y es de lo más intuitivo— que así solo habría <b>más puntos de luz</b>, no un cielo <b>encendido</b>.
+      Es una objeción muy razonable. La clave es que, aunque una estrella lejana nos envía <b>menos luz</b>, también ocupa una
+      <b>porción más pequeña del cielo</b> en la misma proporción. Por eso, <b>el brillo de su superficie aparente no cambia
+      con la distancia</b>: cada trocito de cielo cubierto por una estrella <b>brilla igual</b>, esté cerca o muy lejos. Así,
+      si <i>toda</i> dirección acaba topando con una estrella, el cielo entero —<b>sin huecos</b>— brillaría como el Sol,
+      aunque cada estrella por separado apenas nos parezca un puntito tenue.</p>
+      <p class="aclara"><b>Con más precisión:</b> lo que no cambia con la distancia es el <b>brillo por unidad de superficie</b> (la <i>radiancia</i>); el <b>flujo total</b> que nos llega de la estrella sí disminuye. Ese brillo de superficie depende de la <b>temperatura</b> de la estrella —las más calientes brillan más por área— y solo se conserva en un universo <b>estático</b>: la expansión, de hecho, lo atenúa.</p>
+    </details>
+
+    <p>Ahora pruébalo tú: ve <b>cubriendo el cielo</b> de estrellas.</p>
 
     <div class="cielo" id="cielo" aria-label="Simulación del cielo nocturno"></div>
-    <label class="switch"><input type="checkbox" id="swOlbers"> <span id="swTxt">Enciende: «universo infinito y eterno»</span></label>
+    <div class="olb-control">
+      <div class="olb-row">
+        <small>vacío</small>
+        <input type="range" id="olbSlider" min="0" max="100" value="20" aria-label="Fracción del cielo cubierta por estrellas">
+        <small>lleno</small>
+      </div>
+      <p class="olb-txt" id="olbTxt">Cielo cubierto por estrellas: <b>0&nbsp;%</b></p>
+    </div>
 
     <div class="nota">
-      Pero la noche <b>es oscura</b>. Algo falla en «infinito y eterno»: el universo <b>tiene una edad finita</b> (y además
-      se expande), así que solo nos llega luz de una <b>región limitada</b>. Ese cielo oscuro es, en sí mismo, una
-      <b>pista de que el universo tuvo un principio</b> —justo lo que vas a medir—.
+      <p>Pero la noche es oscura. Si el razonamiento es correcto, <b>alguna de las hipótesis debe ser falsa</b>. Y así es: hoy sabemos que el universo <b>no es como suponía ese modelo</b>. Intervienen varios factores:</p>
+      <ul>
+        <li><b>El universo tiene una edad finita.</b> La luz solo ha tenido tiempo de llegarnos desde una región limitada del espacio —el <b>universo observable</b>—, así que vemos un número <b>finito</b> de estrellas.</li>
+        <li><b>Las estrellas no brillan para siempre.</b> Nacen, evolucionan y terminan apagándose.</li>
+        <li>Y, como <b>descubrirás más adelante en esta secuencia</b>, la luz de las galaxias más lejanas llega cada vez más <b>estirada y debilitada</b>, e incluso hay regiones del universo cuya luz <b>nunca podrá alcanzarnos</b>, debido a la <b>expansión del universo</b>.</li>
+      </ul>
+      <p>Por eso el cielo nocturno sigue siendo oscuro. Lejos de ser una simple curiosidad, esa oscuridad es una <b>pista de que el universo tiene una historia</b>. El universo no solo nos habla por la <b>luz que recibimos</b>, sino también por la que <b>nunca llegó hasta nosotros</b>.</p>
     </div>
+    <p class="cita">A veces, la mejor prueba científica no es algo que vemos, sino algo que esperábamos ver… y no vemos.</p>
     <p>Ya sabes <b>qué</b> vamos a hacer, <b>por qué</b> importa y <b>cómo</b> hemos llegado a poder hacerlo. Ahora te toca
     a ti: en <b>Explore</b> empezarás a medir de verdad, leyendo la luz de las galaxias. →</p>
-    <p>Y te dejamos una <b>gran pregunta</b> rondando: en un universo tan antiguo, <b>¿qué ha pasado en todo ese tiempo… y
-    cuándo?</b> Guárdala —la responderás tú mismo en <b>Explain</b>—.</p>
+    <p>Si el universo tiene una historia, surge una pregunta inevitable: <b>¿qué ocurrió desde el Big Bang hasta hoy?</b> En
+    la fase <b>Explain</b> reconstruirás esa historia y descubrirás cuándo aparecieron las primeras estrellas, las galaxias,
+    el Sol y, mucho más tarde, nosotros.</p>
   </div>
 
 </main>
@@ -167,27 +210,31 @@
 </footer>
 
 <script>
-/* ---------- 2 · Diagnóstico: afirmaciones ---------- */
-const AFIRMACIONES=[
-  "El Big Bang fue una explosión que ocurrió en algún lugar del espacio.",
-  "Al expandirse el universo, también se hacen más grandes las galaxias, el Sistema Solar y tú.",
-  "El universo tiene un centro y un borde.",
-  "La edad del universo se conoce con total exactitud.",
-  "La luz de una galaxia lejana nos muestra cómo es esa galaxia ahora mismo."
+/* ---------- 2 · Autoevaluación: ¿qué te resulta familiar? (tabla) ---------- */
+const CONCEPTOS=[
+  "Año-luz",
+  "Parsec",
+  "Galaxia",
+  "Big Bang",
+  "Espectro de la luz (o de emisión)",
+  "Corrimiento al rojo (redshift)",
+  "Expansión del universo",
+  "Ley de Hubble",
+  "Universo observable",
+  "Fondo cósmico de microondas"
 ];
-const OPC=["De acuerdo","En desacuerdo","No lo sé"];
-const $af=document.getElementById('afirmaciones');
-AFIRMACIONES.forEach((f,i)=>{
-  const d=document.createElement('div'); d.className='afirm';
-  const g=document.createElement('div'); g.className='opciones';
-  OPC.forEach(o=>{
-    const b=document.createElement('button'); b.className='opc'; b.textContent=o;
-    b.onclick=()=>{ g.querySelectorAll('.opc').forEach(x=>x.classList.remove('sel')); b.classList.add('sel'); };
-    g.appendChild(b);
-  });
-  d.innerHTML=`<div class="frase">${i+1}. ${f}</div>`;
-  d.appendChild(g); $af.appendChild(d);
+const OPC=["No me suena","Me suena, pero no sabría explicarlo","Creo que podría explicarlo"];
+const OPC_BR=["No me<br>suena","Me suena, pero<br>no sabría explicarlo","Creo que<br>podría explicarlo"];
+let fam='<table class="fam"><thead><tr><th></th>';
+OPC_BR.forEach(o=>{ fam+=`<th>${o}</th>`; });
+fam+='</tr></thead><tbody>';
+CONCEPTOS.forEach((c,i)=>{
+  fam+=`<tr><th scope="row" class="term">${c}</th>`;
+  OPC.forEach((o,j)=>{ fam+=`<td><input type="radio" name="fam${i}" value="${j}" aria-label="${c}: ${o}"></td>`; });
+  fam+='</tr>';
 });
+fam+='</tbody></table>';
+document.getElementById('familiaridad').innerHTML='<div class="fam-wrap">'+fam+'</div>';
 
 /* ---------- 3 · Términos ---------- */
 const TERMINOS=[
@@ -195,8 +242,8 @@ const TERMINOS=[
    rev:"No es el tiempo que llevan existiendo las cosas <b>dentro</b> del espacio… ¡es la edad del <b>espacio mismo</b>! ¿Cómo puede <b>cumplir años</b> el espacio vacío?"},
   {t:"Tamaño del universo", crees:"Quizá piensas: lo que mide «todo» el universo.",
    rev:"Si el universo fuese <b>infinito</b>, no tendría tamaño. Entonces… ¿qué es <b>exactamente</b> lo que vas a medir en la siguiente fase?"},
-  {t:"Universo observable", crees:"Quizá piensas en un límite físico, una frontera real del espacio.",
-   rev:"La realidad es más sutil. Imagina el universo como un <b>escenario a oscuras que se va iluminando</b> poco a poco: el «universo observable» es solo la parte que <b>ya hemos visto encenderse</b> —nuestra <b>«burbuja de luz»</b>—. Su borde no es el final del espacio, sino el <b>límite de lo que la luz nos ha dejado ver hasta hoy</b>."},
+  {t:"Universo observable", crees:"Quizá piensas: una frontera física del espacio.",
+   rev:"Imagina el universo como un <b>escenario a oscuras que se va iluminando</b> poco a poco: el «universo observable» es solo la parte que <b>ya hemos visto encenderse</b>. Su borde no es el final del espacio, sino el <b>límite de lo que la luz nos ha dejado ver hasta hoy</b>."},
   {t:"Medir sin viajar", crees:"¿Cómo medir algo a donde nadie puede ir?",
    rev:"Nadie puede ir a una galaxia… pero su <b>luz</b> sí llega hasta nosotros, con un <b>mensaje escondido</b> dentro. En <b>Explore</b> aprenderás a <b>leerlo</b>."}
 ];
@@ -228,38 +275,49 @@ HITOS.forEach((h,i)=>{
   $tl.appendChild(b);
 });
 
-/* ---------- 6 · Paradoja de Olbers ---------- */
+/* ---------- 6 · Paradoja de Olbers: un slider que va llenando el cielo ---------- */
 const cielo=document.getElementById('cielo');
-for(let i=0;i<60;i++){const s=document.createElement('div');s.className='estrella';s.style.left=(Math.random()*100)+'%';s.style.top=(Math.random()*100)+'%';cielo.appendChild(s);}
-// Olbers "encendido": ruido pixel a pixel con la paleta (blanco · naranja pálido · naranja · negro),
-// con probabilidad DECRECIENTE para cada color
 const olbCanvas=document.createElement('canvas'); olbCanvas.className='olbers-canvas'; cielo.appendChild(olbCanvas);
-const OLB_PAL=[
-  {p:0.55, c:[255,255,255]},   // blanco
-  {p:0.28, c:[255,214,178]},   // naranja pálido
-  {p:0.13, c:[230, 81, 19]},   // naranja
-  {p:0.04, c:[ 26, 26, 26]}    // negro
-];
-function pintaOlbers(){
-  const w=Math.max(1,Math.round(cielo.clientWidth)), h=Math.max(1,Math.round(cielo.clientHeight));
-  olbCanvas.width=w; olbCanvas.height=h;
-  const ctx=olbCanvas.getContext('2d'), img=ctx.createImageData(w,h), d=img.data;
-  for(let i=0;i<w*h;i++){
-    let r=Math.random(), acc=0, col=OLB_PAL[0].c;
-    for(const s of OLB_PAL){ acc+=s.p; if(r<=acc){ col=s.c; break; } }
-    const k=i*4; d[k]=col[0]; d[k+1]=col[1]; d[k+2]=col[2]; d[k+3]=255;
-  }
-  ctx.putImageData(img,0,0);
+const OLB_COLOR='rgb(255,214,178)';   // naranja pálido: SIEMPRE el mismo color
+const OLB_MAX=150000;                  // estrellas para (casi) llenar el cielo
+let olbW=0, olbH=0, olbPts=null;
+function olbSetup(){
+  olbW=Math.max(1,Math.round(cielo.clientWidth)); olbH=Math.max(1,Math.round(cielo.clientHeight));
+  olbCanvas.width=olbW; olbCanvas.height=olbH;
+  // posiciones fijas pseudoaleatorias; el slider va revelando cada vez más (se acumulan)
+  olbPts=new Array(OLB_MAX);
+  for(let i=0;i<OLB_MAX;i++) olbPts[i]=[((Math.random()*(olbW+3))|0)-3,((Math.random()*(olbH+3))|0)-3];
 }
-pintaOlbers();
-window.addEventListener('resize',pintaOlbers);
-document.getElementById('swOlbers').addEventListener('change',e=>{
-  cielo.classList.toggle('brillante',e.target.checked);
-  if(e.target.checked) pintaOlbers();
-  document.getElementById('swTxt').textContent = e.target.checked
-    ? 'Universo infinito y eterno → ¡el cielo entero brilla!'
-    : 'Enciende: «universo infinito y eterno»';
-});
+function olbDraw(v){
+  const ctx=olbCanvas.getContext('2d'); ctx.clearRect(0,0,olbW,olbH);
+  const n=Math.round(OLB_MAX*Math.pow(v/100,3));
+  ctx.fillStyle=OLB_COLOR;
+  for(let i=0;i<n;i++) ctx.fillRect(olbPts[i][0],olbPts[i][1],3,3);
+  return n;
+}
+const olbTxt=document.getElementById('olbTxt');
+function olbLabel(pct){
+  let msg;
+  if(pct<5) msg='casi todo es <b>cielo oscuro</b>.';
+  else if(pct<45) msg='aún hay <b>mucho hueco negro</b> entre las estrellas.';
+  else if(pct<90) msg='los <b>huecos se van cerrando</b>…';
+  else if(pct<99) msg='casi no queda hueco: <b>el cielo se ilumina</b>.';
+  else msg='<b>ni un solo hueco</b>: el cielo entero brilla, como en un universo infinito.';
+  olbTxt.innerHTML='Cielo cubierto por estrellas: <b>'+pct+'&nbsp;%</b> — '+msg;
+}
+olbSetup();
+const olbSlider=document.getElementById('olbSlider');
+let olbRAF=0;
+function olbUpdate(){
+  const v=+olbSlider.value;
+  const n=Math.round(OLB_MAX*Math.pow(v/100,3));
+  const pct=Math.round((1-Math.exp(-9*n/(olbW*olbH)))*100);
+  olbLabel(pct);
+  if(!olbRAF) olbRAF=requestAnimationFrame(()=>{ olbRAF=0; olbDraw(+olbSlider.value); });
+}
+olbSlider.addEventListener('input',olbUpdate);
+window.addEventListener('resize',()=>{ olbSetup(); olbUpdate(); });
+olbUpdate();
 </script>
 </body>
 </html>
