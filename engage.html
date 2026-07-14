@@ -11,7 +11,7 @@
   }
   *{box-sizing:border-box}
   body{margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--negro); background:#f6f6f6; line-height:1.5;}
-  header{background:var(--naranja); color:#fff; padding:18px 20px;}
+  header{background:var(--naranja); color:#fff; padding:14px 20px; position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px 16px;}
   header .marca{font-size:1.5rem; font-weight:500; letter-spacing:.5px; color:#fff; text-decoration:none;}
   header .marca span{font-weight:800;}
   .fases{display:flex; flex-wrap:wrap; gap:6px; margin-top:12px;}
@@ -22,7 +22,8 @@
   .fases .activa{background:#fff; color:var(--naranja);}
   .fases .activa small{color:var(--naranja); opacity:1;}
   .fases .deshab{opacity:.55;}
-  .sub{font-size:.95rem; opacity:.97; margin-top:10px;}
+  .sub{font-size:.95rem; color:var(--naranja); padding:12px 20px 2px;}
+  .sub b{color:inherit; font-weight:normal;}
   main{max-width:920px; margin:0 auto; padding:20px 16px 60px;}
   .card{background:#fff; border:1px solid var(--gris-claro); border-radius:12px; padding:18px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
   h2{font-size:1.15rem; margin:0 0 8px;}
@@ -98,8 +99,9 @@
     <a href="elaborate.html"><b>4 · Elaborate</b><small>elaborar</small></a>
     <span class="deshab"><b>5 · Evaluate</b><small>evaluar</small></span>
   </nav>
-  <div class="sub">Estás en la fase <b>Engage</b>: aquí no medimos todavía. Primero, <b>engancharte</b> a una de las preguntas más grandes que existen —y descubrir qué queremos hacer, por qué y cómo hemos llegado a poder hacerlo—.</div>
 </header>
+
+<div class="sub">Estás en la fase <b>Engage</b>: aquí no medimos todavía. Primero, <b>engancharte</b> a una de las preguntas más grandes que existen —y descubrir qué queremos hacer, por qué y cómo hemos llegado a poder hacerlo—.</div>
 
 <main>
 

@@ -8,7 +8,7 @@
   :root{--naranja:#E65113; --naranja-suave:#fbe9e0; --negro:#1a1a1a; --gris:#6b6b6b; --gris-claro:#e9e9e9; --blanco:#fff; --azulgris:#8a8a8a;}
   *{box-sizing:border-box}
   body{margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--negro); background:#f6f6f6; line-height:1.5;}
-  header{background:var(--naranja); color:#fff; padding:18px 20px;}
+  header{background:var(--naranja); color:#fff; padding:14px 20px; position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px 16px;}
   header .marca{font-size:1.5rem; font-weight:500; letter-spacing:.5px; color:#fff; text-decoration:none;}
   header .marca span{font-weight:800;}
   .fases{display:flex; flex-wrap:wrap; gap:6px; margin-top:12px;}
@@ -19,7 +19,8 @@
   .fases .activa{background:#fff; color:var(--naranja);}
   .fases .activa small{color:var(--naranja); opacity:1;}
   .fases .deshab{opacity:.55;}
-  header .sub{font-size:.95rem; opacity:.97; margin-top:10px;}
+  .sub{font-size:.95rem; color:var(--naranja); padding:12px 20px 2px;}
+  .sub b{color:inherit; font-weight:normal;}
   main{max-width:920px; margin:0 auto; padding:20px 16px 60px;}
   .card{background:#fff; border:1px solid var(--gris-claro); border-radius:12px; padding:18px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
   .card.opcional{border:1px dashed var(--azulgris); background:#fcfbfa;}
@@ -28,6 +29,10 @@
   h4{margin:0 0 6px; color:var(--naranja); font-size:.95rem;}
   p{margin:8px 0;}
   .etq{display:inline-block; background:var(--azulgris); color:#fff; font-size:.72rem; font-weight:700; padding:2px 9px; border-radius:20px; vertical-align:middle; margin-left:6px;}
+  .geom-sum{cursor:pointer; font-size:1.15rem; font-weight:700; list-style:none; margin:0;}
+  .geom-sum::-webkit-details-marker{display:none;}
+  .geom-sum::before{content:'▸ '; color:var(--naranja);}
+  details[open] .geom-sum::before{content:'▾ '; color:var(--naranja);}
   .nota{border-left:4px solid var(--naranja); background:var(--naranja-suave); padding:10px 14px; border-radius:0 8px 8px 0; margin:12px 0; font-size:.94rem;}
   .nota b{color:var(--naranja);}
   .aviso{background:#fff7f2; border:1px dashed var(--naranja); border-radius:8px; padding:9px 12px; font-size:.88rem; margin-top:10px;}
@@ -64,6 +69,12 @@
   .numtbl th:last-child{color:var(--naranja); font-weight:700;}
   .numtbl .tend{display:block; font-size:.76rem; font-weight:700; margin-top:1px;}
   .numtbl .up{color:var(--gris);} .numtbl .away{color:var(--naranja);} .numtbl .near{color:var(--gris);}
+  .pasos-wrap{overflow-x:auto; margin:8px 0;}
+  .pasos{border-collapse:collapse; font-size:.92rem;}
+  .pasos th{text-align:left; color:var(--gris); font-weight:600; font-size:.78rem; padding:5px 18px 5px 0; border-bottom:2px solid var(--naranja);}
+  .pasos td{padding:6px 18px 6px 0; border-bottom:1px solid var(--gris-claro); vertical-align:top; white-space:nowrap;}
+  .pasos td:not(:first-child){color:#ED7A3C;}
+  .pasos tbody tr:last-child td{font-weight:700;}
   select{font:inherit; padding:6px 9px; border:1px solid var(--gris); border-radius:6px; background:#fff;}
   /* segmentado */
   .seg{display:inline-flex; border:1px solid var(--naranja); border-radius:8px; overflow:hidden; margin:6px 0;}
@@ -96,8 +107,9 @@
     <a href="elaborate.html" class="activa" aria-current="page"><b>4 · Elaborate</b><small>elaborar</small></a>
     <span class="deshab"><b>5 · Evaluate</b><small>evaluar</small></span>
   </nav>
-  <div class="sub">Estás en la fase <b>Elaborate</b>: calcularás el <b>tamaño</b> del universo observable —y descubrirás que el <b>real es mucho mayor</b>— y reconocerás los <b>límites</b> y el contexto de tu medida: la <b>tensión de Hubble</b> y el modelo <b>ΛCDM</b> (materia y energía oscura).</div>
 </header>
+
+<div class="sub">Estás en la fase <b>Elaborate</b>: calcularás el <b>tamaño</b> del universo observable y reconocerás los <b>límites</b> de tu medida —la tensión de Hubble, el modelo <b>ΛCDM</b> y hasta dónde podremos ver—.</div>
 
 <main>
 
@@ -154,13 +166,13 @@
     <div class="nota">
       <b>¿Por qué la luz «pierde terreno» al principio?</b> El fotón siempre avanza hacia nosotros a la velocidad de la
       luz <b>respecto al espacio que tiene justo al lado</b>. Pero su distancia hasta nosotros depende también de cuánto
-      se estira <b>todo el espacio que le queda por delante</b>. Si la galaxia está <b>muy lejos</b>, ese espacio de
-      delante se expande tan deprisa que, al principio, empuja al fotón hacia atrás <b>más rápido de lo que él
-      avanza</b> → la luz se <b>aleja</b> de nosotros. Solo al acercarse —a zonas donde la expansión ya no le gana—
-      empieza a ganar terreno y acaba llegando. <i>Arrastra el deslizador despacio desde el inicio y fíjate: la luz (✦)
+      se estira <b>todo el espacio que le queda por delante</b>. Si la galaxia está <b>muy lejos</b>, hay tanto espacio por
+      delante que, al estirarse, <b>añade más distancia de la que el fotón recorta</b> → la luz se <b>aleja</b> de
+      nosotros. Solo al acercarse —cuando ya queda poco espacio por delante— el estirón añade menos de lo que ella
+      recorta: entonces gana terreno y acaba llegando. <i>Arrastra el deslizador despacio desde el inicio y fíjate: la luz (✦)
       se aparta de «nosotros» antes de volver.</i><br>
-      <b>¿Cuándo ocurre?</b> Solo con fuentes <b>lo bastante lejanas</b>: aquellas cuya luz sale desde donde el espacio
-      recede <b>más rápido que la propia luz</b> (esa frontera se llama <b>esfera de Hubble</b>). El fondo de microondas
+      <b>¿Cuándo ocurre?</b> Solo con fuentes <b>lo bastante lejanas</b>: aquellas cuya luz sale desde más allá de cierta distancia (la <b>esfera de Hubble</b>), donde el espacio de
+      delante se estira <b>más deprisa de lo que la luz lo recorta</b>. El fondo de microondas
       y las galaxias muy lejanas lo cumplen; las <b>cercanas no</b>.
     </div>
 
@@ -279,9 +291,92 @@
     gravedad conforme). Así avanza la ciencia.</div>
   </div>
 
+  <!-- CIERRE: horizonte / limites de lo observable -->
+  <div class="card">
+    <h2>Un último horizonte: ¿hasta dónde podremos medir?</h2>
+    <p>Ya has medido el tamaño del <b>universo observable</b>: unos <b>46 000 millones de años-luz</b>. Cierra el
+    recorrido una pregunta nada intuitiva: ¿crecerá ese tamaño <b>para siempre</b>? ¿Hay un límite al <b>espacio que podemos medir</b>?</p>
+
+    <h3>Dos horizontes que conviene no confundir</h3>
+    <ul class="lista">
+      <li><b>El universo observable</b> (~46 Gly): hasta dónde nos <b>ha llegado ya</b> luz desde el
+      principio. Es lo que acabas de medir, y lo fija la luz <b>más antigua</b> —el fondo de microondas—.</li>
+      <li><b>El horizonte de sucesos</b> (~16 Gly): hasta dónde la luz que una galaxia emite <b>hoy</b>
+      podrá alcanzarnos <b>alguna vez</b>.</li>
+    </ul>
+
+    <div class="nota"><b>No lo confundas con la esfera de Hubble.</b> Aquella (~14 Gly = c/H₀, la del «perder terreno») es donde la luz se aleja <b>un rato</b> y luego <b>acaba llegando</b>. El <b>horizonte de sucesos</b> (~16 Gly), un poco más allá, es de donde la luz de hoy <b>nunca</b> llegará: son <b>dos fronteras distintas</b>, parecidas en tamaño pero muy diferentes en significado.</div>
+
+    <h3>Con la expansión acelerada, hay luz que ya nunca llegará</h3>
+    <p>¿Recuerdas la luz que «<b>perdía terreno</b>» en el diagrama de antes, y acababa recuperándolo? Con la
+    <b>aceleración</b> —la energía oscura—, puede perderlo <b>para siempre</b>: más allá del <b>horizonte de
+    sucesos</b>, la expansión estira el espacio de delante siempre más deprisa de lo que la luz lo recorta, así que la
+    que esas galaxias emiten <b>hoy nunca</b> nos llegará.</p>
+
+    <div class="grafico-wrap">
+      <svg viewBox="0 0 700 172" role="img" aria-label="La luz de una galaxia dentro del horizonte de sucesos nos alcanza; la de una galaxia mas alla nunca llega, porque la expansion del espacio impide que su luz de hoy nos alcance" style="width:100%;height:auto;max-width:660px;display:block;margin:6px auto">
+        <defs><marker id="pf" markerWidth="8" markerHeight="8" refX="5.5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#E65113"/></marker></defs>
+        <line x1="420" y1="26" x2="420" y2="150" stroke="#6b6b6b" stroke-width="1.5" stroke-dasharray="5 4"/>
+        <text x="420" y="18" text-anchor="middle" fill="#6b6b6b" font-size="11" font-weight="700">horizonte de sucesos</text>
+        <line x1="60" y1="62" x2="300" y2="62" stroke="#dcdcdc" stroke-width="1.5"/>
+        <text x="150" y="44" text-anchor="middle" fill="#1a1a1a" font-size="12" font-weight="700">su luz nos alcanza</text>
+        <text x="200" y="58" text-anchor="middle" fill="#E65113" font-size="16">&#10022;</text>
+        <line x1="214" y1="62" x2="152" y2="62" stroke="#E65113" stroke-width="2" marker-end="url(#pf)"/>
+        <circle cx="60" cy="62" r="6" fill="#1a1a1a"/><text x="60" y="80" text-anchor="middle" fill="#1a1a1a" font-size="11" font-weight="700">nosotros</text>
+        <circle cx="300" cy="62" r="6" fill="#E65113"/><text x="300" y="80" text-anchor="middle" fill="#E65113" font-size="11">galaxia</text>
+        <line x1="60" y1="128" x2="585" y2="128" stroke="#dcdcdc" stroke-width="1.5"/>
+        <text x="545" y="110" text-anchor="middle" fill="#1a1a1a" font-size="12" font-weight="700">su luz de hoy nunca llega</text>
+        <text x="470" y="124" text-anchor="middle" fill="#E65113" font-size="16">&#10022;</text>
+        <line x1="484" y1="128" x2="546" y2="128" stroke="#E65113" stroke-width="2" marker-end="url(#pf)"/>
+        <circle cx="60" cy="128" r="6" fill="#1a1a1a"/><text x="60" y="146" text-anchor="middle" fill="#1a1a1a" font-size="11" font-weight="700">nosotros</text>
+        <circle cx="585" cy="128" r="6" fill="#E65113"/><text x="585" y="146" text-anchor="middle" fill="#E65113" font-size="11">galaxia lejanísima</text>
+      </svg>
+    </div>
+    <p class="instru">Dentro del horizonte, la luz de una galaxia acaba llegándonos. Más allá, la expansión <b>impide</b> que su
+    luz de hoy pueda alcanzarnos.</p>
+
+    <h3>Míralo paso a paso, con números</h3>
+    <p>Un modelo de juguete con dos reglas sencillas:</p>
+    <ul class="lista">
+      <li>El <b>fotón avanza 1</b> hacia nosotros en cada paso (su velocidad <i>c</i>, siempre igual).</li>
+      <li>El <b>espacio se estira un 10 %</b> en cada paso (expansión acelerada).</li>
+    </ul>
+    <p>Así, en cada paso la distancia al fotón pasa a ser <b>(distancia − 1) × 1,1</b>. La <b>frontera</b> está en
+    <b>11</b>. Comparemos dos fotones: uno que sale desde <b>8</b> (dentro) y otro desde <b>15</b> (fuera):</p>
+    <div class="pasos-wrap">
+      <table class="pasos">
+        <thead><tr><th>Paso</th><th>Fotón desde 8 (dentro)</th><th>Fotón desde 15 (fuera)</th></tr></thead>
+        <tbody>
+          <tr><td>0</td><td>8,00</td><td>15,00</td></tr>
+          <tr><td>1</td><td>7,70</td><td>15,40</td></tr>
+          <tr><td>2</td><td>7,37</td><td>15,84</td></tr>
+          <tr><td>3</td><td>7,01</td><td>16,32</td></tr>
+          <tr><td>4</td><td>6,61</td><td>16,86</td></tr>
+          <tr><td>…</td><td>baja hasta 0 → llega</td><td>sube sin fin → no llega</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Ambos fotones <b>avanzan igual</b> (restan 1 en cada paso, siempre a <i>c</i>). Pero el que sale desde <b>8</b>
+    <b>gana terreno</b> y baja hasta 0: <b>llega</b>; el que sale desde <b>15</b> <b>pierde terreno</b> y sube sin parar:
+    <b>no llega jamás</b>. La diferencia no está en el fotón, sino en <b>cuánto espacio tiene por delante</b>: por debajo de
+    <b>11</b> se llega; por encima, no. Esa frontera es el <b>horizonte de sucesos</b>.</p>
+
+    <div class="nota"><b>¿Y por qué ~16 Gly, y no otra cifra?</b> Ese valor sale del modelo <b>ΛCDM plano</b> con los datos de <b>Planck</b> (H₀ ≈ 67-68 km/s/Mpc; la energía oscura, ~69 % del total). Es lo más lejos que un fotón emitido <b>hoy</b> podrá llegar en todo el futuro. Y lo que <b>manda</b> en ese número es la <b>energía oscura</b>: sin ella la expansión no se aceleraría y <b>no habría horizonte</b>. Es el mismo papel que, en el ejemplo de arriba, jugaba el ritmo del estirón (el 10 %) al fijar la frontera (<b>11</b>).</div>
+
+    <h3>La consecuencia: un límite a lo que podremos observar</h3>
+    <p>Así que el universo observable <b>no crecerá sin límite</b>: su radio se aproxima a un <b>valor máximo</b>. Las galaxias
+    lejanas se irán <b>corriendo al rojo</b> hasta desvanecerse —seguiremos viendo su <b>imagen antigua</b>, cada vez más
+    apagada, pero nunca su «ahora»—, y ninguna región del universo situada hoy más allá de ese horizonte podrá <b>añadir nueva
+    información</b> a nuestro mapa.</p>
+
+    <div class="nota">Y es, además, el <b>tercer factor</b> por el que la noche es oscura (la <b>paradoja de Olbers</b> de
+    Engage): no toda la luz del universo puede alcanzarnos. Has medido, así, un universo <b>inmenso</b>… y también con
+    <b>fronteras</b>: las de lo que la luz nos ha dejado —y nos dejará— ver.</div>
+  </div>
+
   <!-- GEOMETRÍA (OPCIONAL) -->
-  <div class="card opcional">
-    <h2>La geometría del universo <span class="etq">ampliación opcional</span></h2>
+  <details class="card opcional">
+    <summary class="geom-sum">La geometría del universo <span class="etq">ampliación opcional</span></summary>
     <p>El tamaño lleva a una pregunta mayor: ¿cuál es el <b>futuro</b> del universo y qué <b>forma</b> tiene el espacio?
     Las dos respuestas dependen de lo mismo: <b>cuánta materia y energía contiene</b>, comparada con una <b>densidad
     crítica</b> que sale de la <b>misma idea que la velocidad de escape</b> de un cohete.</p>
@@ -333,7 +428,7 @@
       <b>apilan al expandirse</b> curva la película entera.
     </div>
 
-  </div>
+  </details>
 
 </main>
 

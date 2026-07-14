@@ -8,7 +8,7 @@
   :root{--naranja:#E65113; --naranja-suave:#fbe9e0; --negro:#1a1a1a; --gris:#6b6b6b; --gris-claro:#e9e9e9; --blanco:#fff; --azulgris:#8a8a8a;}
   *{box-sizing:border-box}
   body{margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--negro); background:#f6f6f6; line-height:1.5;}
-  header{background:var(--naranja); color:#fff; padding:18px 20px;}
+  header{background:var(--naranja); color:#fff; padding:14px 20px; position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px 16px;}
   header .marca{font-size:1.5rem; font-weight:500; letter-spacing:.5px; color:#fff; text-decoration:none;}
   header .marca span{font-weight:800;}
   .fases{display:flex; flex-wrap:wrap; gap:6px; margin-top:12px;}
@@ -19,7 +19,8 @@
   .fases .activa{background:#fff; color:var(--naranja);}
   .fases .activa small{color:var(--naranja); opacity:1;}
   .fases .deshab{opacity:.55;}
-  header .sub{font-size:.95rem; opacity:.97; margin-top:10px;}
+  .sub{font-size:.95rem; color:var(--naranja); padding:12px 20px 2px;}
+  .sub b{color:inherit; font-weight:normal;}
   main{max-width:920px; margin:0 auto; padding:20px 16px 60px;}
   .card{background:#fff; border:1px solid var(--gris-claro); border-radius:12px; padding:18px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
   h2{font-size:1.15rem; margin:0 0 8px;}
@@ -93,8 +94,9 @@
     <a href="elaborate.html"><b>4 · Elaborate</b><small>elaborar</small></a>
     <span class="deshab"><b>5 · Evaluate</b><small>evaluar</small></span>
   </nav>
-  <div class="sub">Estás en la fase <b>Explain</b>: ya mediste <b>H₀</b> en el diagrama; ahora lo convertirás en la <b>edad del universo</b> viendo cada paso, entenderás <b>por qué</b> invertir H₀ da una edad y aclararás qué es el <b>corrimiento al rojo</b> de la luz.</div>
 </header>
+
+<div class="sub">Estás en la fase <b>Explain</b>: ya mediste <b>H₀</b> en el diagrama; ahora lo convertirás en la <b>edad del universo</b> viendo cada paso, entenderás <b>por qué</b> invertir H₀ da una edad y aclararás qué es el <b>corrimiento al rojo</b> de la luz.</div>
 
 <main>
 
@@ -198,7 +200,7 @@
   <!-- CALENDARIO CÓSMICO (cierre: la edad en perspectiva) -->
   <div class="card">
     <h2>El calendario cósmico: lo que significan esos años</h2>
-    <p><b>¿Recuerdas la gran pregunta de Engage —qué ha pasado en todo este tiempo, y cuándo—?</b> Ha llegado el momento de
+    <p><b>¿Recuerdas la pregunta que quedó abierta en Engage —qué ocurrió desde el Big Bang hasta hoy—?</b> Ha llegado el momento de
     responderla. Acabas de estimar que el universo ronda los <b>14 000 millones de años</b> (la medida más precisa da
     <b>13 800</b>); una cifra <b>imposible de imaginar</b>, así que comprimamos <b>toda</b> su historia en <b>un año de calendario</b>: el
     <b>Big Bang</b> sería el <b>1 de enero a las 00:00</b>; <b>ahora mismo</b>, el <b>31 de diciembre a medianoche</b>. Mueve
