@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cosmos 5E · Evaluate</title>
+<style>
+  :root{--naranja:#E65113; --naranja-suave:#fbe9e0; --negro:#1a1a1a; --gris:#6b6b6b; --gris-claro:#e9e9e9; --blanco:#fff; --azulgris:#8a8a8a;}
+  *{box-sizing:border-box}
+  body{margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--negro); background:#f6f6f6; line-height:1.5;}
+  header{background:var(--naranja); color:#fff; padding:14px 20px; position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px 16px;}
+  header .marca{font-size:1.5rem; font-weight:800; letter-spacing:.5px; text-decoration:none;}
+  header .marca .c-cos{color:#f6f6f6;} header .marca .c-e{color:#FFA640;}
+  .fases{display:flex; flex-wrap:wrap; gap:6px;}
+  .fases a, .fases span{display:flex; flex-direction:column; line-height:1.15; background:rgba(255,255,255,.16); padding:5px 11px; border-radius:8px; font-size:.72rem; color:#fff; text-decoration:none;}
+  .fases a b, .fases span b{font-size:.82rem; font-weight:700;}
+  .fases a small, .fases span small{opacity:.9;}
+  .fases a:not(.activa):hover{background:rgba(255,255,255,.30);}
+  .fases .activa{background:#fff; color:var(--naranja);}
+  .fases .activa small{color:var(--naranja); opacity:1;}
+  .sub{font-size:.95rem; color:var(--naranja); padding:12px 20px 2px;}
+  .sub b{color:inherit; font-weight:normal;}
+  main{max-width:920px; margin:0 auto; padding:20px 16px 60px;}
+  .card{background:#fff; border:1px solid var(--gris-claro); border-radius:12px; padding:18px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  h2{font-size:1.15rem; margin:0 0 8px;}
+  h3{font-size:1rem; margin:16px 0 6px; color:var(--naranja);}
+  p{margin:8px 0;}
+  .nota{border-left:4px solid var(--naranja); background:var(--naranja-suave); padding:10px 14px; border-radius:0 8px 8px 0; margin:12px 0; font-size:.94rem;}
+  .nota b{color:var(--naranja);}
+  .hilo{display:flex; flex-wrap:wrap; gap:6px; font-size:.8rem; margin:6px 0 2px;}
+  .hilo span{background:var(--gris-claro); color:var(--gris); padding:3px 10px; border-radius:20px; white-space:nowrap;}
+  .instru{font-size:.9rem; color:var(--gris);}
+  button{font:inherit; background:var(--naranja); color:#fff; border:none; border-radius:8px; padding:9px 16px; font-weight:600; cursor:pointer;}
+  a{color:var(--naranja); font-weight:600;}
+  footer{background:var(--naranja-suave); text-align:center; padding:20px 16px 16px; font-size:.8rem; color:var(--gris);}
+  footer p{max-width:920px; margin:0 auto;}
+  .logo-viu{width:190px; max-width:55%; height:auto; margin-top:12px;}
+  .marca-o{font-style:normal; font-size:.7em; vertical-align:-.02em; margin:0 .03em;}
+  /* autoevaluación: tabla de familiaridad */
+  .fam-wrap{overflow-x:auto; margin-top:12px;}
+  .fam{width:100%; min-width:460px; table-layout:fixed; border-collapse:collapse; font-size:.92rem;}
+  .fam thead th{font-size:.8rem; color:var(--gris); font-weight:600; text-align:center; vertical-align:bottom; width:22%; padding:6px 8px; border-bottom:2px solid var(--naranja);}
+  .fam thead th:first-child{text-align:left; width:34%;}
+  .fam .term{text-align:left; color:var(--naranja); font-weight:400; padding:11px 10px 11px 2px; border-bottom:1px solid var(--gris-claro);}
+  .fam td{text-align:center; padding:11px 8px; border-bottom:1px solid var(--gris-claro);}
+  .fam tbody tr:hover{background:var(--naranja-suave);}
+  .fam input[type=radio]{width:18px; height:18px; accent-color:var(--naranja); cursor:pointer; margin:0;}
+  /* reconstruir la cadena */
+  details.paso{border:1px solid var(--gris-claro); border-radius:8px; background:#fff; margin:8px 0;}
+  details.paso summary{cursor:pointer; padding:10px 14px; font-weight:600; color:var(--naranja); list-style:none;}
+  details.paso summary::-webkit-details-marker{display:none;}
+  details.paso summary::before{content:"› "; font-weight:700;}
+  details.paso[open] summary::before{content:"⌄ ";}
+  details.paso .cont{padding:2px 14px 12px; font-size:.92rem;}
+  /* lectura de ecuaciones */
+  .ec{border:1px solid var(--gris-claro); border-radius:10px; padding:12px 14px; margin:14px 0; background:#faf9f8;}
+  .eq{font-family:ui-monospace,Menlo,Consolas,monospace; font-size:1.15rem; font-weight:700; text-align:center; background:var(--naranja-suave); border:1px solid var(--naranja-suave); border-radius:8px; padding:10px; margin:2px 0 10px; color:var(--negro);}
+  details.ayuda{border:1px solid var(--gris-claro); border-radius:8px; background:#fff;}
+  details.ayuda summary{cursor:pointer; padding:8px 12px; font-size:.85rem; font-weight:600; color:var(--naranja); list-style:none;}
+  details.ayuda summary::-webkit-details-marker{display:none;}
+  details.ayuda summary::before{content:"› "; font-weight:700;}
+  details.ayuda[open] summary::before{content:"⌄ ";}
+  .etapas-def{margin:8px 0; padding-left:20px; font-size:.9rem;}
+  .etapas-def li{margin:4px 0;}
+  .etapas-def b{color:var(--naranja);}
+  .et{border:1px solid var(--gris-claro); border-radius:7px; background:#fff; margin:5px 0;}
+  .et summary{cursor:pointer; padding:7px 12px; font-size:.9rem; font-weight:600; color:var(--naranja); list-style:none;}
+  .et summary::-webkit-details-marker{display:none;}
+  .et summary::before{content:"› "; font-weight:700;}
+  .et[open] summary::before{content:"⌄ ";}
+  .et-c{padding:2px 12px 10px; font-size:.9rem;}
+  .pregunta{margin:12px 0 4px;}
+  .tipo-opciones{display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 4px;}
+  .tipo-btn{background:#fff; color:var(--naranja); border:1.5px solid var(--naranja); border-radius:8px; padding:7px 14px; font-weight:600; cursor:pointer;}
+  .tipo-btn:hover:not(:disabled){background:var(--naranja-suave);}
+  .tipo-btn.ok{background:var(--naranja); color:#fff; border-color:var(--naranja);}
+  .tipo-btn.no{background:var(--gris-claro); color:var(--gris); border-color:var(--gris-claro); text-decoration:line-through;}
+  .tipo-btn:disabled{cursor:default;}
+  .fb{font-size:.9rem; margin-top:8px; min-height:1.2em;}
+  .fb b{color:var(--naranja);}
+  /* verdadero o falso */
+  .vf-item{border-bottom:1px solid var(--gris-claro); padding:12px 0;}
+  .vf-item:last-child{border-bottom:none;}
+  .vf-t{margin:0 0 8px; font-weight:700;}
+  .vf-op{display:flex; flex-wrap:wrap; gap:8px;}
+  /* producto final */
+  .guion{margin:8px 0; padding-left:20px;}
+  .guion li{margin:6px 0;}
+  .guion b{color:var(--naranja);}
+</style>
+</head>
+<body>
+<header>
+  <a class="marca" href="index.html"><span class="c-cos">Cosmos</span><span class="c-e">5E</span></a>
+  <nav class="fases" aria-label="Las cinco fases del recorrido 5E">
+    <a href="engage.html"><b>1 · Engage</b><small>motivar</small></a>
+    <a href="explore-espectro.html"><b>2 · Explore</b><small>indagar</small></a>
+    <a href="explain.html"><b>3 · Explain</b><small>formalizar</small></a>
+    <a href="elaborate.html"><b>4 · Elaborate</b><small>elaborar</small></a>
+    <a href="evaluate.html" class="activa" aria-current="page"><b>5 · Evaluate</b><small>evaluar</small></a>
+  </nav>
+</header>
+
+<div class="sub">Estás en la fase <b>Evaluate</b>: cierras el recorrido demostrando que entiendes el <b>proceso</b> —no solo el resultado—. Repasarás la cadena de la medida, aprenderás a <b>leer</b> las ecuaciones que usaste y prepararás tu explicación final.</div>
+
+<main>
+
+  <!-- INTRO + RECAP -->
+  <div class="card">
+    <h2>Última etapa: demuestra que entiendes el proceso</h2>
+    <p>Has llegado al final del recorrido. Aquí no hay contenido nuevo: se trata de <b>mirar atrás</b> y comprobar qué has aprendido —no solo <b>cuánto</b> mide el universo, sino <b>cómo lo sabe la ciencia</b>—.</p>
+    <div class="hilo" aria-label="La cadena de la medida recorrida">
+      <span>espectro</span><span>z</span><span>v = c·z</span><span>H₀</span><span>edad</span><span>tamaño</span>
+    </div>
+  </div>
+
+  <!-- 1 · POST-TEST FAMILIARIDAD -->
+  <div class="card">
+    <h2>¿Qué te resulta familiar ahora?</h2>
+    <p class="instru">Al empezar (en <b>Engage</b>) valoraste cuánto te sonaban estos mismos conceptos. Vuelve a hacerlo <b>ahora</b> y compáralo con aquel punto de partida: comprobarás <b>cuánto ha evolucionado tu comprensión</b>.</p>
+    <div id="familiaridad"></div>
+  </div>
+
+  <!-- 2 · RECONSTRUIR LA CADENA -->
+  <div class="card">
+    <h2>Reconstruye la cadena de la medida</h2>
+    <p class="instru">Cada eslabón conduce al siguiente. Intenta responder de memoria y <b>despliega</b> para comprobar.</p>
+
+    <details class="paso"><summary>1. ¿Qué mediste en el espectro de una galaxia?</summary>
+      <div class="cont">El <b>corrimiento al rojo</b>, z = Δλ/λ: cuánto se ha «estirado» su luz respecto a la del laboratorio.</div></details>
+    <details class="paso"><summary>2. ¿Cómo pasaste de z a una velocidad?</summary>
+      <div class="cont">Con <b>v = c·z</b> (deducida del efecto Doppler): el corrimiento se traduce en velocidad de recesión.</div></details>
+    <details class="paso"><summary>3. ¿De dónde salió tu H₀?</summary>
+      <div class="cont">Al representar la velocidad frente a la distancia de muchas galaxias, los puntos forman una recta; su <b>pendiente es H₀</b> (la ley de Hubble-Lemaître, v = H₀·d).</div></details>
+    <details class="paso"><summary>4. ¿Cómo llegaste a la edad?</summary>
+      <div class="cont"><b>Invirtiendo</b> H₀: t ≈ 1/H₀, el tiempo de Hubble. Rebobinar la expansión lleva a todas las galaxias a un mismo origen.</div></details>
+    <details class="paso"><summary>5. ¿Cómo estimaste el tamaño?</summary>
+      <div class="cont">El radio de Hubble, R ≈ c/H₀ (~14 000 millones de años-luz), como primera estimación; el universo <b>observable</b> real es mayor (~46 000 millones), porque el espacio siguió estirándose mientras la luz viajaba.</div></details>
+  </div>
+
+  <!-- 3 · LECTURA DE ECUACIONES (aportación §4.8) -->
+  <div class="card">
+    <h2>Lee las ecuaciones que has usado</h2>
+    <p>Entender una ecuación no es solo saber calcular con ella: es saber <b>leerla</b>. Para cada una de las que empleaste, recorre estos cinco apartados —despliégalos uno a uno— y luego decide qué tipo de afirmación es. Cada apartado responde a una pregunta:</p>
+    <ul class="etapas-def">
+      <li><b>Símbolos</b> — ¿qué representa cada símbolo y en qué unidades?</li>
+      <li><b>Relación</b> — ¿cómo se vinculan las magnitudes entre sí?</li>
+      <li><b>Sentido</b> — ¿qué indican los signos y qué significan?</li>
+      <li><b>Propósito</b> — ¿qué mide o para qué sirve?</li>
+      <li><b>Origen</b> — ¿de qué teoría u observación procede? (la clave para clasificarla)</li>
+    </ul>
+    <div class="nota">Con esa lectura decides el <b>tipo</b>: una <b>definición</b> (solo pone nombre a una idea), una <b>observación</b> (un dato medido en la naturaleza) o una <b>aproximación</b> (vale solo bajo ciertas condiciones). Fíjate sobre todo en el <b>Origen</b>.</div>
+    <div id="ecuaciones"></div>
+  </div>
+
+  <!-- 4 · VERDADERO O FALSO -->
+  <div class="card">
+    <h2>Verdadero o falso</h2>
+    <p class="instru">Estas afirmaciones recorren toda la secuencia, para comprobar qué ideas has afianzado. Marca <b>Verdadero</b> o <b>Falso</b>; al responder verás por qué.</p>
+    <div id="vf"></div>
+  </div>
+
+  <!-- 5 · PRODUCTO FINAL -->
+  <div class="card">
+    <h2>Producto final: explícalo a alguien</h2>
+    <p class="instru">Prepara una explicación —a un compañero, en un póster o en un vídeo— de cómo se mide la edad y el tamaño del universo. Lo importante es que se vea que entiendes el <b>proceso</b>. Guion sugerido:</p>
+    <ol class="guion">
+      <li>De qué parto: la <b>luz</b> de las galaxias y su espectro.</li>
+      <li>Qué mido: el <b>corrimiento al rojo</b> (z) y, con él, la velocidad (v = c·z).</li>
+      <li>Cómo obtengo <b>H₀</b>: represento velocidad frente a distancia; la pendiente es H₀.</li>
+      <li>Cómo llego a la <b>edad</b>: invierto H₀ (t ≈ 1/H₀).</li>
+      <li>Cómo llego al <b>tamaño</b>: el radio de Hubble (R ≈ c/H₀) y por qué el observable real es mayor.</li>
+      <li>Qué <b>crédito</b> tiene cada paso: qué es un dato, qué una definición y qué una aproximación (lo que acabas de clasificar).</li>
+    </ol>
+  </div>
+
+  <!-- CIERRE + APERTURA -->
+  <div class="card">
+    <h2>¡Has completado la secuencia!</h2>
+    <p>Has recorrido las cinco fases: motivaste la pregunta (<b>Engage</b>), indagaste con datos (<b>Explore</b>), formalizaste la medida (<b>Explain</b>), reconociste sus límites (<b>Elaborate</b>) y demostraste que entiendes el proceso (<b>Evaluate</b>). Ya sabes no solo cuánto mide el universo, sino <b>cómo lo sabe la ciencia</b>.</p>
+
+    <h3>Y a partir de aquí…</h3>
+    <p>Seguramente hay cosas que todavía <b>no sabes explicar del todo</b>, o preguntas que te han quedado rondando. Eso no es un fallo: es justo lo que le ocurre a la ciencia, que <b>nunca da nada por cerrado</b>. Esta secuencia no es un final, sino un <b>punto de partida</b>. Elige por dónde seguir:</p>
+    <ul class="guion">
+      <li><b>Persigue una pregunta abierta.</b> Escoge la que más te intrigue: ¿qué es <b>realmente</b> la energía oscura? ¿qué <b>forma</b> tiene el universo, finito o infinito? ¿por qué dos maneras de medir H₀ no coinciden (la <b>tensión de Hubble</b>)? ¿qué implica el <b>horizonte de sucesos</b> para el futuro del cosmos?</li>
+      <li><b>Profundiza en las matemáticas.</b> Las ecuaciones de Friedmann explican <i>por qué</i> la expansión cambia con el tiempo. No hace falta deducirlas —eso es de universidad—: puedes aprender a <b>leerlas</b>, igual que acabas de hacer con las de esta secuencia.</li>
+      <li><b>Investiga con datos reales.</b> Busca otras galaxias y sus distancias, repite tu medida de H₀ y compárala con la de los astrónomos.</li>
+      <li><b>Comparte y debate.</b> Lleva una de estas preguntas a clase. En ciencia, una <b>buena pregunta</b> suele valer más que una respuesta cerrada.</li>
+    </ul>
+    <div class="nota">Da igual por dónde tires: habrás pasado de <b>responder</b> a <b>preguntar</b>, que es justo como empieza toda ciencia.</div>
+
+    <p><a href="index.html">← Volver al inicio</a></p>
+  </div>
+
+</main>
+
+<footer>
+  <p>Web interactiva de la secuencia 5E para la determinación de la edad y el tamaño del universo (TFM, Javier Piay Pombo, VIU - 2026).</p>
+  <img class="logo-viu" src="logo.png" alt="Universidad Internacional de Valencia (VIU)">
+</footer>
+
+<script>
+/* ---------- 1 · Autoevaluación de familiaridad (post) ---------- */
+const CONCEPTOS=[
+  "Año-luz","Parsec","Galaxia","Big Bang","Espectro de la luz (o de emisión)",
+  "Corrimiento al rojo (redshift)","Expansión del universo","Ley de Hubble",
+  "Universo observable","Fondo cósmico de microondas"
+];
+const OPC=["No me suena","Me suena, pero no sabría explicarlo","Creo que podría explicarlo"];
+const OPC_BR=["No me<br>suena","Me suena, pero<br>no sabría explicarlo","Creo que<br>podría explicarlo"];
+let fam='<table class="fam"><thead><tr><th></th>';
+OPC_BR.forEach(o=>{ fam+=`<th>${o}</th>`; });
+fam+='</tr></thead><tbody>';
+CONCEPTOS.forEach((c,i)=>{
+  fam+=`<tr><th scope="row" class="term">${c}</th>`;
+  OPC.forEach((o,j)=>{ fam+=`<td><input type="radio" name="post${i}" value="${j}" aria-label="${c}: ${o}"></td>`; });
+  fam+='</tr>';
+});
+fam+='</tbody></table>';
+document.getElementById('familiaridad').innerHTML='<div class="fam-wrap">'+fam+'</div>';
+
+/* ---------- 3 · Lectura de las ecuaciones ---------- */
+const ECS=[
+ {eq:'z = Δλ / λ', tipo:'Definición',
+  etapas:[
+   ['Símbolos','λ = longitud de onda de una raya del espectro (nm); Δλ = cuánto se ha desplazado; z = número sin unidades.'],
+   ['Relación','Cuanto más desplazada está la raya (Δλ grande), mayor es z.'],
+   ['Sentido','z &gt; 0 si la luz se corrió al rojo; z &lt; 0 hacia el azul.'],
+   ['Propósito','Mide cuánto se ha «estirado» la luz que recibimos.'],
+   ['Origen','De la espectroscopía: comparar la raya observada con la misma raya medida en el laboratorio.']],
+  explica:'no hay nada que demostrar: es cómo <b>decidimos</b> medir el desplazamiento.'},
+ {eq:'v = c · z', tipo:'Aproximación',
+  etapas:[
+   ['Símbolos','v = velocidad de recesión (km/s); c = velocidad de la luz; z = el corrimiento anterior.'],
+   ['Relación','Proporción directa: el doble de z, el doble de v.'],
+   ['Sentido','z &gt; 0 ⇒ v &gt; 0: la galaxia se aleja.'],
+   ['Propósito','Convierte lo que medimos (z) en algo físico: una velocidad.'],
+   ['Origen','Del efecto Doppler (lo dedujiste con el argumento de las crestas de onda).']],
+  explica:'solo vale para z <b>pequeño</b>; para z grande daría v &gt; c y deja de servir (el corrimiento real es el espacio que se estira).'},
+ {eq:'v = H₀ · d', tipo:'Observación',
+  etapas:[
+   ['Símbolos','v = velocidad de recesión (km/s); d = distancia (Mpc); H₀ = constante de Hubble (km/s por Mpc).'],
+   ['Relación','Proporción directa: cuanto más lejos, más deprisa se aleja.'],
+   ['Sentido','En d = 0, v = 0: no nos alejamos de nosotros mismos.'],
+   ['Propósito','La pendiente de la recta es H₀: el número que obtuviste de tus datos.'],
+   ['Origen','No se deduce de ninguna teoría: es un patrón <b>observado</b> por Hubble (1929) al alinear los puntos.']],
+  explica:'es un hecho <b>medido</b>; que signifique que el universo se expande es una interpretación (el mejor modelo), no un teorema.'},
+ {eq:'t ≈ 1 / H₀', tipo:'Aproximación',
+  etapas:[
+   ['Símbolos','t = estimación de la edad del universo; H₀ = constante de Hubble.'],
+   ['Relación','Inversa: más H₀, menos edad. Y como H₀ es 1/tiempo, su inverso 1/H₀ es un tiempo.'],
+   ['Sentido','Un H₀ grande (expansión rápida) implica un universo más joven.'],
+   ['Propósito','Estima cuánto lleva el universo expandiéndose.'],
+   ['Origen','De rebobinar la expansión: distancia ÷ velocidad = d/(H₀d) = 1/H₀.']],
+  explica:'vale <b>si el ritmo de expansión fue constante</b>; como no lo fue del todo, es una estimación muy buena pero no exacta.'},
+ {eq:'R ≈ c / H₀', tipo:'Aproximación',
+  etapas:[
+   ['Símbolos','R = radio de Hubble (tamaño característico); c = velocidad de la luz; 1/H₀ = tiempo de Hubble.'],
+   ['Relación','El tamaño es «lo que la luz recorre» en un tiempo de Hubble.'],
+   ['Sentido','Fija un orden de magnitud: ~14 000 millones de años-luz.'],
+   ['Propósito','Estima hasta dónde llega, aproximadamente, el universo observable.'],
+   ['Origen','De combinar la velocidad de la luz con la edad estimada.']],
+  explica:'es una <b>cota</b> mínima; el universo observable real es mayor (~46 000 millones de años-luz), porque el espacio siguió estirándose.'}
+];
+const TIPOS=['Definición','Observación','Aproximación'];
+const cont=document.getElementById('ecuaciones');
+ECS.forEach((e,gi)=>{
+  const et=e.etapas.map(p=>`<details class="et"><summary>${p[0]}</summary><div class="et-c">${p[1]}</div></details>`).join('');
+  const btns=TIPOS.map(t=>`<button class="tipo-btn" onclick="clasifica(${gi},this)">${t}</button>`).join('');
+  const div=document.createElement('div');
+  div.className='ec';
+  div.innerHTML=`<div class="eq">${e.eq}</div>
+    ${et}
+    <p class="pregunta"><b>¿Qué tipo de afirmación es?</b></p>
+    <div class="tipo-opciones" data-gi="${gi}">${btns}</div>
+    <div class="fb" id="fb${gi}"></div>`;
+  cont.appendChild(div);
+});
+function clasifica(gi,btn){
+  const grupo=document.querySelector('.tipo-opciones[data-gi="'+gi+'"]');
+  const correcto=ECS[gi].tipo;
+  const elegido=btn.textContent;
+  [...grupo.children].forEach(b=>{
+    b.disabled=true;
+    if(b.textContent===correcto) b.classList.add('ok');
+    else if(b===btn) b.classList.add('no');
+  });
+  document.getElementById('fb'+gi).innerHTML =
+    (elegido===correcto ? '✓ <b>Correcto.</b> ' : 'Es una <b>'+correcto.toLowerCase()+'</b>: ') + ECS[gi].explica;
+}
+
+/* ---------- 4 · Verdadero o falso ---------- */
+const VF=[
+ {t:'Que el cielo nocturno sea oscuro es una pista de que el universo tiene una edad, y no es infinito y eterno.', v:true,
+  e:'Si fuese infinito, eterno y estático, el cielo entero brillaría (paradoja de Olbers). Que la noche sea oscura indica que tiene una historia: una edad finita y estrellas que no brillan para siempre.'},
+ {t:'El universo observable es todo el universo que existe.', v:false,
+  e:'El observable es solo la parte cuya luz ha tenido tiempo de llegarnos —la que «ya hemos visto encenderse»—; puede haber mucho más allá que aún no vemos.'},
+ {t:'Al observar una galaxia muy lejana, la vemos como era en el pasado, no como es ahora.', v:true,
+  e:'La luz tarda en llegar, así que es una «máquina del tiempo»: vemos cada galaxia tal como era cuando emitió esa luz.'},
+ {t:'El corrimiento al rojo (z) mide cuánto se ha «estirado» la luz de una galaxia respecto a la que medimos en el laboratorio.', v:true,
+  e:'Exacto: z = Δλ/λ compara la posición de una raya del espectro con la que tiene en reposo.'},
+ {t:'La fórmula v = c·z es válida para cualquier galaxia, por muy lejana que esté.', v:false,
+  e:'Solo vale para z pequeño; para galaxias muy lejanas daría v > c y deja de servir. El corrimiento real es el espacio que se estira.'},
+ {t:'La constante de Hubble H₀ es la pendiente de la recta que forman las galaxias al representar su velocidad frente a su distancia.', v:true,
+  e:'Así es: al graficar velocidad frente a distancia, los puntos se alinean y la pendiente de esa recta es H₀.'},
+ {t:'Que todas las galaxias se alejen de nosotros significa que la Tierra está en el centro del universo.', v:false,
+  e:'No: desde cualquier galaxia se vería a todas las demás alejarse igual (como los puntos de un globo que se infla). No hay centro.'},
+ {t:'1/H₀ es el tiempo que ha tardado en llegarnos la luz de una galaxia.', v:false,
+  e:'1/H₀ es la edad del universo (distancia ÷ velocidad, d/v), no el tiempo de viaje de la luz de un objeto (d/c). Por eso todas las galaxias dan el mismo 1/H₀.'},
+ {t:'1/H₀ da la edad exacta del universo.', v:false,
+  e:'Es una estimación muy buena, exacta solo si el ritmo de expansión hubiese sido constante; y no lo fue del todo.'},
+ {t:'El corrimiento al rojo de las galaxias lejanas se debe a que el espacio se estira mientras su luz viaja, no a un Doppler corriente.', v:true,
+  e:'Sí: es un efecto cosmológico (el espacio se expande). v = c·z es solo un atajo para z pequeño; las velocidades propias sí serían Doppler.'},
+ {t:'La expansión del universo no afecta a los sistemas unidos por la gravedad, como una galaxia o el Sistema Solar.', v:true,
+  e:'Correcto: la expansión solo domina a gran escala. Donde la gravedad mantiene las cosas unidas no hay expansión (tampoco en tu cuerpo).'},
+ {t:'El universo observable es mayor que la distancia que la luz ha podido recorrer, porque el espacio siguió estirándose mientras ella viajaba.', v:true,
+  e:'Es ~46 000 millones de años-luz, mayor que ~14 000 (c × edad), justo porque el espacio siguió expandiéndose durante el viaje de la luz.'},
+ {t:'La materia oscura y la energía oscura son dos nombres para la misma cosa.', v:false,
+  e:'Son distintas: la materia oscura «pesa» y frena la expansión; la energía oscura «empuja» y la acelera.'},
+ {t:'La ciencia ya conoce con total certeza y sin ningún debate el valor de la constante de Hubble.', v:false,
+  e:'No: la «tensión de Hubble» —dos formas de medir H₀ que dan valores distintos— muestra que sigue en debate. La ciencia revisa y afina sus modelos.'}
+];
+const vfc=document.getElementById('vf');
+VF.forEach((q,i)=>{
+  const div=document.createElement('div');
+  div.className='vf-item';
+  div.innerHTML=`<p class="vf-t"><b>${i+1}.</b> ${q.t}</p>
+    <div class="vf-op" data-i="${i}">
+      <button class="tipo-btn" onclick="respVF(${i},this)">Verdadero</button>
+      <button class="tipo-btn" onclick="respVF(${i},this)">Falso</button>
+    </div>
+    <div class="fb" id="vfb${i}"></div>`;
+  vfc.appendChild(div);
+});
+function respVF(i,btn){
+  const grupo=document.querySelector('.vf-op[data-i="'+i+'"]');
+  const labelCorrecto=VF[i].v?'Verdadero':'Falso';
+  [...grupo.children].forEach(b=>{
+    b.disabled=true;
+    if(b.textContent===labelCorrecto) b.classList.add('ok');
+    else if(b===btn) b.classList.add('no');
+  });
+  const acierto=(btn.textContent===labelCorrecto);
+  document.getElementById('vfb'+i).innerHTML =
+    (acierto ? '✓ <b>Correcto.</b> ' : 'Es <b>'+labelCorrecto.toLowerCase()+'</b>: ') + VF[i].e;
+}
+</script>
+</body>
+</html>
