@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cosmos 5E · Elaborate</title>
+<style>
+  :root{--naranja:#E65113; --naranja-suave:#fbe9e0; --negro:#1a1a1a; --gris:#6b6b6b; --gris-claro:#e9e9e9; --blanco:#fff; --azulgris:#8a8a8a;}
+  *{box-sizing:border-box}
+  body{margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--negro); background:#f6f6f6; line-height:1.5;}
+  header{background:var(--naranja); color:#fff; padding:14px 20px; position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px 16px;}
+  header .marca{font-size:1.5rem; font-weight:800; letter-spacing:.5px; text-decoration:none;}
+  header .marca .c-cos{color:#fbe9e0;} header .marca .c-e{color:#FFA640;}
+  .fases{display:flex; flex-wrap:wrap; gap:6px;}
+  .fases a, .fases span{display:flex; flex-direction:column; line-height:1.15; background:rgba(255,255,255,.16); padding:5px 11px; border-radius:8px; font-size:.72rem; color:#fff; text-decoration:none;}
+  .fases a b, .fases span b{font-size:.82rem; font-weight:700;}
+  .fases a small, .fases span small{opacity:.9;}
+  .fases a:not(.activa):hover{background:rgba(255,255,255,.30);}
+  .fases .activa{background:#fff; color:var(--naranja);}
+  .fases .activa small{color:var(--naranja); opacity:1;}
+  .fases .deshab{opacity:.55;}
+  .sub{background:var(--naranja-suave); color:var(--negro); font-size:.92rem; padding:12px 20px; line-height:1.5;}
+  .sub b{color:var(--negro); font-weight:700;}
+  .sub b.od{color:var(--naranja);}
+  .subfase{display:flex; flex-wrap:wrap; gap:6px; font-size:.8rem; margin:8px 20px 0;}
+  .subfase a, .subfase span{background:var(--gris-claro); color:var(--gris); padding:3px 11px; border-radius:20px; text-decoration:none;}
+  .subfase .activo{background:var(--naranja); color:#fff; font-weight:700;}
+  main{max-width:920px; margin:0 auto; padding:20px 16px 60px;}
+  .card{background:#fff; border:1px solid var(--gris-claro); border-radius:12px; padding:18px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  h2{font-size:1.15rem; margin:0 0 8px;}
+  h3{font-size:1rem; margin:16px 0 6px; color:var(--naranja);}
+  h4{margin:0 0 6px; color:var(--naranja); font-size:.95rem;}
+  p{margin:8px 0;}
+  .nota{border-left:4px solid var(--naranja); background:var(--naranja-suave); padding:10px 14px; border-radius:0 8px 8px 0; margin:12px 0; font-size:.94rem;}
+  .nota b{color:var(--naranja);}
+  .aviso{background:#fff7f2; border:1px dashed var(--naranja); border-radius:8px; padding:9px 12px; font-size:.88rem; margin-top:10px;}
+  .hilo{display:flex; flex-wrap:wrap; gap:6px; font-size:.8rem; margin:2px 0 8px;}
+  .hilo span{background:var(--gris-claro); color:var(--gris); padding:3px 10px; border-radius:20px; white-space:nowrap;}
+  .hilo span.activo{background:var(--naranja); color:#fff; font-weight:700;}
+  .instru{font-size:.9rem; color:var(--gris);}
+  .resultado{background:var(--naranja); color:#fff; border-radius:10px; padding:14px 16px; font-size:1.06rem; font-weight:600; text-align:center; margin:14px 0;}
+  .resultado b{font-weight:800;}
+  input[type=number]{font:inherit; padding:5px 8px; border:1px solid var(--gris); border-radius:6px; width:82px;}
+  input[type=range]{width:100%; accent-color:var(--naranja); margin:6px 0;}
+  .rango-lbl{display:flex; justify-content:space-between; font-size:.8rem; color:var(--gris);}
+  button{font:inherit; background:var(--naranja); color:#fff; border:none; border-radius:8px; padding:9px 16px; font-weight:600; cursor:pointer;}
+  button.sec{background:#fff; color:var(--naranja); border:1px solid var(--naranja);}
+  button:hover:not(:disabled){filter:brightness(1.06);}
+  button.sec:hover{background:var(--naranja-suave);}
+  .src{font-size:.85rem; color:var(--gris); margin-top:8px;}
+  .grafico-wrap{overflow-x:auto; background:#faf9f8; border:1px solid var(--gris-claro); border-radius:8px; padding:8px 4px; margin:6px 0;}
+  svg{display:block; max-width:100%; height:auto;}
+  .grafico-wrap svg{width:100%;}
+  .numgrid{overflow-x:auto; margin:10px 0 4px;}
+  .numtbl{border-collapse:collapse; width:100%; min-width:540px;}
+  .numtbl th{text-align:left; vertical-align:bottom; color:var(--gris); font-size:.76rem; font-weight:400; padding:5px 9px; border-bottom:2px solid var(--negro); width:20%;}
+  .numtbl td{padding:6px 9px 2px; vertical-align:top;}
+  .numtbl th:not(:first-child), .numtbl td:not(:first-child){border-left:1px solid var(--gris-claro);}
+  .numtbl td b{color:var(--naranja); font-size:1.15rem; white-space:nowrap;}
+  .numtbl th:last-child, .numtbl td:last-child{background:var(--naranja-suave);}
+  .numtbl td:last-child b{font-size:1.5rem;}
+  .numtbl th:last-child{color:var(--naranja); font-weight:700;}
+  .numtbl .tend{display:block; font-size:.76rem; font-weight:700; margin-top:1px;}
+  .numtbl .up{color:var(--gris);} .numtbl .away{color:var(--naranja);} .numtbl .near{color:var(--gris);}
+  .lista{margin:6px 0; padding-left:22px;} .lista li{margin:3px 0;}
+  footer{background:var(--naranja-suave); text-align:center; padding:20px 16px 16px; font-size:.8rem; color:var(--gris);}
+  footer p{max-width:920px; margin:0 auto;}
+  a{color:var(--naranja); font-weight:600;}
+  .logo-viu{width:190px; max-width:55%; height:auto; margin-top:12px;}
+</style>
+</head>
+<body>
+<header>
+  <a class="marca" href="index.html"><span class="c-cos">Cosmos</span><span class="c-e">5E</span></a>
+  <nav class="fases" aria-label="Las cinco fases del recorrido 5E">
+    <a href="engage.html"><b>1 · Engage</b><small>motivar</small></a>
+    <a href="explore-espectro.html"><b>2 · Explore</b><small>indagar</small></a>
+    <a href="explain.html"><b>3 · Explain</b><small>formalizar</small></a>
+    <a href="elaborate-tamano.html" class="activa" aria-current="page"><b>4 · Elaborate</b><small>elaborar</small></a>
+    <a href="evaluate.html"><b>5 · Evaluate</b><small>evaluar</small></a>
+  </nav>
+</header>
+
+<div class="sub"><b>Elaborate · elaborar (1 de 2).</b><br>
+<b class="od">Objetivo:</b> aplicar el método al tamaño del universo observable.<br>
+<b class="od">Desarrollo:</b> calcular el radio de Hubble a partir de H₀, descubrir por qué el universo observable es mucho mayor (~46 000 millones de al) y transferir el método a otros valores de H₀.</div>
+<div class="subfase"><span class="activo">1 · El tamaño observable</span><a href="elaborate-limites.html">2 · Los límites de la medida</a></div>
+
+<main>
+
+  <!-- ETAPA -->
+  <div class="card">
+    <h2>Tu etapa en la secuencia de medida</h2>
+    <div class="hilo" aria-label="La cadena de la medida">
+      <span>espectro</span><span>z</span><span>v = c·z</span><span>H₀</span><span>edad</span><span class="activo">tamaño</span>
+    </div>
+    <p>Ya tienes tu <b>H₀</b> y la <b>edad</b>. Aquí <b>no aprendes un método nuevo</b>: <b>aplicas el que ya conoces</b>
+    para dar el último eslabón de la cadena —el <b>tamaño</b> del universo observable— y descubres por qué es mucho mayor de
+    lo que parece. En la <b>segunda parte</b> reconocerás los <b>límites</b> de lo que has medido.</p>
+  </div>
+
+  <!-- TAMAÑO (radio de Hubble) -->
+  <div class="card">
+    <h2>Aplica el método: el radio de Hubble</h2>
+    <p>Con el <b>mismo H₀</b> que mediste, da el último paso de la cadena. La distancia que la luz recorre en un
+    <b>tiempo de Hubble</b> es <b>c/H₀</b> (el <b>radio de Hubble</b>): tu primera estimación del tamaño.</p>
+    <div class="src" id="h0src"></div>
+    <label style="display:inline-block;margin-top:8px">H₀ = <input id="h0" type="number" min="40" max="110" step="0.1" value="70"> km/s/Mpc</label>
+    <div class="nota" id="res"></div>
+    <p class="instru">Como en <b>t</b> años la luz recorre <b>t</b> años-luz, este radio coincide en número con la edad.
+    Es una <b>primera estimación</b> (un «suelo»).</p>
+    <div class="aviso">Pero el universo observable <b>real</b> es unas <b>3 veces mayor</b> (~46 000 millones de al), porque
+    el espacio se estiró mientras la luz viajaba. Lo vemos <b>a continuación</b>.</div>
+  </div>
+
+  <!-- LA SORPRESA: ~46 (antes opcional; ahora ficha central del tamaño) -->
+  <div class="card">
+    <h2>La sorpresa: el universo observable es mucho mayor (~46 000 millones de al)</h2>
+    <p>Cuando ves una galaxia lejana, su luz ha tardado miles de millones de años en llegar. Pero <b>mientras viajaba, el
+    espacio se ha estirado en TODAS partes</b> —delante y detrás de la luz, todo el rato—. Resultado: la galaxia que
+    emitió esa luz <b>está hoy mucho más lejos</b> que el «camino» que la luz recorrió.</p>
+
+    <p class="instru">Elige a qué <b>distancia</b> está la fuente (cuanto más lejos, antes salió su luz, hasta el fondo
+    de microondas). Luego avanza el tiempo y mira la <b>rejilla</b> estirarse, la <b>galaxia</b> alejarse y la <b>luz</b>
+    (✦) que, <b>si la fuente es lejana, al principio pierde terreno</b>.</p>
+    <p style="margin:6px 0"><b>Fuente:</b>
+      <select id="fuenteSel" style="font:inherit;padding:6px 9px;border:1px solid var(--gris);border-radius:6px;background:#fff">
+        <option value="0.5">Galaxia cercana (z ≈ 0,5)</option>
+        <option value="1">Galaxia lejana (z ≈ 1)</option>
+        <option value="3" selected>Galaxia muy lejana (z ≈ 3)</option>
+        <option value="10">Las primeras galaxias (z ≈ 10)</option>
+        <option value="1100">Fondo de microondas — el borde (z ≈ 1100)</option>
+      </select>
+    </p>
+    <div class="grafico-wrap">
+      <svg id="estira" viewBox="0 0 720 200" role="img" aria-label="El espacio se estira mientras la luz viaja hacia nosotros"></svg>
+    </div>
+    <div class="rango-lbl"><span>cuando salió la luz</span><span>hoy</span></div>
+    <input id="stretch" type="range" min="0" max="1" step="0.01" value="0.5">
+    <div class="numgrid" id="numEstira"></div>
+    <p class="instru" style="font-size:.8rem;margin-top:2px">Números relativos (u = unidades). El <b>camino recorrido</b> por la luz solo crece; su <b>distancia a nosotros</b> crece y luego decrece <b>solo si la fuente es lejana</b> (eso es «perder terreno»; en las cercanas solo se acerca). El <b>factor corrector</b> = distancia ÷ camino (al llegar) <b>crece con la distancia</b>.</p>
+    <p id="capEstira" class="nota"></p>
+
+    <div class="nota">
+      <b>¿Por qué la luz «pierde terreno» al principio?</b> El fotón siempre avanza hacia nosotros a la velocidad de la
+      luz <b>respecto al espacio que tiene justo al lado</b>. Pero su distancia hasta nosotros depende también de cuánto
+      se estira <b>todo el espacio que le queda por delante</b>. Si la galaxia está <b>muy lejos</b>, hay tanto espacio por
+      delante que, al estirarse, <b>añade más distancia de la que el fotón recorta</b> → la luz se <b>aleja</b> de
+      nosotros. Solo al acercarse —cuando ya queda poco espacio por delante— el estirón añade menos de lo que ella
+      recorta: entonces gana terreno y acaba llegando. <i>Arrastra el deslizador despacio desde el inicio y fíjate: la luz (✦)
+      se aparta de «nosotros» antes de volver.</i><br>
+      <b>¿Cuándo ocurre?</b> Solo con fuentes <b>lo bastante lejanas</b>: aquellas cuya luz sale desde más allá de cierta distancia (la <b>esfera de Hubble</b>), donde el espacio de
+      delante se estira <b>más deprisa de lo que la luz lo recorta</b>. El fondo de microondas
+      y las galaxias muy lejanas lo cumplen; las <b>cercanas no</b>.
+    </div>
+
+    <h3>¿Y de dónde sale el «46»? El fondo de microondas</h3>
+    <p>La luz más lejana que existe es el <b>fondo cósmico de microondas (CMB)</b>: cuando el universo tenía solo
+    ~380 000 años se volvió <b>transparente</b> y esa primera luz salió libre. Nos llega hoy desde todas las direcciones
+    —es la «pared» más lejana que podemos ver— y ha viajado <b>casi toda la edad del universo</b>.</p>
+    <p>Esa luz nos llega con un corrimiento al rojo <b>z ≈ 1100</b>: viene estirada ~1100 veces. Es la prueba de que el
+    universo se ha <b>expandido ~1100 veces</b> (en escala) desde entonces.</p>
+
+    <div class="nota">
+      <b>¿Y cómo se mide ese z ≈ 1100, si está tan lejos?</b> No hace falta su distancia: <b>z se lee del propio
+      espectro</b>. El CMB es radiación de <b>cuerpo negro</b> (térmica), así que su z sale de su <b>temperatura</b>:
+      hoy lo medimos a <b>2,7 K</b> (muy frío) y sabemos, por física atómica, que salió cuando el universo se enfrió
+      hasta <b>~3000 K</b> (la temperatura a la que el hidrógeno se volvió neutro y el universo, transparente). Como la
+      luz se enfría al estirarse, <b>1 + z = 3000 / 2,7 ≈ 1100</b>. La <b>distancia</b> (~46 Gly) se <b>deduce</b>
+      después, a partir de ese z. (Con las galaxias es igual: z se lee del desplazamiento de sus líneas, no de su
+      distancia.)
+    </div>
+
+    <p>Y de ahí sale el <b>«46»</b>:</p>
+    <ul class="lista">
+      <li>La luz «viajó» ~13 800 millones de años → ingenuamente, <b>c × edad ≈ 14 Gly</b>.</li>
+      <li>Pero el espacio que cruzó <b>se ha estirado enormemente desde que lo cruzó</b> (sobre todo al principio, cuando
+      era diminuto). Al sumarlo a lo largo de todo el camino, la distancia de hoy sale <b>unas 3 veces mayor</b>:
+      <b>~46 Gly</b>.</li>
+    </ul>
+    <p>Esa «~3 veces» es el <b>factor corrector</b>: la <b>razón entre la distancia de hoy y el camino recorrido</b> por
+    la luz (dos de las cifras del gráfico). <b>Cambia la fuente</b> en el selector de arriba y verás que <b>crece con la
+    distancia</b>: de ~1,2 en una galaxia cercana a ~3 en el fondo de microondas. Por eso el <b>universo observable
+    (~46 Gly)</b> es unas tres veces el <b>radio de Hubble (c/H₀ ≈ 14 Gly)</b>. <i>(El esquema usa un universo
+    simplificado; el valor exacto en el borde, ~3,3, incluye además el efecto acelerador de la energía oscura.)</i></p>
+    <div class="resultado" id="resObs"></div>
+
+    <div class="nota">
+      <b>¿No estamos contando la expansión dos veces?</b> No. Al medir <b>H₀</b> con galaxias <b>cercanas</b>, su
+      corrimiento al rojo <b>ya tiene en cuenta la expansión</b>… pero solo la del <b>corto trecho</b> entre esa galaxia
+      y nosotros (por eso es pequeña). Para el <b>tamaño del universo observable</b> necesitamos la expansión acumulada
+      a lo largo del <b>camino larguísimo</b> que ha recorrido la <b>luz más lejana</b> (la del fondo de microondas). Es
+      la <b>misma expansión</b>, pero sobre un camino mucho más largo: el <b>factor corrector</b> es lo que <b>escala</b>
+      del trecho corto (H₀) al camino completo.
+    </div>
+
+    <div class="aviso">⚠ El valor exacto (~3,3) queda para el <b>modo experto</b>; aquí vemos el <b>porqué</b> y el orden
+    de magnitud. El «46» se <b>deduce</b> (de la z), no se lee directamente, y <b>no</b> es «c × edad».</div>
+  </div>
+
+  <!-- TRANSFERENCIA (actividad central de Elaborate) -->
+  <div class="card">
+    <h2>Transfiere el método: ¿y si H₀ fuera otro?</h2>
+    <p>Distintos equipos miden valores de <b>H₀</b> algo distintos. <b>Aplica tu método</b> a otros casos y compáralos con
+    tu medida.</p>
+    <p><b>Tu medida</b> (la de arriba): H₀ = <b id="tuH0">70</b> km/s/Mpc → edad ≈ <b id="tuEdad">…</b>, tamaño ≈ <b id="tuTam">…</b>.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin:8px 0">
+      <button class="sec btn-h0b" data-h0="67">H₀ de Planck (67)</button>
+      <button class="sec btn-h0b" data-h0="73">Supernovas cercanas (73)</button>
+      <button class="sec btn-h0b" data-h0="65">Otro grupo (65)</button>
+    </div>
+    <label>Otro H₀ = <input id="h0b" type="number" min="40" max="110" step="0.1" value="67"> km/s/Mpc</label>
+    <div class="nota" id="resB"></div>
+    <p class="instru">¿Sale la <b>misma</b> edad? ¿Por qué difieren? Como la edad y el tamaño son <b>1/H₀</b> y <b>c/H₀</b>,
+    cuanto <b>mayor</b> es H₀, <b>menores</b> son la edad y el tamaño. Esa diferencia de valores es, precisamente, el tema
+    de la siguiente parte.</p>
+  </div>
+
+  <div id="continuar"></div>
+
+</main>
+
+<footer>
+  <p>Web interactiva de la secuencia 5E para la determinación de la edad y el tamaño del universo (TFM, Javier Piay Pombo, VIU - 2026).</p>
+  <img class="logo-viu" src="logo.png" alt="Universidad Internacional de Valencia (VIU)">
+</footer>
+
+<script>
+/* ---------- utilidades ---------- */
+const SUP={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+const sup=n=>String(n).split('').map(c=>SUP[c]).join('');
+function expo(x,d=2){ if(!isFinite(x)||x===0) return '0'; const e=Math.floor(Math.log10(Math.abs(x))); const m=x/Math.pow(10,e); return m.toLocaleString('es-ES',{minimumFractionDigits:d,maximumFractionDigits:d})+'·10'+sup(e); }
+const esN=(n,d=0)=>n.toLocaleString('es-ES',{maximumFractionDigits:d});
+
+/* ---------- tamaño: radio de Hubble (mínimo) + radio observable ---------- */
+const h0=document.getElementById('h0'), res=document.getElementById('res'),
+      h0src=document.getElementById('h0src');
+function calcTamano(){
+  let H0=parseFloat(h0.value); if(!isFinite(H0)||H0<=0) H0=70;
+  const gly=977.8/H0, mill=Math.round(gly*1000/100)*100;
+  res.innerHTML='Radio de Hubble: R = c/H₀ ≈ <b>'+esN(mill)+' millones de años-luz</b> &nbsp;(el mínimo)';
+  const obs=Math.round(mill*3.3/1000)*1000;
+  const ro=document.getElementById('resObs');
+  if(ro) ro.innerHTML='<b>Radio observable</b> ≈ radio de Hubble × factor corrector (en el borde)<br>≈ '+esN(mill)+' × 3,3<br>≈ <b>'+esN(obs)+' millones de años-luz</b>';
+  return mill;
+}
+h0.addEventListener('input',()=>{calcTamano(); pintaTransfer();});
+
+/* ---------- la sorpresa: el espacio se estira EN TODAS PARTES mientras la luz viaja ---------- */
+const SVGN="http://www.w3.org/2000/svg";
+const svgS=document.getElementById('estira'), stretch=document.getElementById('stretch'),
+      capE=document.getElementById('capEstira'), fuenteSel=document.getElementById('fuenteSel');
+const eS=(t,a)=>{const e=document.createElementNS(SVGN,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
+function eText(x,y,s,f,sz,w){ const e=eS('text',{x:x,y:y,'text-anchor':'middle',fill:f,'font-size':sz}); if(w)e.setAttribute('font-weight',w); e.textContent=s; svgS.appendChild(e); }
+const X0=55, YY=95, SCALE=206;   // nosotros fijos en X0; px por unidad comovil (calibrado para que el CMB quepa)
+function sparkle(cx,cy,r){ let p=[]; for(let k=0;k<8;k++){ const ang=k*Math.PI/4, rr=(k%2===0)?r:r*0.4; p.push((cx+rr*Math.cos(ang)).toFixed(1)+','+(cy+rr*Math.sin(ang)).toFixed(1)); } return p.join(' '); }
+// universo dominado por materia: a = t^(2/3) con c = t0 = 1. Fuente a redshift z.
+function fuente(z){ const aE=1/(1+z), tE=Math.pow(aE,1.5), chi=3*(1-Math.sqrt(aE)); return {z, aE, tE, chi, lt:1-tE, factor:chi/(1-tE)}; }
+function dibujaEstira(){
+  const p=fuente(parseFloat(fuenteSel.value));
+  const s=parseFloat(stretch.value), t=p.tE+(1-p.tE)*s, a=Math.pow(t,2/3);
+  svgS.innerHTML='';
+  const gx=X0+p.chi*a*SCALE;
+  // rejilla comovil: se estira por igual EN TODAS PARTES
+  for(let i=0;i<=10;i++){ const x=X0+(i/10)*p.chi*a*SCALE; svgS.appendChild(eS('line',{x1:x,y1:YY-32,x2:x,y2:YY+32,stroke:'#ededed','stroke-width':1})); }
+  svgS.appendChild(eS('line',{x1:X0,y1:YY,x2:gx,y2:YY,stroke:'#dcdcdc','stroke-width':1.5}));
+  svgS.appendChild(eS('circle',{cx:X0,cy:YY,r:6,fill:'#1a1a1a'})); eText(X0,YY+44,'nosotros','#1a1a1a',12,700);
+  svgS.appendChild(eS('circle',{cx:gx,cy:YY,r:6,fill:'#E65113'})); eText(gx,YY+44,'galaxia','#E65113',12,600);
+  // luz (destello): distancia propia = comovil_restante * a  → lágrima si la fuente es lejana
+  const chiL=Math.max(0,p.chi-3*(Math.pow(t,1/3)-Math.pow(p.tE,1/3))), px=X0+chiL*a*SCALE;
+  svgS.appendChild(eS('polygon',{points:sparkle(px,YY,9),fill:'#E65113'})); eText(px,YY-24,'luz ✦','#E65113',11,700);
+  // números
+  const N=a/p.aE, D0=100;
+  const dGal=Math.round(D0*p.chi*a), dLuz=Math.round(D0*chiL*a), camino=Math.round(D0*(t-p.tE));
+  const uStar=(2*p.chi+6*Math.pow(p.tE,1/3))/9, tStar=uStar*uStar*uStar, hayLagrima=tStar>p.tE, alej=hayLagrima&&t<tStar;
+  const expStr=(N<10?N.toFixed(1):Math.round(N).toLocaleString('es-ES'));
+  document.getElementById('numEstira').innerHTML=
+    '<table class="numtbl"><tr>'+
+      '<th>El espacio se ha estirado</th>'+
+      '<th>Camino recorrido por la luz</th>'+
+      '<th>Distancia de la luz a nosotros</th>'+
+      '<th>Distancia a la galaxia</th>'+
+      '<th>Factor corrector (al llegar)<br>= distancia ÷ camino</th>'+
+    '</tr><tr>'+
+      '<td><b>× '+expStr+'</b><span class="tend up">↑ solo crece</span></td>'+
+      '<td><b>'+camino+'</b> u<span class="tend up">↑ solo crece</span></td>'+
+      '<td><b>'+dLuz+'</b> u<span class="tend '+(alej?'away">↑ se aleja':'near">↓ se acerca')+'</span></td>'+
+      '<td><b>'+dGal+'</b> u<span class="tend up">↑ solo crece</span></td>'+
+      '<td><b>× '+p.factor.toFixed(1)+'</b><span class="tend up">↑ con la distancia</span></td>'+
+    '</tr></table>';
+  capE.innerHTML = !hayLagrima
+    ? 'Fuente <b>cercana</b>: la luz <b>se acerca desde el principio</b> (no pierde terreno). Aun así, mientras viaja, el espacio se estira y la galaxia se aleja.'
+    : (alej
+      ? 'La luz <b>pierde terreno</b>: su distancia a nosotros <b>aumenta</b> —el espacio de delante se expande más rápido de lo que ella avanza—, aunque el camino recorrido crezca.'
+      : 'Ahora la luz <b>gana terreno</b>: su distancia a nosotros <b>baja</b>. El espacio sigue estirándose y la galaxia se aleja.');
+}
+stretch.addEventListener('input',dibujaEstira);
+fuenteSel.addEventListener('change',dibujaEstira);
+
+h0src.innerHTML='Introduce el <b>H₀</b> que mediste en el diagrama de Hubble (<b>Explore</b>). Como ejemplo partimos de <b>70</b>.';
+
+/* ---------- transferencia: aplicar el método a otro H0 ---------- */
+var h0b=document.getElementById('h0b'), resB=document.getElementById('resB');
+function edadDe(H0){ return Math.round(977.8/H0*1000/100)*100; } // millones de años (= radio de Hubble en Mal)
+function pintaTransfer(){
+  var tu=parseFloat(h0.value); if(!isFinite(tu)||tu<=0) tu=70;
+  document.getElementById('tuH0').textContent=esN(tu,1);
+  var e=edadDe(tu);
+  document.getElementById('tuEdad').textContent=esN(e)+' millones de años';
+  document.getElementById('tuTam').textContent=esN(e)+' millones de al';
+  var ob=parseFloat(h0b.value); if(!isFinite(ob)||ob<=0) ob=67;
+  var eb=edadDe(ob);
+  var rel = ob>tu ? 'Un H₀ <b>mayor</b> que el tuyo → edad y tamaño <b>menores</b>.'
+          : (ob<tu ? 'Un H₀ <b>menor</b> que el tuyo → edad y tamaño <b>mayores</b>.'
+          : 'El mismo valor que el tuyo.');
+  resB.innerHTML='Con H₀ = <b>'+esN(ob,1)+'</b> km/s/Mpc: edad ≈ <b>'+esN(eb)+' millones de años</b>, tamaño ≈ <b>'+esN(eb)+' millones de al</b>. '+rel;
+}
+document.querySelectorAll('.btn-h0b').forEach(function(b){ b.addEventListener('click',function(){ h0b.value=b.getAttribute('data-h0'); pintaTransfer(); }); });
+h0b.addEventListener('input',pintaTransfer);
+
+/* init */
+calcTamano(); dibujaEstira(); pintaTransfer();
+</script>
+
+<script src="js/cosmos.js"></script>
+<script>
+  Cosmos.pintarContinuar('continuar','elaborate-limites.html','Continuar: los límites de tu medida');
+</script>
+</body>
+</html>

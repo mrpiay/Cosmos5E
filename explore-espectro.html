@@ -19,8 +19,9 @@
   .fases .activa{background:#fff; color:var(--naranja);}
   .fases .activa small{color:var(--naranja); opacity:1;}
   .fases .deshab{opacity:.55;}
-  .sub{font-size:.95rem; color:var(--naranja); padding:12px 20px 2px;}
-  .sub b{color:inherit; font-weight:normal;}
+  .sub{background:var(--naranja-suave); color:var(--negro); font-size:.92rem; padding:12px 20px; line-height:1.5;}
+  .sub b{color:var(--negro); font-weight:700;}
+  .sub b.od{color:var(--naranja);}
   .cta-siguiente{text-align:center; margin:10px 0 4px;}
   .btn-siguiente{display:inline-block; background:var(--naranja); color:#fff; text-decoration:none; font-weight:700; padding:13px 24px; border-radius:26px; font-size:1.02rem; box-shadow:0 2px 8px rgba(230,81,19,.28);}
   .btn-siguiente:hover{opacity:.92;}
@@ -56,12 +57,14 @@
     <a href="engage.html"><b>1 · Engage</b><small>motivar</small></a>
     <a href="explore-espectro.html" class="activa" aria-current="page"><b>2 · Explore</b><small>indagar</small></a>
     <a href="explain.html"><b>3 · Explain</b><small>formalizar</small></a>
-    <a href="elaborate.html"><b>4 · Elaborate</b><small>elaborar</small></a>
+    <a href="elaborate-tamano.html"><b>4 · Elaborate</b><small>elaborar</small></a>
     <a href="evaluate.html"><b>5 · Evaluate</b><small>evaluar</small></a>
   </nav>
 </header>
 
-<div class="sub">Estás en la fase <b>Explore</b>: primero aprenderás cómo se obtiene la <b>velocidad</b> de una galaxia a partir de su <b>espectro</b>. Luego lo aplicarás a galaxias reales en el diagrama de Hubble.</div>
+<div class="sub"><b>Explore · indagar (1 de 2).</b><br>
+<b class="od">Objetivo:</b> aprender a medir la velocidad de una galaxia a partir de su luz.<br>
+<b class="od">Desarrollo:</b> desplazar la línea de un espectro para obtener el corrimiento al rojo (z) y, con él, la velocidad de recesión (v = c·z).</div>
 
 <main>
 
@@ -109,17 +112,16 @@
     </div>
 
     <div class="nota">
-      <b>Un matiz que profundizarás luego.</b> Aquí imaginamos la galaxia «moviéndose», y sirve de maravilla para
-      <b>medir</b> su velocidad. Pero el corrimiento al rojo de las galaxias <b>no es un Doppler cualquiera</b>: en el
-      fondo es el propio <b>espacio</b> el que se <b>estira</b> mientras la luz viaja. Lo formalizarás en <b>Explain</b>
-      y lo verás a lo grande en <b>Elaborate</b> (con el fondo de microondas). Por eso <b>v = c·z</b> solo vale bien
-      cuando <b>v es mucho menor que c</b>.
+      <b>Una duda para más adelante.</b> Aquí imaginamos la galaxia «moviéndose», y ese modelo sirve de maravilla para
+      <b>medir</b> su velocidad con <b>v = c·z</b>. Pero ¿es de verdad un efecto Doppler, como el de una sirena que se
+      aleja? Guárdate la pregunta: en <b>Explain</b> descubrirás qué está pasando en realidad (y por qué <b>v = c·z</b>
+      solo vale bien cuando <b>v es mucho menor que c</b>).
     </div>
 
     <div class="nota">
       Acabas de ver cómo, midiendo el desplazamiento de una línea conocida, se obtiene la <b>velocidad</b> de una galaxia.
       En la siguiente actividad, el <b>diagrama de Hubble</b>, usarás las velocidades ya medidas de <b>15 galaxias reales</b>
-      para descubrir el ritmo de expansión del universo, H₀.
+      para <b>buscar un patrón</b> entre su velocidad y su distancia, y medirlo.
     </div>
 
     <p class="fuente">La línea H-alfa del hidrógeno tiene su longitud de onda de reposo en 656,28 nm (dato de laboratorio).
@@ -127,9 +129,7 @@
     corrimiento fijo, están en el diagrama de Hubble.</p>
   </div>
 
-  <div class="cta-siguiente">
-    <a class="btn-siguiente" href="explore-diagrama.html">Siguiente actividad: el diagrama de Hubble →</a>
-  </div>
+  <div id="continuar"></div>
 
 </main>
 
@@ -207,6 +207,11 @@ svg.addEventListener('pointermove',e=>{if(drag) mover(e);});
 window.addEventListener('pointerup',()=>drag=false);
 
 refrescar();
+</script>
+
+<script src="js/cosmos.js"></script>
+<script>
+  Cosmos.pintarContinuar('continuar','explore-diagrama.html','Siguiente actividad: el diagrama de Hubble');
 </script>
 </body>
 </html>

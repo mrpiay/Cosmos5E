@@ -11,13 +11,17 @@ Hay dos formas de usarla:
 - **En línea:** abre directamente **[https://mrpiay.github.io/Cosmos5E/](https://mrpiay.github.io/Cosmos5E/)** en cualquier navegador.
 - **En local:** descarga el repositorio (botón **Code → Download ZIP**), descomprímelo y abre **`index.html`** con doble clic. No hay que instalar nada.
 
+## Recorrido guiado
+
+Las cinco fases se recorren **en orden**: cada una se **desbloquea al completar la anterior**, para no adelantar lo que el alumnado debe descubrir por sí mismo.
+
 ## Fases
 
-- **Engage** — la misión, la gran pregunta y la aventura de la cosmología (historia y tecnología); paradoja de Olbers.
-- **Explore** — mide el corrimiento al rojo en un espectro y construye el diagrama de Hubble para obtener tu **H₀**.
-- **Explain** — de H₀ a la **edad** del universo (calculadora paso a paso), por qué invertir H₀ da una edad, el corrimiento al rojo y el **calendario cósmico**.
-- **Elaborate** — el **tamaño** observable, la tensión de Hubble, el modelo ΛCDM y la geometría del universo.
-- **Evaluate** — *(próximamente).*
+- **Engage** — plantea el reto y **aflora las ideas previas** con un diagnóstico adaptativo (pretest conceptual, sin dar respuestas todavía); la aventura de la cosmología y la paradoja de Olbers.
+- **Explore** *(2 partes)* — mide el corrimiento al rojo en un espectro y construye el **diagrama de Hubble** con galaxias reales para obtener tu **H₀** (la pendiente); registra tu conjetura, sin interpretarla aún.
+- **Explain** — primero **explicas** lo que encontraste; luego se formaliza la **ley de Hubble-Lemaître** y, con la calculadora paso a paso, obtienes la **edad** del universo; «rebobinar la expansión» y el **calendario cósmico**.
+- **Elaborate** *(2 partes)* — el **tamaño** observable (radio de Hubble y por qué el observable es mayor, ~46 000 millones de al) con una actividad de **transferencia**; y los **límites** de la medida: tensión de Hubble, modelo ΛCDM y horizontes.
+- **Evaluate** — **postest conceptual** (el mismo instrumento del inicio, con contraste antes/después), reconstrucción de la cadena de la medida, **lectura de las ecuaciones** y **producto final** con su rúbrica.
 
 ## Datos y fuentes
 

@@ -1,0 +1,445 @@
+{
+  "meta": {
+    "titulo": "Cuestionario conceptual pre/post",
+    "descripcion": "Mismo instrumento en Engage (pre, sin corrección) y Evaluate (post, con retroalimentación). Distractores = ideas erróneas de la revisión (Cap. 2/3). 14 ítems de opción múltiple.",
+    "version": "v2",
+    "n_items": 15
+  },
+  "items": [
+    {
+      "id": 1,
+      "oa": "OA4",
+      "concepto": "Qué es la edad del universo",
+      "etiqueta": "La edad del universo",
+      "enunciado": "Cuando decimos que el universo tiene unos 13 800 millones de años, ¿a qué nos referimos?",
+      "opciones": [
+        {
+          "texto": "A la edad de la Vía Láctea, nuestra galaxia.",
+          "correcta": false,
+          "feedback": "La edad del universo no es la de una galaxia concreta: es la de todo el cosmos desde su origen."
+        },
+        {
+          "texto": "Al tiempo transcurrido desde el Big Bang, el origen del espacio y el tiempo.",
+          "correcta": true,
+          "feedback": "Correcto: es el tiempo desde el inicio de la expansión, no la edad de ningún astro concreto."
+        },
+        {
+          "texto": "A la edad del Sol y del Sistema Solar.",
+          "correcta": false,
+          "feedback": "El Sol tiene unos 4 600 millones de años; el universo es mucho más antiguo."
+        },
+        {
+          "texto": "Al tiempo que tarda la luz en cruzar el universo.",
+          "correcta": false,
+          "feedback": "Eso mezcla la edad con el tamaño; son magnitudes distintas."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "oa": "OA4",
+      "concepto": "El Big Bang no es una explosión en el espacio",
+      "etiqueta": "El Big Bang",
+      "enunciado": "¿Qué fue el Big Bang?",
+      "opciones": [
+        {
+          "texto": "Una gran explosión que lanzó la materia hacia afuera en un espacio vacío que ya existía.",
+          "correcta": false,
+          "feedback": "Idea errónea habitual: el Big Bang no ocurrió EN un espacio previo; fue el inicio del propio espacio."
+        },
+        {
+          "texto": "El inicio de la expansión del propio espacio-tiempo, que ocurrió en todas partes a la vez.",
+          "correcta": true,
+          "feedback": "Correcto: no hubo un 'lugar' donde explotó; el espacio mismo empezó a expandirse en todas partes."
+        },
+        {
+          "texto": "La explosión de una estrella supermasiva en el centro del universo.",
+          "correcta": false,
+          "feedback": "Ni fue una estrella ni hubo un 'centro'."
+        },
+        {
+          "texto": "El momento en que las galaxias empezaron a moverse por el espacio.",
+          "correcta": false,
+          "feedback": "Las galaxias no se mueven por el espacio: es el espacio entre ellas el que se estira."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "oa": "OA4",
+      "concepto": "El universo no tiene centro ni borde",
+      "etiqueta": "¿Tiene centro el universo?",
+      "enunciado": "Si todas las galaxias se alejan de nosotros, ¿significa que estamos en el centro del universo?",
+      "opciones": [
+        {
+          "texto": "Sí, la Tierra ocupa el centro desde el que todo se expande.",
+          "correcta": false,
+          "feedback": "Idea errónea: desde cualquier galaxia se vería lo mismo. No hay un centro privilegiado."
+        },
+        {
+          "texto": "No: desde cualquier galaxia se vería lo mismo, porque es el espacio entre todas el que se estira; no hay centro.",
+          "correcta": true,
+          "feedback": "Correcto: la expansión no tiene centro; cualquier observador ve alejarse a las demás."
+        },
+        {
+          "texto": "Sí, pero el centro está en la Vía Láctea, no en la Tierra.",
+          "correcta": false,
+          "feedback": "Sigue suponiendo un centro, que no existe."
+        },
+        {
+          "texto": "No lo podemos saber porque no hemos visto el borde del universo.",
+          "correcta": false,
+          "feedback": "No se trata de un borde: la ausencia de centro se deduce de que la expansión es del espacio."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "oa": "OA4",
+      "concepto": "Universo observable frente a universo total",
+      "etiqueta": "El tamaño del universo",
+      "enunciado": "Cuando hablamos del «tamaño del universo», ¿qué medimos en realidad?",
+      "opciones": [
+        {
+          "texto": "El tamaño total del universo, que tiene un borde definido.",
+          "correcta": false,
+          "feedback": "Idea errónea: no conocemos borde ni tamaño total; podría ser infinito."
+        },
+        {
+          "texto": "El universo observable: la región cuya luz ha tenido tiempo de llegarnos.",
+          "correcta": true,
+          "feedback": "Correcto: siempre medimos lo observable; del universo total no sabemos ni tamaño ni borde."
+        },
+        {
+          "texto": "La distancia hasta la galaxia más lejana que existe.",
+          "correcta": false,
+          "feedback": "No es 'la más lejana que existe', sino hasta donde su luz ha podido llegarnos."
+        },
+        {
+          "texto": "El tamaño de la Vía Láctea y las galaxias vecinas.",
+          "correcta": false,
+          "feedback": "Eso es una región minúscula comparada con el universo observable."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "oa": "OA2",
+      "concepto": "Mirar lejos es mirar al pasado (look-back time)",
+      "etiqueta": "Ver galaxias muy lejanas",
+      "enunciado": "Observamos una galaxia situada a 1 000 millones de años-luz. La vemos…",
+      "opciones": [
+        {
+          "texto": "Tal y como es ahora mismo.",
+          "correcta": false,
+          "feedback": "No: la luz que recibimos salió hace mucho tiempo."
+        },
+        {
+          "texto": "Tal y como era hace 1 000 millones de años, porque su luz ha tardado ese tiempo en llegar.",
+          "correcta": true,
+          "feedback": "Correcto: mirar lejos es mirar al pasado (look-back time)."
+        },
+        {
+          "texto": "Con 1 000 millones de años de adelanto sobre su estado real.",
+          "correcta": false,
+          "feedback": "Es al revés: la vemos con retraso, no con adelanto."
+        },
+        {
+          "texto": "Igual que si estuviera al lado: la distancia no afecta a lo que vemos.",
+          "correcta": false,
+          "feedback": "La velocidad finita de la luz hace que la distancia sí importe."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "oa": "OA2",
+      "concepto": "Medida del corrimiento al rojo z = Δλ/λ",
+      "etiqueta": "Medir el corrimiento al rojo (z)",
+      "enunciado": "En el espectro de una galaxia, una línea que en reposo está en 656 nm aparece en 663 nm. El corrimiento al rojo z se calcula como…",
+      "opciones": [
+        {
+          "texto": "La velocidad de la galaxia dividida por su distancia.",
+          "correcta": false,
+          "feedback": "Eso sería la constante de Hubble (v/d), no z."
+        },
+        {
+          "texto": "La diferencia de longitud de onda dividida por la de reposo: z = Δλ/λ = (663−656)/656.",
+          "correcta": true,
+          "feedback": "Correcto: z es el desplazamiento relativo de la línea, adimensional."
+        },
+        {
+          "texto": "El brillo de la galaxia comparado con una de referencia.",
+          "correcta": false,
+          "feedback": "z se mide sobre la posición de las líneas, no sobre el brillo."
+        },
+        {
+          "texto": "La longitud de onda observada multiplicada por la velocidad de la luz.",
+          "correcta": false,
+          "feedback": "z es una razón de longitudes de onda; no interviene c en su definición."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "oa": "OA2",
+      "concepto": "El corrimiento al rojo cosmológico no es Doppler ordinario",
+      "etiqueta": "Por qué la luz llega «enrojecida»",
+      "enunciado": "La luz de una galaxia lejana nos llega desplazada hacia el rojo. ¿Por qué?",
+      "opciones": [
+        {
+          "texto": "Porque la galaxia se mueve a gran velocidad a través del espacio, como una sirena que se aleja.",
+          "correcta": false,
+          "feedback": "Idea errónea: no es un Doppler ordinario; la galaxia no 'vuela' por el espacio."
+        },
+        {
+          "texto": "Porque el espacio se ha estirado mientras la luz viajaba, estirando también su longitud de onda.",
+          "correcta": true,
+          "feedback": "Correcto: es corrimiento al rojo cosmológico (estiramiento del espacio). v=c·z es solo un atajo a z pequeño."
+        },
+        {
+          "texto": "Porque la luz pierde energía y «se cansa» al recorrer distancias enormes.",
+          "correcta": false,
+          "feedback": "La hipótesis de la 'luz cansada' está descartada por las observaciones."
+        },
+        {
+          "texto": "Porque atraviesa polvo rojizo del espacio interestelar.",
+          "correcta": false,
+          "feedback": "El enrojecimiento por polvo es otro fenómeno distinto del corrimiento al rojo."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "oa": "OA3",
+      "concepto": "Ley de Hubble-Lemaître: pendiente = H0",
+      "etiqueta": "La ley de Hubble",
+      "enunciado": "Representas la velocidad de recesión frente a la distancia de muchas galaxias. ¿Qué patrón esperas y qué representa la pendiente de la recta?",
+      "opciones": [
+        {
+          "texto": "Todas se alejan a la misma velocidad; la pendiente no significa nada.",
+          "correcta": false,
+          "feedback": "No: la velocidad depende de la distancia."
+        },
+        {
+          "texto": "Cuanto más lejos está una galaxia, más deprisa se aleja; la pendiente es la constante de Hubble H0.",
+          "correcta": true,
+          "feedback": "Correcto: v = H0·d, y la pendiente del diagrama es H0."
+        },
+        {
+          "texto": "Las galaxias más cercanas se alejan más deprisa; la pendiente es su tamaño.",
+          "correcta": false,
+          "feedback": "Es al revés (las lejanas van más rápido) y la pendiente no es un tamaño."
+        },
+        {
+          "texto": "No hay relación entre distancia y velocidad; los puntos salen al azar.",
+          "correcta": false,
+          "feedback": "Sí hay relación: es lineal, y esa es la clave de la ley de Hubble."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "oa": "OA3",
+      "concepto": "Los sistemas ligados no se expanden",
+      "etiqueta": "La expansión y las cosas cotidianas",
+      "enunciado": "Si el universo se expande, ¿por qué no se expanden también tu cuerpo, la Tierra o la Vía Láctea?",
+      "opciones": [
+        {
+          "texto": "Sí se expanden, pero tan despacio que no lo notamos.",
+          "correcta": false,
+          "feedback": "Idea errónea: los sistemas ligados no se expanden en absoluto."
+        },
+        {
+          "texto": "Porque en los sistemas unidos por la gravedad (u otras fuerzas) esa unión vence a la expansión; solo se separa el espacio entre galaxias no ligadas.",
+          "correcta": true,
+          "feedback": "Correcto: la expansión solo domina a gran escala, entre galaxias no ligadas."
+        },
+        {
+          "texto": "Porque la expansión solo ocurre muy lejos, más allá de nuestra galaxia.",
+          "correcta": false,
+          "feedback": "La expansión ocurre en todas partes, pero la gravedad la vence localmente."
+        },
+        {
+          "texto": "Porque son demasiado pequeños para que la expansión les afecte.",
+          "correcta": false,
+          "feedback": "No es cuestión de tamaño, sino de estar ligados por una fuerza."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "oa": "OA5",
+      "concepto": "t ≈ 1/H0 es una aproximación (ritmo constante)",
+      "etiqueta": "¿Es exacta la edad estimada?",
+      "enunciado": "La estimación t ≈ 1/H0 para la edad del universo…",
+      "opciones": [
+        {
+          "texto": "Es el valor exacto y definitivo de la edad.",
+          "correcta": false,
+          "feedback": "Idea errónea: es una aproximación, no un valor exacto."
+        },
+        {
+          "texto": "Es una buena aproximación que supone un ritmo de expansión constante; el ritmo real ha variado.",
+          "correcta": true,
+          "feedback": "Correcto: por eso el valor medido con modelos (≈13 800 Ma) difiere algo de 1/H0."
+        },
+        {
+          "texto": "Es siempre mucho mayor que la edad real del universo.",
+          "correcta": false,
+          "feedback": "La diferencia es pequeña; no es 'mucho mayor'."
+        },
+        {
+          "texto": "No tiene relación con la edad; solo mide distancias.",
+          "correcta": false,
+          "feedback": "1/H0 tiene unidades de tiempo y estima la edad."
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "oa": "OA4",
+      "concepto": "Significado de 1/H0 (edad = d/v, no d/c)",
+      "etiqueta": "Qué significa 1/H₀",
+      "enunciado": "Si mides H₀ y calculas 1/H₀ ≈ 14 000 millones de años, ¿qué representa ese número?",
+      "opciones": [
+        {
+          "texto": "El tiempo que ha tardado en llegarnos la luz de la galaxia más lejana del diagrama.",
+          "correcta": false,
+          "feedback": "Eso sería d/c (tiempo de viaje de la luz), mucho menor y distinto."
+        },
+        {
+          "texto": "Aproximadamente la edad del universo: rebobinando la expansión, todas las galaxias partieron del mismo punto hace ese tiempo.",
+          "correcta": true,
+          "feedback": "Correcto: es d/v (distancia entre velocidad de recesión), la edad de todo el universo."
+        },
+        {
+          "texto": "La distancia hasta el borde del universo.",
+          "correcta": false,
+          "feedback": "Es un tiempo, no una distancia; y no hay 'borde'."
+        },
+        {
+          "texto": "La edad exacta y definitiva del universo.",
+          "correcta": false,
+          "feedback": "Es una aproximación (supone ritmo constante)."
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "oa": "OA4",
+      "concepto": "El radio observable es mayor que c × edad",
+      "etiqueta": "El tamaño del universo observable",
+      "enunciado": "El universo tiene unos 13 800 millones de años. ¿Por qué el radio del universo observable es mucho mayor que 13 800 millones de años-luz?",
+      "opciones": [
+        {
+          "texto": "No lo es: el radio observable es exactamente c × edad.",
+          "correcta": false,
+          "feedback": "Idea errónea: el radio observable (~46 000 Mal) supera con creces c × edad."
+        },
+        {
+          "texto": "Porque el espacio ha seguido estirándose mientras la luz viajaba, así que las fuentes que la emitieron están hoy mucho más lejos.",
+          "correcta": true,
+          "feedback": "Correcto: la expansión aleja hoy a las fuentes más allá del camino que recorrió su luz."
+        },
+        {
+          "texto": "Porque la luz viaja más rápido en el universo primitivo.",
+          "correcta": false,
+          "feedback": "La velocidad de la luz es constante; no viaja más rápido."
+        },
+        {
+          "texto": "Porque medimos mal las distancias a esas escalas.",
+          "correcta": false,
+          "feedback": "No es un error de medida, sino el efecto real de la expansión."
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "oa": "OA6",
+      "concepto": "Materia oscura frente a energía oscura",
+      "etiqueta": "Materia oscura y energía oscura",
+      "enunciado": "¿En qué se diferencian la materia oscura y la energía oscura?",
+      "opciones": [
+        {
+          "texto": "Son dos nombres para lo mismo: la parte del universo que no vemos.",
+          "correcta": false,
+          "feedback": "Idea errónea: son conceptos distintos con efectos opuestos."
+        },
+        {
+          "texto": "La materia oscura aporta gravedad («pesa» y atrae); la energía oscura acelera la expansión.",
+          "correcta": true,
+          "feedback": "Correcto: una gravita y frena; la otra acelera la expansión."
+        },
+        {
+          "texto": "La materia oscura acelera la expansión y la energía oscura la frena.",
+          "correcta": false,
+          "feedback": "Están intercambiadas: es justo al revés."
+        },
+        {
+          "texto": "La energía oscura es una fuerza que empuja las galaxias unas contra otras.",
+          "correcta": false,
+          "feedback": "Idea errónea: no es una 'fuerza que empuja'; es una propiedad del espacio que acelera su expansión."
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "oa": "OA7",
+      "concepto": "Naturaleza de la ciencia: magnitudes inferidas y revisables",
+      "etiqueta": "Cómo lo sabe la ciencia",
+      "enunciado": "¿Cuál de estas afirmaciones describe mejor cómo la ciencia conoce la edad y el tamaño del universo?",
+      "opciones": [
+        {
+          "texto": "Son datos medidos directamente y definitivos, que no cambiarán.",
+          "correcta": false,
+          "feedback": "Idea errónea: no se miden 'directamente' ni son definitivos."
+        },
+        {
+          "texto": "Son magnitudes inferidas a partir de observaciones y modelos, con incertidumbre, y pueden revisarse al mejorar los datos.",
+          "correcta": true,
+          "feedback": "Correcto: la ciencia infiere, aproxima y revisa (p. ej. la tensión de Hubble)."
+        },
+        {
+          "texto": "Son estimaciones sin base observacional, casi opiniones.",
+          "correcta": false,
+          "feedback": "Tienen una base observacional sólida; no son opiniones."
+        },
+        {
+          "texto": "Se obtienen viajando hasta el borde del universo y midiendo.",
+          "correcta": false,
+          "feedback": "No viajamos: inferimos a partir de la luz que nos llega."
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "oa": "OA4",
+      "concepto": "La paradoja de Olbers: la oscuridad nocturna indica un universo con edad finita",
+      "etiqueta": "Por qué la noche es oscura",
+      "enunciado": "En un universo infinito, eterno y lleno de estrellas repartidas por igual, el cielo nocturno debería brillar por todas partes. Si es oscuro, ¿qué nos dice eso?",
+      "opciones": [
+        {
+          "texto": "No significa nada especial: de noche el Sol no nos ilumina y ya está.",
+          "correcta": false,
+          "feedback": "El Sol es solo una estrella más; la paradoja pregunta por qué no brillan todas las demás juntas."
+        },
+        {
+          "texto": "Que el universo no es infinito, eterno y estático: tiene una edad finita (y las estrellas no brillan para siempre).",
+          "correcta": true,
+          "feedback": "Correcto: es la paradoja de Olbers. La oscuridad indica un universo con historia, no infinito y eterno."
+        },
+        {
+          "texto": "Que no hay suficientes estrellas en el universo.",
+          "correcta": false,
+          "feedback": "Hay muchísimas: en un universo infinito, cada línea de visión acabaría topando con una estrella."
+        },
+        {
+          "texto": "Que la luz de las estrellas lejanas se apaga al viajar por el vacío.",
+          "correcta": false,
+          "feedback": "La luz no se «apaga» ni se «cansa» al viajar por el vacío; esa hipótesis está descartada."
+        }
+      ]
+    }
+  ]
+}

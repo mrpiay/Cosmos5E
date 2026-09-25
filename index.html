@@ -9,15 +9,20 @@
   *{box-sizing:border-box}
   body{margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--negro); background:#f6f6f6; line-height:1.5;}
   /* hero */
-  .hero{background:var(--naranja); color:#fff; text-align:center; padding:32px 20px 28px;}
+  .hero{background:var(--naranja); color:#fff; text-align:center; padding:20px 20px 18px;}
   .hero .marca{font-size:3.4rem; font-weight:800; letter-spacing:1px; margin:0; line-height:1;}
   .hero .marca .c-cos{color:#fbe9e0;} .hero .marca .c-e{color:#FFA640;}
-  .hero .tagline{max-width:960px; margin:18px auto 0; font-size:1rem; opacity:.97;}
+  .hero .tagline{max-width:960px; margin:12px auto 0; font-size:1rem; opacity:.97;}
   .hero .tagline b{font-weight:700; font-size:1.2rem; display:inline-block; margin-top:4px;}
   .hero .meta{font-size:.86rem; opacity:.85; margin-top:6px;}
-  main{max-width:920px; margin:0 auto; padding:26px 16px 50px;}
+  main{max-width:920px; margin:0 auto; padding:26px 16px 14px;}
   .intro{text-align:center; color:var(--gris); font-size:.95rem; margin:0 0 20px;}
   .intro b{color:var(--negro);}
+  /* CTA modo */
+  .cta-inicio{text-align:center; margin:0 0 22px;}
+  .cta-inicio .empezar{display:inline-block; background:var(--naranja); color:#fff; text-decoration:none; font-weight:800; font-size:1.1rem; padding:15px 30px; border:none; border-radius:12px; cursor:pointer; box-shadow:0 4px 14px rgba(230,81,19,.25); transition:transform .12s, filter .12s;}
+  .cta-inicio .empezar:hover{transform:translateY(-2px); filter:brightness(1.05);}
+  .cta-inicio .o-libre{font-size:.9rem; color:var(--gris); margin:14px 0 0;}
   /* rejilla de fases */
   .rejilla{display:grid; grid-template-columns:1fr; gap:14px;}
   @media(min-width:620px){ .rejilla{grid-template-columns:1fr 1fr;} .rejilla .ancha{grid-column:1 / -1;} }
@@ -29,10 +34,10 @@
   .fase .txt h2 span.verbo{color:var(--naranja); font-weight:600; font-size:.9rem;}
   .fase .txt p{margin:0; font-size:.9rem; color:var(--gris);}
   .fase .flecha{flex:0 0 auto; color:var(--naranja); font-size:1.5rem; font-weight:700;}
-  .badge{display:inline-block; background:var(--gris-claro); color:var(--gris); font-size:.66rem; font-weight:700; padding:2px 8px; border-radius:20px; margin-left:6px; text-transform:uppercase; letter-spacing:.5px; vertical-align:middle;}
+  .reset{text-align:center; margin:22px 0 0; font-size:.82rem;}
+  .reset a{color:var(--gris); font-weight:600; text-decoration:underline; cursor:pointer;}
   footer{text-align:center; padding:6px 16px 20px;}
   .logo-viu{width:190px; max-width:55%; height:auto; margin-top:12px;}
-  .marca-o{font-style:normal; font-size:.7em; vertical-align:-.02em; margin:0 .03em;}
 </style>
 </head>
 <body>
@@ -45,7 +50,12 @@
 </header>
 
 <main>
-  <p class="intro">Un recorrido de <b>cinco fases</b> (modelo 5E). Cada sección es <b>independiente</b>: entra por donde quieras o síguelas en orden.</p>
+  <p class="intro">Un recorrido de <b>cinco fases</b> (modelo 5E) para <b>medir tú mismo</b> la edad y el tamaño del universo con datos reales.</p>
+
+  <div class="cta-inicio">
+    <p class="o-libre">Las fases se recorren <b>en orden</b> (Engage → Explore → Explain → Elaborate → Evaluate).<br>
+    Cada una se <b>desbloquea al completar la anterior</b> para no adelantar lo que debes descubrir por ti mismo.</p>
+  </div>
 
   <div class="rejilla">
 
@@ -53,7 +63,7 @@
       <div class="num">1</div>
       <div class="txt">
         <h2>Engage <span class="verbo">· motivar</span></h2>
-        <p>Descubre la misión, aflora lo que ya sabes y recorre la aventura de la cosmología, de Copérnico a Planck.</p>
+        <p>Descubre el reto, aflora lo que ya sabes y recorre la aventura de la cosmología, de la Antigüedad a Planck.</p>
       </div>
       <div class="flecha">→</div>
     </a>
@@ -71,16 +81,16 @@
       <div class="num">3</div>
       <div class="txt">
         <h2>Explain <span class="verbo">· formalizar</span></h2>
-        <p>Convierte tu H₀ en la edad del universo con la calculadora y recórrela en el calendario cósmico.</p>
+        <p>Explica lo que encontraste y convierte tu H₀ en la edad del universo con la calculadora.</p>
       </div>
       <div class="flecha">→</div>
     </a>
 
-    <a class="fase" href="elaborate.html">
+    <a class="fase" href="elaborate-tamano.html">
       <div class="num">4</div>
       <div class="txt">
         <h2>Elaborate <span class="verbo">· elaborar</span></h2>
-        <p>Calcula el tamaño observable y reconoce los límites de tu medida: tensión de Hubble, ΛCDM y horizonte.</p>
+        <p>Aplica el método al tamaño observable y reconoce los límites de tu medida.</p>
       </div>
       <div class="flecha">→</div>
     </a>
@@ -89,17 +99,20 @@
       <div class="num">5</div>
       <div class="txt">
         <h2>Evaluate <span class="verbo">· evaluar</span></h2>
-        <p>Repasa el recorrido, reconstruye la cadena de conceptos y demuestra que entiendes el proceso.</p>
+        <p>Vuelve a responder el cuestionario, reconstruye la cadena y demuestra que entiendes el proceso.</p>
       </div>
       <div class="flecha">→</div>
     </a>
 
   </div>
+
+  <p class="reset"><a href="#" onclick="if(confirm('¿Reiniciar la secuencia? Se borrarán tu progreso y tus respuestas guardadas en este dispositivo, y solo quedará disponible la fase 1 (Engage).')){Cosmos.reiniciar();}return false;">↺ Reiniciar la secuencia (borrar mis datos en este dispositivo)</a></p>
 </main>
 
 <footer>
   <img class="logo-viu" src="logo.png" alt="Universidad Internacional de Valencia (VIU)">
 </footer>
 
+<script src="js/cosmos.js"></script>
 </body>
 </html>

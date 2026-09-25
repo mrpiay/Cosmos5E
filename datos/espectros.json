@@ -1,0 +1,102 @@
+{
+  "descripcion": "Espectros para medir el corrimiento al rojo (actividad Explore). Enfoque HIBRIDO: render esquematico limpio, pero con redshifts REALES de las galaxias del diagrama de Hubble (materiales/datos/hubble.json).",
+  "metodo": "Cada galaxia lleva marcada la linea de emision H-alfa en su posicion observada lambda_obs = lambda_reposo*(1+z). El alumno mide lambda_obs, calcula z = (lambda_obs - lambda_reposo)/lambda_reposo y v = c*z. Ese v coincide (salvo redondeo) con el del diagrama de Hubble de la misma galaxia (campo v_diagrama_kms).",
+  "nota_didactica": "Render limpio (no el espectro crudo de SDSS, mas ruidoso) para 2 de Bachillerato; los NUMEROS son reales. Galaxias espirales: H-alfa en emision. Para elipticas/lenticulares (Fornax A, Coma) se usaria el doblete Ca II H&K en absorcion.",
+  "constantes": {
+    "c_kms": 299792.458
+  },
+  "linea_principal": {
+    "id": "Halpha",
+    "nombre": "H-alfa (Ha)",
+    "lambda_reposo_nm": 656.28,
+    "tipo": "emision"
+  },
+  "lineas_reposo_nm": {
+    "CaII_K": 393.37,
+    "CaII_H": 396.85,
+    "Hbeta": 486.13,
+    "OIII": 500.7,
+    "Halpha": 656.28,
+    "Lyalpha": 121.6
+  },
+  "galaxias": [
+    {
+      "nombre": "NGC 4639",
+      "rol": "ejemplo",
+      "tipo_galaxia": "espiral",
+      "z": 0.0034,
+      "lambda_reposo_nm": 656.28,
+      "lambda_obs_nm": 658.51,
+      "delta_lambda_nm": 2.23,
+      "v_kms": 1019,
+      "v_diagrama_kms": 1018,
+      "d_Mpc": 22.1,
+      "en_diagrama": true
+    },
+    {
+      "nombre": "NGC 3370",
+      "rol": "actividad",
+      "tipo_galaxia": "espiral",
+      "z": 0.0043,
+      "lambda_reposo_nm": 656.28,
+      "lambda_obs_nm": 659.1,
+      "delta_lambda_nm": 2.82,
+      "v_kms": 1289,
+      "v_diagrama_kms": 1279,
+      "d_Mpc": 27.4,
+      "en_diagrama": true
+    },
+    {
+      "nombre": "NGC 3021",
+      "rol": "actividad",
+      "tipo_galaxia": "espiral",
+      "z": 0.0051,
+      "lambda_reposo_nm": 656.28,
+      "lambda_obs_nm": 659.63,
+      "delta_lambda_nm": 3.35,
+      "v_kms": 1529,
+      "v_diagrama_kms": 1541,
+      "d_Mpc": 26.8,
+      "en_diagrama": true
+    },
+    {
+      "nombre": "NGC 5468",
+      "rol": "actividad",
+      "tipo_galaxia": "espiral",
+      "z": 0.0095,
+      "lambda_reposo_nm": 656.28,
+      "lambda_obs_nm": 662.51,
+      "delta_lambda_nm": 6.23,
+      "v_kms": 2848,
+      "v_diagrama_kms": 2842,
+      "d_Mpc": 43.8,
+      "en_diagrama": true
+    },
+    {
+      "nombre": "IC 5179",
+      "rol": "actividad",
+      "tipo_galaxia": "espiral",
+      "z": 0.0114,
+      "lambda_reposo_nm": 656.28,
+      "lambda_obs_nm": 663.76,
+      "delta_lambda_nm": 7.48,
+      "v_kms": 3418,
+      "v_diagrama_kms": 3421,
+      "d_Mpc": 43.3,
+      "en_diagrama": true
+    },
+    {
+      "nombre": "NGC 4679",
+      "rol": "actividad",
+      "tipo_galaxia": "espiral",
+      "z": 0.0154,
+      "lambda_reposo_nm": 656.28,
+      "lambda_obs_nm": 666.39,
+      "delta_lambda_nm": 10.11,
+      "v_kms": 4617,
+      "v_diagrama_kms": 4611,
+      "d_Mpc": 58.3,
+      "en_diagrama": true
+    }
+  ]
+}

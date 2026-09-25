@@ -1,0 +1,185 @@
+{
+  "descripcion": "Datos para el diagrama de Hubble (velocidad de recesion vs distancia). Actividad Explore.",
+  "fuente": "NED-D (NASA/IPAC Extragalactic Database, Redshift-Independent Distances), version 17.1.0 (abril 2020). Distancia = mediana de las medidas independientes del redshift de cada galaxia; velocidad = c*z. Cita: Steer et al. 2017, AJ, 153, 37.",
+  "agradecimiento": "This research has made use of the NASA/IPAC Extragalactic Database (NED), operated by the California Institute of Technology under contract with NASA.",
+  "marco_velocidad": "v = c*z (heliocentrica). En las galaxias lejanas (v>3000 km/s) domina la expansion; en las cercanas la velocidad peculiar contamina el dato.",
+  "unidades": {
+    "distancia": "Mpc",
+    "velocidad": "km/s"
+  },
+  "notas": [
+    "Distancias por metodos independientes del redshift (Cefeidas, SNe Ia, TRGB, Tully-Fisher, etc.): la ley de Hubble NO es circular.",
+    "Ajuste por el origen usando solo v>3000 km/s -> H0 ~ 69 km/s/Mpc; 1/H0 ~ 14,1 Gyr; c/H0 ~ 14,1 Gly.",
+    "Las cercanas (NGC 4536, NGC 4639, NGC 3370...) dan H0 individuales muy dispersos (46 a 121): sirven para discutir las velocidades peculiares y por que la recta 'se ordena' solo lejos.",
+    "n_medidas = numero de medidas de distancia promediadas en NED-D para esa galaxia (robustez).",
+    "Coma: NGC 4889 y 4874 se fusionan en un punto (NED-D solo da z=0,023 grueso para ambas); no afecta al ajuste.",
+    "d_err (incertidumbre de la distancia) = mitad del rango central (percentil 16-84, un ~1 sigma robusto) de las medidas NED-D de cada galaxia, con suelo del 5%. Refleja cuanto discrepan entre si las medidas. v_err es nominal: la incertidumbre del redshift/velocidad es despreciable."
+  ],
+  "objetos": [
+    {
+      "nombre": "NGC 4536",
+      "d_Mpc": 14.9,
+      "d_err": 2.6,
+      "v_kms": 1808,
+      "v_err": 30,
+      "z": 0.006,
+      "n_medidas": 99,
+      "metodo": "Mediana NED-D (distancias indep. del redshift)",
+      "cercano_peculiar": true
+    },
+    {
+      "nombre": "NGC 1316 (Fornax A)",
+      "d_Mpc": 17.8,
+      "d_err": 3.5,
+      "v_kms": 1760,
+      "v_err": 30,
+      "z": 0.0059,
+      "n_medidas": 115,
+      "metodo": "Mediana NED-D (distancias indep. del redshift)",
+      "cercano_peculiar": true
+    },
+    {
+      "nombre": "NGC 1380",
+      "d_Mpc": 18.5,
+      "d_err": 2.5,
+      "v_kms": 1877,
+      "v_err": 30,
+      "z": 0.0063,
+      "n_medidas": 42,
+      "metodo": "Mediana NED-D (distancias indep. del redshift)",
+      "cercano_peculiar": true
+    },
+    {
+      "nombre": "NGC 4639",
+      "d_Mpc": 22.1,
+      "d_err": 2.1,
+      "v_kms": 1018,
+      "v_err": 30,
+      "z": 0.0034,
+      "n_medidas": 80,
+      "metodo": "Mediana NED-D (distancias indep. del redshift)",
+      "cercano_peculiar": true
+    },
+    {
+      "nombre": "NGC 3021",
+      "d_Mpc": 26.8,
+      "d_err": 4.5,
+      "v_kms": 1541,
+      "v_err": 30,
+      "z": 0.0051,
+      "n_medidas": 46,
+      "metodo": "Mediana NED-D (distancias indep. del redshift)",
+      "cercano_peculiar": true
+    },
+    {
+      "nombre": "NGC 3370",
+      "d_Mpc": 27.4,
+      "d_err": 3.2,
+      "v_kms": 1279,
+      "v_err": 30,
+      "z": 0.0043,
+      "n_medidas": 55,
+      "metodo": "Mediana NED-D (distancias indep. del redshift)",
+      "cercano_peculiar": true
+    },
+    {
+      "nombre": "IC 5179",
+      "d_Mpc": 43.3,
+      "d_err": 4.5,
+      "v_kms": 3421,
+      "v_err": 30,
+      "z": 0.0114,
+      "n_medidas": 33,
+      "metodo": "Mediana NED-D (distancias indep. del redshift)",
+      "cercano_peculiar": false
+    },
+    {
+      "nombre": "NGC 5468",
+      "d_Mpc": 43.8,
+      "d_err": 8.6,
+      "v_kms": 2842,
+      "v_err": 30,
+      "z": 0.0095,
+      "n_medidas": 31,
+      "metodo": "Mediana NED-D (distancias indep. del redshift)",
+      "cercano_peculiar": false
+    },
+    {
+      "nombre": "NGC 4679",
+      "d_Mpc": 58.3,
+      "d_err": 10.6,
+      "v_kms": 4611,
+      "v_err": 30,
+      "z": 0.0154,
+      "n_medidas": 45,
+      "metodo": "Mediana NED-D (distancias indep. del redshift)",
+      "cercano_peculiar": false
+    },
+    {
+      "nombre": "UGC 00646",
+      "d_Mpc": 66.4,
+      "d_err": 7.8,
+      "v_kms": 5318,
+      "v_err": 30,
+      "z": 0.0177,
+      "n_medidas": 33,
+      "metodo": "Mediana NED-D (distancias indep. del redshift)",
+      "cercano_peculiar": false
+    },
+    {
+      "nombre": "Cumulo de Coma (NGC 4889/4874)",
+      "d_Mpc": 94.0,
+      "d_err": 11.1,
+      "v_kms": 6895,
+      "v_err": 30,
+      "z": 0.023,
+      "n_medidas": 148,
+      "metodo": "Mediana NED-D (distancias indep. del redshift)",
+      "cercano_peculiar": false
+    },
+    {
+      "nombre": "UGC 12133",
+      "d_Mpc": 110.0,
+      "d_err": 6.5,
+      "v_kms": 7423,
+      "v_err": 30,
+      "z": 0.0248,
+      "n_medidas": 33,
+      "metodo": "Mediana NED-D (distancias indep. del redshift)",
+      "cercano_peculiar": false
+    },
+    {
+      "nombre": "UGC 01993",
+      "d_Mpc": 113.0,
+      "d_err": 12.5,
+      "v_kms": 8019,
+      "v_err": 30,
+      "z": 0.0267,
+      "n_medidas": 36,
+      "metodo": "Mediana NED-D (distancias indep. del redshift)",
+      "cercano_peculiar": false
+    },
+    {
+      "nombre": "UGC 07934",
+      "d_Mpc": 149.0,
+      "d_err": 8.0,
+      "v_kms": 9624,
+      "v_err": 30,
+      "z": 0.0321,
+      "n_medidas": 13,
+      "metodo": "Mediana NED-D (distancias indep. del redshift)",
+      "cercano_peculiar": false
+    },
+    {
+      "nombre": "UGC 12071",
+      "d_Mpc": 153.0,
+      "d_err": 30.0,
+      "v_kms": 10372,
+      "v_err": 30,
+      "z": 0.0346,
+      "n_medidas": 19,
+      "metodo": "Mediana NED-D (distancias indep. del redshift)",
+      "cercano_peculiar": false
+    }
+  ]
+}

@@ -18,8 +18,9 @@
   .fases a:not(.activa):hover{background:rgba(255,255,255,.30);}
   .fases .activa{background:#fff; color:var(--naranja);}
   .fases .activa small{color:var(--naranja); opacity:1;}
-  .sub{font-size:.95rem; color:var(--naranja); padding:12px 20px 2px;}
-  .sub b{color:inherit; font-weight:normal;}
+  .sub{background:var(--naranja-suave); color:var(--negro); font-size:.92rem; padding:12px 20px; line-height:1.5;}
+  .sub b{color:var(--negro); font-weight:700;}
+  .sub b.od{color:var(--naranja);}
   main{max-width:920px; margin:0 auto; padding:20px 16px 60px;}
   .card{background:#fff; border:1px solid var(--gris-claro); border-radius:12px; padding:18px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
   h2{font-size:1.15rem; margin:0 0 8px;}
@@ -31,6 +32,7 @@
   .hilo span{background:var(--gris-claro); color:var(--gris); padding:3px 10px; border-radius:20px; white-space:nowrap;}
   .instru{font-size:.9rem; color:var(--gris);}
   button{font:inherit; background:var(--naranja); color:#fff; border:none; border-radius:8px; padding:9px 16px; font-weight:600; cursor:pointer;}
+  button:hover:not(:disabled){filter:brightness(1.06);}
   a{color:var(--naranja); font-weight:600;}
   footer{background:var(--naranja-suave); text-align:center; padding:20px 16px 16px; font-size:.8rem; color:var(--gris);}
   footer p{max-width:920px; margin:0 auto;}
@@ -87,6 +89,12 @@
   .guion{margin:8px 0; padding-left:20px;}
   .guion li{margin:6px 0;}
   .guion b{color:var(--naranja);}
+  /* rúbrica */
+  .rub-wrap{overflow-x:auto; margin:8px 0;}
+  .rub{border-collapse:collapse; font-size:.82rem; min-width:660px; width:100%;}
+  .rub th, .rub td{border:1px solid var(--gris-claro); padding:6px 8px; text-align:left; vertical-align:top;}
+  .rub th{background:var(--naranja); color:#fff; font-weight:600;}
+  .rub td:first-child{background:var(--naranja-suave); font-weight:700; white-space:nowrap;}
 </style>
 </head>
 <body>
@@ -96,12 +104,14 @@
     <a href="engage.html"><b>1 · Engage</b><small>motivar</small></a>
     <a href="explore-espectro.html"><b>2 · Explore</b><small>indagar</small></a>
     <a href="explain.html"><b>3 · Explain</b><small>formalizar</small></a>
-    <a href="elaborate.html"><b>4 · Elaborate</b><small>elaborar</small></a>
+    <a href="elaborate-tamano.html"><b>4 · Elaborate</b><small>elaborar</small></a>
     <a href="evaluate.html" class="activa" aria-current="page"><b>5 · Evaluate</b><small>evaluar</small></a>
   </nav>
 </header>
 
-<div class="sub">Estás en la fase <b>Evaluate</b>: cierras el recorrido demostrando que entiendes el <b>proceso</b> —no solo el resultado—. Repasarás la cadena de la medida, aprenderás a <b>leer</b> las ecuaciones que usaste y prepararás tu explicación final.</div>
+<div class="sub"><b>Evaluate · evaluar.</b><br>
+<b class="od">Objetivo:</b> demostrar la comprensión del proceso, no solo del resultado.<br>
+<b class="od">Desarrollo:</b> responder de nuevo el cuestionario inicial y comparar el avance, reconstruir la cadena de la medida, leer las ecuaciones empleadas y preparar el producto final.</div>
 
 <main>
 
@@ -114,11 +124,11 @@
     </div>
   </div>
 
-  <!-- 1 · POST-TEST FAMILIARIDAD -->
+  <!-- 1 · POSTEST CONCEPTUAL (mismo instrumento que el pre de Engage) -->
   <div class="card">
-    <h2>¿Qué te resulta familiar ahora?</h2>
-    <p class="instru">Al empezar (en <b>Engage</b>) valoraste cuánto te sonaban estos mismos conceptos. Vuelve a hacerlo <b>ahora</b> y compáralo con aquel punto de partida: comprobarás <b>cuánto ha evolucionado tu comprensión</b>.</p>
-    <div id="familiaridad"></div>
+    <h2>El cuestionario, otra vez: ¿cuánto has avanzado?</h2>
+    <p class="instru">Responde <b>las mismas preguntas</b> que al empezar (en <b>Engage</b>). Para cada concepto, di cuánto te suena; si crees que sabrías explicarlo, <b>demuéstralo</b> con su pregunta. Ahora <b>sí</b> verás las soluciones y podrás comparar tu <b>antes y después</b>.</p>
+    <div id="diagnostico"></div>
   </div>
 
   <!-- 2 · RECONSTRUIR LA CADENA -->
@@ -172,6 +182,23 @@
       <li>Cómo llego al <b>tamaño</b>: el radio de Hubble (R ≈ c/H₀) y por qué el observable real es mayor.</li>
       <li>Qué <b>crédito</b> tiene cada paso: qué es un dato, qué una definición y qué una aproximación (lo que acabas de clasificar).</li>
     </ol>
+
+    <details class="paso"><summary>¿Cómo se evalúa tu producto? (rúbrica)</summary>
+      <div class="cont">
+        <div class="rub-wrap">
+        <table class="rub">
+          <thead><tr><th>Criterio</th><th>Inicial</th><th>En proceso</th><th>Adecuado</th><th>Avanzado</th></tr></thead>
+          <tbody>
+            <tr><td>Rigor conceptual</td><td>Contiene ideas erróneas nucleares.</td><td>Conceptos correctos con imprecisiones aisladas.</td><td>Usa bien z, H₀, edad y tamaño, sin ideas erróneas.</td><td>Además matiza (observable vs total; 1/H₀ aproximado).</td></tr>
+            <tr><td>Explicación del proceso</td><td>Da el resultado sin explicar cómo se obtiene.</td><td>Menciona algunos pasos, con saltos.</td><td>Reconstruye la cadena z → v → H₀ → edad → tamaño.</td><td>Explica por qué cada paso conduce al siguiente.</td></tr>
+            <tr><td>Naturaleza de la ciencia</td><td>Presenta edad y tamaño como datos absolutos.</td><td>Reconoce que son medidas, sin hablar de límites.</td><td>Trata edad y tamaño como inferidos y aproximados; cita algún límite.</td><td>Discute incertidumbre y la tensión de Hubble.</td></tr>
+            <tr><td>Uso de la evidencia</td><td>No apoya lo que dice en datos.</td><td>Usa los datos de forma superficial.</td><td>Apoya sus afirmaciones en su diagrama y sus medidas.</td><td>Integra los datos como argumento central y honesto.</td></tr>
+            <tr><td>Claridad y formato</td><td>Confuso o inadecuado al medio.</td><td>Comprensible con esfuerzo.</td><td>Claro, ordenado y adecuado al medio.</td><td>Comunicación excelente y ajustada al público.</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </details>
   </div>
 
   <!-- CIERRE + APERTURA -->
@@ -200,24 +227,8 @@
 </footer>
 
 <script>
-/* ---------- 1 · Autoevaluación de familiaridad (post) ---------- */
-const CONCEPTOS=[
-  "Año-luz","Parsec","Galaxia","Big Bang","Espectro de la luz (o de emisión)",
-  "Corrimiento al rojo (redshift)","Expansión del universo","Ley de Hubble",
-  "Universo observable","Fondo cósmico de microondas"
-];
-const OPC=["No me suena","Me suena, pero no sabría explicarlo","Creo que podría explicarlo"];
-const OPC_BR=["No me<br>suena","Me suena, pero<br>no sabría explicarlo","Creo que<br>podría explicarlo"];
-let fam='<table class="fam"><thead><tr><th></th>';
-OPC_BR.forEach(o=>{ fam+=`<th>${o}</th>`; });
-fam+='</tr></thead><tbody>';
-CONCEPTOS.forEach((c,i)=>{
-  fam+=`<tr><th scope="row" class="term">${c}</th>`;
-  OPC.forEach((o,j)=>{ fam+=`<td><input type="radio" name="post${i}" value="${j}" aria-label="${c}: ${o}"></td>`; });
-  fam+='</tr>';
-});
-fam+='</tbody></table>';
-document.getElementById('familiaridad').innerHTML='<div class="fam-wrap">'+fam+'</div>';
+/* El postest conceptual (mismo instrumento adaptativo que el pre de Engage,
+   ahora con corrección y contraste pre→post) lo genera js/test.js. */
 
 /* ---------- 3 · Lectura de las ecuaciones ---------- */
 const ECS=[
@@ -295,26 +306,14 @@ const VF=[
   e:'Si fuese infinito, eterno y estático, el cielo entero brillaría (paradoja de Olbers). Que la noche sea oscura indica que tiene una historia: una edad finita y estrellas que no brillan para siempre.'},
  {t:'El universo observable es todo el universo que existe.', v:false,
   e:'El observable es solo la parte cuya luz ha tenido tiempo de llegarnos —la que «ya hemos visto encenderse»—; puede haber mucho más allá que aún no vemos.'},
- {t:'Al observar una galaxia muy lejana, la vemos como era en el pasado, no como es ahora.', v:true,
-  e:'La luz tarda en llegar, así que es una «máquina del tiempo»: vemos cada galaxia tal como era cuando emitió esa luz.'},
- {t:'El corrimiento al rojo (z) mide cuánto se ha «estirado» la luz de una galaxia respecto a la que medimos en el laboratorio.', v:true,
-  e:'Exacto: z = Δλ/λ compara la posición de una raya del espectro con la que tiene en reposo.'},
- {t:'La fórmula v = c·z es válida para cualquier galaxia, por muy lejana que esté.', v:false,
-  e:'Solo vale para z pequeño; para galaxias muy lejanas daría v > c y deja de servir. El corrimiento real es el espacio que se estira.'},
- {t:'La constante de Hubble H₀ es la pendiente de la recta que forman las galaxias al representar su velocidad frente a su distancia.', v:true,
-  e:'Así es: al graficar velocidad frente a distancia, los puntos se alinean y la pendiente de esa recta es H₀.'},
  {t:'Que todas las galaxias se alejen de nosotros significa que la Tierra está en el centro del universo.', v:false,
   e:'No: desde cualquier galaxia se vería a todas las demás alejarse igual (como los puntos de un globo que se infla). No hay centro.'},
- {t:'1/H₀ es el tiempo que ha tardado en llegarnos la luz de una galaxia.', v:false,
-  e:'1/H₀ es la edad del universo (distancia ÷ velocidad, d/v), no el tiempo de viaje de la luz de un objeto (d/c). Por eso todas las galaxias dan el mismo 1/H₀.'},
- {t:'1/H₀ da la edad exacta del universo.', v:false,
-  e:'Es una estimación muy buena, exacta solo si el ritmo de expansión hubiese sido constante; y no lo fue del todo.'},
  {t:'El corrimiento al rojo de las galaxias lejanas se debe a que el espacio se estira mientras su luz viaja, no a un Doppler corriente.', v:true,
   e:'Sí: es un efecto cosmológico (el espacio se expande). v = c·z es solo un atajo para z pequeño; las velocidades propias sí serían Doppler.'},
  {t:'La expansión del universo no afecta a los sistemas unidos por la gravedad, como una galaxia o el Sistema Solar.', v:true,
   e:'Correcto: la expansión solo domina a gran escala. Donde la gravedad mantiene las cosas unidas no hay expansión (tampoco en tu cuerpo).'},
- {t:'El universo observable es mayor que la distancia que la luz ha podido recorrer, porque el espacio siguió estirándose mientras ella viajaba.', v:true,
-  e:'Es ~46 000 millones de años-luz, mayor que ~14 000 (c × edad), justo porque el espacio siguió expandiéndose durante el viaje de la luz.'},
+ {t:'1/H₀ es el tiempo que ha tardado en llegarnos la luz de una galaxia.', v:false,
+  e:'1/H₀ es la edad del universo (distancia ÷ velocidad, d/v), no el tiempo de viaje de la luz de un objeto (d/c). Por eso todas las galaxias dan el mismo 1/H₀.'},
  {t:'La materia oscura y la energía oscura son dos nombres para la misma cosa.', v:false,
   e:'Son distintas: la materia oscura «pesa» y frena la expansión; la energía oscura «acelera» la expansión.'},
  {t:'La ciencia ya conoce con total certeza y sin ningún debate el valor de la constante de Hubble.', v:false,
@@ -344,6 +343,13 @@ function respVF(i,btn){
   document.getElementById('vfb'+i).innerHTML =
     (acierto ? '✓ <b>Correcto.</b> ' : 'Es <b>'+labelCorrecto.toLowerCase()+'</b>: ') + VF[i].e;
 }
+</script>
+
+<script src="js/cosmos.js"></script>
+<script src="datos/test_conceptual_v2.js"></script>
+<script src="js/test.js"></script>
+<script>
+  Cosmos.renderDiagnostico('diagnostico','post');
 </script>
 </body>
 </html>

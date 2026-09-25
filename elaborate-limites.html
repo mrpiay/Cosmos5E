@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cosmos 5E · Elaborate</title>
+<style>
+  :root{--naranja:#E65113; --naranja-suave:#fbe9e0; --negro:#1a1a1a; --gris:#6b6b6b; --gris-claro:#e9e9e9; --blanco:#fff; --azulgris:#8a8a8a;}
+  *{box-sizing:border-box}
+  body{margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--negro); background:#f6f6f6; line-height:1.5;}
+  header{background:var(--naranja); color:#fff; padding:14px 20px; position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px 16px;}
+  header .marca{font-size:1.5rem; font-weight:800; letter-spacing:.5px; text-decoration:none;}
+  header .marca .c-cos{color:#fbe9e0;} header .marca .c-e{color:#FFA640;}
+  .fases{display:flex; flex-wrap:wrap; gap:6px;}
+  .fases a, .fases span{display:flex; flex-direction:column; line-height:1.15; background:rgba(255,255,255,.16); padding:5px 11px; border-radius:8px; font-size:.72rem; color:#fff; text-decoration:none;}
+  .fases a b, .fases span b{font-size:.82rem; font-weight:700;}
+  .fases a small, .fases span small{opacity:.9;}
+  .fases a:not(.activa):hover{background:rgba(255,255,255,.30);}
+  .fases .activa{background:#fff; color:var(--naranja);}
+  .fases .activa small{color:var(--naranja); opacity:1;}
+  .fases .deshab{opacity:.55;}
+  .sub{background:var(--naranja-suave); color:var(--negro); font-size:.92rem; padding:12px 20px; line-height:1.5;}
+  .sub b{color:var(--negro); font-weight:700;}
+  .sub b.od{color:var(--naranja);}
+  .subfase{display:flex; flex-wrap:wrap; gap:6px; font-size:.8rem; margin:8px 20px 0;}
+  .subfase a, .subfase span{background:var(--gris-claro); color:var(--gris); padding:3px 11px; border-radius:20px; text-decoration:none;}
+  .subfase .activo{background:var(--naranja); color:#fff; font-weight:700;}
+  main{max-width:920px; margin:0 auto; padding:20px 16px 60px;}
+  .card{background:#fff; border:1px solid var(--gris-claro); border-radius:12px; padding:18px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  h2{font-size:1.15rem; margin:0 0 8px;}
+  h3{font-size:1rem; margin:16px 0 6px; color:var(--naranja);}
+  h4{margin:0 0 6px; color:var(--naranja); font-size:.95rem;}
+  p{margin:8px 0;}
+  .nota{border-left:4px solid var(--naranja); background:var(--naranja-suave); padding:10px 14px; border-radius:0 8px 8px 0; margin:12px 0; font-size:.94rem;}
+  .nota b{color:var(--naranja);}
+  .aviso{background:#fff7f2; border:1px dashed var(--naranja); border-radius:8px; padding:9px 12px; font-size:.88rem; margin-top:10px;}
+  .hilo{display:flex; flex-wrap:wrap; gap:6px; font-size:.8rem; margin:2px 0 8px;}
+  .hilo span{background:var(--gris-claro); color:var(--gris); padding:3px 10px; border-radius:20px; white-space:nowrap;}
+  .hilo span.activo{background:var(--naranja); color:#fff; font-weight:700;}
+  .instru{font-size:.9rem; color:var(--gris);}
+  input[type=range]{width:100%; accent-color:var(--naranja); margin:6px 0;}
+  .rango-lbl{display:flex; justify-content:space-between; font-size:.8rem; color:var(--gris);}
+  .grafico-wrap{overflow-x:auto; background:#faf9f8; border:1px solid var(--gris-claro); border-radius:8px; padding:8px 4px; margin:6px 0;}
+  svg{display:block; max-width:100%; height:auto;}
+  .pasos-wrap{overflow-x:auto; margin:8px 0;}
+  .pasos{border-collapse:collapse; font-size:.92rem;}
+  .pasos th{text-align:left; color:var(--gris); font-weight:600; font-size:.78rem; padding:5px 18px 5px 0; border-bottom:2px solid var(--naranja);}
+  .pasos td{padding:6px 18px 6px 0; border-bottom:1px solid var(--gris-claro); vertical-align:top; white-space:nowrap;}
+  .pasos td:not(:first-child){color:#ED7A3C;}
+  .pasos tbody tr:last-child td{font-weight:700;}
+  .composicion{display:flex; height:46px; border-radius:8px; overflow:hidden; margin:10px 0 6px; font-size:.85rem; color:#fff; font-weight:700;}
+  .composicion>div{display:flex; align-items:center; justify-content:center; white-space:nowrap;}
+  .seg-eo{background:var(--naranja);} .seg-mo{background:#5a5a5a;} .seg-mn{background:#b8b8b8;}
+  .leyenda{display:flex; flex-wrap:wrap; gap:14px; font-size:.85rem; margin:0 0 10px;}
+  .leyenda span{display:flex; align-items:center; gap:6px;}
+  .leyenda i{width:12px; height:12px; border-radius:3px; display:inline-block;}
+  .lista{margin:6px 0; padding-left:22px;} .lista li{margin:3px 0;}
+  .cols{display:flex; flex-wrap:wrap; gap:12px; margin-top:8px;}
+  .cols>div{flex:1 1 250px; border:1px solid var(--gris-claro); border-radius:10px; padding:12px 14px; background:#fff;}
+  footer{background:var(--naranja-suave); text-align:center; padding:20px 16px 16px; font-size:.8rem; color:var(--gris);}
+  footer p{max-width:920px; margin:0 auto;}
+  a{color:var(--naranja); font-weight:600;}
+  .logo-viu{width:190px; max-width:55%; height:auto; margin-top:12px;}
+</style>
+</head>
+<body>
+<header>
+  <a class="marca" href="index.html"><span class="c-cos">Cosmos</span><span class="c-e">5E</span></a>
+  <nav class="fases" aria-label="Las cinco fases del recorrido 5E">
+    <a href="engage.html"><b>1 · Engage</b><small>motivar</small></a>
+    <a href="explore-espectro.html"><b>2 · Explore</b><small>indagar</small></a>
+    <a href="explain.html"><b>3 · Explain</b><small>formalizar</small></a>
+    <a href="elaborate-tamano.html" class="activa" aria-current="page"><b>4 · Elaborate</b><small>elaborar</small></a>
+    <a href="evaluate.html"><b>5 · Evaluate</b><small>evaluar</small></a>
+  </nav>
+</header>
+
+<div class="sub"><b>Elaborate · elaborar (2 de 2).</b><br>
+<b class="od">Objetivo:</b> reconocer los límites de la medida.<br>
+<b class="od">Desarrollo:</b> explorar la tensión de Hubble, conocer el modelo estándar ΛCDM (materia y energía oscura) y ver hasta dónde se podrá llegar a observar (los horizontes).</div>
+<div class="subfase"><a href="elaborate-tamano.html">1 · El tamaño observable</a><span class="activo">2 · Los límites de la medida</span></div>
+
+<main>
+
+  <!-- INTRO -->
+  <div class="card">
+    <h2>Segunda parte: ¿cómo de fiable es lo que has medido?</h2>
+    <div class="hilo" aria-label="La cadena de la medida">
+      <span>espectro</span><span>z</span><span>v = c·z</span><span>H₀</span><span>edad</span><span class="activo">tamaño</span>
+    </div>
+    <p>Ya tienes tu edad y tu tamaño. Pero la ciencia no solo da resultados: también sabe <b>hasta dónde valen</b>. Aquí
+    verás qué mueve de verdad tu número (la <b>tensión de Hubble</b>), cómo encaja todo en el <b>modelo estándar</b> y
+    <b>hasta dónde</b> podremos llegar a ver.</p>
+  </div>
+
+  <!-- TENSIÓN DE HUBBLE -->
+  <div class="card">
+    <h2>La ciencia en acción: la tensión de Hubble</h2>
+    <p><b>1/H₀ es una estimación muy buena de la edad.</b> Lo que de verdad cambia el número no es el detalle de cómo se
+    expandió el universo (eso apenas la altera), sino <b>qué valor de H₀ se use</b> —y ahí sí hay debate—. Distintos
+    métodos de medir H₀ no dan exactamente lo mismo, y por tanto dan <b>edades algo distintas</b>. Mueve el deslizador
+    entre los dos valores típicos:</p>
+
+    <div class="rango-lbl"><span>~67 (fondo cósmico, Planck)</span><span>~73 (supernovas cercanas)</span></div>
+    <input id="tension" type="range" min="66" max="74" step="0.1" value="70">
+    <div class="nota" id="resTension"></div>
+
+    <div class="nota">
+      Ninguno es «trampa»: son <b>métodos buenos</b> que aún no encajan del todo. Así avanza la ciencia —discutiendo y
+      afinando—. El modelo estándar (<b>ΛCDM</b>) es el <b>consenso</b>, con teorías alternativas en la frontera (por
+      ejemplo MOND o la gravedad conforme). Que quede un debate abierto <b>no</b> significa que «no sepamos nada»: la
+      edad está acotada entre ~13 y ~14 mil millones de años.
+    </div>
+  </div>
+
+  <!-- MODELO ESTÁNDAR ΛCDM -->
+  <div class="card">
+    <h2>El modelo estándar: ΛCDM</h2>
+    <p>Todo lo que has medido encaja en un modelo que hoy es el <b>consenso</b>: el <b>ΛCDM</b>. Su nombre resume sus dos
+    ingredientes «oscuros»: <b>Λ</b> (la letra griega lambda) es la <b>energía oscura</b> —la que hace que la expansión
+    se acelere— y <b>CDM</b> es la <b>materia oscura fría</b> —la que pesa y mantiene agrupadas las galaxias—.</p>
+
+    <h3>¿De qué está hecho el universo?</h3>
+    <div class="composicion" role="img" aria-label="Composición del universo: 68 % energía oscura, 27 % materia oscura, 5 % materia ordinaria">
+      <div class="seg-eo" style="width:68%">68 %</div>
+      <div class="seg-mo" style="width:27%">27 %</div>
+      <div class="seg-mn" style="width:5%">5 %</div>
+    </div>
+    <div class="leyenda">
+      <span><i style="background:#E65113"></i>energía oscura (68 %)</span>
+      <span><i style="background:#5a5a5a"></i>materia oscura (27 %)</span>
+      <span><i style="background:#b8b8b8"></i>materia ordinaria (5 %)</span>
+    </div>
+    <p class="instru">Solo un <b>~5 %</b> es materia «normal» (estrellas, planetas, tú). El resto no se ve directamente:
+    se <b>infiere</b> por sus efectos —cómo giran las galaxias (materia oscura) y cómo se acelera la expansión (energía
+    oscura)—.</p>
+
+    <div class="cols">
+      <div>
+        <h4>Materia oscura — «pesa»</h4>
+        <p style="margin:4px 0;font-size:.92rem">Materia que <b>no emite luz</b> pero <b>gravita</b>: su atracción
+        mantiene unidas las galaxias y los cúmulos. <b>Frena</b> la expansión.</p>
+      </div>
+      <div>
+        <h4>Energía oscura — «acelera»</h4>
+        <p style="margin:4px 0;font-size:.92rem">Una forma de energía que actúa como <b>antigravedad</b> a gran escala:
+        hace que la expansión <b>se acelere</b>. No es una «sustancia» que puedas tocar.</p>
+      </div>
+    </div>
+    <div class="aviso"><b>No las confundas:</b> una <b>pesa</b> (materia oscura, frena) y la otra <b>acelera</b> (energía
+    oscura). Son conceptos distintos.</div>
+
+    <h3>Qué dice el modelo</h3>
+    <ul class="lista">
+      <li>El universo tiene <b>≈ 13 800 millones de años</b>.</li>
+      <li>La expansión <b>se está acelerando</b>.</li>
+    </ul>
+
+    <div class="nota">Es un <b>modelo</b>: el que mejor encaja con muchas observaciones <b>independientes</b> —el fondo
+    cósmico de microondas, las supernovas lejanas y la distribución de las galaxias—. No es la última palabra: siguen
+    <b>abiertas</b> tensiones (como la de Hubble) y hay <b>alternativas</b> en la frontera (por ejemplo MOND o la
+    gravedad conforme). Así avanza la ciencia.</div>
+  </div>
+
+  <!-- HORIZONTES: actividad de cierre (visible) -->
+  <div class="card">
+    <h2>¿Hasta dónde podremos ver? Los horizontes</h2>
+    <p>Ya has medido el tamaño del <b>universo observable</b>: unos <b>46 000 millones de años-luz</b>. Cierra el
+    recorrido una pregunta nada intuitiva: ¿crecerá ese tamaño <b>para siempre</b>? ¿Hay un límite al <b>espacio que podemos medir</b>?</p>
+
+    <h3>Dos horizontes que conviene no confundir</h3>
+    <ul class="lista">
+      <li><b>El universo observable</b> (~46 Gly): hasta dónde nos <b>ha llegado ya</b> luz desde el
+      principio. Es lo que acabas de medir, y lo fija la luz <b>más antigua</b> —el fondo de microondas—.</li>
+      <li><b>El horizonte de sucesos</b> (~16 Gly): hasta dónde la luz que una galaxia emite <b>hoy</b>
+      podrá alcanzarnos <b>alguna vez</b>.</li>
+    </ul>
+
+    <div class="nota"><b>No lo confundas con la esfera de Hubble.</b> Aquella (~14 Gly = c/H₀, la del «perder terreno») es donde la luz se aleja <b>un rato</b> y luego <b>acaba llegando</b>. El <b>horizonte de sucesos</b> (~16 Gly), un poco más allá, es de donde la luz de hoy <b>nunca</b> llegará: son <b>dos fronteras distintas</b>, parecidas en tamaño pero muy diferentes en significado.</div>
+
+    <h3>Con la expansión acelerada, hay luz que ya nunca llegará</h3>
+    <p>¿Recuerdas la luz que «<b>perdía terreno</b>» en el diagrama de antes, y acababa recuperándolo? Con la
+    <b>aceleración</b> —la energía oscura—, puede perderlo <b>para siempre</b>: más allá del <b>horizonte de
+    sucesos</b>, la expansión estira el espacio de delante siempre más deprisa de lo que la luz lo recorta, así que la
+    que esas galaxias emiten <b>hoy nunca</b> nos llegará.</p>
+
+    <div class="grafico-wrap">
+      <svg viewBox="0 0 700 172" role="img" aria-label="La luz de una galaxia dentro del horizonte de sucesos nos alcanza; la de una galaxia mas alla nunca llega, porque la expansion del espacio impide que su luz de hoy nos alcance" style="width:100%;height:auto;max-width:660px;display:block;margin:6px auto">
+        <defs><marker id="pf" markerWidth="8" markerHeight="8" refX="5.5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#E65113"/></marker></defs>
+        <line x1="420" y1="26" x2="420" y2="150" stroke="#6b6b6b" stroke-width="1.5" stroke-dasharray="5 4"/>
+        <text x="420" y="18" text-anchor="middle" fill="#6b6b6b" font-size="11" font-weight="700">horizonte de sucesos</text>
+        <line x1="60" y1="62" x2="300" y2="62" stroke="#dcdcdc" stroke-width="1.5"/>
+        <text x="150" y="44" text-anchor="middle" fill="#1a1a1a" font-size="12" font-weight="700">su luz nos alcanza</text>
+        <text x="200" y="58" text-anchor="middle" fill="#E65113" font-size="16">&#10022;</text>
+        <line x1="214" y1="62" x2="152" y2="62" stroke="#E65113" stroke-width="2" marker-end="url(#pf)"/>
+        <circle cx="60" cy="62" r="6" fill="#1a1a1a"/><text x="60" y="80" text-anchor="middle" fill="#1a1a1a" font-size="11" font-weight="700">nosotros</text>
+        <circle cx="300" cy="62" r="6" fill="#E65113"/><text x="300" y="80" text-anchor="middle" fill="#E65113" font-size="11">galaxia</text>
+        <line x1="60" y1="128" x2="585" y2="128" stroke="#dcdcdc" stroke-width="1.5"/>
+        <text x="545" y="110" text-anchor="middle" fill="#1a1a1a" font-size="12" font-weight="700">su luz de hoy nunca llega</text>
+        <text x="470" y="124" text-anchor="middle" fill="#E65113" font-size="16">&#10022;</text>
+        <line x1="484" y1="128" x2="546" y2="128" stroke="#E65113" stroke-width="2" marker-end="url(#pf)"/>
+        <circle cx="60" cy="128" r="6" fill="#1a1a1a"/><text x="60" y="146" text-anchor="middle" fill="#1a1a1a" font-size="11" font-weight="700">nosotros</text>
+        <circle cx="585" cy="128" r="6" fill="#E65113"/><text x="585" y="146" text-anchor="middle" fill="#E65113" font-size="11">galaxia lejanísima</text>
+      </svg>
+    </div>
+    <p class="instru">Dentro del horizonte, la luz de una galaxia acaba llegándonos. Más allá, la expansión <b>impide</b> que su
+    luz de hoy pueda alcanzarnos.</p>
+
+    <h3>Míralo paso a paso, con números</h3>
+    <p>Un modelo de juguete con dos reglas sencillas:</p>
+    <ul class="lista">
+      <li>El <b>fotón avanza 1</b> hacia nosotros en cada paso (su velocidad <i>c</i>, siempre igual).</li>
+      <li>El <b>espacio se estira un 10 %</b> en cada paso (expansión acelerada).</li>
+    </ul>
+    <p>Así, en cada paso la distancia al fotón pasa a ser <b>(distancia − 1) × 1,1</b>. La <b>frontera</b> está en
+    <b>11</b>. Comparemos dos fotones: uno que sale desde <b>8</b> (dentro) y otro desde <b>15</b> (fuera):</p>
+    <div class="pasos-wrap">
+      <table class="pasos">
+        <thead><tr><th>Paso</th><th>Fotón desde 8 (dentro)</th><th>Fotón desde 15 (fuera)</th></tr></thead>
+        <tbody>
+          <tr><td>0</td><td>8,00</td><td>15,00</td></tr>
+          <tr><td>1</td><td>7,70</td><td>15,40</td></tr>
+          <tr><td>2</td><td>7,37</td><td>15,84</td></tr>
+          <tr><td>3</td><td>7,01</td><td>16,32</td></tr>
+          <tr><td>4</td><td>6,61</td><td>16,86</td></tr>
+          <tr><td>…</td><td>baja hasta 0 → llega</td><td>sube sin fin → no llega</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Ambos fotones <b>avanzan igual</b> (restan 1 en cada paso, siempre a <i>c</i>). Pero el que sale desde <b>8</b>
+    <b>gana terreno</b> y baja hasta 0: <b>llega</b>; el que sale desde <b>15</b> <b>pierde terreno</b> y sube sin parar:
+    <b>no llega jamás</b>. La diferencia no está en el fotón, sino en <b>cuánto espacio tiene por delante</b>: por debajo de
+    <b>11</b> se llega; por encima, no. Esa frontera es el <b>horizonte de sucesos</b>.</p>
+
+    <div class="nota"><b>¿Y por qué ~16 Gly, y no otra cifra?</b> Ese valor sale del modelo <b>ΛCDM plano</b> con los datos de <b>Planck</b> (H₀ ≈ 67-68 km/s/Mpc; la energía oscura, ~69 % del total). Es lo más lejos que un fotón emitido <b>hoy</b> podrá llegar en todo el futuro. Y lo que <b>manda</b> en ese número es la <b>energía oscura</b>: sin ella la expansión no se aceleraría y <b>no habría horizonte</b>. Es el mismo papel que, en el ejemplo de arriba, jugaba el ritmo del estirón (el 10 %) al fijar la frontera (<b>11</b>).</div>
+
+    <h3>La consecuencia: un límite a lo que podremos observar</h3>
+    <p>Así que el universo observable <b>no crecerá sin límite</b>: su radio se aproxima a un <b>valor máximo</b>. Las galaxias
+    lejanas se irán <b>corriendo al rojo</b> hasta desvanecerse —seguiremos viendo su <b>imagen antigua</b>, cada vez más
+    apagada, pero nunca su «ahora»—, y ninguna región del universo situada hoy más allá de ese horizonte podrá <b>añadir nueva
+    información</b> a nuestro mapa.</p>
+
+    <div class="nota">Y es, además, el <b>tercer factor</b> por el que la noche es oscura (la <b>paradoja de Olbers</b> de
+    Engage): no toda la luz del universo puede alcanzarnos. Has medido, así, un universo <b>inmenso</b>… y también con
+    <b>fronteras</b>: las de lo que la luz nos ha dejado —y nos dejará— ver.</div>
+  </div>
+
+  <div id="continuar"></div>
+
+</main>
+
+<footer>
+  <p>Web interactiva de la secuencia 5E para la determinación de la edad y el tamaño del universo (TFM, Javier Piay Pombo, VIU - 2026).</p>
+  <img class="logo-viu" src="logo.png" alt="Universidad Internacional de Valencia (VIU)">
+</footer>
+
+<script>
+const esN=(n,d=0)=>n.toLocaleString('es-ES',{maximumFractionDigits:d});
+/* ---------- tensión de Hubble ---------- */
+const tension=document.getElementById('tension'), resTension=document.getElementById('resTension');
+function calcTension(){
+  const H0=parseFloat(tension.value), gyr=977.8/H0;
+  resTension.innerHTML='H₀ = <b>'+esN(H0,1)+'</b> km/s/Mpc &nbsp;→&nbsp; edad ≈ <b>'+esN(gyr,1)+' mil millones de años</b>';
+}
+tension.addEventListener('input',calcTension);
+calcTension();
+</script>
+
+<script src="js/cosmos.js"></script>
+<script>
+  Cosmos.pintarContinuar('continuar','evaluate.html','Ir a Evaluate: comprobar el resultado de la secuencia didáctica');
+</script>
+</body>
+</html>

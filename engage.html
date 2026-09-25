@@ -22,8 +22,9 @@
   .fases .activa{background:#fff; color:var(--naranja);}
   .fases .activa small{color:var(--naranja); opacity:1;}
   .fases .deshab{opacity:.55;}
-  .sub{font-size:.95rem; color:var(--naranja); padding:12px 20px 2px;}
-  .sub b{color:inherit; font-weight:normal;}
+  .sub{background:var(--naranja-suave); color:var(--negro); font-size:.92rem; padding:12px 20px; line-height:1.5;}
+  .sub b{color:var(--negro); font-weight:700;}
+  .sub b.od{color:var(--naranja);}
   main{max-width:920px; margin:0 auto; padding:20px 16px 60px;}
   .card{background:#fff; border:1px solid var(--gris-claro); border-radius:12px; padding:18px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
   h2{font-size:1.15rem; margin:0 0 8px;}
@@ -47,7 +48,7 @@
   footer{background:var(--naranja-suave); text-align:center; padding:20px 16px 16px; font-size:.8rem; color:var(--gris);}
   footer p{max-width:920px; margin:0 auto;}
   a{color:var(--naranja); font-weight:600;}
-  /* misión */
+  /* reto */
   /* autoevaluación: tabla de familiaridad */
   .fam-wrap{overflow-x:auto; margin-top:12px;}
   .fam{width:100%; min-width:460px; table-layout:fixed; border-collapse:collapse; font-size:.92rem;}
@@ -61,7 +62,7 @@
   .terminos{display:grid; grid-template-columns:1fr; gap:12px; margin-top:10px;}
   @media(min-width:620px){ .terminos{grid-template-columns:1fr 1fr;} }
   .termino{border:1px solid var(--gris-claro); border-left:4px solid var(--naranja); border-radius:10px; padding:14px 16px; cursor:pointer; background:#fff; transition:box-shadow .15s;}
-  .termino:hover{box-shadow:0 3px 10px rgba(0,0,0,.06);}
+  .termino:hover{box-shadow:0 3px 10px rgba(0,0,0,.06); background:var(--naranja-suave);}
   .termino h4{margin:0; color:var(--naranja); font-size:1.02rem;}
   .termino .crees{font-size:.9rem; color:var(--gris); margin:6px 0 0;}
   .termino .rev{display:none; margin-top:8px; font-size:.94rem;}
@@ -73,6 +74,7 @@
   .tl-item b{display:block; color:var(--naranja); font-size:.78rem;}
   .tl-item span{font-size:.9rem; font-weight:600;}
   .tl-item.on{border-color:var(--naranja); background:var(--naranja-suave);}
+  .tl-item:not(.on):hover{border-color:var(--naranja); background:var(--naranja-suave);}
   .tl-det{margin-top:12px; border-left:4px solid var(--naranja); background:var(--naranja-suave); border-radius:0 8px 8px 0; padding:12px 14px;}
   .tl-det .tec{display:block; margin-top:8px; font-size:.85rem; color:var(--gris);}
   .tl-det .tec b{color:var(--naranja);}
@@ -96,38 +98,40 @@
     <a href="engage.html" class="activa" aria-current="page"><b>1 · Engage</b><small>motivar</small></a>
     <a href="explore-espectro.html"><b>2 · Explore</b><small>indagar</small></a>
     <a href="explain.html"><b>3 · Explain</b><small>formalizar</small></a>
-    <a href="elaborate.html"><b>4 · Elaborate</b><small>elaborar</small></a>
+    <a href="elaborate-tamano.html"><b>4 · Elaborate</b><small>elaborar</small></a>
     <a href="evaluate.html"><b>5 · Evaluate</b><small>evaluar</small></a>
   </nav>
 </header>
 
-<div class="sub">Estás en la fase <b>Engage</b>: aquí no medimos todavía. Primero, <b>engancharte</b> a una de las preguntas más grandes que existen —y descubrir qué queremos hacer, por qué y cómo hemos llegado a poder hacerlo—.</div>
+<div class="sub"><b>Engage · motivar.</b><br>
+<b class="od">Objetivo:</b> despertar la pregunta motriz y hacer aflorar las ideas previas, sin dar explicaciones todavía.<br>
+<b class="od">Desarrollo:</b> plantear el reto, responder un cuestionario inicial de ideas previas, recorrer la historia de la cosmología y afrontar la paradoja de la noche oscura.</div>
 
 <main>
 
-  <!-- 1 · LA MISIÓN -->
+  <!-- 1 · EL RETO -->
   <div class="card">
     <p class="pregunta-motriz">¿Qué edad tiene el universo? ¿Cómo de grande es? ¿Y cómo puede saberlo la ciencia sin salir de aquí?</p>
     <p>Durante <b>milenios</b> solo pudimos <b>imaginar</b> respuestas. Hoy, por primera vez, podemos <b>medir</b> la edad
     y el tamaño del universo con <b>observaciones reales</b>. Y no hace falta un telescopio gigante: los astrónomos
     <b>comparten sus datos con el mundo</b>, y tú vas a usar los <b>mismos datos que cambiaron la historia</b>.</p>
-    <p>Tu <b>misión</b> es sencilla de plantear, pero asombrosa en el fondo: <b>medir tú mismo</b> la edad y el tamaño del
+    <p>El <b>reto</b> es sencillo de plantear, pero asombroso en el fondo: <b>medir tú mismo</b> la edad y el tamaño del
     universo a partir de <b>datos galácticos reales</b>. El objetivo no es memorizar un dato, sino comprender una de las
     <b>mayores conquistas del pensamiento humano</b>: cómo la ciencia es capaz de averiguar de dónde venimos y qué lugar
     ocupamos en el cosmos. Una aventura para descubrir que <b>tú también puedes descifrar las leyes del universo</b>.</p>
   </div>
 
-  <!-- 2 · ¿QUÉ TE RESULTA FAMILIAR? (autoevaluación) -->
+  <!-- 2 · DIAGNÓSTICO ADAPTATIVO (familiaridad + reto) -->
   <div class="card">
-    <h2>Antes de empezar: ¿qué te resulta familiar?</h2>
-    <p class="instru">Sería bueno que indicases cuánto te suenan estos <b>términos y conceptos</b>, para así identificar tu <b>punto de partida</b>. Al terminar la secuencia didáctica podrás volver a esta lista y comprobar <b>cuánto ha evolucionado tu comprensión</b>.</p>
-    <div id="familiaridad"></div>
+    <h2>Antes de empezar: ¿qué sabes ya?</h2>
+    <p class="instru">Para cada concepto, dinos cuánto te suena. <b>Si crees que sabrías explicarlo</b>, te propondremos una pregunta para que lo <b>demuestres</b>. No te diremos aún si aciertas —eso lo irás descubriendo a lo largo de la secuencia—. Es una <b>foto de tu punto de partida</b>, no un examen; al final, en <b>Evaluate</b>, volverás aquí y verás cuánto has avanzado.</p>
+    <div id="diagnostico"></div>
   </div>
 
   <!-- 3 · DEFINICIÓN DE TÉRMINOS -->
   <div class="card">
     <h2>Empecemos por lo fundamental: ¿qué significan «edad» y «tamaño» del universo?</h2>
-    <p>Son los dos <b>conceptos clave</b> de tu misión. Pulsa cada tarjeta para <b>ayudarte a comprenderlos</b>.</p>
+    <p>Son los dos <b>conceptos clave</b> de este reto. Pulsa cada tarjeta para <b>ayudarte a comprenderlos</b>.</p>
     <div class="terminos" id="terminos"></div>
     <div class="nota">
       Fíjate en la idea que lo cambia todo: <b>no vamos a viajar a ninguna galaxia</b>. Toda la información nos llega en
@@ -204,6 +208,8 @@
     el Sol y, mucho más tarde, nosotros.</p>
   </div>
 
+  <div id="continuar"></div>
+
 </main>
 
 <footer>
@@ -212,31 +218,8 @@
 </footer>
 
 <script>
-/* ---------- 2 · Autoevaluación: ¿qué te resulta familiar? (tabla) ---------- */
-const CONCEPTOS=[
-  "Año-luz",
-  "Parsec",
-  "Galaxia",
-  "Big Bang",
-  "Espectro de la luz (o de emisión)",
-  "Corrimiento al rojo (redshift)",
-  "Expansión del universo",
-  "Ley de Hubble",
-  "Universo observable",
-  "Fondo cósmico de microondas"
-];
-const OPC=["No me suena","Me suena, pero no sabría explicarlo","Creo que podría explicarlo"];
-const OPC_BR=["No me<br>suena","Me suena, pero<br>no sabría explicarlo","Creo que<br>podría explicarlo"];
-let fam='<table class="fam"><thead><tr><th></th>';
-OPC_BR.forEach(o=>{ fam+=`<th>${o}</th>`; });
-fam+='</tr></thead><tbody>';
-CONCEPTOS.forEach((c,i)=>{
-  fam+=`<tr><th scope="row" class="term">${c}</th>`;
-  OPC.forEach((o,j)=>{ fam+=`<td><input type="radio" name="fam${i}" value="${j}" aria-label="${c}: ${o}"></td>`; });
-  fam+='</tr>';
-});
-fam+='</tbody></table>';
-document.getElementById('familiaridad').innerHTML='<div class="fam-wrap">'+fam+'</div>';
+/* El diagnóstico adaptativo (familiaridad + reto) lo genera js/test.js
+   (Cosmos.renderDiagnostico), a partir de datos/test_conceptual_v2.js. */
 
 /* ---------- 3 · Términos ---------- */
 const TERMINOS=[
@@ -320,6 +303,15 @@ function olbUpdate(){
 olbSlider.addEventListener('input',olbUpdate);
 window.addEventListener('resize',()=>{ olbSetup(); olbUpdate(); });
 olbUpdate();
+</script>
+
+<!-- scripts compartidos v2 -->
+<script src="js/cosmos.js"></script>
+<script src="datos/test_conceptual_v2.js"></script>
+<script src="js/test.js"></script>
+<script>
+  Cosmos.renderDiagnostico('diagnostico','pre');
+  Cosmos.pintarContinuar('continuar','explore-espectro.html','Empezar a medir en Explore');
 </script>
 </body>
 </html>

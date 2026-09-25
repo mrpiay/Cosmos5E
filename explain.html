@@ -19,8 +19,9 @@
   .fases .activa{background:#fff; color:var(--naranja);}
   .fases .activa small{color:var(--naranja); opacity:1;}
   .fases .deshab{opacity:.55;}
-  .sub{font-size:.95rem; color:var(--naranja); padding:12px 20px 2px;}
-  .sub b{color:inherit; font-weight:normal;}
+  .sub{background:var(--naranja-suave); color:var(--negro); font-size:.92rem; padding:12px 20px; line-height:1.5;}
+  .sub b{color:var(--negro); font-weight:700;}
+  .sub b.od{color:var(--naranja);}
   main{max-width:920px; margin:0 auto; padding:20px 16px 60px;}
   .card{background:#fff; border:1px solid var(--gris-claro); border-radius:12px; padding:18px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
   h2{font-size:1.15rem; margin:0 0 8px;}
@@ -57,6 +58,7 @@
   .resultado b{font-weight:800;}
   button{font:inherit; background:var(--naranja); color:#fff; border:none; border-radius:8px; padding:9px 16px; font-weight:600; cursor:pointer;}
   button:disabled{background:var(--azulgris); cursor:default;}
+  button:hover:not(:disabled){filter:brightness(1.06);}
   .msg{font-size:.88rem; color:#137a2b; margin-top:8px; min-height:1.1em;}
   /* gráficos */
   .grafico-wrap{overflow-x:auto;}
@@ -80,6 +82,8 @@
   footer{background:var(--naranja-suave); text-align:center; padding:20px 16px 16px; font-size:.8rem; color:var(--gris);}
   footer p{max-width:920px; margin:0 auto;}
   a{color:var(--naranja); font-weight:600;}
+  .cj{display:block; margin:12px 0; font-weight:600;}
+  .cj textarea{display:block; width:100%; margin-top:4px; font:inherit; font-weight:400; padding:8px 10px; border:1px solid var(--gris-claro); border-radius:8px; resize:vertical;}
   .logo-viu{width:190px; max-width:55%; height:auto; margin-top:12px;}
   .marca-o{font-style:normal; font-size:.7em; vertical-align:-.02em; margin:0 .03em;}
 </style>
@@ -91,14 +95,39 @@
     <a href="engage.html"><b>1 · Engage</b><small>motivar</small></a>
     <a href="explore-espectro.html"><b>2 · Explore</b><small>indagar</small></a>
     <a href="explain.html" class="activa" aria-current="page"><b>3 · Explain</b><small>formalizar</small></a>
-    <a href="elaborate.html"><b>4 · Elaborate</b><small>elaborar</small></a>
+    <a href="elaborate-tamano.html"><b>4 · Elaborate</b><small>elaborar</small></a>
     <a href="evaluate.html"><b>5 · Evaluate</b><small>evaluar</small></a>
   </nav>
 </header>
 
-<div class="sub">Estás en la fase <b>Explain</b>: ya mediste <b>H₀</b> en el diagrama; ahora lo convertirás en la <b>edad del universo</b> viendo cada paso, entenderás <b>por qué</b> invertir H₀ da una edad y aclararás qué es el <b>corrimiento al rojo</b> de la luz.</div>
+<div class="sub"><b>Explain · formalizar.</b><br>
+<b class="od">Objetivo:</b> explicar lo hallado y convertir H₀ en la edad del universo.<br>
+<b class="od">Desarrollo:</b> razonar primero el hallazgo con palabras propias; después, formalizar la ley de Hubble, calcular la edad (t ≈ 1/H₀) con las unidades a la vista y situarla en el calendario cósmico.</div>
 
 <main>
+
+  <!-- TU EXPLICACIÓN (primero el alumno, antes de formalizar) -->
+  <div class="card">
+    <h2>Primero, tu explicación</h2>
+    <p>En Explore encontraste un patrón y mediste su pendiente (tu <b>H₀</b>). <b>Antes de darte ninguna explicación</b>,
+    pon en palabras lo que descubriste: aquí lo importante es <b>razonar</b>, no acertar.</p>
+    <div id="conjeturaPrev"></div>
+    <p><b>Coméntalo</b> con tu grupo y en la puesta en común de clase:</p>
+    <ul style="margin:6px 0; padding-left:22px">
+      <li>¿Qué representa la <b>pendiente</b> de la recta?</li>
+      <li>¿Por qué crees que las galaxias <b>más lejanas</b> se alejan más deprisa?</li>
+      <li>Si <b>rebobinaras</b> el tiempo, ¿qué les pasaría a todas las galaxias?</li>
+      <li>¿Significa esto que <b>nosotros</b> estamos en el centro del universo?</li>
+    </ul>
+    <label class="cj">¿Cómo lo explicarías ahora, con tus palabras?
+      <textarea id="miExplica" rows="3"></textarea></label>
+    <button id="btnGuardarExp">Guardar mi explicación</button>
+    <span id="expMsg" style="margin-left:10px; font-size:.9rem; color:var(--gris)"></span>
+    <div id="verWrap" hidden style="margin-top:12px"><button id="btnVer">Mostrar la explicación científica →</button></div>
+    <p class="instru" id="verMsg" style="margin-top:8px"></p>
+  </div>
+
+  <div id="formalizacion" hidden>
 
   <!-- QUÉ ES -->
   <div class="card">
@@ -106,8 +135,11 @@
     <div class="hilo" aria-label="La cadena de la medida">
       <span>espectro</span><span>z</span><span>v = c·z</span><span>H₀</span><span class="activo">edad</span><span>tamaño</span>
     </div>
-    <p>En Explore obtuviste <b>H₀</b>, la <b>constante de Hubble</b>, que podemos <b>interpretar</b> como el ritmo al que se expande el universo. Aquí usarás
-    la <b>calculadora didáctica</b> para <b>estimar</b> la edad a partir de ese H₀.</p>
+    <p>El patrón que encontraste —cuanto más lejos, más deprisa se aleja— tiene nombre: la <b>ley de Hubble-Lemaître</b>,
+    <b>v = H₀·d</b>. Su pendiente, <b>H₀</b>, es la <b>constante de Hubble</b>, que se <b>interpreta</b> como el <b>ritmo al
+    que se expande el universo</b>. Y como la recta <b>pasa por el origen</b> (a distancia cero no hay recesión), al
+    prolongarla hacia atrás <b>todas</b> las galaxias parten de un mismo punto: eso es lo que dará sentido a la <b>edad</b>.
+    Aquí usarás la <b>calculadora didáctica</b> para <b>estimar</b> la edad a partir de tu H₀.</p>
     <p>La idea clave: si la expansión hubiera sido siempre igual, el tiempo transcurrido desde que todo estaba junto
     (el Big Bang) sería <b>t ≈ 1/H₀</b>, el <b>tiempo de Hubble</b>. Invertir el ritmo de expansión da un tiempo: la
     <b>edad</b>.</p>
@@ -223,6 +255,9 @@
       así <b>acabas de estimar</b> su edad.
     </div>
   </div>
+
+  <div id="continuar"></div>
+  </div><!-- /formalizacion -->
 
 </main>
 
@@ -348,6 +383,45 @@ function pintaCal(){
   $h.textContent=textoHace(s);
 }
 $rc.addEventListener('input',pintaCal); pintaCal();
+
+/* ---------- Tu explicación: recuperar conjetura de Explore + revelar formalización ---------- */
+(function(){
+  var box=document.getElementById('conjeturaPrev');
+  var etq={cj1:'El patrón que viste',cj2:'Qué crees que significa la pendiente',cj3:'Por qué algunas se salen',cj4:'Qué pasaría al rebobinar'};
+  var g=null; try{ g=JSON.parse(localStorage.getItem('cosmos5e_conjetura')||'null'); }catch(e){}
+  if(g && (g.cj1||g.cj2||g.cj3||g.cj4)){
+    var h='<div class="nota"><b>Tus notas de Explore:</b><ul style="margin:8px 0 0;padding-left:20px">';
+    ['cj1','cj2','cj3','cj4'].forEach(function(k){ if(g[k]) h+='<li><b>'+etq[k]+':</b> '+String(g[k]).replace(/</g,'&lt;')+'</li>'; });
+    h+='</ul></div>';
+    box.innerHTML=h;
+  } else {
+    box.innerHTML='<p class="instru">No encontramos tus notas de Explore en este dispositivo. No pasa nada: recuerda lo que pensaste y coméntalo.</p>';
+  }
+  // Explicación del alumno: hay que guardarla (no vacía) para poder revelar la explicación científica.
+  var mi=document.getElementById('miExplica');
+  try{ var prev=localStorage.getItem('cosmos5e_explicacion'); if(prev && mi) mi.value=prev; }catch(e){}
+  var expMsg=document.getElementById('expMsg'), verWrap=document.getElementById('verWrap'),
+      btnG=document.getElementById('btnGuardarExp');
+  btnG.addEventListener('click',function(){
+    if(!mi.value.trim()){ expMsg.style.color='#b23b3b'; expMsg.textContent='Escribe tu explicación para poder continuar.'; return; }
+    try{ localStorage.setItem('cosmos5e_explicacion', mi.value); }catch(e){}
+    expMsg.style.color=''; expMsg.textContent='Guardado ✓';
+    verWrap.hidden=false;
+  });
+  if(mi && mi.value.trim()) verWrap.hidden=false;   // si ya estaba guardada, permite revelar
+
+  var btn=document.getElementById('btnVer'), form=document.getElementById('formalizacion'), msg=document.getElementById('verMsg');
+  btn.addEventListener('click',function(){
+    form.hidden=false; btn.disabled=true;
+    msg.textContent='Ahora compara tu explicación con la científica.';
+    form.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+})();
+</script>
+
+<script src="js/cosmos.js"></script>
+<script>
+  Cosmos.pintarContinuar('continuar','elaborate-tamano.html','Ir a Elaborate: el tamaño del universo');
 </script>
 </body>
 </html>

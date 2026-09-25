@@ -18,8 +18,9 @@
   header{background:var(--naranja); color:#fff; padding:14px 20px; position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px 16px;}
   header .marca{font-size:1.5rem; font-weight:800; letter-spacing:.5px; text-decoration:none;}
   header .marca .c-cos{color:#fbe9e0;} header .marca .c-e{color:#FFA640;}
-  .sub{font-size:.95rem; color:var(--naranja); padding:12px 20px 2px;}
-  .sub b{color:inherit; font-weight:normal;}
+  .sub{background:var(--naranja-suave); color:var(--negro); font-size:.92rem; padding:12px 20px; line-height:1.5;}
+  .sub b{color:var(--negro); font-weight:700;}
+  .sub b.od{color:var(--naranja);}
   .fases{display:flex; flex-wrap:wrap; gap:6px;}
   .fases a, .fases span{display:flex; flex-direction:column; line-height:1.15; background:rgba(255,255,255,.16); padding:5px 11px; border-radius:8px; font-size:.72rem; color:#fff; text-decoration:none;}
   .fases a b, .fases span b{font-size:.82rem; font-weight:700;}
@@ -60,7 +61,8 @@
   .botones{display:flex; flex-wrap:wrap; gap:10px; margin-top:6px;}
   button{font:inherit; cursor:pointer; border-radius:8px; padding:9px 14px; border:2px solid var(--naranja); background:var(--naranja); color:#fff; font-weight:600;}
   button.sec{background:#fff; color:var(--naranja);}
-  button:hover{filter:brightness(1.05);}
+  button:hover:not(:disabled){filter:brightness(1.06);}
+  button.sec:hover{background:var(--naranja-suave);}
   label.check{display:inline-flex; align-items:center; gap:7px; font-size:.9rem; cursor:pointer;}
   /* Resultado */
   .resultado{display:flex; flex-wrap:wrap; gap:14px; margin-top:6px;}
@@ -80,6 +82,8 @@
   .tabla-gal .num{text-align:right; font-variant-numeric:tabular-nums;}
   .tag{font-size:.68rem; background:var(--gris-claro); color:var(--gris); padding:1px 7px; border-radius:10px; margin-left:7px;}
   a{color:var(--naranja); font-weight:600;}
+  .cj{display:block; margin:12px 0; font-weight:600;}
+  .cj textarea{display:block; width:100%; margin-top:4px; font:inherit; font-weight:400; padding:8px 10px; border:1px solid var(--gris-claro); border-radius:8px; resize:vertical;}
   .logo-viu{width:190px; max-width:55%; height:auto; margin-top:12px;}
   .marca-o{font-style:normal; font-size:.7em; vertical-align:-.02em; margin:0 .03em;}
 </style>
@@ -91,12 +95,14 @@
     <a href="engage.html"><b>1 · Engage</b><small>motivar</small></a>
     <a href="explore-espectro.html" class="activa" aria-current="page"><b>2 · Explore</b><small>indagar</small></a>
     <a href="explain.html"><b>3 · Explain</b><small>formalizar</small></a>
-    <a href="elaborate.html"><b>4 · Elaborate</b><small>elaborar</small></a>
+    <a href="elaborate-tamano.html"><b>4 · Elaborate</b><small>elaborar</small></a>
     <a href="evaluate.html"><b>5 · Evaluate</b><small>evaluar</small></a>
   </nav>
 </header>
 
-<div class="sub">Estás en la fase <b>Explore</b>: vas a <b>medir el ritmo de expansión del universo</b> (la constante de Hubble, H₀) construyendo el diagrama de Hubble.</div>
+<div class="sub"><b>Explore · indagar (2 de 2).</b><br>
+<b class="od">Objetivo:</b> descubrir y medir el patrón entre velocidad y distancia.<br>
+<b class="od">Desarrollo:</b> construir el diagrama de Hubble con galaxias reales, ajustar la recta y obtener el valor de H₀ (sin interpretar todavía qué significa).</div>
 
 <main>
 
@@ -107,31 +113,23 @@
       <span>espectro</span><span>z</span><span>v = c·z</span><span class="activo">H₀</span><span>edad</span><span>tamaño</span>
     </div>
     <p>Estás en la <b>actividad central</b> de la secuencia. Cada punto del gráfico es una <b>galaxia real</b>: sabemos
-    a qué <b>distancia</b> está (eje horizontal) y a qué <b>velocidad</b> se aleja de nosotros (eje vertical). Tu tarea es
-    descubrir que existe un <b>patrón</b> —cuanto más lejos, más deprisa se aleja— y <b>medirlo</b>. Ese patrón es la
-    <b>ley de Hubble-Lemaître</b>, y su pendiente es la <b>constante de Hubble, H₀</b>. Aquí la <b>mides</b>; qué significa
-    —cómo se <b>interpreta</b>, con el modelo de un universo <b>en expansión</b> y sin centro— lo verás en <b>Explain</b>.</p>
+    a qué <b>distancia</b> está (eje horizontal) y a qué <b>velocidad</b> se aleja de nosotros (eje vertical). Tu tarea
+    es <b>indagar</b>: ¿hay algún <b>patrón</b> entre la distancia y la velocidad? Si lo hay, <b>mídelo</b> ajustando una
+    recta; su <b>pendiente</b> será tu medida (la llamaremos <b>H₀</b>). Qué <i>significa</i> ese número lo
+    <b>descubrirás tú</b> en la siguiente fase, <b>Explain</b>: aquí solo lo medimos.</p>
 
     <div class="nota">
       <b>¿Por qué no es trampa?</b> Las distancias no se han obtenido a partir de la velocidad, sino con métodos
-      <b>independientes</b> (la «escalera de distancias»). Por eso la ley de Hubble <b>emerge de verdad</b> de los datos y
-      no estamos dando por supuesto lo que queremos demostrar.
+      <b>independientes</b> (la «escalera de distancias»). Por eso, si aparece un patrón, <b>emerge de verdad</b> de los
+      datos y no estamos dando por supuesto lo que queremos averiguar.
     </div>
 
     <h3>¿Qué vas a hacer?</h3>
     <ol class="pasos">
-      <li><b>Observa</b> la nube de puntos: ¿ves que suben hacia la derecha?</li>
+      <li><b>Observa</b> la nube de puntos: ¿ves alguna tendencia?</li>
       <li><b>Ajusta la recta</b> (deslizador «Tu H₀») para que pase lo mejor posible por los puntos.</li>
-      <li><b>Lee tu H₀</b>: es la pendiente de esa recta. Con él <b>estimarás</b> luego la edad y el tamaño del universo.</li>
+      <li><b>Lee tu H₀</b>: es la pendiente de esa recta. Anótalo: lo usarás en Explain.</li>
     </ol>
-
-    <div class="nota">
-      <b>Fíjate en un detalle clave: la recta pasa por el origen</b> (a distancia 0, velocidad 0). No es casualidad —a
-      distancia cero no hay recesión: no nos alejamos de nosotros mismos—, y significa que <b>v ∝ d</b> vale hasta el
-      mismo origen. Y eso es lo que dará sentido a la <b>edad</b>: si extrapolas la recta <b>hacia atrás en el tiempo</b>,
-      <b>todas</b> las galaxias llegan a distancia cero <b>a la vez</b> (hace 1/H₀) → un único principio. Una recta con
-      «escalón» (que no pasara por el origen) no daría una edad limpia.
-    </div>
   </div>
 
   <!-- GRÁFICO + CONTROLES -->
@@ -170,10 +168,10 @@
   <!-- LISTA DE GALAXIAS -->
   <div class="card">
     <h2>Las 15 galaxias que estás usando</h2>
-    <p>Estos son los <b>datos reales</b> del gráfico. La columna <b>H₀ individual</b> (velocidad ÷ distancia) muestra qué H₀
-    daría <b>cada galaxia por separado</b>: fíjate en que las <b>cercanas</b> (filas grises) dan valores muy dispares
-    —por sus velocidades peculiares—, mientras que las <b>lejanas</b> se agrupan en torno a ~70. Por eso el buen valor de
-    H₀ sale de ajustar con las lejanas, no galaxia a galaxia.</p>
+    <p>Estos son los <b>datos reales</b> del gráfico. La columna <b>H₀ individual</b> (velocidad ÷ distancia) muestra qué
+    valor daría <b>cada galaxia por separado</b>: fíjate en que las <b>cercanas</b> (filas grises) dan valores muy dispares
+    —por sus velocidades peculiares—, mientras que las <b>lejanas</b> se agrupan en torno a un <b>valor común</b>. Por eso
+    conviene ajustar la recta mirando sobre todo las lejanas, no galaxia a galaxia.</p>
     <div class="grafico-wrap">
       <table class="tabla-gal">
         <thead><tr>
@@ -185,7 +183,7 @@
     <p class="fuente">Los datos proceden de <b>NED-D</b>, una base pública de la NASA/IPAC con miles de medidas de
     distancia a galaxias. Para cada galaxia, la <b>distancia</b> es la <b>mediana</b> de sus medidas
     <b>independientes del corrimiento al rojo</b> —obtenidas con Cefeidas, supernovas de tipo Ia, TRGB o Tully-Fisher—;
-    que sean independientes es justo lo que evita el círculo vicioso y hace que la ley de Hubble se descubra de verdad.
+    que sean independientes es justo lo que evita el círculo vicioso y hace que la relación entre velocidad y distancia se descubra de verdad.
     La <b>velocidad</b> se calcula a partir del corrimiento al rojo con <b>v = c·z</b>. La <b>barra de error</b> de la
     distancia mide cuánto discrepan entre sí esas medidas (la mitad de su rango central, con un mínimo del 5 %); la del
     corrimiento al rojo es despreciable. Fuente: Steer et al. (2017). Puedes consultar los datos originales en la
@@ -195,54 +193,42 @@
 
   <!-- RESULTADO -->
   <div class="card">
-    <h2>¿Qué significa tu resultado?</h2>
-    <p>La constante de Hubble <b>H₀</b> dice <b>cuánta velocidad de recesión gana una galaxia por cada megapársec de
-    distancia</b>. Tiene unidades de velocidad por distancia, así que al <b>invertirlo</b> se obtiene un <b>tiempo</b> (el
-    «tiempo de Hubble») y, con la velocidad de la luz, una <b>distancia</b>. Dentro del <b>modelo</b> de un universo en
-    expansión, ese tiempo se interpreta como una <b>estimación de la edad</b> y esa distancia como el <b>tamaño</b> de lo
-    observable. Con tu valor actual:</p>
+    <h2>Tu medida</h2>
+    <p>Has ajustado una recta a los datos. Su <b>pendiente</b> es tu medida —la llamaremos <b>H₀</b>—:</p>
 
     <div class="resultado">
       <div class="res-box acento">
         <div class="val"><span id="rH0">70</span></div>
-        <div class="lbl">tu H₀ (km/s/Mpc)<br>ritmo de expansión</div>
-      </div>
-      <div class="res-box">
-        <div class="val"><span id="rEdad">14,0</span></div>
-        <div class="lbl">1/H₀ = tiempo de Hubble<br>≈ edad (mil millones de años)</div>
-      </div>
-      <div class="res-box">
-        <div class="val"><span id="rTam">14,0</span></div>
-        <div class="lbl">c/H₀ = radio de Hubble<br>≈ tamaño (mil millones de años-luz)</div>
+        <div class="lbl">la pendiente de tu recta (km/s/Mpc)<br>tu medida (la llamaremos H₀)</div>
       </div>
     </div>
 
-    <div class="nota">
-      <b>Ojo: 1/H₀ es la edad del universo, no la de una galaxia.</b> No es el tiempo que tardó en llegarnos la luz de
-      una galaxia —eso sería su distancia ÷ c, pequeño para las cercanas—. Es distancia ÷ <b>velocidad de recesión</b>
-      (d/v): hace 1/H₀, esa galaxia estaba <b>aquí, a distancia cero</b>. Y como <b>todas</b> las galaxias dan el
-      <b>mismo</b> 1/H₀ (porque v ∝ d), <b>todas estaban juntas hace 1/H₀</b> → el Big Bang. Por eso 1/H₀ es la edad del
-      <b>universo entero</b>, no el tiempo de viaje de la luz de un objeto (que solo se acerca a la edad para lo más
-      lejano, el fondo de microondas).
-    </div>
-
-    <details>
-      <summary>¿Por qué la edad y el tamaño dan el mismo número?</summary>
-      <p>Porque en <b>t</b> años la luz avanza <b>t</b> años-luz: por eso <b>c/H₀</b> (en años-luz) coincide en número
-      con <b>1/H₀</b> (en años). Pero ese radio de Hubble es solo un <b>«suelo»</b>: el tamaño observable real es
-      <b>bastante mayor</b> (~46 000 millones de años-luz, unas 3 veces) porque el espacio se estiró mientras la luz
-      viajaba. Lo verás en <b>Elaborate</b>.</p>
-    </details>
-
-    <details>
-      <summary>¿Qué valor «debería» salir?</summary>
-      <p>Ajustando con las galaxias lejanas (velocidad &gt; 3000 km/s, donde la expansión domina), sale
-      <b>H₀ ≈ 69-70 km/s/Mpc</b> → una edad y un tamaño de <b>unos 14 000 millones</b> (de años y de años-luz). Es el valor
-      de consenso actual. No busques el número «exacto»: lo importante es <b>medirlo tú</b> y entender de dónde sale.</p>
-    </details>
-
-    <p style="font-size:.9rem; color:var(--gris)">Apunta tu <b>H₀</b>: lo introducirás en la calculadora de la fase <b>Explain</b>.</p>
+    <p style="font-size:.9rem; color:var(--gris)"><b>Apunta tu H₀</b>: lo necesitarás en <b>Explain</b>. Todavía no sabemos
+    qué <i>significa</i> este número ni qué nos dice sobre el universo: eso es justo lo que vas a descubrir a continuación.</p>
   </div>
+
+  <!-- CONJETURA -->
+  <div class="card">
+    <h2>Antes de continuar: ¿qué has descubierto?</h2>
+    <p>Anota lo que <b>piensas ahora</b>. No hay respuestas correctas todavía: son tus <b>ideas de partida</b>.</p>
+    <div class="nota">
+      <b>¿Por qué escribir esto?</b> Poner tus ideas por escrito te <b>obliga a pensarlas</b> y deja constancia de lo que
+      crees <b>ahora</b>. En <b>Explain</b> las retomarás y las compararás con la explicación científica, y en
+      <b>Evaluate</b> verás <b>cuánto has avanzado</b>. Por eso, para continuar, <b>responde las cuatro preguntas</b>.
+    </div>
+    <label class="cj">¿Qué patrón ves en el diagrama?
+      <textarea id="cj1" rows="2"></textarea></label>
+    <label class="cj">¿Qué crees que significa la pendiente de la recta?
+      <textarea id="cj2" rows="2"></textarea></label>
+    <label class="cj">¿Por qué crees que algunas galaxias se salen de la recta?
+      <textarea id="cj3" rows="2"></textarea></label>
+    <label class="cj">Si pudieras «rebobinar» el tiempo, ¿qué crees que les pasaría a las galaxias?
+      <textarea id="cj4" rows="2"></textarea></label>
+    <button class="sec" id="cjSave">Guardar mis ideas</button>
+    <span id="cjMsg" style="margin-left:10px; font-size:.9rem; color:var(--gris)"></span>
+  </div>
+
+  <div id="continuar"></div>
 
 </main>
 
@@ -332,10 +318,6 @@ const fmt=x=>x.toLocaleString('es-ES',{minimumFractionDigits:1,maximumFractionDi
 function actualizar(h0){
   document.getElementById('h0val').textContent=h0.toLocaleString('es-ES',{maximumFractionDigits:1});
   document.getElementById('rH0').textContent=h0.toLocaleString('es-ES',{maximumFractionDigits:1});
-  const edad=977.8/h0;              // 1/H0 en miles de millones de años (Gyr)
-  const tam=edad;                   // c/H0 en Gly coincide numéricamente con 1/H0 en Gyr
-  document.getElementById('rEdad').textContent=fmt(edad).replace('.',',');
-  document.getElementById('rTam').textContent=fmt(tam).replace('.',',');
   dibujarRecta(h0);
 }
 
@@ -363,6 +345,28 @@ document.getElementById('btnFit').addEventListener('click',()=>{
   slider.value=h0; actualizar(h0);
 });
 
+</script>
+
+<script src="js/cosmos.js"></script>
+<script>
+/* Conjetura del alumno: obligatoria para poder continuar (valor metacognitivo).
+   El botón "Continuar" solo aparece tras responder las cuatro preguntas. */
+(function(){
+  var campos=['cj1','cj2','cj3','cj4'];
+  try{ var g=JSON.parse(localStorage.getItem('cosmos5e_conjetura')||'null');
+       if(g){ campos.forEach(function(id){ if(g[id]!=null){ var e=document.getElementById(id); if(e) e.value=g[id]; } }); } }catch(e){}
+  var msg=document.getElementById('cjMsg'), hecho=false;
+  function todas(){ return campos.every(function(id){ return (((document.getElementById(id)||{}).value)||'').trim().length>0; }); }
+  function mostrarContinuar(){ if(hecho||!window.Cosmos) return; Cosmos.pintarContinuar('continuar','explain.html','Ir a Explain: ¿qué significa?'); hecho=true; }
+  document.getElementById('cjSave').addEventListener('click',function(){
+    if(!todas()){ msg.style.color='#b23b3b'; msg.textContent='Escribe una respuesta en las cuatro preguntas para poder continuar.'; return; }
+    var o={}; campos.forEach(function(id){ o[id]=document.getElementById(id).value; });
+    try{ localStorage.setItem('cosmos5e_conjetura', JSON.stringify(o)); }catch(e){}
+    msg.style.color=''; msg.textContent='Guardado ✓ Ya puedes continuar.';
+    mostrarContinuar();
+  });
+  if(todas()) mostrarContinuar();  // si ya había respuestas guardadas, permite seguir
+})();
 </script>
 </body>
 </html>
