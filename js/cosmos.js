@@ -83,15 +83,9 @@
     document.querySelectorAll(".fases a[href]").forEach(function (a) {
       var idx = indiceDe(a.getAttribute("href"));
       if (idx > prog) {
-        a.classList.add("bloq");
+        a.classList.add("bloq");                            // solo atenuada y no clicable, sin candado
         a.setAttribute("aria-disabled", "true");
         a.addEventListener("click", function (ev) { ev.preventDefault(); });
-        if (!a.querySelector(".candado")) {
-          var lock = document.createElement("span");
-          lock.className = "candado"; lock.textContent = " 🔒";
-          lock.setAttribute("aria-label", "bloqueado");
-          (a.querySelector("b") || a).appendChild(lock);   // junto al nombre, misma línea
-        }
       }
     });
   }
