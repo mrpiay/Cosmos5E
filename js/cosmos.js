@@ -90,7 +90,7 @@
           var lock = document.createElement("span");
           lock.className = "candado"; lock.textContent = " 🔒";
           lock.setAttribute("aria-label", "bloqueado");
-          a.appendChild(lock);
+          (a.querySelector("b") || a).appendChild(lock);   // junto al nombre, misma línea
         }
       }
     });
@@ -129,6 +129,7 @@
     if (document.getElementById("cosmosNavCss")) return;
     var s = document.createElement("style"); s.id = "cosmosNavCss";
     s.textContent =
+      ".fases a,.fases span{padding-top:3px;padding-bottom:3px;line-height:1.1;}" +
       ".fases a.bloq{opacity:.45;cursor:not-allowed;}" +
       ".fases a.bloq:hover{background:rgba(255,255,255,.16);}" +
       ".rejilla .fase.bloq{opacity:.5;cursor:not-allowed;filter:grayscale(.4);}" +

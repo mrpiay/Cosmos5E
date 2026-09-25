@@ -55,7 +55,7 @@
   }
 
   // Diagnóstico adaptativo. mode: "pre" | "post".
-  function renderDiagnostico(containerId, mode) {
+  function renderDiagnostico(containerId, mode, onDone) {
     inyectarEstilos();
     var cont = document.getElementById(containerId);
     if (!cont) return;
@@ -122,6 +122,7 @@
       aviso.innerHTML = "<b>Recuperadas tus respuestas.</b> Puedes revisarlas o cambiarlas y volver a " +
         (mode === "post" ? "comprobar." : "enviar.");
       cont.insertBefore(aviso, cont.firstChild);
+      if (typeof onDone === "function") onDone();
     })();
 
     document.getElementById("qzSend").addEventListener("click", function () {
@@ -166,6 +167,7 @@
           "El registro para el estudio lo recoge tu docente.</p></div>";
         document.getElementById("qzSend").disabled = true;
         cont.querySelectorAll("input").forEach(function (x) { x.disabled = true; });
+        if (typeof onDone === "function") onDone();
         return;
       }
 

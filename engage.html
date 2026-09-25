@@ -310,8 +310,11 @@ olbUpdate();
 <script src="datos/test_conceptual_v2.js"></script>
 <script src="js/test.js"></script>
 <script>
-  Cosmos.renderDiagnostico('diagnostico','pre');
-  Cosmos.pintarContinuar('continuar','explore-espectro.html','Empezar a medir en Explore');
+  (function(){
+    var hecho=false;
+    function verContinuar(){ if(hecho) return; Cosmos.pintarContinuar('continuar','explore-espectro.html','Empezar a medir en Explore'); hecho=true; }
+    Cosmos.renderDiagnostico('diagnostico','pre', verContinuar);  // el botón aparece solo tras enviar (o recuperar) el diagnóstico
+  })();
 </script>
 </body>
 </html>
