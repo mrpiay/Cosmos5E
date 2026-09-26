@@ -49,15 +49,6 @@
   footer p{max-width:920px; margin:0 auto;}
   a{color:var(--naranja); font-weight:600;}
   /* reto */
-  /* autoevaluación: tabla de familiaridad */
-  .fam-wrap{overflow-x:auto; margin-top:12px;}
-  .fam{width:100%; min-width:460px; table-layout:fixed; border-collapse:collapse; font-size:.92rem;}
-  .fam thead th{font-size:.8rem; color:var(--gris); font-weight:600; text-align:center; vertical-align:bottom; width:22%; padding:6px 8px; border-bottom:2px solid var(--naranja);}
-  .fam thead th:first-child{text-align:left; width:34%;}
-  .fam .term{text-align:left; color:var(--naranja); font-weight:400; padding:11px 10px 11px 2px; border-bottom:1px solid var(--gris-claro);}
-  .fam td{text-align:center; padding:11px 8px; border-bottom:1px solid var(--gris-claro);}
-  .fam tbody tr:hover{background:var(--naranja-suave);}
-  .fam input[type=radio]{width:18px; height:18px; accent-color:var(--naranja); cursor:pointer; margin:0;}
   /* términos */
   .terminos{display:grid; grid-template-columns:1fr; gap:12px; margin-top:10px;}
   @media(min-width:620px){ .terminos{grid-template-columns:1fr 1fr;} }
@@ -121,7 +112,7 @@
     ocupamos en el cosmos. Una aventura para descubrir que <b>tú también puedes descifrar las leyes del universo</b>.</p>
   </div>
 
-  <!-- 2 · DIAGNÓSTICO ADAPTATIVO (familiaridad + reto) -->
+  <!-- 2 · CUESTIONARIO CONCEPTUAL (pretest) -->
   <div class="card">
     <h2>Antes de empezar: ¿qué sabes ya?</h2>
     <p class="instru">Responde cada pregunta lo mejor que puedas. <b>Si no lo tienes claro</b>, marca «No lo sé / no lo tengo claro» —es totalmente válido—. No te diremos aún si aciertas: eso lo irás descubriendo a lo largo de la secuencia. Es una <b>foto de tu punto de partida</b>, no un examen; al final, en <b>Evaluate</b>, volverás a estas preguntas y verás cuánto has avanzado.</p>
@@ -218,7 +209,7 @@
 </footer>
 
 <script>
-/* El diagnóstico adaptativo (familiaridad + reto) lo genera js/test.js
+/* El cuestionario conceptual (pretest) lo genera js/test.js
    (Cosmos.renderDiagnostico), a partir de datos/test_conceptual_v2.js. */
 
 /* ---------- 3 · Términos ---------- */

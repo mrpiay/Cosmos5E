@@ -1,14 +1,14 @@
 /* Cosmos 5E — cuestionario conceptual (v2)
    Un mismo instrumento para el pre (Engage) y el post (Evaluate): para cada
    concepto se responde SIEMPRE su pregunta, con una opción "No lo sé / no
-   estoy seguro" para quien no lo tenga claro (así siempre hay pretest). En
+   lo tengo claro" para quien no lo tenga claro (así siempre hay pretest). En
    Engage NO se corrige (no adelantar); en Evaluate se corrige y se compara.
    Medida comparable (0..N): nº de aciertos. Mismo instrumento pre/post →
    cambio conceptual. Almacenamiento best-effort en localStorage (try/catch). */
 (function () {
   "use strict";
 
-  var NS = "ns"; // valor de "No lo sé / no estoy seguro"
+  var NS = "ns"; // valor de "No lo sé / no lo tengo claro"
 
   function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }

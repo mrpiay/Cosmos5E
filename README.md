@@ -17,7 +17,7 @@ Las cinco fases se recorren **en orden**: cada una se **desbloquea al completar 
 
 ## Fases
 
-- **Engage** — plantea el reto y **aflora las ideas previas** con un diagnóstico adaptativo (pretest conceptual, sin dar respuestas todavía); la aventura de la cosmología y la paradoja de Olbers.
+- **Engage** — plantea el reto y **aflora las ideas previas** con el cuestionario conceptual (pretest, sin dar respuestas todavía; cada pregunta se responde siempre, con la opción «No lo sé / no lo tengo claro»); la aventura de la cosmología y la paradoja de Olbers.
 - **Explore** *(2 partes)* — mide el corrimiento al rojo en un espectro y construye el **diagrama de Hubble** con galaxias reales para obtener tu **H₀** (la pendiente); registra tu conjetura, sin interpretarla aún.
 - **Explain** — primero **explicas** lo que encontraste; luego se formaliza la **ley de Hubble-Lemaître** y, con la calculadora paso a paso, obtienes la **edad** del universo; «rebobinar la expansión» y el **calendario cósmico**.
 - **Elaborate** *(2 partes)* — el **tamaño** observable (radio de Hubble y por qué el observable es mayor, ~46 000 millones de al) con una actividad de **transferencia**; y los **límites** de la medida: tensión de Hubble, modelo ΛCDM y horizontes.

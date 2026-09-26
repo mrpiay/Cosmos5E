@@ -2,7 +2,7 @@
 window.TEST_CONCEPTUAL = {
   "meta": {
     "titulo": "Cuestionario conceptual pre/post",
-    "descripcion": "Mismo instrumento en Engage (pre, sin corrección) y Evaluate (post, con retroalimentación). Distractores = ideas erróneas de la revisión (Cap. 2/3). 14 ítems de opción múltiple.",
+    "descripcion": "Mismo instrumento en Engage (pre, sin corrección) y Evaluate (post, con retroalimentación). Distractores = ideas erróneas de la revisión (Cap. 2/3). 15 ítems de opción múltiple.",
     "version": "v2",
     "n_items": 15
   },
