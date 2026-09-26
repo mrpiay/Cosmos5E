@@ -28,11 +28,6 @@ window.TEST_CONCEPTUAL = {
           "texto": "A la edad del Sol y del Sistema Solar.",
           "correcta": false,
           "feedback": "El Sol tiene unos 4 600 millones de años; el universo es mucho más antiguo."
-        },
-        {
-          "texto": "Al tiempo que tarda la luz en cruzar el universo.",
-          "correcta": false,
-          "feedback": "Eso mezcla la edad con el tamaño; son magnitudes distintas."
         }
       ]
     },
@@ -57,11 +52,6 @@ window.TEST_CONCEPTUAL = {
           "texto": "La explosión de una estrella supermasiva en el centro del universo.",
           "correcta": false,
           "feedback": "Ni fue una estrella ni hubo un 'centro'."
-        },
-        {
-          "texto": "El momento en que las galaxias empezaron a moverse por el espacio.",
-          "correcta": false,
-          "feedback": "Las galaxias no se mueven por el espacio: es el espacio entre ellas el que se estira."
         }
       ]
     },
@@ -86,11 +76,6 @@ window.TEST_CONCEPTUAL = {
           "texto": "Sí, pero el centro está en la Vía Láctea, no en la Tierra.",
           "correcta": false,
           "feedback": "Sigue suponiendo un centro, que no existe."
-        },
-        {
-          "texto": "No lo podemos saber porque no hemos visto el borde del universo.",
-          "correcta": false,
-          "feedback": "No se trata de un borde: la ausencia de centro se deduce de que la expansión es del espacio."
         }
       ]
     },
@@ -115,11 +100,6 @@ window.TEST_CONCEPTUAL = {
           "texto": "La distancia hasta la galaxia más lejana que existe.",
           "correcta": false,
           "feedback": "No es 'la más lejana que existe', sino hasta donde su luz ha podido llegarnos."
-        },
-        {
-          "texto": "El tamaño de la Vía Láctea y las galaxias vecinas.",
-          "correcta": false,
-          "feedback": "Eso es una región minúscula comparada con el universo observable."
         }
       ]
     },
@@ -144,11 +124,6 @@ window.TEST_CONCEPTUAL = {
           "texto": "Con 1 000 millones de años de adelanto sobre su estado real.",
           "correcta": false,
           "feedback": "Es al revés: la vemos con retraso, no con adelanto."
-        },
-        {
-          "texto": "Igual que si estuviera al lado: la distancia no afecta a lo que vemos.",
-          "correcta": false,
-          "feedback": "La velocidad finita de la luz hace que la distancia sí importe."
         }
       ]
     },
@@ -173,11 +148,6 @@ window.TEST_CONCEPTUAL = {
           "texto": "El brillo de la galaxia comparado con una de referencia.",
           "correcta": false,
           "feedback": "z se mide sobre la posición de las líneas, no sobre el brillo."
-        },
-        {
-          "texto": "La longitud de onda observada multiplicada por la velocidad de la luz.",
-          "correcta": false,
-          "feedback": "z es una razón de longitudes de onda; no interviene c en su definición."
         }
       ]
     },
@@ -202,11 +172,6 @@ window.TEST_CONCEPTUAL = {
           "texto": "Porque la luz pierde energía y «se cansa» al recorrer distancias enormes.",
           "correcta": false,
           "feedback": "La hipótesis de la 'luz cansada' está descartada por las observaciones."
-        },
-        {
-          "texto": "Porque atraviesa polvo rojizo del espacio interestelar.",
-          "correcta": false,
-          "feedback": "El enrojecimiento por polvo es otro fenómeno distinto del corrimiento al rojo."
         }
       ]
     },
@@ -231,11 +196,6 @@ window.TEST_CONCEPTUAL = {
           "texto": "Las galaxias más cercanas se alejan más deprisa; la pendiente es su tamaño.",
           "correcta": false,
           "feedback": "Es al revés (las lejanas van más rápido) y la pendiente no es un tamaño."
-        },
-        {
-          "texto": "No hay relación entre distancia y velocidad; los puntos salen al azar.",
-          "correcta": false,
-          "feedback": "Sí hay relación: es lineal, y esa es la clave de la ley de Hubble."
         }
       ]
     },
@@ -260,11 +220,6 @@ window.TEST_CONCEPTUAL = {
           "texto": "Porque la expansión solo ocurre muy lejos, más allá de nuestra galaxia.",
           "correcta": false,
           "feedback": "La expansión ocurre en todas partes, pero la gravedad la vence localmente."
-        },
-        {
-          "texto": "Porque son demasiado pequeños para que la expansión les afecte.",
-          "correcta": false,
-          "feedback": "No es cuestión de tamaño, sino de estar ligados por una fuerza."
         }
       ]
     },
@@ -289,11 +244,6 @@ window.TEST_CONCEPTUAL = {
           "texto": "Es siempre mucho mayor que la edad real del universo.",
           "correcta": false,
           "feedback": "La diferencia es pequeña; no es 'mucho mayor'."
-        },
-        {
-          "texto": "No tiene relación con la edad; solo mide distancias.",
-          "correcta": false,
-          "feedback": "1/H0 tiene unidades de tiempo y estima la edad."
         }
       ]
     },
@@ -318,11 +268,6 @@ window.TEST_CONCEPTUAL = {
           "texto": "La distancia hasta el borde del universo.",
           "correcta": false,
           "feedback": "Es un tiempo, no una distancia; y no hay 'borde'."
-        },
-        {
-          "texto": "La edad exacta y definitiva del universo.",
-          "correcta": false,
-          "feedback": "Es una aproximación (supone ritmo constante)."
         }
       ]
     },
@@ -347,11 +292,6 @@ window.TEST_CONCEPTUAL = {
           "texto": "Porque la luz viaja más rápido en el universo primitivo.",
           "correcta": false,
           "feedback": "La velocidad de la luz es constante; no viaja más rápido."
-        },
-        {
-          "texto": "Porque medimos mal las distancias a esas escalas.",
-          "correcta": false,
-          "feedback": "No es un error de medida, sino el efecto real de la expansión."
         }
       ]
     },
@@ -376,11 +316,6 @@ window.TEST_CONCEPTUAL = {
           "texto": "La materia oscura acelera la expansión y la energía oscura la frena.",
           "correcta": false,
           "feedback": "Están intercambiadas: es justo al revés."
-        },
-        {
-          "texto": "La energía oscura es una fuerza que empuja las galaxias unas contra otras.",
-          "correcta": false,
-          "feedback": "Idea errónea: no es una 'fuerza que empuja'; es una propiedad del espacio que acelera su expansión."
         }
       ]
     },
@@ -405,11 +340,6 @@ window.TEST_CONCEPTUAL = {
           "texto": "Son estimaciones sin base observacional, casi opiniones.",
           "correcta": false,
           "feedback": "Tienen una base observacional sólida; no son opiniones."
-        },
-        {
-          "texto": "Se obtienen viajando hasta el borde del universo y midiendo.",
-          "correcta": false,
-          "feedback": "No viajamos: inferimos a partir de la luz que nos llega."
         }
       ]
     },
@@ -434,11 +364,6 @@ window.TEST_CONCEPTUAL = {
           "texto": "Que no hay suficientes estrellas en el universo.",
           "correcta": false,
           "feedback": "Hay muchísimas: en un universo infinito, cada línea de visión acabaría topando con una estrella."
-        },
-        {
-          "texto": "Que la luz de las estrellas lejanas se apaga al viajar por el vacío.",
-          "correcta": false,
-          "feedback": "La luz no se «apaga» ni se «cansa» al viajar por el vacío; esa hipótesis está descartada."
         }
       ]
     }
