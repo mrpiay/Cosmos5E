@@ -62,9 +62,9 @@
   .h0-lectura{font-size:1.6rem; font-weight:800; color:var(--naranja); text-align:center; min-width:150px;}
   .h0-lectura small{display:block; font-size:.75rem; color:var(--gris); font-weight:500;}
   .botones{display:flex; flex-wrap:wrap; gap:10px; margin-top:6px;}
-  button{font:inherit; cursor:pointer; border-radius:8px; padding:9px 14px; border:2px solid var(--naranja); background:var(--naranja); color:#fff; font-weight:600;}
+  button{font:inherit; cursor:pointer; border-radius:8px; padding:9px 14px; border:1.5px solid var(--naranja); background:#fff; color:var(--naranja); font-weight:600;}
   button.sec{background:#fff; color:var(--naranja);}
-  button:hover:not(:disabled){filter:brightness(1.06);}
+  button:hover:not(:disabled){background:var(--naranja-suave);}
   button.sec:hover{background:var(--naranja-suave);}
   label.check{display:inline-flex; align-items:center; gap:7px; font-size:.9rem; cursor:pointer;}
   /* Resultado */
@@ -87,6 +87,7 @@
   a{color:var(--naranja); font-weight:600;}
   .cj{display:block; margin:12px 0; font-weight:600;}
   .cj textarea{display:block; width:100%; margin-top:4px; font:inherit; font-weight:400; padding:8px 10px; border:1px solid var(--gris-claro); border-radius:8px; resize:vertical;}
+  .nota-avanzar{text-align:center; font-size:.88rem; color:var(--naranja); background:var(--naranja-suave); border-radius:8px; padding:9px 14px; margin:16px auto 0; max-width:640px;}
   .logo-viu{width:190px; max-width:55%; height:auto; margin-top:12px;}
   .marca-o{font-style:normal; font-size:.7em; vertical-align:-.02em; margin:0 .03em;}
 </style>
@@ -232,6 +233,7 @@
     <span id="cjMsg" style="margin-left:10px; font-size:.9rem; color:var(--gris)"></span>
   </div>
 
+  <p class="nota-avanzar"><b>Guarda tus respuestas para poder continuar.</b><br>Antes de continuar, asegúrate de leer y entender todo.</p>
   <div id="continuar"></div>
 
 </main>
@@ -366,7 +368,7 @@ document.getElementById('btnFit').addEventListener('click',()=>{
     if(!todas()){ msg.style.color='#b23b3b'; msg.textContent='Escribe una respuesta en las cuatro preguntas para poder continuar.'; return; }
     var o={}; campos.forEach(function(id){ o[id]=document.getElementById(id).value; });
     try{ localStorage.setItem('cosmos5e_conjetura', JSON.stringify(o)); }catch(e){}
-    msg.style.color=''; msg.textContent='Guardado ✓ Ya puedes continuar.';
+    msg.style.color=''; msg.textContent='Guardado ✓';
     mostrarContinuar();
   });
   if(todas()) mostrarContinuar();  // si ya había respuestas guardadas, permite seguir

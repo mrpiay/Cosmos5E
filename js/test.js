@@ -35,8 +35,8 @@
       ".qz-opt.ko{border-color:#b23b3b;background:#f7ecec;}" +
       ".qz-opt .fb{display:block;font-size:.85rem;color:var(--gris,#6b6b6b);margin-top:5px;}" +
       ".qz-opt.ok .fb{color:#256b43;}.qz-opt.ko .fb{color:#8f2f2f;}" +
-      ".qz-send{background:var(--naranja,#E65113);color:#fff;border:none;cursor:pointer;font-weight:700;font-size:1rem;padding:12px 22px;border-radius:10px;margin:8px 0;}" +
-      ".qz-send:hover{filter:brightness(1.06);}" +
+      ".qz-send{background:#fff;color:var(--naranja,#E65113);border:1.5px solid var(--naranja,#E65113);cursor:pointer;font-weight:700;font-size:1rem;padding:12px 22px;border-radius:10px;margin:8px 0;}" +
+      ".qz-send:hover{background:var(--naranja-suave,#fbe9e0);}" +
       ".qz-res{border-left:4px solid var(--naranja,#E65113);background:var(--naranja-suave,#fbe9e0);border-radius:0 8px 8px 0;padding:12px 16px;margin:14px 0;}" +
       ".qz-res b{color:var(--naranja,#E65113);}" +
       ".qz-res.falta-msg{border-color:#b23b3b;background:#f7ecec;}.qz-res.falta-msg b{color:#b23b3b;}" +
@@ -72,7 +72,7 @@
       html += "</div></div>";
     });
 
-    var btnTxt = mode === "post" ? "Comprobar mis respuestas" : "Enviar mis respuestas";
+    var btnTxt = mode === "post" ? "Comprobar mis respuestas" : "Guardar mis respuestas";
     html += '<button type="button" class="qz-send" id="qzSend">' + btnTxt + "</button>";
     html += '<div id="qzRes"></div>';
     cont.innerHTML = html;
@@ -91,7 +91,7 @@
       });
       var aviso = document.createElement("div"); aviso.className = "qz-res";
       aviso.innerHTML = "<b>Recuperadas tus respuestas.</b> Puedes revisarlas o cambiarlas y volver a " +
-        (mode === "post" ? "comprobar." : "enviar.");
+        (mode === "post" ? "comprobar." : "guardar.");
       cont.insertBefore(aviso, cont.firstChild);
       if (typeof onDone === "function") onDone();
     })();
@@ -121,7 +121,7 @@
 
       if (mode === "pre") {
         lsSet("cosmos5e_pre", JSON.stringify({ n: items.length, score: score, detalle: detalle, fecha: Date.now() }));
-        res.innerHTML = '<div class="qz-res"><b>¡Registrado!</b> Has respondido las ' + items.length +
+        res.innerHTML = '<div class="qz-res"><b>Guardado ✓</b> Has respondido las ' + items.length +
           " preguntas. No te decimos aún si acertaste: de eso trata la secuencia. Al final, en <b>Evaluate</b>, " +
           "volverás a estas preguntas y verás cuánto has avanzado." +
           '<p class="qz-aviso">Se guarda una copia en este dispositivo solo para comparar tu antes y tu después. ' +

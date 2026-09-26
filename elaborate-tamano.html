@@ -25,6 +25,7 @@
   .subfase{display:flex; flex-wrap:wrap; gap:6px; font-size:.8rem; margin:8px 20px 0;}
   .subfase a, .subfase span{background:var(--gris-claro); color:var(--gris); padding:3px 11px; border-radius:20px; text-decoration:none;}
   .subfase .activo{background:var(--naranja); color:#fff; font-weight:700;}
+  .nota-avanzar{text-align:center; font-size:.88rem; color:var(--naranja); background:var(--naranja-suave); border-radius:8px; padding:9px 14px; margin:16px auto 0; max-width:640px;}
   main{max-width:920px; margin:0 auto; padding:20px 16px 60px;}
   .card{background:#fff; border:1px solid var(--gris-claro); border-radius:12px; padding:18px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
   h2{font-size:1.15rem; margin:0 0 8px;}
@@ -43,9 +44,9 @@
   input[type=number]{font:inherit; padding:5px 8px; border:1px solid var(--gris); border-radius:6px; width:82px;}
   input[type=range]{width:100%; accent-color:var(--naranja); margin:6px 0;}
   .rango-lbl{display:flex; justify-content:space-between; font-size:.8rem; color:var(--gris);}
-  button{font:inherit; background:var(--naranja); color:#fff; border:none; border-radius:8px; padding:9px 16px; font-weight:600; cursor:pointer;}
-  button.sec{background:#fff; color:var(--naranja); border:1px solid var(--naranja);}
-  button:hover:not(:disabled){filter:brightness(1.06);}
+  button{font:inherit; cursor:pointer; background:#fff; color:var(--naranja); border:1.5px solid var(--naranja); border-radius:8px; padding:9px 16px; font-weight:600;}
+  button.sec{background:#fff; color:var(--naranja); border:1.5px solid var(--naranja);}
+  button:hover:not(:disabled){background:var(--naranja-suave);}
   button.sec:hover{background:var(--naranja-suave);}
   .src{font-size:.85rem; color:var(--gris); margin-top:8px;}
   .grafico-wrap{overflow-x:auto; background:#faf9f8; border:1px solid var(--gris-claro); border-radius:8px; padding:8px 4px; margin:6px 0;}
@@ -216,6 +217,7 @@
     de la siguiente parte.</p>
   </div>
 
+  <p class="nota-avanzar">Antes de continuar, asegúrate de leer y entender todo.</p>
   <div id="continuar"></div>
 
 </main>

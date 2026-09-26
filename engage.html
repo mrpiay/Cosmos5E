@@ -45,6 +45,7 @@
   .detalle .aclara{margin-top:10px; padding-top:8px; border-top:1px solid #ddd; font-size:.85rem; color:var(--gris);}
   .detalle .aclara b{color:var(--negro);}
   .instru{font-size:.9rem; color:var(--gris);}
+  .nota-avanzar{text-align:center; font-size:.88rem; color:var(--naranja); background:var(--naranja-suave); border-radius:8px; padding:9px 14px; margin:16px auto 0; max-width:640px;}
   footer{background:var(--naranja-suave); text-align:center; padding:20px 16px 16px; font-size:.8rem; color:var(--gris);}
   footer p{max-width:920px; margin:0 auto;}
   a{color:var(--naranja); font-weight:600;}
@@ -199,6 +200,7 @@
     el Sol y, mucho más tarde, nosotros.</p>
   </div>
 
+  <p class="nota-avanzar"><b>Guarda tus respuestas para poder continuar.</b><br>Antes de continuar, asegúrate de leer y entender todo.</p>
   <div id="continuar"></div>
 
 </main>
@@ -304,7 +306,7 @@ olbUpdate();
   (function(){
     var hecho=false;
     function verContinuar(){ if(hecho) return; Cosmos.pintarContinuar('continuar','explore-espectro.html','Empezar a medir en Explore'); hecho=true; }
-    Cosmos.renderDiagnostico('diagnostico','pre', verContinuar);  // el botón aparece solo tras enviar (o recuperar) el diagnóstico
+    Cosmos.renderDiagnostico('diagnostico','pre', verContinuar);  // el botón aparece solo tras guardar (o recuperar) el diagnóstico
   })();
 </script>
 </body>

@@ -56,9 +56,9 @@
   .aviso{background:#fff7f2; border:1px dashed var(--naranja); border-radius:8px; padding:9px 12px; font-size:.85rem; margin-top:10px;}
   .resultado{background:var(--naranja); color:#fff; border-radius:10px; padding:14px 16px; font-size:1.1rem; font-weight:600; text-align:center; margin:14px 0;}
   .resultado b{font-weight:800;}
-  button{font:inherit; background:var(--naranja); color:#fff; border:none; border-radius:8px; padding:9px 16px; font-weight:600; cursor:pointer;}
-  button:disabled{background:var(--azulgris); cursor:default;}
-  button:hover:not(:disabled){filter:brightness(1.06);}
+  button{font:inherit; cursor:pointer; background:#fff; color:var(--naranja); border:1.5px solid var(--naranja); border-radius:8px; padding:9px 16px; font-weight:600;}
+  button:hover:not(:disabled){background:var(--naranja-suave);}
+  button:disabled{background:var(--gris-claro); color:var(--gris); border-color:var(--gris-claro); cursor:default;}
   .msg{font-size:.88rem; color:#137a2b; margin-top:8px; min-height:1.1em;}
   /* gráficos */
   .grafico-wrap{overflow-x:auto;}
@@ -84,6 +84,7 @@
   a{color:var(--naranja); font-weight:600;}
   .cj{display:block; margin:12px 0; font-weight:600;}
   .cj textarea{display:block; width:100%; margin-top:4px; font:inherit; font-weight:400; padding:8px 10px; border:1px solid var(--gris-claro); border-radius:8px; resize:vertical;}
+  .nota-avanzar{text-align:center; font-size:.88rem; color:var(--naranja); background:var(--naranja-suave); border-radius:8px; padding:9px 14px; margin:16px auto 0; max-width:640px;}
   .logo-viu{width:190px; max-width:55%; height:auto; margin-top:12px;}
   .marca-o{font-style:normal; font-size:.7em; vertical-align:-.02em; margin:0 .03em;}
 </style>
@@ -126,6 +127,8 @@
     <div id="verWrap" hidden style="margin-top:12px"><button id="btnVer">Mostrar la explicación científica →</button></div>
     <p class="instru" id="verMsg" style="margin-top:8px"></p>
   </div>
+
+  <p class="nota-avanzar"><b>Guarda tu explicación para poder continuar.</b><br>Antes de continuar, asegúrate de leer y entender todo.</p>
 
   <div id="formalizacion" hidden>
 
@@ -421,7 +424,13 @@ $rc.addEventListener('input',pintaCal); pintaCal();
 
 <script src="js/cosmos.js"></script>
 <script>
-  Cosmos.pintarContinuar('continuar','elaborate-tamano.html','Ir a Elaborate: el tamaño del universo');
+  /* Solo se puede continuar tras guardar la explicación (no vacía). */
+  (function(){
+    var mi=document.getElementById('miExplica'), btnG=document.getElementById('btnGuardarExp'), hecho=false;
+    function verContinuar(){ if(hecho||!window.Cosmos) return; Cosmos.pintarContinuar('continuar','elaborate-tamano.html','Ir a Elaborate: el tamaño del universo'); hecho=true; }
+    if(btnG) btnG.addEventListener('click', function(){ if(mi && mi.value.trim()) verContinuar(); });
+    try{ var prev=localStorage.getItem('cosmos5e_explicacion'); if(prev && prev.trim()) verContinuar(); }catch(e){}
+  })();
 </script>
 </body>
 </html>
