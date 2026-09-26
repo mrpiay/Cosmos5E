@@ -207,13 +207,20 @@
     luz de hoy pueda alcanzarnos.</p>
 
     <h3>Míralo paso a paso, con números</h3>
-    <p>Un modelo de juguete con dos reglas sencillas:</p>
+    <p>Un modelo de juguete con <b>unidades sencillas</b>: cada <b>paso</b> es un intervalo de tiempo, y <b>1 unidad de
+    distancia</b> es <b>lo que la luz recorre en un paso</b>. Con eso, dos reglas:</p>
     <ul class="lista">
-      <li>El <b>fotón avanza 1</b> hacia nosotros en cada paso (su velocidad <i>c</i>, siempre igual).</li>
-      <li>El <b>espacio se estira un 10 %</b> en cada paso (expansión acelerada).</li>
+      <li><b>La luz avanza 1</b> en cada paso: recorre justo esa unidad. Es un valor <b>fijo</b> (se resta 1) porque
+      su velocidad <i>c</i> es <b>siempre la misma</b>.</li>
+      <li><b>El espacio se estira un 10 %</b> en cada paso: toda la distancia se multiplica por 1,1. No es fijo, sino
+      <b>proporcional</b> a la distancia (el 10 % de una distancia grande es mucho más que el de una pequeña): es la
+      expansión.</li>
     </ul>
-    <p>Así, en cada paso la distancia al fotón pasa a ser <b>(distancia − 1) × 1,1</b>. La <b>frontera</b> está en
-    <b>11</b>. Comparemos dos fotones: uno que sale desde <b>8</b> (dentro) y otro desde <b>15</b> (fuera):</p>
+    <p>Combinando las dos, en cada paso la distancia al fotón pasa a ser <b>(distancia − 1) × 1,1</b> (primero la luz
+    recorre su 1; luego el espacio estira lo que queda un 10 %). El tira y afloja entre un avance <b>fijo</b> (la luz) y
+    un estirón <b>proporcional</b> (el espacio) crea una <b>frontera</b>: la distancia que ya no cambia, porque el
+    estirón iguala a lo que avanza la luz. Aquí sale en <b>11</b>. Comparemos dos fotones: uno desde <b>8</b> (dentro) y
+    otro desde <b>15</b> (fuera):</p>
     <div class="pasos-wrap">
       <table class="pasos">
         <thead><tr><th>Paso</th><th>Fotón desde 8 (dentro)</th><th>Fotón desde 15 (fuera)</th></tr></thead>
@@ -231,6 +238,15 @@
     <b>gana terreno</b> y baja hasta 0: <b>llega</b>; el que sale desde <b>15</b> <b>pierde terreno</b> y sube sin parar:
     <b>no llega jamás</b>. La diferencia no está en el fotón, sino en <b>cuánto espacio tiene por delante</b>: por debajo de
     <b>11</b> se llega; por encima, no. Esa frontera es el <b>horizonte de sucesos</b>.</p>
+
+    <p class="instru"><b>Pruébalo tú:</b> elige desde qué distancia sale el fotón y sigue su recorrido paso a paso.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0">
+      <label>D₀ = <input id="dh0" type="number" min="1" max="40" step="0.5" value="8" style="font:inherit;width:5em;padding:5px 8px;border:1px solid var(--gris);border-radius:6px"></label>
+      <button data-d="8" style="font:inherit;cursor:pointer;background:#fff;color:var(--naranja);border:1.5px solid var(--naranja);border-radius:8px;padding:6px 12px;font-weight:600">8 (dentro)</button>
+      <button data-d="15" style="font:inherit;cursor:pointer;background:#fff;color:var(--naranja);border:1.5px solid var(--naranja);border-radius:8px;padding:6px 12px;font-weight:600">15 (fuera)</button>
+      <button id="simH" style="font:inherit;cursor:pointer;background:var(--naranja);color:#fff;border:none;border-radius:8px;padding:6px 14px;font-weight:700">Simular</button>
+    </div>
+    <div class="nota" id="resH">Pulsa «Simular» para seguir el fotón paso a paso.</div>
 
     <div class="nota"><b>¿Y por qué ~16 Gly, y no otra cifra?</b> Ese valor sale del modelo <b>ΛCDM plano</b> con los datos de <b>Planck</b> (H₀ ≈ 67-68 km/s/Mpc; la energía oscura, ~69 % del total). Es lo más lejos que un fotón emitido <b>hoy</b> podrá llegar en todo el futuro. Y lo que <b>manda</b> en ese número es la <b>energía oscura</b>: sin ella la expansión no se aceleraría y <b>no habría horizonte</b>. Es el mismo papel que, en el ejemplo de arriba, jugaba el ritmo del estirón (el 10 %) al fijar la frontera (<b>11</b>).</div>
 
@@ -266,6 +282,33 @@ tension.addEventListener('input',calcTension);
 calcTension();
 </script>
 
+<script>
+(function(){
+  var btn=document.getElementById('simH');
+  if(!btn) return;
+  function sim(d0){
+    var res=document.getElementById('resH');
+    if(isNaN(d0)||d0<=0){ res.innerHTML='Introduce una distancia positiva.'; return; }
+    var D=d0, i=0, seq=[D], llega=false;
+    while(i<300){
+      D=(D-1)*1.1; i++;
+      seq.push(D);
+      if(D<=0){ llega=true; break; }
+      if(D>=60){ break; }
+    }
+    var vis=seq.slice(0,7).map(function(x){return x.toFixed(2);}).join(' → ');
+    var pos=(d0<11)?'D₀ &lt; 11: <b>dentro</b> del horizonte.':(d0>11?'D₀ &gt; 11: <b>fuera</b> del horizonte.':'D₀ = 11: justo <b>en</b> el horizonte.');
+    var verd=llega
+      ? '➜ <b>Llega</b>: su distancia baja hasta 0 (en unos '+i+' pasos).'
+      : '➜ <b>No llega</b>: su distancia crece sin fin; el espacio la aleja más rápido de lo que la luz avanza.';
+    res.innerHTML='<p>'+pos+'</p><p style="font-family:monospace;font-size:.86rem;line-height:1.7">'+vis+' …</p><p>'+verd+'</p>';
+  }
+  btn.addEventListener('click',function(){ sim(parseFloat(document.getElementById('dh0').value)); });
+  document.querySelectorAll('button[data-d]').forEach(function(b){
+    b.addEventListener('click',function(){ var v=b.getAttribute('data-d'); document.getElementById('dh0').value=v; sim(parseFloat(v)); });
+  });
+})();
+</script>
 <script src="js/cosmos.js"></script>
 <script>
   Cosmos.pintarContinuar('continuar','evaluate.html','Ir a Evaluate: comprobar el resultado de la secuencia didáctica');
