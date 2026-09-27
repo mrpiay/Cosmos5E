@@ -23,6 +23,8 @@
   .cta-inicio .empezar{display:inline-block; background:var(--naranja); color:#fff; text-decoration:none; font-weight:800; font-size:1.1rem; padding:15px 30px; border:none; border-radius:12px; cursor:pointer; box-shadow:0 4px 14px rgba(230,81,19,.25); transition:transform .12s, filter .12s;}
   .cta-inicio .empezar:hover{transform:translateY(-2px); filter:brightness(1.05);}
   .cta-inicio .o-libre{font-size:.9rem; color:var(--gris); margin:14px 0 0;}
+  .btn-mapa{display:inline-block; background:#fff; color:var(--naranja); border:1.5px solid var(--naranja); border-radius:10px; padding:10px 18px; text-decoration:none; font-weight:700; transition:background .12s;}
+  .btn-mapa:hover{background:var(--naranja-suave);}
   /* rejilla de fases */
   .rejilla{display:grid; grid-template-columns:1fr; gap:14px;}
   @media(min-width:620px){ .rejilla{grid-template-columns:1fr 1fr;} .rejilla .ancha{grid-column:1 / -1;} }
@@ -51,6 +53,8 @@
 
 <main>
   <p class="intro">Un recorrido de <b>cinco fases</b> (modelo 5E) para <b>medir tú mismo</b> la edad y el tamaño del universo con datos reales.</p>
+
+  <p style="text-align:center; margin:0 0 20px;"><a href="mapa.html" class="btn-mapa">↔ Ver el mapa del recorrido</a></p>
 
   <div class="cta-inicio">
     <p class="o-libre">Las fases se recorren <b>en orden</b> (Engage → Explore → Explain → Elaborate → Evaluate).<br>

@@ -23,6 +23,19 @@
   .sub b.od{color:var(--naranja);}
   main{max-width:920px; margin:0 auto; padding:20px 16px 60px;}
   .card{background:#fff; border:1px solid var(--gris-claro); border-radius:12px; padding:18px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  /* apartados colapsables de Evaluate */
+  details.seccion{background:#fff; border:1px solid var(--gris-claro); border-left:5px solid var(--naranja); border-radius:12px; margin:14px 0; box-shadow:0 1px 3px rgba(0,0,0,.04); overflow:hidden;}
+  .despliega{background:#e8f1fb; border-left:4px solid #2b6cb0; border-radius:0 8px 8px 0; padding:11px 15px; margin:16px 0; font-size:.94rem; color:var(--negro);}
+  .despliega b{color:#2b6cb0;}
+  details.seccion>summary{cursor:pointer; padding:15px 18px; list-style:none; display:flex; align-items:flex-start; gap:12px;}
+  details.seccion>summary::-webkit-details-marker{display:none;}
+  details.seccion>summary .stit{flex:1 1 auto;}
+  details.seccion>summary .stit b{font-size:1.1rem; color:var(--negro);}
+  details.seccion>summary .prop{display:block; font-size:.85rem; color:var(--gris); font-weight:400; margin-top:3px;}
+  details.seccion>summary::after{content:"▸"; color:var(--naranja); font-weight:700; font-size:1.15rem; line-height:1.3; transition:transform .15s;}
+  details.seccion[open]>summary::after{transform:rotate(90deg);}
+  details.seccion>summary:hover .stit b{color:var(--naranja);}
+  details.seccion .cuerpo{padding:0 18px 16px;}
   h2{font-size:1.15rem; margin:0 0 8px;}
   h3{font-size:1rem; margin:16px 0 6px; color:var(--naranja);}
   p{margin:8px 0;}
@@ -116,82 +129,108 @@
     </div>
   </div>
 
-  <!-- 1 · POSTEST CONCEPTUAL (mismo instrumento que el pre de Engage) -->
-  <div class="card">
-    <h2>El cuestionario, otra vez: ¿cuánto has avanzado?</h2>
-    <p class="instru">Responde <b>las mismas preguntas</b> que al empezar (en <b>Engage</b>). Si no lo tienes claro, marca «No lo sé / no lo tengo claro». Ahora <b>sí</b> verás las soluciones y podrás comparar tu <b>antes y después</b>.</p>
-    <div id="diagnostico"></div>
-  </div>
+  <p class="despliega"><b>Despliega</b> cada apartado en orden para trabajarlo.</p>
 
-  <!-- 2 · RECONSTRUIR LA CADENA -->
-  <div class="card">
-    <h2>Reconstruye la cadena de la medida</h2>
-    <p class="instru">Cada eslabón conduce al siguiente. Intenta responder de memoria y <b>despliega</b> para comprobar.</p>
+  <!-- Postest -->
+  <details class="seccion">
+    <summary><span class="stit"><b>El cuestionario, otra vez: ¿cuánto has avanzado?</b><span class="prop">Responde el mismo cuestionario del principio y compara tu antes y después.</span></span></summary>
+    <div class="cuerpo">
+      <p class="instru">Responde <b>las mismas preguntas</b> que al empezar (en <b>Engage</b>). Si no lo tienes claro, marca «No lo sé / no lo tengo claro». Ahora <b>sí</b> verás las soluciones y podrás comparar tu <b>antes y después</b>.</p>
+      <div id="diagnostico"></div>
+    </div>
+  </details>
 
-    <details class="paso"><summary>1. ¿Qué mediste en el espectro de una galaxia?</summary>
-      <div class="cont">El <b>corrimiento al rojo</b>, z = Δλ/λ: cuánto se ha «estirado» su luz respecto a la del laboratorio.</div></details>
-    <details class="paso"><summary>2. ¿Cómo pasaste de z a una velocidad?</summary>
-      <div class="cont">Con <b>v = c·z</b> (deducida del efecto Doppler): el corrimiento se traduce en velocidad de recesión.</div></details>
-    <details class="paso"><summary>3. ¿De dónde salió tu H₀?</summary>
-      <div class="cont">Al representar la velocidad frente a la distancia de muchas galaxias, los puntos forman una recta; su <b>pendiente es H₀</b> (la ley de Hubble-Lemaître, v = H₀·d).</div></details>
-    <details class="paso"><summary>4. ¿Cómo llegaste a la edad?</summary>
-      <div class="cont"><b>Invirtiendo</b> H₀: t ≈ 1/H₀, el tiempo de Hubble. Rebobinar la expansión lleva a todas las galaxias a un mismo origen.</div></details>
-    <details class="paso"><summary>5. ¿Cómo estimaste el tamaño?</summary>
-      <div class="cont">El radio de Hubble, R ≈ c/H₀ (~14 000 millones de años-luz), como primera estimación; el universo <b>observable</b> real es mayor (~46 000 millones), porque el espacio siguió estirándose mientras la luz viajaba.</div></details>
-  </div>
+  <!-- Verdadero o falso (subido y mejor justificado) -->
+  <details class="seccion">
+    <summary><span class="stit"><b>Verdadero o falso: comprueba tus ideas</b><span class="prop">Autoevaluación rápida de las ideas erróneas frecuentes (evidencia de aprendizaje, no una nota).</span></span></summary>
+    <div class="cuerpo">
+      <p class="instru"><b>Nueve afirmaciones</b> que ponen a prueba las <b>ideas erróneas</b> más habituales sobre el universo ---las mismas en que se basan los distractores del cuestionario---. No es una nota: es una <b>autoevaluación</b> rápida y una <b>evidencia de tu aprendizaje</b>. Marca <b>Verdadero</b> o <b>Falso</b> y, al responder, verás <b>por qué</b>. Tu docente puede recogerla en papel (Hoja 6) como evidencia.</p>
+      <div id="vf"></div>
+    </div>
+  </details>
 
-  <!-- 3 · LECTURA DE ECUACIONES (aportación §4.8) -->
-  <div class="card">
-    <h2>Lee las ecuaciones que has usado</h2>
-    <p>Entender una ecuación no es solo saber calcular con ella: es saber <b>leerla</b>. Para cada una de las que empleaste, recorre estos cinco apartados —despliégalos uno a uno— y luego decide qué tipo de afirmación es. Cada apartado responde a una pregunta:</p>
-    <ul class="etapas-def">
-      <li><b>Símbolos</b> — ¿qué representa cada símbolo y en qué unidades?</li>
-      <li><b>Relación</b> — ¿cómo se vinculan las magnitudes entre sí?</li>
-      <li><b>Sentido</b> — ¿qué indican los signos y qué significan?</li>
-      <li><b>Propósito</b> — ¿qué mide o para qué sirve?</li>
-      <li><b>Origen</b> — ¿de qué teoría u observación procede? (la clave para clasificarla)</li>
-    </ul>
-    <div class="nota">Con esa lectura decides el <b>tipo</b>: una <b>definición</b> (solo pone nombre a una idea), una <b>observación</b> (un dato medido en la naturaleza) o una <b>aproximación</b> (vale solo bajo ciertas condiciones). Fíjate sobre todo en el <b>Origen</b>.</div>
-    <div id="ecuaciones"></div>
-  </div>
+  <!-- Las preguntas del principio -->
+  <details class="seccion">
+    <summary><span class="stit"><b>Las preguntas del principio, por fin resueltas</b><span class="prop">Cierra los interrogantes que Engage dejó abiertos.</span></span></summary>
+    <div class="cuerpo">
+      <p class="instru">En <b>Engage</b> dejamos varias preguntas abiertas y las fuiste guardando a lo largo del recorrido. Es el momento de <b>cerrarlas</b>: responde primero tú y <b>despliega</b> para confirmar.</p>
+      <details class="paso"><summary>¿Vemos una galaxia lejana como es ahora o como era en el pasado?</summary>
+        <div class="cont">Como era en el <b>pasado</b>: su luz tardó en llegar, así que <b>mirar lejos es mirar atrás en el tiempo</b>.</div></details>
+      <details class="paso"><summary>¿Estamos en el centro del universo?</summary>
+        <div class="cont"><b>No</b>: todas las galaxias se alejan, pero desde cualquiera se vería lo mismo. No hay centro; es el <b>espacio</b> el que se expande.</div></details>
+      <details class="paso"><summary>¿De qué medimos la «edad» y qué es el «tamaño» del universo?</summary>
+        <div class="cont">La <b>edad</b> es la del propio universo (≈ 1/H₀), no la de un astro. El <b>tamaño</b> que medimos es el del universo <b>observable</b> —hasta donde la luz ha podido llegarnos—, no el universo entero.</div></details>
+      <details class="paso"><summary>La paradoja de Olbers: ¿qué suposición falla?</summary>
+        <div class="cont"><b>Las tres</b>: el universo no es eterno (tiene edad finita y vemos un número finito de estrellas), las estrellas se apagan, y la <b>expansión</b> estira y debilita la luz lejana. Por eso la noche es oscura.</div></details>
+    </div>
+  </details>
 
-  <!-- 4 · VERDADERO O FALSO -->
-  <div class="card">
-    <h2>Verdadero o falso</h2>
-    <p class="instru">Estas afirmaciones recorren toda la secuencia, para comprobar qué ideas has afianzado. Marca <b>Verdadero</b> o <b>Falso</b>; al responder verás por qué.</p>
-    <div id="vf"></div>
-  </div>
+  <!-- Reconstruir la cadena -->
+  <details class="seccion">
+    <summary><span class="stit"><b>Reconstruye la cadena de la medida</b><span class="prop">Repasa, eslabón a eslabón, cómo llegaste de la luz a la edad y el tamaño.</span></span></summary>
+    <div class="cuerpo">
+      <p class="instru">Cada eslabón conduce al siguiente. Intenta responder de memoria y <b>despliega</b> para comprobar.</p>
+      <details class="paso"><summary>1. ¿Qué mediste en el espectro de una galaxia?</summary>
+        <div class="cont">El <b>corrimiento al rojo</b>, z = Δλ/λ: cuánto se ha «estirado» su luz respecto a la del laboratorio.</div></details>
+      <details class="paso"><summary>2. ¿Cómo pasaste de z a una velocidad?</summary>
+        <div class="cont">Con <b>v = c·z</b> (deducida del efecto Doppler): el corrimiento se traduce en velocidad de recesión.</div></details>
+      <details class="paso"><summary>3. ¿De dónde salió tu H₀?</summary>
+        <div class="cont">Al representar la velocidad frente a la distancia de muchas galaxias, los puntos forman una recta; su <b>pendiente es H₀</b> (la ley de Hubble-Lemaître, v = H₀·d).</div></details>
+      <details class="paso"><summary>4. ¿Cómo llegaste a la edad?</summary>
+        <div class="cont"><b>Invirtiendo</b> H₀: t ≈ 1/H₀, el tiempo de Hubble. Rebobinar la expansión lleva a todas las galaxias a un mismo origen.</div></details>
+      <details class="paso"><summary>5. ¿Cómo estimaste el tamaño?</summary>
+        <div class="cont">El radio de Hubble, R ≈ c/H₀ (~14 000 millones de años-luz), como primera estimación; el universo <b>observable</b> real es mayor (~46 000 millones), porque el espacio siguió estirándose mientras la luz viajaba.</div></details>
+    </div>
+  </details>
 
-  <!-- 5 · PRODUCTO FINAL -->
-  <div class="card">
-    <h2>Producto final: explícalo a alguien</h2>
-    <p class="instru">Prepara una explicación —a un compañero, en un póster o en un vídeo— de cómo se mide la edad y el tamaño del universo. Lo importante es que se vea que entiendes el <b>proceso</b>. Guion sugerido:</p>
-    <ol class="guion">
-      <li>De qué parto: la <b>luz</b> de las galaxias y su espectro.</li>
-      <li>Qué mido: el <b>corrimiento al rojo</b> (z) y, con él, la velocidad (v = c·z).</li>
-      <li>Cómo obtengo <b>H₀</b>: represento velocidad frente a distancia; la pendiente es H₀.</li>
-      <li>Cómo llego a la <b>edad</b>: invierto H₀ (t ≈ 1/H₀).</li>
-      <li>Cómo llego al <b>tamaño</b>: el radio de Hubble (R ≈ c/H₀) y por qué el observable real es mayor.</li>
-      <li>Qué <b>crédito</b> tiene cada paso: qué es un dato, qué una definición y qué una aproximación (lo que acabas de clasificar).</li>
-    </ol>
+  <!-- Lectura de ecuaciones -->
+  <details class="seccion">
+    <summary><span class="stit"><b>Lee las ecuaciones que has usado</b><span class="prop">Clasifica cada fórmula por su origen y su tipo: definición, observación o aproximación.</span></span></summary>
+    <div class="cuerpo">
+      <p>Entender una ecuación no es solo saber calcular con ella: es saber <b>leerla</b>. Para cada una de las que empleaste, recorre estos cinco apartados —despliégalos uno a uno— y luego decide qué tipo de afirmación es. Cada apartado responde a una pregunta:</p>
+      <ul class="etapas-def">
+        <li><b>Símbolos</b> — ¿qué representa cada símbolo y en qué unidades?</li>
+        <li><b>Relación</b> — ¿cómo se vinculan las magnitudes entre sí?</li>
+        <li><b>Sentido</b> — ¿qué indican los signos y qué significan?</li>
+        <li><b>Propósito</b> — ¿qué mide o para qué sirve?</li>
+        <li><b>Origen</b> — ¿de qué teoría u observación procede? (la clave para clasificarla)</li>
+      </ul>
+      <div class="nota">Con esa lectura decides el <b>tipo</b>: una <b>definición</b> (solo pone nombre a una idea), una <b>observación</b> (un dato medido en la naturaleza) o una <b>aproximación</b> (vale solo bajo ciertas condiciones). Fíjate sobre todo en el <b>Origen</b>.</div>
+      <div id="ecuaciones"></div>
+    </div>
+  </details>
 
-    <details class="paso"><summary>¿Cómo se evalúa tu producto? (rúbrica)</summary>
-      <div class="cont">
-        <div class="rub-wrap">
-        <table class="rub">
-          <thead><tr><th>Criterio</th><th>Inicial</th><th>En proceso</th><th>Adecuado</th><th>Avanzado</th></tr></thead>
-          <tbody>
-            <tr><td>Rigor conceptual</td><td>Contiene ideas erróneas nucleares.</td><td>Conceptos correctos con imprecisiones aisladas.</td><td>Usa bien z, H₀, edad y tamaño, sin ideas erróneas.</td><td>Además matiza (observable vs total; 1/H₀ aproximado).</td></tr>
-            <tr><td>Explicación del proceso</td><td>Da el resultado sin explicar cómo se obtiene.</td><td>Menciona algunos pasos, con saltos.</td><td>Reconstruye la cadena z → v → H₀ → edad → tamaño.</td><td>Explica por qué cada paso conduce al siguiente.</td></tr>
-            <tr><td>Naturaleza de la ciencia</td><td>Presenta edad y tamaño como datos absolutos.</td><td>Reconoce que son medidas, sin hablar de límites.</td><td>Trata edad y tamaño como inferidos y aproximados; cita algún límite.</td><td>Discute incertidumbre y la tensión de Hubble.</td></tr>
-            <tr><td>Uso de la evidencia</td><td>No apoya lo que dice en datos.</td><td>Usa los datos de forma superficial.</td><td>Apoya sus afirmaciones en su diagrama y sus medidas.</td><td>Integra los datos como argumento central y honesto.</td></tr>
-            <tr><td>Claridad y formato</td><td>Confuso o inadecuado al medio.</td><td>Comprensible con esfuerzo.</td><td>Claro, ordenado y adecuado al medio.</td><td>Comunicación excelente y ajustada al público.</td></tr>
-          </tbody>
-        </table>
+  <!-- Producto final -->
+  <details class="seccion">
+    <summary><span class="stit"><b>Producto final: explícalo a alguien</b><span class="prop">Prepara una charla, un póster o un vídeo que demuestre que entiendes el proceso.</span></span></summary>
+    <div class="cuerpo">
+      <p class="instru">Prepara una explicación —a un compañero, en un póster o en un vídeo— de cómo se mide la edad y el tamaño del universo. Lo importante es que se vea que entiendes el <b>proceso</b>. Guion sugerido:</p>
+      <ol class="guion">
+        <li>De qué parto: la <b>luz</b> de las galaxias y su espectro.</li>
+        <li>Qué mido: el <b>corrimiento al rojo</b> (z) y, con él, la velocidad (v = c·z).</li>
+        <li>Cómo obtengo <b>H₀</b>: represento velocidad frente a distancia; la pendiente es H₀.</li>
+        <li>Cómo llego a la <b>edad</b>: invierto H₀ (t ≈ 1/H₀).</li>
+        <li>Cómo llego al <b>tamaño</b>: el radio de Hubble (R ≈ c/H₀) y por qué el observable real es mayor.</li>
+        <li>Qué <b>crédito</b> tiene cada paso: qué es un dato, qué una definición y qué una aproximación (lo que acabas de clasificar).</li>
+      </ol>
+      <details class="paso"><summary>¿Cómo se evalúa tu producto? (rúbrica)</summary>
+        <div class="cont">
+          <div class="rub-wrap">
+          <table class="rub">
+            <thead><tr><th>Criterio</th><th>Inicial</th><th>En proceso</th><th>Adecuado</th><th>Avanzado</th></tr></thead>
+            <tbody>
+              <tr><td>Rigor conceptual</td><td>Contiene ideas erróneas nucleares.</td><td>Conceptos correctos con imprecisiones aisladas.</td><td>Usa bien z, H₀, edad y tamaño, sin ideas erróneas.</td><td>Además matiza (observable vs total; 1/H₀ aproximado).</td></tr>
+              <tr><td>Explicación del proceso</td><td>Da el resultado sin explicar cómo se obtiene.</td><td>Menciona algunos pasos, con saltos.</td><td>Reconstruye la cadena z → v → H₀ → edad → tamaño.</td><td>Explica por qué cada paso conduce al siguiente.</td></tr>
+              <tr><td>Naturaleza de la ciencia</td><td>Presenta edad y tamaño como datos absolutos.</td><td>Reconoce que son medidas, sin hablar de límites.</td><td>Trata edad y tamaño como inferidos y aproximados; cita algún límite.</td><td>Discute incertidumbre y la tensión de Hubble.</td></tr>
+              <tr><td>Uso de la evidencia</td><td>No apoya lo que dice en datos.</td><td>Usa los datos de forma superficial.</td><td>Apoya sus afirmaciones en su diagrama y sus medidas.</td><td>Integra los datos como argumento central y honesto.</td></tr>
+              <tr><td>Claridad y formato</td><td>Confuso o inadecuado al medio.</td><td>Comprensible con esfuerzo.</td><td>Claro, ordenado y adecuado al medio.</td><td>Comunicación excelente y ajustada al público.</td></tr>
+            </tbody>
+          </table>
+          </div>
         </div>
-      </div>
-    </details>
-  </div>
+      </details>
+    </div>
+  </details>
 
   <!-- CIERRE + APERTURA -->
   <div class="card">

@@ -29,6 +29,19 @@
   h4{margin:0 0 6px; color:var(--naranja); font-size:.95rem;}
   p{margin:8px 0;}
   .nota{border-left:4px solid var(--naranja); background:var(--naranja-suave); padding:10px 14px; border-radius:0 8px 8px 0; margin:12px 0; font-size:.94rem;}
+  .callback{border-left-color:#4caf50; background:#eef8ee;}
+  details.seccion{background:#fff; border:1px solid var(--gris-claro); border-left:5px solid var(--naranja); border-radius:12px; margin:14px 0; box-shadow:0 1px 3px rgba(0,0,0,.04); overflow:hidden;}
+  .despliega{background:#e8f1fb; border-left:4px solid #2b6cb0; border-radius:0 8px 8px 0; padding:11px 15px; margin:16px 0; font-size:.94rem; color:var(--negro);}
+  .despliega b{color:#2b6cb0;}
+  details.seccion>summary{cursor:pointer; padding:15px 18px; list-style:none; display:flex; align-items:flex-start; gap:12px;}
+  details.seccion>summary::-webkit-details-marker{display:none;}
+  details.seccion>summary .stit{flex:1 1 auto;}
+  details.seccion>summary .stit b{font-size:1.1rem; color:var(--negro);}
+  details.seccion>summary .prop{display:block; font-size:.85rem; color:var(--gris); font-weight:400; margin-top:3px;}
+  details.seccion>summary::after{content:"▸"; color:var(--naranja); font-weight:700; font-size:1.15rem; line-height:1.3; transition:transform .15s;}
+  details.seccion[open]>summary::after{transform:rotate(90deg);}
+  details.seccion>summary:hover .stit b{color:var(--naranja);}
+  details.seccion .cuerpo{padding:0 18px 16px;}
   .nota b{color:var(--naranja);}
   .hilo{display:flex; flex-wrap:wrap; gap:6px; font-size:.8rem; margin:2px 0 8px;}
   .hilo span{background:var(--gris-claro); color:var(--gris); padding:3px 10px; border-radius:20px; white-space:nowrap;}
@@ -132,9 +145,12 @@
 
   <div id="formalizacion" hidden>
 
-  <!-- QUÉ ES -->
-  <div class="card">
-    <h2>Tu etapa en la secuencia de medida</h2>
+  <p class="despliega"><b>Despliega</b> cada apartado en orden para trabajarlo.</p>
+
+  <!-- QUÉ ES (colapsable) -->
+  <details class="seccion">
+    <summary><span class="stit"><b>Tu etapa: la ley de Hubble-Lemaître</b><span class="prop">El patrón que hallaste tiene nombre (v = H₀·d) y da sentido a la edad.</span></span></summary>
+    <div class="cuerpo">
     <div class="hilo" aria-label="La cadena de la medida">
       <span>espectro</span><span>z</span><span>v = c·z</span><span>H₀</span><span class="activo">edad</span><span>tamaño</span>
     </div>
@@ -146,11 +162,13 @@
     <p>La idea clave: si la expansión hubiera sido siempre igual, el tiempo transcurrido desde que todo estaba junto
     (el Big Bang) sería <b>t ≈ 1/H₀</b>, el <b>tiempo de Hubble</b>. Invertir el ritmo de expansión da un tiempo: la
     <b>edad</b>.</p>
-  </div>
+    </div>
+  </details>
 
-  <!-- CALCULADORA -->
-  <div class="card">
-    <h2>La calculadora: de H₀ a la edad</h2>
+  <!-- CALCULADORA (colapsable) -->
+  <details class="seccion">
+    <summary><span class="stit"><b>La calculadora: de H₀ a la edad</b><span class="prop">Introduce tu H₀ y obtén la edad (t ≈ 1/H₀), con las unidades a la vista.</span></span></summary>
+    <div class="cuerpo">
     <p class="instru">Introduce tu H₀ (el que mediste en el diagrama). Cada tarjeta muestra el dato, la fórmula y, con
     los botones, qué es y por qué interviene.</p>
 
@@ -178,11 +196,15 @@
 
     <div class="resultado" id="res"></div>
 
-  </div>
+    <div class="nota callback"><b>↩ ¿Recuerdas Engage?</b> Te preguntabas <b>de qué</b> medimos la edad y si algo así puede «cumplir años». Con lo que acabas de calcular, <b>ya deberías poder responderlo</b>. Guárdatelo para <b>Evaluate</b>.</div>
 
-  <!-- REBOBINA LA EXPANSIÓN -->
-  <div class="card">
-    <h2>¿Por qué invertir H₀ da una edad? Rebobina la expansión</h2>
+    </div>
+  </details>
+
+  <!-- REBOBINA LA EXPANSIÓN (colapsable) -->
+  <details class="seccion">
+    <summary><span class="stit"><b>¿Por qué invertir H₀ da una edad? Rebobina la expansión</b><span class="prop">Al rebobinar, todas las galaxias convergen: 1/H₀ es la edad (no el viaje de la luz).</span></span></summary>
+    <div class="cuerpo">
     <p>El diagrama mostró que <b>todas</b> las galaxias se alejan y las <b>lejanas más deprisa</b> (v ∝ d). ¿Estamos en
     el centro? <b>No</b>: desde <b>cualquier</b> galaxia se vería exactamente lo mismo, así que lo que ocurre es que
     <b>el espacio se expande</b> (sin centro). Y aquí está lo bueno: <b>invertir el ritmo</b> (1/H₀) no es solo cambiar
@@ -201,11 +223,13 @@
       tiempo desde que todo estaba junto—, y <b>no</b> el tiempo que tardó en llegarnos la luz de una galaxia (que sería
       d/c, mucho menor).
     </div>
-  </div>
+    </div>
+  </details>
 
-  <!-- DOPPLER vs COSMOLOGICO -->
-  <div class="card">
-    <h2>El corrimiento al rojo de la luz</h2>
+  <!-- DOPPLER vs COSMOLOGICO (colapsable) -->
+  <details class="seccion">
+    <summary><span class="stit"><b>El corrimiento al rojo de la luz</b><span class="prop">Es el espacio que se estira (cosmológico), no un Doppler ordinario.</span></span></summary>
+    <div class="cuerpo">
     <p>La luz de las galaxias nos llega <b>estirada hacia el rojo</b>, y la causa es la <b>misma para todas</b> —cercanas
     y lejanas—: <b>el espacio por el que viaja se estira</b> mientras la luz está en camino, y estira con ella la onda.
     Eso es el <b>corrimiento cosmológico</b>; siempre se debe a la <b>expansión del espacio</b>, no a que la galaxia
@@ -230,11 +254,13 @@
       ② <b>No todo se expande:</b> los <b>sistemas ligados</b> —galaxias, el Sistema Solar, tú— los mantiene unida la
       gravedad; solo crece el espacio <b>entre</b> ellos.
     </div>
-  </div>
+    </div>
+  </details>
 
-  <!-- CALENDARIO CÓSMICO (cierre: la edad en perspectiva) -->
-  <div class="card">
-    <h2>El calendario cósmico: lo que significan esos años</h2>
+  <!-- CALENDARIO CÓSMICO (colapsable) -->
+  <details class="seccion">
+    <summary><span class="stit"><b>El calendario cósmico: lo que significan esos años</b><span class="prop">Comprime toda la historia del universo en un año para hacer tangible la escala.</span></span></summary>
+    <div class="cuerpo">
     <p><b>¿Recuerdas la pregunta que quedó abierta en Engage —qué ocurrió desde el Big Bang hasta hoy—?</b> Ha llegado el momento de
     responderla. Acabas de estimar que el universo ronda los <b>14 000 millones de años</b> (la medida más precisa da
     <b>13 800</b>); una cifra <b>imposible de imaginar</b>, así que comprimamos <b>toda</b> su historia en <b>un año de calendario</b>: el
@@ -257,7 +283,8 @@
       internet— cabe en los <b>últimos segundos</b> del año. Somos <b>nuevísimos</b> en un cosmos <b>antiquísimo</b>… y aun
       así <b>acabas de estimar</b> su edad.
     </div>
-  </div>
+    </div>
+  </details>
 
   <div id="continuar"></div>
   </div><!-- /formalizacion -->

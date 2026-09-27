@@ -34,6 +34,19 @@
   h2{font-size:1.15rem; margin:0 0 8px;}
   h3{font-size:1rem; margin:16px 0 6px; color:var(--naranja);}
   .nota{border-left:4px solid var(--naranja); background:var(--naranja-suave); padding:10px 14px; border-radius:0 8px 8px 0; margin:12px 0; font-size:.94rem;}
+  .callback{border-left-color:#4caf50; background:#eef8ee;}
+  details.seccion{background:#fff; border:1px solid var(--gris-claro); border-left:5px solid var(--naranja); border-radius:12px; margin:14px 0; box-shadow:0 1px 3px rgba(0,0,0,.04); overflow:hidden;}
+  .despliega{background:#e8f1fb; border-left:4px solid #2b6cb0; border-radius:0 8px 8px 0; padding:11px 15px; margin:16px 0; font-size:.94rem; color:var(--negro);}
+  .despliega b{color:#2b6cb0;}
+  details.seccion>summary{cursor:pointer; padding:15px 18px; list-style:none; display:flex; align-items:flex-start; gap:12px;}
+  details.seccion>summary::-webkit-details-marker{display:none;}
+  details.seccion>summary .stit{flex:1 1 auto;}
+  details.seccion>summary .stit b{font-size:1.1rem; color:var(--negro);}
+  details.seccion>summary .prop{display:block; font-size:.85rem; color:var(--gris); font-weight:400; margin-top:3px;}
+  details.seccion>summary::after{content:"▸"; color:var(--naranja); font-weight:700; font-size:1.15rem; line-height:1.3; transition:transform .15s;}
+  details.seccion[open]>summary::after{transform:rotate(90deg);}
+  details.seccion>summary:hover .stit b{color:var(--naranja);}
+  details.seccion .cuerpo{padding:0 18px 16px;}
   .nota b{color:var(--naranja);}
   .hilo{display:flex; flex-wrap:wrap; gap:6px; font-size:.8rem; margin:2px 0 8px;}
   .hilo span{background:var(--gris-claro); color:var(--gris); padding:3px 10px; border-radius:20px; white-space:nowrap;}
@@ -93,9 +106,12 @@
     </ol>
   </div>
 
-  <!-- ESPECTRO INTERACTIVO -->
-  <div class="card">
-    <h2>Experimenta con «tu galaxia»</h2>
+  <p class="despliega"><b>Despliega</b> cada apartado en orden para trabajarlo.</p>
+
+  <!-- ESPECTRO INTERACTIVO (colapsable) -->
+  <details class="seccion">
+    <summary><span class="stit"><b>Experimenta con «tu galaxia»</b><span class="prop">Arrastra la línea del espectro y mide el corrimiento al rojo (z) y la velocidad (v = c·z).</span></span></summary>
+    <div class="cuerpo">
     <p class="instru">El gráfico muestra la <b>intensidad</b> de la luz de <b>tu galaxia</b> (hipotética) según la
     <b>longitud de onda</b>; el <b>pico naranja</b> es su línea H-alfa. La línea gris discontinua marca dónde estaría
     <b>en reposo</b> (656,28 nm). <b>Arrástrala</b> hacia la derecha para alejar la galaxia.</p>
@@ -105,6 +121,8 @@
     </div>
 
     <ol class="pasos-calc" id="pasos"></ol>
+
+    <div class="nota callback"><b>↩ ¿Recuerdas Engage?</b> Preguntabas cómo conocer una galaxia <b>sin viajar</b> hasta ella. Con lo que acabas de hacer, <b>ya deberías poder responderlo</b>. Guárdate tu respuesta: cerraremos esta pregunta en <b>Evaluate</b>.</div>
 
     <div class="nota">
       <b>¿Por qué v = c·z?</b> Se deduce con un sencillo argumento de <b>crestas de onda</b>. La galaxia emite una cresta de onda y,
@@ -132,7 +150,8 @@
     <p class="fuente">La línea H-alfa del hidrógeno tiene su longitud de onda de reposo en 656,28 nm (dato de laboratorio).
     «Tu galaxia» es hipotética: sirve para entender la relación desplazamiento → velocidad. Las galaxias reales, con su
     corrimiento fijo, están en el diagrama de Hubble.</p>
-  </div>
+    </div>
+  </details>
 
   <p class="nota-avanzar">Antes de continuar, asegúrate de leer y entender todo.</p>
   <div id="continuar"></div>

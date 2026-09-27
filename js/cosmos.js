@@ -153,6 +153,16 @@
   // forzarSecuencia debe ejecutarse cuanto antes (antes de pintar la página).
   forzarSecuencia();
 
+  // Al abrir un apartado colapsable (details.seccion), avisar con un "resize" para que
+  // los interactivos que miden su tamaño al dibujarse (p. ej. el canvas de Olbers) se
+  // re-rendericen con el ancho real. Los SVG con viewBox no lo necesitan (escalan solos).
+  document.addEventListener("toggle", function (ev) {
+    var d = ev.target;
+    if (d && d.classList && d.classList.contains("seccion") && d.open) {
+      try { window.dispatchEvent(new Event("resize")); } catch (e) {}
+    }
+  }, true);
+
   function init() {
     inyectarEstilos();
     aplicarBloqueoNav();

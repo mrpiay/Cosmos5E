@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cosmos 5E · El recorrido</title>
+<style>
+  :root{--naranja:#E65113; --naranja-suave:#fbe9e0; --negro:#1a1a1a; --gris:#6b6b6b; --gris-claro:#e9e9e9; --blanco:#fff;}
+  *{box-sizing:border-box}
+  body{margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--negro); background:#f6f6f6; line-height:1.5;}
+  .hero{background:var(--naranja); color:#fff; text-align:center; padding:18px 20px 16px;}
+  .hero .marca{font-size:2.4rem; font-weight:800; letter-spacing:1px; margin:0; line-height:1;}
+  .hero .marca .c-cos{color:#fbe9e0;} .hero .marca .c-e{color:#FFA640;}
+  .hero .sub{max-width:900px; margin:8px auto 0; font-size:1rem; opacity:.97;}
+  main{max-width:860px; margin:0 auto; padding:24px 16px 14px;}
+  .intro{text-align:center; color:var(--gris); font-size:.95rem; margin:0 0 22px;}
+  .intro b{color:var(--negro);}
+  /* tarjetas de fase */
+  .fase{background:#fff; border:1px solid var(--gris-claro); border-left:5px solid var(--naranja); border-radius:12px; padding:16px 18px; box-shadow:0 1px 3px rgba(0,0,0,.04); display:flex; gap:16px; align-items:flex-start;}
+  .fase .num{flex:0 0 auto; width:42px; height:42px; border-radius:50%; background:var(--naranja-suave); color:var(--naranja); font-weight:800; font-size:1.25rem; display:flex; align-items:center; justify-content:center;}
+  .fase .txt{flex:1 1 auto;}
+  .fase h2{margin:0 0 2px; font-size:1.15rem;}
+  .fase h2 .verbo{color:var(--naranja); font-weight:600; font-size:.9rem;}
+  .fase .prop{margin:2px 0 8px; font-size:.95rem;}
+  .fase .prop b{color:var(--negro);}
+  .fase .lbl{font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:var(--gris); font-weight:700; margin:6px 0 2px;}
+  .fase ul{margin:2px 0 0; padding-left:20px; font-size:.92rem; color:#333;}
+  .fase ul li{margin:2px 0;}
+  /* nexo entre fases */
+  .nexo{max-width:640px; margin:9px auto; padding:7px 14px; background:#eef8ee; border:1px dashed #8bc34a; border-radius:10px; text-align:center; font-size:.88rem; font-style:italic; color:#33691e;}
+  .nexo b{font-style:normal;}
+  /* cadena de la medida */
+  .cadena-box{background:#fff; border:1px solid var(--gris-claro); border-radius:12px; padding:16px 18px; margin-top:26px; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  .cadena-box h3{margin:0 0 4px; font-size:1.05rem;}
+  .cadena-box p{margin:0 0 12px; font-size:.9rem; color:var(--gris);}
+  .cadena{display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:center;}
+  .cadena .chip{background:var(--naranja-suave); color:var(--naranja); font-weight:700; border-radius:20px; padding:6px 13px; font-size:.9rem;}
+  .cadena .arw{color:var(--naranja); font-weight:700;}
+  .volver{text-align:center; margin:26px 0 0;}
+  .volver a{display:inline-block; background:var(--naranja); color:#fff; text-decoration:none; font-weight:700; padding:11px 22px; border-radius:10px; transition:filter .12s;}
+  .volver a:hover{filter:brightness(1.06);}
+  footer{text-align:center; padding:14px 16px 22px;}
+  .logo-viu{width:180px; max-width:55%; height:auto; margin-top:10px;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1 class="marca"><a href="index.html" style="color:inherit;text-decoration:none"><span class="c-cos">Cosmos</span><span class="c-e">5E</span></a></h1>
+  <p class="sub">El mapa del recorrido: qué se hace y para qué en cada fase</p>
+</header>
+
+<main>
+  <p class="intro">Toda la secuencia responde a una pregunta: <b>¿podemos medir la edad y el tamaño del universo, y cómo lo sabe la ciencia?</b> Se recorre en <b>cinco fases</b> (modelo 5E), cada una con un propósito, encadenadas por una pregunta que lleva a la siguiente. Este mapa te orienta; <b>no adelanta las respuestas</b> —esas las descubres tú por el camino—.</p>
+
+  <!-- ENGAGE -->
+  <div class="fase">
+    <div class="num">1</div>
+    <div class="txt">
+      <h2>Engage <span class="verbo">· motivar</span></h2>
+      <p class="prop"><b>Para qué:</b> despertar la pregunta y sacar a la luz lo que ya piensas, antes de cualquier explicación.</p>
+      <div class="lbl">Qué haces</div>
+      <ul>
+        <li>Respondes un cuestionario inicial de ideas (sin corregir todavía).</li>
+        <li>Conoces el reto y te enfrentas a la paradoja de la noche oscura (Olbers).</li>
+      </ul>
+    </div>
+  </div>
+  <div class="nexo"><b>Puente →</b> Si no podemos viajar hasta las galaxias, ¿qué información nos llega de ellas?</div>
+
+  <!-- EXPLORE -->
+  <div class="fase">
+    <div class="num">2</div>
+    <div class="txt">
+      <h2>Explore <span class="verbo">· indagar</span></h2>
+      <p class="prop"><b>Para qué:</b> medir de verdad, con datos reales, y buscar un patrón <b>antes</b> de que nadie te lo explique.</p>
+      <div class="lbl">Qué haces</div>
+      <ul>
+        <li>Mides el corrimiento al rojo en un espectro.</li>
+        <li>Construyes el diagrama de Hubble con galaxias reales y anotas tu conjetura.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="nexo"><b>Puente →</b> Hay un patrón (cuanto más lejos, más deprisa): ¿qué significa y qué número lo describe?</div>
+
+  <!-- EXPLAIN -->
+  <div class="fase">
+    <div class="num">3</div>
+    <div class="txt">
+      <h2>Explain <span class="verbo">· formalizar</span></h2>
+      <p class="prop"><b>Para qué:</b> poner nombre y sentido a lo que has descubierto tú mismo.</p>
+      <div class="lbl">Qué haces</div>
+      <ul>
+        <li>Explicas primero con tus palabras lo que encontraste.</li>
+        <li>Después se formaliza la ley de Hubble-Lemaître y calculas la edad.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="nexo"><b>Puente →</b> ¿Es exacta esa edad? ¿Y hasta dónde podemos llegar a ver?</div>
+
+  <!-- ELABORATE -->
+  <div class="fase">
+    <div class="num">4</div>
+    <div class="txt">
+      <h2>Elaborate <span class="verbo">· elaborar</span></h2>
+      <p class="prop"><b>Para qué:</b> llevar tu método a preguntas nuevas y reconocer sus límites.</p>
+      <div class="lbl">Qué haces</div>
+      <ul>
+        <li>Estimas el tamaño del universo observable.</li>
+        <li>Exploras los límites de la medida (la tensión de Hubble y los horizontes).</li>
+      </ul>
+    </div>
+  </div>
+  <div class="nexo"><b>Puente →</b> ¿Sabrías explicarle todo el proceso a otra persona?</div>
+
+  <!-- EVALUATE -->
+  <div class="fase">
+    <div class="num">5</div>
+    <div class="txt">
+      <h2>Evaluate <span class="verbo">· evaluar</span></h2>
+      <p class="prop"><b>Para qué:</b> demostrar que entiendes el <b>proceso</b>, no solo el resultado.</p>
+      <div class="lbl">Qué haces</div>
+      <ul>
+        <li>Repites el cuestionario para ver cuánto has avanzado.</li>
+        <li>Reconstruyes la cadena de la medida y preparas tu producto final.</li>
+        <li>Cierras las preguntas que quedaron abiertas al principio.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CADENA DE LA MEDIDA -->
+  <div class="cadena-box">
+    <h3>El hilo que lo une todo: la cadena de la medida</h3>
+    <p>Cada eslabón conduce al siguiente, de la observación a la edad y el tamaño del universo.</p>
+    <div class="cadena">
+      <span class="chip">espectro</span><span class="arw">→</span>
+      <span class="chip">z</span><span class="arw">→</span>
+      <span class="chip">v = c·z</span><span class="arw">→</span>
+      <span class="chip">H₀</span><span class="arw">→</span>
+      <span class="chip">edad</span><span class="arw">→</span>
+      <span class="chip">tamaño</span>
+    </div>
+  </div>
+
+  <div class="volver"><a href="index.html">← Volver al inicio</a></div>
+</main>
+
+<footer>
+  <img class="logo-viu" src="logo.png" alt="Universidad Internacional de Valencia (VIU)">
+</footer>
+
+</body>
+</html>

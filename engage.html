@@ -46,6 +46,19 @@
   .detalle .aclara b{color:var(--negro);}
   .instru{font-size:.9rem; color:var(--gris);}
   .nota-avanzar{text-align:center; font-size:.88rem; color:var(--naranja); background:var(--naranja-suave); border-radius:8px; padding:9px 14px; margin:16px auto 0; max-width:640px;}
+  /* apartados colapsables */
+  details.seccion{background:#fff; border:1px solid var(--gris-claro); border-left:5px solid var(--naranja); border-radius:12px; margin:14px 0; box-shadow:0 1px 3px rgba(0,0,0,.04); overflow:hidden;}
+  .despliega{background:#e8f1fb; border-left:4px solid #2b6cb0; border-radius:0 8px 8px 0; padding:11px 15px; margin:16px 0; font-size:.94rem; color:var(--negro);}
+  .despliega b{color:#2b6cb0;}
+  details.seccion>summary{cursor:pointer; padding:15px 18px; list-style:none; display:flex; align-items:flex-start; gap:12px;}
+  details.seccion>summary::-webkit-details-marker{display:none;}
+  details.seccion>summary .stit{flex:1 1 auto;}
+  details.seccion>summary .stit b{font-size:1.1rem; color:var(--negro);}
+  details.seccion>summary .prop{display:block; font-size:.85rem; color:var(--gris); font-weight:400; margin-top:3px;}
+  details.seccion>summary::after{content:"▸"; color:var(--naranja); font-weight:700; font-size:1.15rem; line-height:1.3; transition:transform .15s;}
+  details.seccion[open]>summary::after{transform:rotate(90deg);}
+  details.seccion>summary:hover .stit b{color:var(--naranja);}
+  details.seccion .cuerpo{padding:0 18px 16px;}
   footer{background:var(--naranja-suave); text-align:center; padding:20px 16px 16px; font-size:.8rem; color:var(--gris);}
   footer p{max-width:920px; margin:0 auto;}
   a{color:var(--naranja); font-weight:600;}
@@ -113,42 +126,51 @@
     ocupamos en el cosmos. Una aventura para descubrir que <b>tú también puedes descifrar las leyes del universo</b>.</p>
   </div>
 
-  <!-- 2 · CUESTIONARIO CONCEPTUAL (pretest) -->
-  <div class="card">
-    <h2>Antes de empezar: ¿qué sabes ya?</h2>
-    <p class="instru">Responde cada pregunta lo mejor que puedas. <b>Si no lo tienes claro</b>, marca «No lo sé / no lo tengo claro» —es totalmente válido—. No te diremos aún si aciertas: eso lo irás descubriendo a lo largo de la secuencia. Es una <b>foto de tu punto de partida</b>, no un examen; al final, en <b>Evaluate</b>, volverás a estas preguntas y verás cuánto has avanzado.</p>
-    <div id="diagnostico"></div>
-  </div>
+  <p class="despliega"><b>Despliega</b> cada apartado en orden para trabajarlo.</p>
 
-  <!-- 3 · DEFINICIÓN DE TÉRMINOS -->
-  <div class="card">
-    <h2>Empecemos por lo fundamental: ¿qué significan «edad» y «tamaño» del universo?</h2>
-    <p>Son los dos <b>conceptos clave</b> de este reto. Pulsa cada tarjeta para <b>ayudarte a comprenderlos</b>.</p>
-    <div class="terminos" id="terminos"></div>
-    <div class="nota">
-      Fíjate en la idea que lo cambia todo: <b>no vamos a viajar a ninguna galaxia</b>. Toda la información nos llega en
-      la <b>luz</b> —y, como tarda en venir, esa luz es también una <b>máquina del tiempo</b>—. Aprender a leerla es de lo
-      que va esta secuencia.
+  <!-- 2 · CUESTIONARIO CONCEPTUAL (pretest, colapsable) -->
+  <details class="seccion">
+    <summary><span class="stit"><b>Antes de empezar: ¿qué sabes ya?</b><span class="prop">Un cuestionario para tomar la «foto» de tu punto de partida (no es un examen).</span></span></summary>
+    <div class="cuerpo">
+      <p class="instru">Responde cada pregunta lo mejor que puedas. <b>Si no lo tienes claro</b>, marca «No lo sé / no lo tengo claro» —es totalmente válido—. No te diremos aún si aciertas: eso lo irás descubriendo a lo largo de la secuencia. Es una <b>foto de tu punto de partida</b>, no un examen; al final, en <b>Evaluate</b>, volverás a estas preguntas y verás cuánto has avanzado.</p>
+      <div id="diagnostico"></div>
     </div>
-  </div>
+  </details>
 
-  <!-- 4 · LÍNEA DE TIEMPO -->
-  <div class="card">
-    <h2>Cómo llegamos hasta aquí: la aventura de la cosmología</h2>
-    <p>Nadie nació sabiendo la edad del universo: la humanidad tardó <b>siglos</b> en conseguirlo, y <b>cada gran salto
-    llegó con una tecnología nueva</b> para captar más luz. Recorre esa historia —pulsa cada hito—:</p>
-    <div class="tl" id="timeline"></div>
-    <div class="tl-det" id="tlDet">Pulsa un hito de la línea para ver <b>qué cambió</b> y <b>gracias a qué tecnología</b>.</div>
-    <div class="nota">
-      La ciencia <b>no es una lista de verdades fijas</b>: es una historia que sigue abierta y avanza cuando podemos
-      <b>ver más y mejor</b>. Y aquí viene lo bueno: en la fase <b>Explore</b> usarás los <b>mismos datos que Hubble</b>
-      —la luz de galaxias reales y sus distancias— para medir el universo <b>por ti mismo</b>.
+  <!-- 3 · DEFINICIÓN DE TÉRMINOS (colapsable) -->
+  <details class="seccion">
+    <summary><span class="stit"><b>¿Qué significan «edad» y «tamaño» del universo?</b><span class="prop">Cuestiona lo que crees sobre los conceptos clave del reto.</span></span></summary>
+    <div class="cuerpo">
+      <p>Son los dos <b>conceptos clave</b> de este reto. Pulsa cada tarjeta para <b>cuestionar lo que crees</b>.</p>
+      <div class="terminos" id="terminos"></div>
+      <div class="nota">
+        Fíjate en la idea que lo cambia todo: <b>no vamos a viajar a ninguna galaxia</b>. Toda la información nos llega en
+        la <b>luz</b> —y, como tarda en venir, esa luz es también una <b>máquina del tiempo</b>—. Aprender a leerla es de lo
+        que va esta secuencia.
+      </div>
     </div>
-  </div>
+  </details>
 
-  <!-- 6 · OLBERS -->
-  <div class="card">
-    <h2>¿Te has preguntado alguna vez por qué el cielo nocturno es oscuro?</h2>
+  <!-- 4 · LÍNEA DE TIEMPO (colapsable) -->
+  <details class="seccion">
+    <summary><span class="stit"><b>La aventura de la cosmología</b><span class="prop">Recorre la historia, de la Antigüedad a Planck: cada salto llegó con una tecnología nueva.</span></span></summary>
+    <div class="cuerpo">
+      <p>Nadie nació sabiendo la edad del universo: la humanidad tardó <b>siglos</b> en conseguirlo, y <b>cada gran salto
+      llegó con una tecnología nueva</b> para captar más luz. Recorre esa historia —pulsa cada hito—:</p>
+      <div class="tl" id="timeline"></div>
+      <div class="tl-det" id="tlDet">Pulsa un hito de la línea para ver <b>qué cambió</b> y <b>gracias a qué tecnología</b>.</div>
+      <div class="nota">
+        La ciencia <b>no es una lista de verdades fijas</b>: es una historia que sigue abierta y avanza cuando podemos
+        <b>ver más y mejor</b>. Y aquí viene lo bueno: en la fase <b>Explore</b> usarás los <b>mismos datos que Hubble</b>
+        —la luz de galaxias reales y sus distancias— para medir el universo <b>por ti mismo</b>.
+      </div>
+    </div>
+  </details>
+
+  <!-- 6 · OLBERS (colapsable) -->
+  <details class="seccion">
+    <summary><span class="stit"><b>¿Por qué el cielo nocturno es oscuro?</b><span class="prop">La paradoja de Olbers: una pista sorprendente que te hará pensar.</span></span></summary>
+    <div class="cuerpo">
     <p>Aunque parece una pregunta ingenua, dio origen a una de las <b>paradojas más famosas de la cosmología</b>. Suele
     conocerse como la <b>paradoja de Olbers</b> (siglo XIX), aunque la idea ya la habían planteado Kepler y Halley siglos antes.</p>
     <p>Imagina un universo <b>infinito, eterno y estático</b>, con estrellas repartidas uniformemente por todas partes.
@@ -168,7 +190,7 @@
       con la distancia</b>: cada trocito de cielo cubierto por una estrella <b>brilla igual</b>, esté cerca o muy lejos. Así,
       si <i>toda</i> dirección acaba topando con una estrella, el cielo entero —<b>sin huecos</b>— brillaría como el Sol,
       aunque cada estrella por separado apenas nos parezca un puntito tenue.</p>
-      <p class="aclara"><b>Con más precisión:</b> lo que no cambia con la distancia es el <b>brillo por unidad de superficie</b> (la <i>radiancia</i>); el <b>flujo total</b> que nos llega de la estrella sí disminuye. Ese brillo de superficie depende de la <b>temperatura</b> de la estrella —las más calientes brillan más por área— y solo se conserva en un universo <b>estático</b>: la expansión, de hecho, lo atenúa.</p>
+      <p class="aclara"><b>Con más precisión:</b> lo que no cambia con la distancia es el <b>brillo por unidad de superficie</b> (la <i>radiancia</i>); el <b>flujo total</b> que nos llega de la estrella sí disminuye. Ese brillo de superficie depende de la <b>temperatura</b> de la estrella —las más calientes brillan más por área— y solo se conserva en un universo <b>estático</b> (¿lo es el nuestro?).</p>
     </details>
 
     <p>Ahora pruébalo tú: ve <b>cubriendo el cielo</b> de estrellas.</p>
@@ -184,13 +206,8 @@
     </div>
 
     <div class="nota">
-      <p>Pero la noche es oscura. Si el razonamiento es correcto, <b>alguna de las hipótesis debe ser falsa</b>. Y así es: hoy sabemos que el universo <b>no es como suponía ese modelo</b>. Intervienen varios factores:</p>
-      <ul>
-        <li><b>El universo tiene una edad finita.</b> La luz solo ha tenido tiempo de llegarnos desde una región limitada del espacio —el <b>universo observable</b>—, así que vemos un número <b>finito</b> de estrellas.</li>
-        <li><b>Las estrellas no brillan para siempre.</b> Nacen, evolucionan y terminan apagándose.</li>
-        <li>Y, como <b>descubrirás más adelante en esta secuencia</b>, la luz de las galaxias más lejanas llega cada vez más <b>estirada y debilitada</b>, e incluso hay regiones del universo cuya luz <b>nunca podrá alcanzarnos</b>, debido a la <b>expansión del universo</b>.</li>
-      </ul>
-      <p>Por eso el cielo nocturno sigue siendo oscuro. Lejos de ser una simple curiosidad, esa oscuridad es una <b>pista de que el universo tiene una historia</b>. El universo no solo nos habla por la <b>luz que recibimos</b>, sino también por la que <b>nunca llegó hasta nosotros</b>.</p>
+      <p>Y sin embargo… <b>la noche es oscura</b>. Si el razonamiento es impecable, entonces <b>alguna de las tres suposiciones</b> del modelo —universo <b>infinito</b>, <b>eterno</b> y <b>estático</b>— tiene que fallar. ¿<b>Cuál crees tú</b> que falla? ¿Y qué observación te ayudaría a decidirlo?</p>
+      <p>No lo resolvemos aquí: <b>guárdate tu hipótesis</b>. A lo largo de la secuencia medirás el universo por ti mismo y podrás <b>volver a esta pregunta</b> con criterio.</p>
     </div>
     <p class="cita">A veces, la mejor prueba científica no es algo que vemos, sino algo que esperábamos ver… y no vemos.</p>
     <p>Ya sabes <b>qué</b> vamos a hacer, <b>por qué</b> importa y <b>cómo</b> hemos llegado a poder hacerlo. Ahora te toca
@@ -198,7 +215,8 @@
     <p>Si el universo tiene una historia, surge una pregunta inevitable: <b>¿qué ocurrió desde el Big Bang hasta hoy?</b> En
     la fase <b>Explain</b> reconstruirás esa historia y descubrirás cuándo aparecieron las primeras estrellas, las galaxias,
     el Sol y, mucho más tarde, nosotros.</p>
-  </div>
+    </div>
+  </details>
 
   <p class="nota-avanzar"><b>Guarda tus respuestas para poder continuar.</b><br>Antes de continuar, asegúrate de leer y entender todo.</p>
   <div id="continuar"></div>
@@ -217,19 +235,19 @@
 /* ---------- 3 · Términos ---------- */
 const TERMINOS=[
   {t:"Edad del universo", crees:"Quizá piensas: la edad de la Tierra, o la del Sol, o de las estrellas.",
-   rev:"No es el tiempo que llevan existiendo las cosas <b>dentro</b> del espacio… ¡es la edad del <b>espacio mismo</b>! ¿Cómo puede <b>cumplir años</b> el espacio vacío?"},
+   rev:"Pero si no es la edad de la Tierra, ni del Sol, ni de las estrellas… ¿de qué crees que medimos la edad cuando hablamos del <b>universo</b>? ¿Puede algo así <b>cumplir años</b>?"},
   {t:"Tamaño del universo", crees:"Quizá piensas: lo que mide «todo» el universo.",
-   rev:"Si el universo fuese <b>infinito</b>, no tendría tamaño. Entonces… ¿qué es <b>exactamente</b> lo que vas a medir en la siguiente fase?"},
+   rev:"Pero ¿y si el universo pudiera ser <b>infinito</b>? Entonces, ¿qué crees que medimos en realidad cuando hablamos de su <b>tamaño</b>?"},
   {t:"Universo observable", crees:"Quizá piensas: una frontera física del espacio.",
-   rev:"Imagina el universo como un <b>escenario a oscuras que se va iluminando</b> poco a poco: el «universo observable» es solo la parte que <b>ya hemos visto encenderse</b>. Su borde no es el final del espacio, sino el <b>límite de lo que la luz nos ha dejado ver hasta hoy</b>."},
+   rev:"¿Qué crees que marca ese «borde»: el <b>final del espacio</b>, o hasta dónde ha podido <b>llegarnos la luz</b>? ¿Y qué habrá más allá?"},
   {t:"Medir sin viajar", crees:"¿Cómo medir algo a donde nadie puede ir?",
-   rev:"Nadie puede ir a una galaxia… pero su <b>luz</b> sí llega hasta nosotros, con un <b>mensaje escondido</b> dentro. En <b>Explore</b> aprenderás a <b>leerlo</b>."}
+   rev:"Si nadie puede viajar hasta una galaxia… ¿qué crees que nos permite <b>conocerla a distancia</b>?"}
 ];
 const $ter=document.getElementById('terminos');
 TERMINOS.forEach(o=>{
   const c=document.createElement('div'); c.className='termino';
-  c.innerHTML=`<h4>${o.t}</h4><div class="crees">${o.crees}</div><div class="rev">${o.rev}</div><div class="toggle">pulsa para descubrirlo ▸</div>`;
-  c.onclick=()=>{ const ab=c.classList.toggle('abierta'); c.querySelector('.toggle').textContent = ab ? '▾ ocultar' : 'pulsa para descubrirlo ▸'; };
+  c.innerHTML=`<h4>${o.t}</h4><div class="crees">${o.crees}</div><div class="rev">${o.rev}</div><div class="toggle">pulsa para pensarlo ▸</div>`;
+  c.onclick=()=>{ const ab=c.classList.toggle('abierta'); c.querySelector('.toggle').textContent = ab ? '▾ ocultar' : 'pulsa para pensarlo ▸'; };
   $ter.appendChild(c);
 });
 

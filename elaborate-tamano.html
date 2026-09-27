@@ -33,6 +33,19 @@
   h4{margin:0 0 6px; color:var(--naranja); font-size:.95rem;}
   p{margin:8px 0;}
   .nota{border-left:4px solid var(--naranja); background:var(--naranja-suave); padding:10px 14px; border-radius:0 8px 8px 0; margin:12px 0; font-size:.94rem;}
+  .callback{border-left-color:#4caf50; background:#eef8ee;}
+  details.seccion{background:#fff; border:1px solid var(--gris-claro); border-left:5px solid var(--naranja); border-radius:12px; margin:14px 0; box-shadow:0 1px 3px rgba(0,0,0,.04); overflow:hidden;}
+  .despliega{background:#e8f1fb; border-left:4px solid #2b6cb0; border-radius:0 8px 8px 0; padding:11px 15px; margin:16px 0; font-size:.94rem; color:var(--negro);}
+  .despliega b{color:#2b6cb0;}
+  details.seccion>summary{cursor:pointer; padding:15px 18px; list-style:none; display:flex; align-items:flex-start; gap:12px;}
+  details.seccion>summary::-webkit-details-marker{display:none;}
+  details.seccion>summary .stit{flex:1 1 auto;}
+  details.seccion>summary .stit b{font-size:1.1rem; color:var(--negro);}
+  details.seccion>summary .prop{display:block; font-size:.85rem; color:var(--gris); font-weight:400; margin-top:3px;}
+  details.seccion>summary::after{content:"▸"; color:var(--naranja); font-weight:700; font-size:1.15rem; line-height:1.3; transition:transform .15s;}
+  details.seccion[open]>summary::after{transform:rotate(90deg);}
+  details.seccion>summary:hover .stit b{color:var(--naranja);}
+  details.seccion .cuerpo{padding:0 18px 16px;}
   .nota b{color:var(--naranja);}
   .aviso{background:#fff7f2; border:1px dashed var(--naranja); border-radius:8px; padding:9px 12px; font-size:.88rem; margin-top:10px;}
   .hilo{display:flex; flex-wrap:wrap; gap:6px; font-size:.8rem; margin:2px 0 8px;}
@@ -100,9 +113,12 @@
     lo que parece. En la <b>segunda parte</b> reconocerás los <b>límites</b> de lo que has medido.</p>
   </div>
 
-  <!-- TAMAÑO (radio de Hubble) -->
-  <div class="card">
-    <h2>Aplica el método: el radio de Hubble</h2>
+  <p class="despliega"><b>Despliega</b> cada apartado en orden para trabajarlo.</p>
+
+  <!-- TAMAÑO (radio de Hubble) (colapsable) -->
+  <details class="seccion">
+    <summary><span class="stit"><b>Aplica el método: el radio de Hubble</b><span class="prop">Con tu H₀, calcula el radio de Hubble (c/H₀): una primera estimación del tamaño.</span></span></summary>
+    <div class="cuerpo">
     <p>Con el <b>mismo H₀</b> que mediste, da el último paso de la cadena. La distancia que la luz recorre en un
     <b>tiempo de Hubble</b> es <b>c/H₀</b> (el <b>radio de Hubble</b>): tu primera estimación del tamaño.</p>
     <div class="src" id="h0src"></div>
@@ -112,11 +128,14 @@
     Es una <b>primera estimación</b> (un «suelo»).</p>
     <div class="aviso">Pero el universo observable <b>real</b> es unas <b>3 veces mayor</b> (~46 000 millones de al), porque
     el espacio se estiró mientras la luz viajaba. Lo vemos <b>a continuación</b>.</div>
-  </div>
+    </div>
+  </details>
 
-  <!-- LA SORPRESA: ~46 (antes opcional; ahora ficha central del tamaño) -->
-  <div class="card">
-    <h2>La sorpresa: el universo observable es mucho mayor (~46 000 millones de al)</h2>
+  <!-- LA SORPRESA: ~46 (colapsable) -->
+  <details class="seccion">
+    <summary><span class="stit"><b>La sorpresa: el universo observable es mucho mayor (~46 000 millones de al)</b><span class="prop">Por qué el observable (~46 Gly) supera a c × edad: el espacio se estiró mientras la luz viajaba.</span></span></summary>
+    <div class="cuerpo">
+    <div class="nota callback"><b>↩ ¿Recuerdas Engage?</b> Preguntabas qué medimos como «tamaño» si el universo puede ser infinito, y qué marca su «borde». Con lo que vas a ver aquí, <b>ya deberías poder responderlo</b>. Guárdatelo para <b>Evaluate</b>.</div>
     <p>Cuando ves una galaxia lejana, su luz ha tardado miles de millones de años en llegar. Pero <b>mientras viajaba, el
     espacio se ha estirado en TODAS partes</b> —delante y detrás de la luz, todo el rato—. Resultado: la galaxia que
     emitió esa luz <b>está hoy mucho más lejos</b> que el «camino» que la luz recorrió.</p>
@@ -197,11 +216,13 @@
 
     <div class="aviso">⚠ El valor exacto (~3,3) queda para el <b>modo experto</b>; aquí vemos el <b>porqué</b> y el orden
     de magnitud. El «46» se <b>deduce</b> (de la z), no se lee directamente, y <b>no</b> es «c × edad».</div>
-  </div>
+    </div>
+  </details>
 
-  <!-- TRANSFERENCIA (actividad central de Elaborate) -->
-  <div class="card">
-    <h2>Transfiere el método: ¿y si H₀ fuera otro?</h2>
+  <!-- TRANSFERENCIA (colapsable) -->
+  <details class="seccion">
+    <summary><span class="stit"><b>Transfiere el método: ¿y si H₀ fuera otro?</b><span class="prop">Aplica tu método a otros valores de H₀ y compara las edades y tamaños.</span></span></summary>
+    <div class="cuerpo">
     <p>Distintos equipos miden valores de <b>H₀</b> algo distintos. <b>Aplica tu método</b> a otros casos y compáralos con
     tu medida.</p>
     <p><b>Tu medida</b> (la de arriba): H₀ = <b id="tuH0">70</b> km/s/Mpc → edad ≈ <b id="tuEdad">…</b>, tamaño ≈ <b id="tuTam">…</b>.</p>
@@ -215,7 +236,8 @@
     <p class="instru">¿Sale la <b>misma</b> edad? ¿Por qué difieren? Como la edad y el tamaño son <b>1/H₀</b> y <b>c/H₀</b>,
     cuanto <b>mayor</b> es H₀, <b>menores</b> son la edad y el tamaño. Esa diferencia de valores es, precisamente, el tema
     de la siguiente parte.</p>
-  </div>
+    </div>
+  </details>
 
   <p class="nota-avanzar">Antes de continuar, asegúrate de leer y entender todo.</p>
   <div id="continuar"></div>
