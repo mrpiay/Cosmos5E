@@ -82,7 +82,7 @@
 <div class="sub"><b>Explore · indagar (1 de 2).</b><br>
 <b class="od">Objetivo:</b> aprender a medir la velocidad de una galaxia a partir de su luz.<br>
 <b class="od">Desarrollo:</b> desplazar la línea de un espectro para obtener el corrimiento al rojo (z) y, con él, la velocidad de recesión (v = c·z).</div>
-<div class="subfase"><span class="activo">1 · El corrimiento al rojo</span><a href="explore-diagrama.html">2 · El diagrama de Hubble</a></div>
+<div class="subfase"><span class="activo">1 · El corrimiento al rojo</span><a href="explore-diagrama.html">2 · El diagrama distancia–velocidad</a></div>
 
 <main>
 
@@ -125,31 +125,30 @@
     <div class="nota callback"><b>↩ ¿Recuerdas Engage?</b> Preguntabas cómo conocer una galaxia <b>sin viajar</b> hasta ella. Con lo que acabas de hacer, <b>ya deberías poder responderlo</b>. Guárdate tu respuesta: cerraremos esta pregunta en <b>Evaluate</b>.</div>
 
     <div class="nota">
-      <b>¿Por qué v = c·z?</b> Se deduce con un sencillo argumento de <b>crestas de onda</b>. La galaxia emite una cresta de onda y,
-      un periodo <b>T</b> después, la siguiente. En ese tiempo la luz recorre <b>una</b> longitud de onda: <b>λ = c·T</b>.
-      Pero si la galaxia se aleja a velocidad <b>v</b>, durante ese mismo <b>T</b> se ha alejado <b>v·T</b>, así que la segunda
-      cresta sale desde más lejos y las crestas nos llegan <b>más separadas</b>: la onda se estira exactamente <b>Δλ = v·T</b>.
-      Al dividir una cosa entre la otra, el periodo se cancela:
-      <b>z = Δλ/λ = v·T / (c·T) = v/c</b>. Despejando, <b>v = c·z</b>, con <b>c ≈ 300 000 km/s</b> (299 792 km/s) la velocidad
-      de la luz. (Vale mientras <b>v</b> sea mucho menor que <b>c</b>.)
+      <b>¿De dónde sale v = c·z?</b> Lo que mides es el <b>estiramiento relativo</b> de la luz, <b>z = Δλ/λ</b> (un número
+      <b>sin unidades</b>). Para galaxias <b>no muy lejanas</b> (<b>z ≪ 1</b>), ese estiramiento se traduce en una
+      <b>velocidad de recesión</b> mediante la <b>aproximación</b> <b>v ≈ c·z</b>, con <b>c ≈ 300 000 km/s</b>
+      (299 792 km/s) la velocidad de la luz. Es la relación que usaremos para medir la velocidad de <b>las galaxias de esta
+      actividad</b>, todas con <b>z pequeño</b>. <b>Qué significa físicamente</b> ese corrimiento —y por qué <b>v ≈ c·z</b>
+      solo vale cuando <b>z es pequeño</b>— lo verás en <b>Explain</b>.
     </div>
 
     <div class="nota">
-      <b>Una duda para más adelante.</b> Aquí imaginamos la galaxia «moviéndose», y ese modelo sirve de maravilla para
-      <b>medir</b> su velocidad con <b>v = c·z</b>. Pero ¿es de verdad un efecto Doppler, como el de una sirena que se
-      aleja? Guárdate la pregunta: en <b>Explain</b> descubrirás qué está pasando en realidad (y por qué <b>v = c·z</b>
-      solo vale bien cuando <b>v es mucho menor que c</b>).
+      <b>Una pregunta para más adelante.</b> Ya tienes una <b>velocidad</b> a partir del corrimiento al rojo, pero
+      <b>¿por qué</b> nos llega «estirada» la luz? ¿Será que la galaxia <b>se mueve</b> por el espacio, como una sirena que
+      se aleja (efecto Doppler), o está pasando <b>otra cosa</b>? <b>Guárdate la pregunta</b>: en <b>Explain</b>
+      descubrirás qué ocurre en realidad.
     </div>
 
     <div class="nota">
       Acabas de ver cómo, midiendo el desplazamiento de una línea conocida, se obtiene la <b>velocidad</b> de una galaxia.
-      En la siguiente actividad, el <b>diagrama de Hubble</b>, usarás las velocidades ya medidas de <b>15 galaxias reales</b>
-      para <b>buscar un patrón</b> entre su velocidad y su distancia, y medirlo.
+      En la siguiente actividad, el <b>diagrama distancia–velocidad</b>, usarás las velocidades ya medidas de <b>15 galaxias
+      reales</b> para <b>buscar un patrón</b> entre su velocidad y su distancia, y medirlo.
     </div>
 
     <p class="fuente">La línea H-alfa del hidrógeno tiene su longitud de onda de reposo en 656,28 nm (dato de laboratorio).
     «Tu galaxia» es hipotética: sirve para entender la relación desplazamiento → velocidad. Las galaxias reales, con su
-    corrimiento fijo, están en el diagrama de Hubble.</p>
+    corrimiento fijo, están en el diagrama distancia–velocidad de recesión.</p>
     </div>
   </details>
 
@@ -210,7 +209,7 @@ function actualizar(){
     {form:'λ observada = <b>'+lobs.toLocaleString('es-ES',{minimumFractionDigits:2,maximumFractionDigits:2})+' nm</b>', exp:'La posición de la línea de tu galaxia (arrástrala).'},
     {form:'Δλ = λ_obs − λ_reposo = <b>'+f(dl)+' nm</b>', exp:'Cuánto se ha «estirado» la luz.'},
     {form:'z = Δλ / λ_reposo = <b>'+f(z)+'</b>', exp:'El corrimiento al rojo: el estiramiento relativo (sin unidades).'},
-    {form:'v = c · z ≈ <b>'+Math.round(v).toLocaleString('es-ES')+' km/s</b>', exp: quieta ? 'c ≈ 300 000 km/s es la velocidad de la luz. En reposo, z = 0, así que la galaxia no se aleja (v = 0).' : 'c ≈ 300 000 km/s es la velocidad de la luz. Como z = v/c, la velocidad de recesión es v = c·z (válido para z pequeño).'}
+    {form:'v = c · z ≈ <b>'+Math.round(v).toLocaleString('es-ES')+' km/s</b>', exp: quieta ? 'c ≈ 300 000 km/s es la velocidad de la luz. En reposo, z = 0, así que la galaxia no se aleja (v = 0).' : 'c ≈ 300 000 km/s es la velocidad de la luz. Para galaxias con z pequeño, la velocidad de recesión se aproxima por v = c·z.'}
   ];
   const ol=document.getElementById('pasos'); ol.innerHTML='';
   pasos.forEach(p=>{const li=document.createElement('li'); li.innerHTML=`<div class="form">${p.form}</div><div class="exp">${p.exp}</div>`; ol.appendChild(li);});
@@ -236,7 +235,7 @@ refrescar();
 
 <script src="js/cosmos.js"></script>
 <script>
-  Cosmos.pintarContinuar('continuar','explore-diagrama.html','Siguiente actividad: el diagrama de Hubble');
+  Cosmos.pintarContinuar('continuar','explore-diagrama.html','Siguiente actividad: el diagrama distancia–velocidad');
 </script>
 </body>
 </html>

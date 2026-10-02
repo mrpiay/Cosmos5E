@@ -12,9 +12,10 @@
   .hero{background:var(--naranja); color:#fff; text-align:center; padding:20px 20px 18px;}
   .hero .marca{font-size:3.4rem; font-weight:800; letter-spacing:1px; margin:0; line-height:1;}
   .hero .marca .c-cos{color:#fbe9e0;} .hero .marca .c-e{color:#FFA640;}
-  .hero .tagline{max-width:960px; margin:12px auto 0; font-size:1rem; opacity:.97;}
-  .hero .tagline b{font-weight:700; font-size:1.2rem; display:inline-block; margin-top:4px;}
-  .hero .meta{font-size:.86rem; opacity:.85; margin-top:6px;}
+  .hero .tagline{max-width:960px; margin:9px auto 0; font-size:1rem; opacity:.97;}
+  .hero .tagline b{font-weight:700; font-size:1.2rem; display:inline-block; margin-top:9px;}
+  .hero .meta{font-size:.86rem; opacity:.85; margin:9px 0 0;}
+  .hero .meta-master{font-size:1.08rem; opacity:.95;}
   main{max-width:920px; margin:0 auto; padding:26px 16px 14px;}
   .intro{text-align:center; color:var(--gris); font-size:.95rem; margin:0 0 20px;}
   .intro b{color:var(--negro);}
@@ -23,8 +24,9 @@
   .cta-inicio .empezar{display:inline-block; background:var(--naranja); color:#fff; text-decoration:none; font-weight:800; font-size:1.1rem; padding:15px 30px; border:none; border-radius:12px; cursor:pointer; box-shadow:0 4px 14px rgba(230,81,19,.25); transition:transform .12s, filter .12s;}
   .cta-inicio .empezar:hover{transform:translateY(-2px); filter:brightness(1.05);}
   .cta-inicio .o-libre{font-size:.9rem; color:var(--gris); margin:14px 0 0;}
-  .btn-mapa{display:inline-block; background:#fff; color:var(--naranja); border:1.5px solid var(--naranja); border-radius:10px; padding:10px 18px; text-decoration:none; font-weight:700; transition:background .12s;}
+  .btn-mapa{display:inline-block; background:#fff; color:var(--naranja); border:1.5px solid var(--naranja); border-radius:10px; padding:10px 18px; text-decoration:none; font-family:inherit; font-size:1rem; font-weight:700; cursor:pointer; transition:background .12s;}
   .btn-mapa:hover{background:var(--naranja-suave);}
+  .utilidades{display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin:24px 0 0;}
   /* rejilla de fases */
   .rejilla{display:grid; grid-template-columns:1fr; gap:14px;}
   @media(min-width:620px){ .rejilla{grid-template-columns:1fr 1fr;} .rejilla .ancha{grid-column:1 / -1;} }
@@ -46,9 +48,10 @@
 
 <header class="hero">
   <h1 class="marca"><span class="c-cos">Cosmos</span><span class="c-e">5E</span></h1>
+  <p class="meta meta-master"><b>Máster Universitario en Astronomía y Astrofísica (VIU) · 2026</b></p>
   <p class="tagline">Web interactiva de acompañamiento al Trabajo de Fin de Máster<br>
     <b>«Secuencia Didáctica 5E para la Determinación de la Edad y el Tamaño del Universo»</b></p>
-  <p class="meta">Máster Universitario en Astronomía y Astrofísica (VIU) · Javier Piay Pombo · 2026</p>
+  <p class="meta"><b>Alumno:</b> Piay Pombo, Javier · <b>Director:</b> García Salcedo, Ricardo</p>
 </header>
 
 <main>
@@ -94,7 +97,7 @@
       <div class="num">4</div>
       <div class="txt">
         <h2>Elaborate <span class="verbo">· elaborar</span></h2>
-        <p>Aplica el método al tamaño observable y reconoce los límites de tu medida.</p>
+        <p>Obtén el tamaño observable a partir de tu H₀ y reconoce los límites de tu medida.</p>
       </div>
       <div class="flecha">→</div>
     </a>
@@ -110,13 +113,17 @@
 
   </div>
 
-  <p class="reset"><a href="#" onclick="if(confirm('¿Reiniciar la secuencia? Se borrarán tu progreso y tus respuestas guardadas en este dispositivo, y solo quedará disponible la fase 1 (Engage).')){Cosmos.reiniciar();}return false;">↺ Reiniciar la secuencia (borrar mis datos en este dispositivo)</a></p>
+  <div class="utilidades">
+    <button type="button" class="btn-mapa" onclick="if(confirm('Modo demostración: se rellenarán automáticamente todas las respuestas y reflexiones y se desbloquearán todas las fases, para poder ver la web completa y exportar un JSON. Se deshace con «Reiniciar». ¿Continuar?')){Cosmos.simular();}">▶ Simulación (demo)</button>
+    <button type="button" class="btn-mapa" onclick="if(confirm('¿Reiniciar la secuencia? Se borrarán el progreso y las respuestas guardadas en este dispositivo, y solo quedará disponible la fase 1 (Engage).')){Cosmos.reiniciar();}">↻ Reiniciar la secuencia</button>
+  </div>
 </main>
 
 <footer>
   <img class="logo-viu" src="logo.png" alt="Universidad Internacional de Valencia (VIU)">
 </footer>
 
+<script src="datos/test_conceptual_v2.js"></script>
 <script src="js/cosmos.js"></script>
 </body>
 </html>

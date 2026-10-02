@@ -116,7 +116,7 @@
 
 <div class="sub"><b>Evaluate · evaluar.</b><br>
 <b class="od">Objetivo:</b> demostrar la comprensión del proceso, no solo del resultado.<br>
-<b class="od">Desarrollo:</b> responder de nuevo el cuestionario inicial y comparar el avance, reconstruir la cadena de la medida, leer las ecuaciones empleadas y preparar el producto final.</div>
+<b class="od">Desarrollo:</b> responder de nuevo el cuestionario inicial y comparar el avance, cerrar las preguntas abiertas del principio, reconstruir la cadena de la medida, leer las ecuaciones empleadas y preparar el producto final.</div>
 
 <main>
 
@@ -173,11 +173,11 @@
       <details class="paso"><summary>1. ¿Qué mediste en el espectro de una galaxia?</summary>
         <div class="cont">El <b>corrimiento al rojo</b>, z = Δλ/λ: cuánto se ha «estirado» su luz respecto a la del laboratorio.</div></details>
       <details class="paso"><summary>2. ¿Cómo pasaste de z a una velocidad?</summary>
-        <div class="cont">Con <b>v = c·z</b> (deducida del efecto Doppler): el corrimiento se traduce en velocidad de recesión.</div></details>
+        <div class="cont">Con la <b>aproximación v = c·z</b> (válida para z pequeño): el corrimiento se traduce en velocidad de recesión.</div></details>
       <details class="paso"><summary>3. ¿De dónde salió tu H₀?</summary>
         <div class="cont">Al representar la velocidad frente a la distancia de muchas galaxias, los puntos forman una recta; su <b>pendiente es H₀</b> (la ley de Hubble-Lemaître, v = H₀·d).</div></details>
       <details class="paso"><summary>4. ¿Cómo llegaste a la edad?</summary>
-        <div class="cont"><b>Invirtiendo</b> H₀: t ≈ 1/H₀, el tiempo de Hubble. Rebobinar la expansión lleva a todas las galaxias a un mismo origen.</div></details>
+        <div class="cont"><b>Invirtiendo</b> H₀: t ≈ 1/H₀, el tiempo de Hubble. Al rebobinar, las distancias entre todas las galaxias se reducen a la vez (sin un punto central).</div></details>
       <details class="paso"><summary>5. ¿Cómo estimaste el tamaño?</summary>
         <div class="cont">El radio de Hubble, R ≈ c/H₀ (~14 000 millones de años-luz), como primera estimación; el universo <b>observable</b> real es mayor (~46 000 millones), porque el espacio siguió estirándose mientras la luz viajaba.</div></details>
     </div>
@@ -232,6 +232,23 @@
     </div>
   </details>
 
+  <!-- EXPORTAR RESULTADOS -->
+  <details class="seccion">
+    <summary><span class="stit"><b>Exportar mis resultados (para tu docente)</b><span class="prop">Descarga tus respuestas (pre, post, H₀, conjeturas y explicación) con un código anónimo.</span></span></summary>
+    <div class="cuerpo">
+      <p class="instru">Descarga todo lo que has guardado en este dispositivo —el cuestionario inicial (<b>pre</b>) y final (<b>post</b>), tu <b>H₀</b>, tus <b>conjeturas</b> de Explore y tu <b>explicación</b> de Explain— para entregárselo a tu docente. Se identifica con un <b>código anónimo</b>, <b>sin tu nombre</b>.</p>
+      <p style="margin:12px 0"><b>Tu código anónimo:</b>
+        <input id="expCodigo" type="text" maxlength="24" style="font:inherit;padding:6px 9px;border:1px solid var(--gris);border-radius:6px;width:11em;margin-left:6px">
+        <br><span class="instru">Puedes dejar el que se ha generado o poner el que te indique tu docente.</span></p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin:10px 0">
+        <button type="button" id="expJSON">Descargar JSON</button>
+        <button type="button" id="expCSV">Descargar CSV</button>
+      </div>
+      <div class="nota" id="expMsg" hidden></div>
+      <p class="instru">Tus datos solo están en <b>este navegador</b>: si cambias de dispositivo o los borras, se pierden. Por eso conviene <b>descargarlos y entregarlos</b>.</p>
+    </div>
+  </details>
+
   <!-- CIERRE + APERTURA -->
   <div class="card">
     <h2>¡Has completado la secuencia!</h2>
@@ -241,7 +258,7 @@
     <p>Seguramente hay cosas que todavía <b>no sabes explicar del todo</b>, o preguntas que te han quedado rondando. Eso no es un fallo: es justo lo que le ocurre a la ciencia, que <b>nunca da nada por cerrado</b>. Esta secuencia no es un final, sino un <b>punto de partida</b>. Elige por dónde seguir:</p>
     <ul class="guion">
       <li><b>Persigue una pregunta abierta.</b> Escoge la que más te intrigue: ¿qué es <b>realmente</b> la energía oscura? ¿qué <b>forma</b> tiene el universo, finito o infinito? ¿por qué dos maneras de medir H₀ no coinciden (la <b>tensión de Hubble</b>)? ¿qué implica el <b>horizonte de sucesos</b> para el futuro del cosmos?</li>
-      <li><b>Profundiza en las matemáticas.</b> Las ecuaciones de Friedmann explican <i>por qué</i> la expansión cambia con el tiempo. No hace falta deducirlas —eso es de universidad—: puedes aprender a <b>leerlas</b>, igual que acabas de hacer con las de esta secuencia.</li>
+      <li><b>Profundiza en las matemáticas.</b> Las ecuaciones de Friedmann explican <i>por qué</i> la expansión cambia con el tiempo. No hace falta deducirlas, su deducción sería objeto de un nivel académico superior, pero sí puedes aprender a <b>leerlas</b>, igual que acabas de hacer con las de esta secuencia.</li>
       <li><b>Investiga con datos reales.</b> Busca otras galaxias y sus distancias, repite tu medida de H₀ y compárala con la de los astrónomos.</li>
       <li><b>Comparte y debate.</b> Lleva una de estas preguntas a clase. En ciencia, una <b>buena pregunta</b> suele valer más que una respuesta cerrada.</li>
     </ul>
@@ -277,7 +294,7 @@ const ECS=[
    ['Relación','Proporción directa: el doble de z, el doble de v.'],
    ['Sentido','z &gt; 0 ⇒ v &gt; 0: la galaxia se aleja.'],
    ['Propósito','Convierte lo que medimos (z) en algo físico: una velocidad.'],
-   ['Origen','Del efecto Doppler (lo dedujiste con el argumento de las crestas de onda).']],
+   ['Origen','Es la forma aproximada (para z ≪ 1) de relacionar el corrimiento al rojo con la velocidad; no procede de un Doppler ordinario —su origen cosmológico se ve en Explain—.']],
   explica:'solo vale para z <b>pequeño</b>; para z grande daría v &gt; c y deja de servir (el corrimiento real es el espacio que se estira).'},
  {eq:'v = H₀ · d', tipo:'Observación',
   etapas:[
@@ -285,7 +302,7 @@ const ECS=[
    ['Relación','Proporción directa: cuanto más lejos, más deprisa se aleja.'],
    ['Sentido','En d = 0, v = 0: no nos alejamos de nosotros mismos.'],
    ['Propósito','La pendiente de la recta es H₀: el número que obtuviste de tus datos.'],
-   ['Origen','No se deduce de ninguna teoría: es un patrón <b>observado</b> por Hubble (1929) al alinear los puntos.']],
+   ['Origen','Es una relación <b>empírica</b>: el patrón que Hubble observó en 1929, consistente con los modelos de expansión homogénea; su pendiente permite medir H₀.']],
   explica:'es un hecho <b>medido</b>; que signifique que el universo se expande es una interpretación (el mejor modelo), no un teorema.'},
  {eq:'t ≈ 1 / H₀', tipo:'Aproximación',
   etapas:[
@@ -294,7 +311,7 @@ const ECS=[
    ['Sentido','Un H₀ grande (expansión rápida) implica un universo más joven.'],
    ['Propósito','Estima cuánto lleva el universo expandiéndose.'],
    ['Origen','De rebobinar la expansión: distancia ÷ velocidad = d/(H₀d) = 1/H₀.']],
-  explica:'vale <b>si el ritmo de expansión fue constante</b>; como no lo fue del todo, es una estimación muy buena pero no exacta.'},
+  explica:'es una <b>extrapolación lineal simplificada</b> de la tasa actual; da el <b>orden</b> de la edad, pero el valor preciso depende de toda la historia de la expansión, H(t).'},
  {eq:'R ≈ c / H₀', tipo:'Aproximación',
   etapas:[
    ['Símbolos','R = radio de Hubble (tamaño característico); c = velocidad de la luz; 1/H₀ = tiempo de Hubble.'],
@@ -383,6 +400,67 @@ function respVF(i,btn){
 <script src="js/test.js"></script>
 <script>
   Cosmos.renderDiagnostico('diagnostico','post');
+</script>
+
+<script>
+/* ---------- Exportar resultados (CSV / JSON) con código anónimo ---------- */
+(function(){
+  var codeInput=document.getElementById('expCodigo');
+  if(!codeInput) return;
+  function g(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+  function parse(k){ try{ return JSON.parse(g(k)||'null'); }catch(e){ return null; } }
+  function aviso(txt, err){ var m=document.getElementById('expMsg'); if(!m) return; m.hidden=false; m.textContent=txt; m.style.color=err?'#b23b3b':''; }
+
+  // Código anónimo persistente (se genera si no existe).
+  var code=g('cosmos5e_codigo');
+  if(!code){ code='C5E-'+Math.random().toString(36).slice(2,6).toUpperCase(); try{localStorage.setItem('cosmos5e_codigo',code);}catch(e){} }
+  codeInput.value=code;
+  codeInput.addEventListener('change',function(){ var v=codeInput.value.trim()||code; try{localStorage.setItem('cosmos5e_codigo',v);}catch(e){} });
+
+  function recoger(){
+    var pre=parse('cosmos5e_pre'), post=parse('cosmos5e_post'), h0=parseFloat(g('cosmos5e_h0'));
+    return {
+      codigo: (codeInput.value.trim()||code),
+      fecha_exportacion: new Date().toISOString(),
+      H0_medido: isFinite(h0)? h0 : null,
+      pre_aciertos: (pre&&typeof pre.score==='number')? pre.score : null,
+      pre_n: pre? pre.n : null,
+      post_aciertos: (post&&typeof post.score==='number')? post.score : null,
+      post_n: post? post.n : null,
+      pre_respuestas: (pre&&pre.detalle)? pre.detalle.map(function(d){return d.ans;}) : null,
+      post_respuestas: (post&&post.detalle)? post.detalle.map(function(d){return d.ans;}) : null,
+      conjetura: parse('cosmos5e_conjetura'),
+      explicacion: g('cosmos5e_explicacion')
+    };
+  }
+  function descargar(nombre, contenido, tipo){
+    try{
+      var blob=new Blob([contenido],{type:tipo});
+      var url=URL.createObjectURL(blob);
+      var a=document.createElement('a'); a.href=url; a.download=nombre;
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function(){ URL.revokeObjectURL(url); },1000);
+      aviso('Descargado: '+nombre+'. Entrégaselo a tu docente.');
+    }catch(e){ aviso('No se pudo generar la descarga en este navegador.', true); }
+  }
+  function csvDe(o){
+    var cj=o.conjetura||{};
+    var fila={
+      codigo:o.codigo, fecha_exportacion:o.fecha_exportacion, H0_medido:o.H0_medido,
+      pre_aciertos:o.pre_aciertos, pre_n:o.pre_n, post_aciertos:o.post_aciertos, post_n:o.post_n,
+      conjetura_patron:cj.cj1||'', conjetura_pendiente:cj.cj2||'', conjetura_dispersas:cj.cj3||'', conjetura_rebobinar:cj.cj4||'',
+      pre_respuestas:o.pre_respuestas? o.pre_respuestas.join('|') : '',
+      post_respuestas:o.post_respuestas? o.post_respuestas.join('|') : '',
+      explicacion:o.explicacion||''
+    };
+    var campos=Object.keys(fila);
+    function esc(v){ v=(v==null?'':String(v)).replace(/"/g,'""'); return '"'+v+'"'; }
+    return campos.join(';')+'\r\n'+campos.map(function(c){return esc(fila[c]);}).join(';')+'\r\n';
+  }
+  var bJ=document.getElementById('expJSON'), bC=document.getElementById('expCSV');
+  if(bJ) bJ.addEventListener('click',function(){ var o=recoger(); descargar('cosmos5e_'+o.codigo+'.json', JSON.stringify(o,null,2), 'application/json'); });
+  if(bC) bC.addEventListener('click',function(){ var o=recoger(); descargar('cosmos5e_'+o.codigo+'.csv', '﻿'+csvDe(o), 'text/csv;charset=utf-8'); });
+})();
 </script>
 </body>
 </html>

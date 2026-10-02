@@ -20,7 +20,7 @@ window.TEST_CONCEPTUAL = {
           "feedback": "La edad del universo no es la de una galaxia concreta: es la de todo el cosmos desde su origen."
         },
         {
-          "texto": "Al tiempo transcurrido desde el Big Bang, el origen del espacio y el tiempo.",
+          "texto": "Al tiempo transcurrido desde el Big Bang, el inicio de la expansión del universo.",
           "correcta": true,
           "feedback": "Correcto: es el tiempo desde el inicio de la expansión, no la edad de ningún astro concreto."
         },
@@ -41,12 +41,12 @@ window.TEST_CONCEPTUAL = {
         {
           "texto": "Una gran explosión que lanzó la materia hacia afuera en un espacio vacío que ya existía.",
           "correcta": false,
-          "feedback": "Idea errónea habitual: el Big Bang no ocurrió EN un espacio previo; fue el inicio del propio espacio."
+          "feedback": "Idea errónea habitual: el Big Bang no fue una explosión EN un espacio que ya existía; describe el inicio de la expansión de un universo muy caliente y denso."
         },
         {
-          "texto": "El inicio de la expansión del propio espacio-tiempo, que ocurrió en todas partes a la vez.",
+          "texto": "El inicio de la expansión de un universo muy caliente y denso, sin un centro ni un lugar donde «explotara».",
           "correcta": true,
-          "feedback": "Correcto: no hubo un 'lugar' donde explotó; el espacio mismo empezó a expandirse en todas partes."
+          "feedback": "Correcto: no fue una explosión en un punto, sino un estado temprano muy caliente y denso cuya expansión describe el modelo, sin un centro."
         },
         {
           "texto": "La explosión de una estrella supermasiva en el centro del universo.",
@@ -68,7 +68,7 @@ window.TEST_CONCEPTUAL = {
           "feedback": "Idea errónea: desde cualquier galaxia se vería lo mismo. No hay un centro privilegiado."
         },
         {
-          "texto": "No: desde cualquier galaxia se vería lo mismo, porque es el espacio entre todas el que se estira; no hay centro.",
+          "texto": "No: desde cualquier galaxia se vería lo mismo; a gran escala aumentan las distancias entre las galaxias no ligadas, sin que haya un centro.",
           "correcta": true,
           "feedback": "Correcto: la expansión no tiene centro; cualquier observador ve alejarse a las demás."
         },
@@ -108,7 +108,7 @@ window.TEST_CONCEPTUAL = {
       "oa": "OA2",
       "concepto": "Mirar lejos es mirar al pasado (look-back time)",
       "etiqueta": "Ver galaxias muy lejanas",
-      "enunciado": "Observamos una galaxia situada a 1 000 millones de años-luz. La vemos…",
+      "enunciado": "La luz que recibimos de una galaxia fue emitida hace 1 000 millones de años. La vemos…",
       "opciones": [
         {
           "texto": "Tal y como es ahora mismo.",
@@ -116,9 +116,9 @@ window.TEST_CONCEPTUAL = {
           "feedback": "No: la luz que recibimos salió hace mucho tiempo."
         },
         {
-          "texto": "Tal y como era hace 1 000 millones de años, porque su luz ha tardado ese tiempo en llegar.",
+          "texto": "Tal y como era hace 1 000 millones de años, cuando esa luz salió: mirar lejos es mirar al pasado.",
           "correcta": true,
-          "feedback": "Correcto: mirar lejos es mirar al pasado (look-back time)."
+          "feedback": "Correcto: la vemos como era cuando su luz partió (look-back time). En un universo en expansión, la distancia actual es otra cosa."
         },
         {
           "texto": "Con 1 000 millones de años de adelanto sobre su estado real.",
@@ -156,12 +156,12 @@ window.TEST_CONCEPTUAL = {
       "oa": "OA2",
       "concepto": "El corrimiento al rojo cosmológico no es Doppler ordinario",
       "etiqueta": "Por qué la luz llega «enrojecida»",
-      "enunciado": "La luz de una galaxia lejana nos llega desplazada hacia el rojo. ¿Por qué?",
+      "enunciado": "La luz de una galaxia lo bastante lejana nos llega desplazada hacia el rojo (corrimiento cosmológico). ¿A qué se debe, principalmente?",
       "opciones": [
         {
           "texto": "Porque la galaxia se mueve a gran velocidad a través del espacio, como una sirena que se aleja.",
           "correcta": false,
-          "feedback": "Idea errónea: no es un Doppler ordinario; la galaxia no 'vuela' por el espacio."
+          "feedback": "Idea errónea: el enrojecimiento cosmológico se debe sobre todo al estiramiento del espacio, no a que la galaxia 'vuele' por él (su pequeño movimiento propio sí es un Doppler real, pero es mucho menor)."
         },
         {
           "texto": "Porque el espacio se ha estirado mientras la luz viajaba, estirando también su longitud de onda.",
@@ -209,7 +209,7 @@ window.TEST_CONCEPTUAL = {
         {
           "texto": "Sí se expanden, pero tan despacio que no lo notamos.",
           "correcta": false,
-          "feedback": "Idea errónea: los sistemas ligados no se expanden en absoluto."
+          "feedback": "Idea errónea: los sistemas ligados no participan apreciablemente de la expansión, porque las fuerzas que los unen dominan a esas escalas."
         },
         {
           "texto": "Porque en los sistemas unidos por la gravedad (u otras fuerzas) esa unión vence a la expansión; solo se separa el espacio entre galaxias no ligadas.",
@@ -226,7 +226,7 @@ window.TEST_CONCEPTUAL = {
     {
       "id": 10,
       "oa": "OA5",
-      "concepto": "t ≈ 1/H0 es una aproximación (ritmo constante)",
+      "concepto": "t ≈ 1/H0 es una aproximación (extrapolación lineal)",
       "etiqueta": "¿Es exacta la edad estimada?",
       "enunciado": "La estimación t ≈ 1/H0 para la edad del universo…",
       "opciones": [
@@ -236,9 +236,9 @@ window.TEST_CONCEPTUAL = {
           "feedback": "Idea errónea: es una aproximación, no un valor exacto."
         },
         {
-          "texto": "Es una buena aproximación que supone un ritmo de expansión constante; el ritmo real ha variado.",
+          "texto": "Es una buena aproximación: corresponde a una extrapolación lineal simplificada de la tasa actual; el valor preciso depende de cómo ha variado la expansión.",
           "correcta": true,
-          "feedback": "Correcto: por eso el valor medido con modelos (≈13 800 Ma) difiere algo de 1/H0."
+          "feedback": "Correcto: por eso el valor que dan los modelos (≈13 800 Ma) difiere algo de 1/H0."
         },
         {
           "texto": "Es siempre mucho mayor que la edad real del universo.",
@@ -260,9 +260,9 @@ window.TEST_CONCEPTUAL = {
           "feedback": "Eso sería d/c (tiempo de viaje de la luz), mucho menor y distinto."
         },
         {
-          "texto": "Aproximadamente la edad del universo: rebobinando la expansión, todas las galaxias partieron del mismo punto hace ese tiempo.",
+          "texto": "Aproximadamente la edad del universo: es el tiempo de Hubble, una escala temporal asociada a la tasa de expansión actual.",
           "correcta": true,
-          "feedback": "Correcto: es d/v (distancia entre velocidad de recesión), la edad de todo el universo."
+          "feedback": "Correcto: es una escala de tiempo (d/v), del orden de la edad del universo; al rebobinar, las distancias entre galaxias se reducen a la vez."
         },
         {
           "texto": "La distancia hasta el borde del universo.",
@@ -274,48 +274,48 @@ window.TEST_CONCEPTUAL = {
     {
       "id": 12,
       "oa": "OA4",
-      "concepto": "El radio observable es mayor que c × edad",
-      "etiqueta": "El tamaño del universo observable",
-      "enunciado": "El universo tiene unos 13 800 millones de años. ¿Por qué el radio del universo observable es mucho mayor que 13 800 millones de años-luz?",
+      "concepto": "c/H0 es el radio de Hubble, no el radio observable",
+      "etiqueta": "Radio de Hubble y universo observable",
+      "enunciado": "El radio de Hubble, c/H₀, vale ~14 000 millones de años-luz. ¿Qué es, y cómo se relaciona con el radio del universo observable (~46 000 millones de años-luz)?",
       "opciones": [
         {
-          "texto": "No lo es: el radio observable es exactamente c × edad.",
-          "correcta": false,
-          "feedback": "Idea errónea: el radio observable (~46 000 Mal) supera con creces c × edad."
-        },
-        {
-          "texto": "Porque el espacio ha seguido estirándose mientras la luz viajaba, así que las fuentes que la emitieron están hoy mucho más lejos.",
+          "texto": "c/H₀ es una escala característica (el radio de Hubble), no el radio observable: este último (~46 000 Mal) es mayor porque el espacio se estiró mientras la luz viajaba.",
           "correcta": true,
-          "feedback": "Correcto: la expansión aleja hoy a las fuentes más allá del camino que recorrió su luz."
+          "feedback": "Correcto: c/H₀ (~14 Gly) es el radio de Hubble; el radio observable (~46 Gly) resulta de la historia de la expansión."
         },
         {
-          "texto": "Porque la luz viaja más rápido en el universo primitivo.",
+          "texto": "Son lo mismo: c/H₀ es directamente el radio del universo observable.",
           "correcta": false,
-          "feedback": "La velocidad de la luz es constante; no viaja más rápido."
+          "feedback": "Idea errónea: c/H₀ es el radio de Hubble; el observable (~46 Gly) es una magnitud distinta y mayor."
+        },
+        {
+          "texto": "El observable es siempre c/H₀ multiplicado por 3, una regla fija.",
+          "correcta": false,
+          "feedback": "No hay una regla fija de ×3: ese factor sale de la historia de la expansión del modelo."
         }
       ]
     },
     {
       "id": 13,
-      "oa": "OA6",
-      "concepto": "Materia oscura frente a energía oscura",
-      "etiqueta": "Materia oscura y energía oscura",
-      "enunciado": "¿En qué se diferencian la materia oscura y la energía oscura?",
+      "oa": "OA3",
+      "concepto": "Velocidades peculiares: la dispersión del diagrama de Hubble",
+      "etiqueta": "La dispersión del diagrama",
+      "enunciado": "En el diagrama de Hubble, algunas galaxias cercanas se desvían bastante de la recta. ¿Cuál es la explicación más adecuada?",
       "opciones": [
         {
-          "texto": "Son dos nombres para lo mismo: la parte del universo que no vemos.",
+          "texto": "La ley de Hubble solo se aplica a algunas galaxias.",
           "correcta": false,
-          "feedback": "Idea errónea: son conceptos distintos con efectos opuestos."
+          "feedback": "No: la ley vale en general; a distancias pequeñas otros movimientos pesan más."
         },
         {
-          "texto": "La materia oscura aporta gravedad («pesa» y atrae); la energía oscura acelera la expansión.",
+          "texto": "Las galaxias cercanas tienen velocidades peculiares (movimientos propios) que pueden ser comparables a su velocidad de recesión por la expansión.",
           "correcta": true,
-          "feedback": "Correcto: una gravita y frena; la otra acelera la expansión."
+          "feedback": "Correcto: a corta distancia la recesión es pequeña y las velocidades peculiares la enmascaran; por eso se dispersan."
         },
         {
-          "texto": "La materia oscura acelera la expansión y la energía oscura la frena.",
+          "texto": "Sus distancias son necesariamente incorrectas.",
           "correcta": false,
-          "feedback": "Están intercambiadas: es justo al revés."
+          "feedback": "No tienen por qué estar mal medidas: la dispersión se debe sobre todo a las velocidades peculiares."
         }
       ]
     },
@@ -345,25 +345,25 @@ window.TEST_CONCEPTUAL = {
     },
     {
       "id": 15,
-      "oa": "OA4",
-      "concepto": "La paradoja de Olbers: la oscuridad nocturna indica un universo con edad finita",
-      "etiqueta": "Por qué la noche es oscura",
-      "enunciado": "En un universo infinito, eterno y lleno de estrellas repartidas por igual, el cielo nocturno debería brillar por todas partes. Si es oscuro, ¿qué nos dice eso?",
+      "oa": "OA3",
+      "concepto": "Distancias independientes del corrimiento al rojo (no circularidad)",
+      "etiqueta": "Por qué distancias independientes",
+      "enunciado": "¿Por qué es importante que las distancias usadas para construir el diagrama de Hubble se hayan obtenido con métodos independientes del corrimiento al rojo?",
       "opciones": [
         {
-          "texto": "No significa nada especial: de noche el Sol no nos ilumina y ya está.",
-          "correcta": false,
-          "feedback": "El Sol es solo una estrella más; la paradoja pregunta por qué no brillan todas las demás juntas."
-        },
-        {
-          "texto": "Que el universo no es infinito, eterno y estático: tiene una edad finita (y las estrellas no brillan para siempre).",
+          "texto": "Porque si la distancia se calculara con la propia ley de Hubble, estaríamos suponiendo de antemano la relación que queremos comprobar (sería circular).",
           "correcta": true,
-          "feedback": "Correcto: es la paradoja de Olbers. La oscuridad indica un universo con historia, no infinito y eterno."
+          "feedback": "Correcto: usar distancias independientes evita el razonamiento circular; así la relación v–d se descubre de verdad."
         },
         {
-          "texto": "Que no hay suficientes estrellas en el universo.",
+          "texto": "Porque las distancias independientes no tienen ninguna incertidumbre.",
           "correcta": false,
-          "feedback": "Hay muchísimas: en un universo infinito, cada línea de visión acabaría topando con una estrella."
+          "feedback": "No: también tienen incertidumbre (sus barras de error); lo clave es que no dependen del corrimiento al rojo."
+        },
+        {
+          "texto": "Porque el corrimiento al rojo no se puede medir directamente.",
+          "correcta": false,
+          "feedback": "El corrimiento al rojo sí se mide directamente del espectro; la cuestión es evitar la circularidad."
         }
       ]
     }

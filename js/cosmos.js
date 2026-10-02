@@ -50,9 +50,41 @@
   // Reinicio completo: borra los datos locales y vuelve a modo alumno con el progreso a 0.
   // Recarga la página actual (desde el índice, se queda en el índice ya reiniciado).
   function reiniciar() {
-    try { ["cosmos5e_pre", "cosmos5e_post", "cosmos5e_conjetura", "cosmos5e_explicacion"].forEach(function (k) { localStorage.removeItem(k); }); } catch (e) {}
+    try { ["cosmos5e_pre", "cosmos5e_post", "cosmos5e_conjetura", "cosmos5e_explicacion", "cosmos5e_h0", "cosmos5e_codigo"].forEach(function (k) { localStorage.removeItem(k); }); } catch (e) {}
     lsSet("cosmos5e_modo", "aplicacion");
     lsSet("cosmos5e_progreso", "0");
+    location.reload();
+  }
+
+  // Modo demostración (temporal): rellena las respuestas y reflexiones de toda la secuencia
+  // y desbloquea todas las fases, para poder navegar la web completa y exportar un JSON sin
+  // tener que responder nada. Se deshace por completo con reiniciar().
+  function simular() {
+    try {
+      var items = (window.TEST_CONCEPTUAL && window.TEST_CONCEPTUAL.items) ? window.TEST_CONCEPTUAL.items : null;
+      var n = items ? items.length : 15;
+      function correcta(it) { for (var i = 0; i < it.opciones.length; i++) if (it.opciones[i].correcta) return i; return 0; }
+      var preDet = [], postDet = [], preScore = 0, postScore = 0;
+      for (var i = 0; i < n; i++) {
+        var ci = items ? correcta(items[i]) : 0;
+        postDet.push({ ans: ci, correct: true }); postScore++;           // post: todas correctas
+        if (i % 2 === 0) { preDet.push({ ans: ci, correct: true }); preScore++; }   // pre: ~la mitad (demo de avance)
+        else { var nopt = items ? items[i].opciones.length : 3; preDet.push({ ans: (ci + 1) % nopt, correct: false }); }
+      }
+      lsSet("cosmos5e_pre", JSON.stringify({ n: n, score: preScore, detalle: preDet, fecha: Date.now() }));
+      lsSet("cosmos5e_post", JSON.stringify({ n: n, score: postScore, detalle: postDet, fecha: Date.now() }));
+      lsSet("cosmos5e_conjetura", JSON.stringify({
+        cj1: "(demo) Cuanto más lejos está una galaxia, más deprisa se aleja: los puntos forman casi una recta.",
+        cj2: "(demo) La pendiente mide el ritmo al que se expande el universo.",
+        cj3: "(demo) Las cercanas se salen por sus velocidades peculiares.",
+        cj4: "(demo) Al rebobinar, las distancias entre todas se reducirían a la vez."
+      }));
+      lsSet("cosmos5e_explicacion", "(demo) La luz llega estirada (corrimiento al rojo); de la recta v–d obtengo H0; invirtiéndolo, la edad (t≈1/H0); y el tamaño con el radio de Hubble (c/H0), sabiendo que el observable es mayor.");
+      lsSet("cosmos5e_h0", "70");
+      lsSet("cosmos5e_codigo", "DEMO");
+      lsSet("cosmos5e_modo", "aplicacion");
+      lsSet("cosmos5e_progreso", String(ORDEN.length));   // desbloquea todas las fases
+    } catch (e) {}
     location.reload();
   }
 
@@ -175,7 +207,7 @@
   window.Cosmos = {
     getModo: getModo, esGuiado: esGuiado, setModo: setModo,
     modoDocente: modoDocente, modoAlumno: modoAlumno,
-    getProgreso: getProgreso, reiniciarProgreso: reiniciarProgreso, reiniciar: reiniciar,
+    getProgreso: getProgreso, reiniciarProgreso: reiniciarProgreso, reiniciar: reiniciar, simular: simular,
     desbloquearHasta: desbloquearHasta, continuar: continuar,
     irAActual: irAActual, pintarContinuar: pintarContinuar,
     indiceDe: indiceDe, ORDEN: ORDEN

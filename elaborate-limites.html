@@ -91,7 +91,7 @@
 
 <div class="sub"><b>Elaborate · elaborar (2 de 2).</b><br>
 <b class="od">Objetivo:</b> reconocer los límites de la medida.<br>
-<b class="od">Desarrollo:</b> explorar la tensión de Hubble, conocer el modelo estándar ΛCDM (materia y energía oscura) y ver hasta dónde se podrá llegar a observar (los horizontes).</div>
+<b class="od">Desarrollo:</b> explorar la tensión de Hubble, conocer el modelo estándar ΛCDM (materia y energía oscura) y ver hasta dónde se podrá llegar a observar (los horizontes, un paso más allá).</div>
 <div class="subfase"><a href="elaborate-tamano.html">1 · El tamaño observable</a><span class="activo">2 · Los límites de la medida</span></div>
 
 <main>
@@ -113,14 +113,13 @@
   <details class="seccion">
     <summary><span class="stit"><b>La ciencia en acción: la tensión de Hubble</b><span class="prop">Dos valores de H₀ dan edades algo distintas: incertidumbre y debate abierto.</span></span></summary>
     <div class="cuerpo">
-    <p><b>1/H₀ es una estimación muy buena de la edad.</b> Lo que de verdad cambia el número no es el detalle de cómo se
-    expandió el universo (eso apenas la altera), sino <b>qué valor de H₀ se use</b> —y ahí sí hay debate—. Distintos
-    métodos de medir H₀ no dan exactamente lo mismo, y por tanto dan <b>edades algo distintas</b>. Mueve el deslizador
-    entre los dos valores típicos:</p>
-
-    <div class="rango-lbl"><span>~67 (fondo cósmico, Planck)</span><span>~73 (supernovas cercanas)</span></div>
-    <input id="tension" type="range" min="66" max="74" step="0.1" value="70">
-    <div class="nota" id="resTension"></div>
+    <p><b>1/H₀ da una escala temporal del orden de la edad</b>, pero el valor <b>preciso</b> depende tanto del <b>valor de
+    H₀</b> como de <b>cómo ha evolucionado la expansión</b> (la historia de H(t) y los parámetros cosmológicos): para
+    calcularlo con exactitud hace falta un modelo.</p>
+    <p>Ya viste en el apartado anterior (<b>«¿Y si H₀ fuera otro?»</b>) que, al cambiar H₀, cambian la edad y el tamaño.
+    Pues bien: distintos <b>métodos de medir H₀</b> no dan exactamente lo mismo —<b>~67</b> km/s/Mpc (fondo cósmico,
+    Planck) frente a <b>~73</b> (supernovas cercanas)—, y por eso dan <b>edades algo distintas</b>. Esa discrepancia, aún
+    <b>sin resolver</b>, es la <b>tensión de Hubble</b>.</p>
 
     <div class="nota">
       Ninguno es «trampa»: son <b>métodos buenos</b> que aún no encajan del todo. Así avanza la ciencia —discutiendo y
@@ -162,8 +161,9 @@
       </div>
       <div>
         <h4>Energía oscura — «acelera»</h4>
-        <p style="margin:4px 0;font-size:.92rem">Una forma de energía que actúa como <b>antigravedad</b> a gran escala:
-        hace que la expansión <b>se acelere</b>. No es una «sustancia» que puedas tocar.</p>
+        <p style="margin:4px 0;font-size:.92rem">En el modelo ΛCDM, es el <b>componente asociado a la expansión
+        acelerada</b> del universo. Su <b>naturaleza física sigue siendo desconocida</b> (no es una «sustancia» que
+        puedas tocar).</p>
       </div>
     </div>
     <div class="aviso"><b>No las confundas:</b> una <b>pesa</b> (materia oscura, frena) y la otra <b>acelera</b> (energía
@@ -171,9 +171,16 @@
 
     <h3>Qué dice el modelo</h3>
     <ul class="lista">
-      <li>El universo tiene <b>≈ 13 800 millones de años</b>.</li>
+      <li>El universo tiene <b>≈ 13 800 millones de años</b> —el valor <b>preciso</b>, que ya tiene en cuenta <b>toda la
+      historia de la expansión</b> (frenada al principio y acelerada después); queda cerca de 1/H₀ ≈ 14 000, pero no es lo
+      mismo—.</li>
       <li>La expansión <b>se está acelerando</b>.</li>
     </ul>
+
+    <div class="nota"><b>No confundas edad y tamaño.</b> La <b>edad</b> es un <b>tiempo</b> (~13 800 millones de años); el
+    <b>tamaño</b> observable es una <b>distancia</b> (~46 000 millones de años-luz). Rondan ambos el «14 000» en sus
+    unidades (1/H₀ y c/H₀) casi por casualidad, pero son magnitudes distintas: el factor ~3 que lleva de 14 000 a 46 000
+    corrige <b>solo el tamaño</b> (el espacio se estiró mientras la luz viajaba), <b>no la edad</b>.</div>
 
     <div class="nota">Es un <b>modelo</b>: el que mejor encaja con muchas observaciones <b>independientes</b> —el fondo
     cósmico de microondas, las supernovas lejanas y la distribución de las galaxias—. No es la última palabra: siguen
@@ -186,8 +193,9 @@
   <details class="seccion">
     <summary><span class="stit"><b>¿Hasta dónde podremos ver? Los horizontes</b><span class="prop">El observable frente al horizonte de sucesos, y por qué hay luz que nunca nos llegará.</span></span></summary>
     <div class="cuerpo">
-    <p>Ya has medido el tamaño del <b>universo observable</b>: unos <b>46 000 millones de años-luz</b>. Cierra el
-    recorrido una pregunta nada intuitiva: ¿crecerá ese tamaño <b>para siempre</b>? ¿Hay un límite al <b>espacio que podemos medir</b>?</p>
+    <p>Ya has <b>calculado la edad y el tamaño</b> del universo observable (unos <b>46 000 millones de años-luz</b>). Con
+    eso en la mano, podemos <b>dar un paso más</b> y plantearnos una pregunta nada intuitiva: ¿crecerá ese tamaño
+    <b>para siempre</b>? ¿Hay un <b>límite</b> a lo que podremos llegar a ver?</p>
 
     <h3>Dos horizontes que conviene no confundir</h3>
     <ul class="lista">
@@ -228,16 +236,18 @@
     luz de hoy pueda alcanzarnos.</p>
 
     <h3>Míralo paso a paso, con números</h3>
-    <p>Un modelo <b>simplificado</b> con unidades sencillas: cada <b>paso</b> equivale a unos <b>1400 millones de años</b>,
-    y <b>1 unidad de distancia</b> es <b>lo que la luz recorre en un paso</b> (unos <b>1400 millones de años-luz</b>). Así,
-    la distancia «8» son ~11 000 millones de años-luz; «15», ~21 000. Con eso, dos reglas:</p>
+    <p>Un <b>modelo didáctico simplificado</b> (no una descripción exacta de cómo se expande el universo) con unidades
+    sencillas: cada <b>paso</b> equivale a unos <b>1400 millones de años</b>, y <b>1 unidad de distancia</b> es <b>lo que
+    la luz recorre en un paso</b> (unos <b>1400 millones de años-luz</b>). Así, la distancia «8» son ~11 000 millones de
+    años-luz; «15», ~21 000. Con eso, dos reglas:</p>
     <ul class="lista">
       <li><b>La luz avanza 1</b> en cada paso: recorre justo esa unidad. Es un valor <b>fijo</b> (se resta 1) porque
       su velocidad <i>c</i> es <b>siempre la misma</b>.</li>
       <li><b>El espacio se estira un 10 %</b> en cada paso: toda la distancia se multiplica por 1,1. No es fijo, sino
       <b>proporcional</b> a la distancia (el 10 % de una distancia grande es mucho más que el de una pequeña): es la
-      expansión. Y ese 10 % <b>no es un número inventado</b>: en un paso de ~1400 M de años el universo crece de verdad
-      ~un 10 % (1400 ÷ 14 000 ≈ 0,1, con 1/H₀ ≈ 14 000 M de años).</li>
+      expansión. Ese 10 % es una <b>elección razonable</b> para el modelo: en un paso de ~1400 M de años el universo crece
+      <b>del orden de</b> un 10 % (1400 ÷ 14 000 ≈ 0,1, con 1/H₀ ≈ 14 000 M de años). En el universo real ese ritmo
+      <b>no es constante</b> (cambia con el tiempo); aquí lo mantenemos fijo solo para que el cálculo sea sencillo.</li>
     </ul>
     <p>Combinando las dos, en cada paso la distancia al fotón pasa a ser <b>(distancia − 1) × 1,1</b> (primero la luz
     recorre su 1; luego el espacio estira lo que queda un 10 %). El tira y afloja entre un avance <b>fijo</b> (la luz) y
@@ -292,18 +302,6 @@
   <p>Web interactiva de la secuencia 5E para la determinación de la edad y el tamaño del universo (TFM, Javier Piay Pombo, VIU - 2026).</p>
   <img class="logo-viu" src="logo.png" alt="Universidad Internacional de Valencia (VIU)">
 </footer>
-
-<script>
-const esN=(n,d=0)=>n.toLocaleString('es-ES',{maximumFractionDigits:d});
-/* ---------- tensión de Hubble ---------- */
-const tension=document.getElementById('tension'), resTension=document.getElementById('resTension');
-function calcTension(){
-  const H0=parseFloat(tension.value), gyr=977.8/H0;
-  resTension.innerHTML='H₀ = <b>'+esN(H0,1)+'</b> km/s/Mpc &nbsp;→&nbsp; edad ≈ <b>'+esN(gyr,1)+' mil millones de años</b>';
-}
-tension.addEventListener('input',calcTension);
-calcTension();
-</script>
 
 <script>
 (function(){

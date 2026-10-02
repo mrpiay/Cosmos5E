@@ -96,8 +96,8 @@
 </header>
 
 <div class="sub"><b>Elaborate · elaborar (1 de 2).</b><br>
-<b class="od">Objetivo:</b> aplicar el método al tamaño del universo observable.<br>
-<b class="od">Desarrollo:</b> calcular el radio de Hubble a partir de H₀, descubrir por qué el universo observable es mucho mayor (~46 000 millones de al) y transferir el método a otros valores de H₀.</div>
+<b class="od">Objetivo:</b> obtener el tamaño del universo observable a partir de tu H₀.<br>
+<b class="od">Desarrollo:</b> calcular el radio de Hubble a partir de H₀, descubrir por qué el universo observable es mucho mayor (~46 000 millones de al) y comprobar cómo cambia con otros valores de H₀.</div>
 <div class="subfase"><span class="activo">1 · El tamaño observable</span><a href="elaborate-limites.html">2 · Los límites de la medida</a></div>
 
 <main>
@@ -108,7 +108,7 @@
     <div class="hilo" aria-label="La cadena de la medida">
       <span>espectro</span><span>z</span><span>v = c·z</span><span>H₀</span><span>edad</span><span class="activo">tamaño</span>
     </div>
-    <p>Ya tienes tu <b>H₀</b> y la <b>edad</b>. Aquí <b>no aprendes un método nuevo</b>: <b>aplicas el que ya conoces</b>
+    <p>Ya tienes tu <b>H₀</b> y la <b>edad</b>. Aquí <b>no hay un método nuevo</b>: <b>usas lo que ya obtuviste (tu H₀)</b>
     para dar el último eslabón de la cadena —el <b>tamaño</b> del universo observable— y descubres por qué es mucho mayor de
     lo que parece. En la <b>segunda parte</b> reconocerás los <b>límites</b> de lo que has medido.</p>
   </div>
@@ -117,17 +117,19 @@
 
   <!-- TAMAÑO (radio de Hubble) (colapsable) -->
   <details class="seccion">
-    <summary><span class="stit"><b>Aplica el método: el radio de Hubble</b><span class="prop">Con tu H₀, calcula el radio de Hubble (c/H₀): una primera estimación del tamaño.</span></span></summary>
+    <summary><span class="stit"><b>De tu H₀ al radio de Hubble</b><span class="prop">Con tu H₀, calcula el radio de Hubble (c/H₀): una escala característica de distancia.</span></span></summary>
     <div class="cuerpo">
     <p>Con el <b>mismo H₀</b> que mediste, da el último paso de la cadena. La distancia que la luz recorre en un
-    <b>tiempo de Hubble</b> es <b>c/H₀</b> (el <b>radio de Hubble</b>): tu primera estimación del tamaño.</p>
+    <b>tiempo de Hubble</b> es <b>c/H₀</b>, el <b>radio de Hubble</b>: una <b>escala característica de distancia</b> del
+    universo —<b>no</b> su tamaño—.</p>
     <div class="src" id="h0src"></div>
     <label style="display:inline-block;margin-top:8px">H₀ = <input id="h0" type="number" min="40" max="110" step="0.1" value="70"> km/s/Mpc</label>
     <div class="nota" id="res"></div>
-    <p class="instru">Como en <b>t</b> años la luz recorre <b>t</b> años-luz, este radio coincide en número con la edad.
-    Es una <b>primera estimación</b> (un «suelo»).</p>
-    <div class="aviso">Pero el universo observable <b>real</b> es unas <b>3 veces mayor</b> (~46 000 millones de al), porque
-    el espacio se estiró mientras la luz viajaba. Lo vemos <b>a continuación</b>.</div>
+    <p class="instru">Como en <b>t</b> años la luz recorre <b>t</b> años-luz, este radio <b>coincide en número con la
+    edad</b>. Es una <b>escala característica de distancia</b>, no el tamaño del universo observable (que verás que es
+    una magnitud <b>distinta —y mayor—</b>).</p>
+    <div class="aviso">El <b>radio del universo observable</b> es otra magnitud, <b>bastante mayor</b> (~46 000 millones de
+    al), porque el espacio se estiró mientras la luz viajaba. Lo vemos <b>a continuación</b>.</div>
     </div>
   </details>
 
@@ -158,7 +160,7 @@
     <div class="rango-lbl"><span>cuando salió la luz</span><span>hoy</span></div>
     <input id="stretch" type="range" min="0" max="1" step="0.01" value="0.5">
     <div class="numgrid" id="numEstira"></div>
-    <p class="instru" style="font-size:.8rem;margin-top:2px">Números relativos (u = unidades). El <b>camino recorrido</b> por la luz solo crece; su <b>distancia a nosotros</b> crece y luego decrece <b>solo si la fuente es lejana</b> (eso es «perder terreno»; en las cercanas solo se acerca). El <b>factor corrector</b> = distancia ÷ camino (al llegar) <b>crece con la distancia</b>.</p>
+    <p class="instru" style="font-size:.8rem;margin-top:2px">Números relativos (u = unidades). El <b>camino recorrido</b> por la luz solo crece; su <b>distancia a nosotros</b> crece y luego decrece <b>solo si la fuente es lejana</b> (eso es «perder terreno»; en las cercanas solo se acerca). La <b>razón distancia ÷ camino</b> (al llegar) <b>crece con la distancia</b> (no es un número fijo).</p>
     <p id="capEstira" class="nota"></p>
 
     <div class="nota">
@@ -183,11 +185,12 @@
 
     <div class="nota">
       <b>¿Y cómo se mide ese z ≈ 1100, si está tan lejos?</b> No hace falta su distancia: <b>z se lee del propio
-      espectro</b>. El CMB es radiación de <b>cuerpo negro</b> (térmica), así que su z sale de su <b>temperatura</b>:
-      hoy lo medimos a <b>2,7 K</b> (muy frío) y sabemos, por física atómica, que salió cuando el universo se enfrió
-      hasta <b>~3000 K</b> (la temperatura a la que el hidrógeno se volvió neutro y el universo, transparente). Como la
-      luz se enfría al estirarse, <b>1 + z = 3000 / 2,7 ≈ 1100</b>. La <b>distancia</b> (~46 Gly) se <b>deduce</b>
-      después, a partir de ese z. (Con las galaxias es igual: z se lee del desplazamiento de sus líneas, no de su
+      espectro</b>. Recuerda que <b>z es cuánto se ha estirado la luz</b>. Y <b>estirar una onda la «enfría» en la misma
+      proporción</b>, así que ese mismo factor se puede
+      <b>leer en la temperatura</b>. El CMB salió a <b>~3000 K</b> (cuando el hidrógeno se volvió neutro y el universo,
+      transparente) y hoy lo medimos a <b>2,7 K</b>: por tanto se ha estirado <b>1 + z = 3000/2,7 ≈ 1100</b> veces. A
+      partir de ese z, el modelo cosmológico permite calcular su <b>distancia</b> (~46 Gly). (Con las galaxias es igual: z
+      se lee del desplazamiento de sus líneas, no de su
       distancia.)
     </div>
 
@@ -195,14 +198,14 @@
     <ul class="lista">
       <li>La luz «viajó» ~13 800 millones de años → ingenuamente, <b>c × edad ≈ 14 Gly</b>.</li>
       <li>Pero el espacio que cruzó <b>se ha estirado enormemente desde que lo cruzó</b> (sobre todo al principio, cuando
-      era diminuto). Al sumarlo a lo largo de todo el camino, la distancia de hoy sale <b>unas 3 veces mayor</b>:
-      <b>~46 Gly</b>.</li>
+      era diminuto). Al sumarlo a lo largo de todo el camino, la distancia de hoy sale <b>bastante mayor</b> (unas 3 veces
+      <b>en este modelo</b>): <b>~46 Gly</b>.</li>
     </ul>
-    <p>Esa «~3 veces» es el <b>factor corrector</b>: la <b>razón entre la distancia de hoy y el camino recorrido</b> por
-    la luz (dos de las cifras del gráfico). <b>Cambia la fuente</b> en el selector de arriba y verás que <b>crece con la
-    distancia</b>: de ~1,2 en una galaxia cercana a ~3 en el fondo de microondas. Por eso el <b>universo observable
-    (~46 Gly)</b> es unas tres veces el <b>radio de Hubble (c/H₀ ≈ 14 Gly)</b>. <i>(El esquema usa un universo
-    simplificado; el valor exacto en el borde, ~3,3, incluye además el efecto acelerador de la energía oscura.)</i></p>
+    <p>Esa razón —<b>distancia de hoy ÷ camino recorrido</b> por la luz— <b>no es fija</b>: <b>cambia la fuente</b> en el
+    selector y verás que <b>crece con la distancia</b>, de ~1,2 en una galaxia cercana a ~3,3 en el fondo de microondas
+    (depende de la <b>historia de la expansión</b>). Por eso el <b>radio del universo observable (~46 Gly)</b> es bastante
+    mayor que el <b>radio de Hubble (c/H₀ ≈ 14 Gly)</b>: son <b>magnitudes distintas</b>. <i>(El esquema es un modelo
+    simplificado; aquí vemos el orden de magnitud.)</i></p>
     <div class="resultado" id="resObs"></div>
 
     <div class="nota">
@@ -210,21 +213,18 @@
       corrimiento al rojo <b>ya tiene en cuenta la expansión</b>… pero solo la del <b>corto trecho</b> entre esa galaxia
       y nosotros (por eso es pequeña). Para el <b>tamaño del universo observable</b> necesitamos la expansión acumulada
       a lo largo del <b>camino larguísimo</b> que ha recorrido la <b>luz más lejana</b> (la del fondo de microondas). Es
-      la <b>misma expansión</b>, pero sobre un camino mucho más largo: el <b>factor corrector</b> es lo que <b>escala</b>
-      del trecho corto (H₀) al camino completo.
+      la <b>misma expansión</b>, pero sobre un camino mucho más largo: esa <b>razón (distancia ÷ camino)</b> es lo que
+      <b>escala</b> del trecho corto (H₀) al camino completo.
     </div>
-
-    <div class="aviso">⚠ El valor exacto (~3,3) queda para el <b>modo experto</b>; aquí vemos el <b>porqué</b> y el orden
-    de magnitud. El «46» se <b>deduce</b> (de la z), no se lee directamente, y <b>no</b> es «c × edad».</div>
     </div>
   </details>
 
   <!-- TRANSFERENCIA (colapsable) -->
   <details class="seccion">
-    <summary><span class="stit"><b>Transfiere el método: ¿y si H₀ fuera otro?</b><span class="prop">Aplica tu método a otros valores de H₀ y compara las edades y tamaños.</span></span></summary>
+    <summary><span class="stit"><b>¿Y si H₀ fuera otro?</b><span class="prop">Repite el cálculo con otros valores de H₀ y compara las edades y tamaños.</span></span></summary>
     <div class="cuerpo">
-    <p>Distintos equipos miden valores de <b>H₀</b> algo distintos. <b>Aplica tu método</b> a otros casos y compáralos con
-    tu medida.</p>
+    <p>Distintos equipos miden valores de <b>H₀</b> algo distintos. <b>Repite el cálculo</b> (edad y tamaño) con esos
+    valores y compáralos con tu medida.</p>
     <p><b>Tu medida</b> (la de arriba): H₀ = <b id="tuH0">70</b> km/s/Mpc → edad ≈ <b id="tuEdad">…</b>, tamaño ≈ <b id="tuTam">…</b>.</p>
     <div style="display:flex;flex-wrap:wrap;gap:8px;margin:8px 0">
       <button class="sec btn-h0b" data-h0="67">H₀ de Planck (67)</button>
@@ -262,10 +262,11 @@ const h0=document.getElementById('h0'), res=document.getElementById('res'),
 function calcTamano(){
   let H0=parseFloat(h0.value); if(!isFinite(H0)||H0<=0) H0=70;
   const gly=977.8/H0, mill=Math.round(gly*1000/100)*100;
-  res.innerHTML='Radio de Hubble: R = c/H₀ ≈ <b>'+esN(mill)+' millones de años-luz</b> &nbsp;(el mínimo)';
+  res.innerHTML='Radio de Hubble: R = c/H₀ ≈ <b>'+esN(mill)+' millones de años-luz</b> &nbsp;(escala característica)';
   const obs=Math.round(mill*3.3/1000)*1000;
   const ro=document.getElementById('resObs');
-  if(ro) ro.innerHTML='<b>Radio observable</b> ≈ radio de Hubble × factor corrector (en el borde)<br>≈ '+esN(mill)+' × 3,3<br>≈ <b>'+esN(obs)+' millones de años-luz</b>';
+  if(ro) ro.innerHTML='<b>Radio del universo observable (hoy)</b> ≈ <b>'+esN(obs)+' millones de años-luz</b>'+
+    '<br><span style="font-weight:400;font-size:.9em">Se deduce del fondo de microondas con el modelo cosmológico.<br>De lado a lado, su <b>diámetro</b> es el doble: ~'+esN(obs*2)+' millones de años-luz.</span>';
   return mill;
 }
 h0.addEventListener('input',()=>{calcTamano(); pintaTransfer();});
@@ -304,7 +305,7 @@ function dibujaEstira(){
       '<th>Camino recorrido por la luz</th>'+
       '<th>Distancia de la luz a nosotros</th>'+
       '<th>Distancia a la galaxia</th>'+
-      '<th>Factor corrector (al llegar)<br>= distancia ÷ camino</th>'+
+      '<th>Razón distancia ÷ camino<br>(al llegar)</th>'+
     '</tr><tr>'+
       '<td><b>× '+expStr+'</b><span class="tend up">↑ solo crece</span></td>'+
       '<td><b>'+camino+'</b> u<span class="tend up">↑ solo crece</span></td>'+
@@ -323,7 +324,7 @@ fuenteSel.addEventListener('change',dibujaEstira);
 
 h0src.innerHTML='Introduce el <b>H₀</b> que mediste en el diagrama de Hubble (<b>Explore</b>). Como ejemplo partimos de <b>70</b>.';
 
-/* ---------- transferencia: aplicar el método a otro H0 ---------- */
+/* ---------- transferencia: repetir el cálculo con otro H0 ---------- */
 var h0b=document.getElementById('h0b'), resB=document.getElementById('resB');
 function edadDe(H0){ return Math.round(977.8/H0*1000/100)*100; } // millones de años (= radio de Hubble en Mal)
 function pintaTransfer(){

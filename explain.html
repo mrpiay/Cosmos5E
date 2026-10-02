@@ -116,7 +116,7 @@
 
 <div class="sub"><b>Explain · formalizar.</b><br>
 <b class="od">Objetivo:</b> explicar lo hallado y convertir H₀ en la edad del universo.<br>
-<b class="od">Desarrollo:</b> razonar primero el hallazgo con palabras propias; después, formalizar la ley de Hubble, calcular la edad (t ≈ 1/H₀) con las unidades a la vista y situarla en el calendario cósmico.</div>
+<b class="od">Desarrollo:</b> razonar primero el hallazgo con palabras propias; después, formalizar la ley de Hubble y el corrimiento cosmológico, calcular la edad (t ≈ 1/H₀) con las unidades a la vista, y recorrer la historia del universo y el calendario cósmico.</div>
 
 <main>
 
@@ -149,7 +149,7 @@
 
   <!-- QUÉ ES (colapsable) -->
   <details class="seccion">
-    <summary><span class="stit"><b>Tu etapa: la ley de Hubble-Lemaître</b><span class="prop">El patrón que hallaste tiene nombre (v = H₀·d) y da sentido a la edad.</span></span></summary>
+    <summary><span class="stit"><b>La ley de Hubble-Lemaître (qué es H₀)</b><span class="prop">El patrón que hallaste tiene nombre (v = H₀·d) y da sentido a la edad.</span></span></summary>
     <div class="cuerpo">
     <div class="hilo" aria-label="La cadena de la medida">
       <span>espectro</span><span>z</span><span>v = c·z</span><span>H₀</span><span class="activo">edad</span><span>tamaño</span>
@@ -157,11 +157,43 @@
     <p>El patrón que encontraste —cuanto más lejos, más deprisa se aleja— tiene nombre: la <b>ley de Hubble-Lemaître</b>,
     <b>v = H₀·d</b>. Su pendiente, <b>H₀</b>, es la <b>constante de Hubble</b>, que se <b>interpreta</b> como el <b>ritmo al
     que se expande el universo</b>. Y como la recta <b>pasa por el origen</b> (a distancia cero no hay recesión), al
-    prolongarla hacia atrás <b>todas</b> las galaxias parten de un mismo punto: eso es lo que dará sentido a la <b>edad</b>.
-    Aquí usarás la <b>calculadora didáctica</b> para <b>estimar</b> la edad a partir de tu H₀.</p>
-    <p>La idea clave: si la expansión hubiera sido siempre igual, el tiempo transcurrido desde que todo estaba junto
-    (el Big Bang) sería <b>t ≈ 1/H₀</b>, el <b>tiempo de Hubble</b>. Invertir el ritmo de expansión da un tiempo: la
-    <b>edad</b>.</p>
+    prolongarla hacia atrás las <b>distancias entre las galaxias se reducen todas a la vez</b>: el universo era cada vez
+    más <b>denso</b>, sin un centro ni un punto del que todo salga. Eso es lo que dará sentido a la <b>edad</b>. Aquí
+    usarás la <b>calculadora didáctica</b> para <b>estimar</b> la edad a partir de tu H₀.</p>
+    <p>La idea clave: <b>1/H₀</b> es el <b>tiempo de Hubble</b>, una escala temporal que se obtiene <b>extrapolando de
+    forma lineal</b> (de manera simplificada) la tasa de expansión <b>actual</b> hacia atrás. Da un valor <b>del orden de
+    la edad</b> del universo; la edad precisa requiere tener en cuenta <b>toda la historia de la expansión</b>.</p>
+    </div>
+  </details>
+
+  <!-- DOPPLER vs COSMOLOGICO (colapsable) -->
+  <details class="seccion">
+    <summary><span class="stit"><b>El corrimiento al rojo de la luz</b><span class="prop">Es el espacio que se estira (cosmológico), no un Doppler ordinario.</span></span></summary>
+    <div class="cuerpo">
+    <p>La luz de las galaxias nos llega <b>estirada hacia el rojo</b>, y la causa es la <b>misma para todas</b> —cercanas
+    y lejanas—: <b>el espacio por el que viaja se estira</b> mientras la luz está en camino, y estira con ella la onda.
+    Eso es el <b>corrimiento cosmológico</b>; siempre se debe a la <b>expansión del espacio</b>, no a que la galaxia
+    «vuele» a través de él.</p>
+
+    <h3>Entonces, ¿qué cambia entre una galaxia cercana y una lejana?</h3>
+    <p>Solo los <b>números</b>, no la causa:</p>
+    <ul style="margin:6px 0; padding-left:22px">
+      <li><b>Cercana (z pequeño):</b> el estiramiento es poco y la <b>fórmula del efecto Doppler</b>, v = c·z, da el
+      número correcto —por eso en Explore la usamos como <b>atajo</b> para obtener la velocidad—.</li>
+      <li><b>Lejana (z grande):</b> el estiramiento es enorme y esa fórmula <b>ya no vale</b> (daría velocidades mayores
+      que c); hay que usar la cosmología completa (fuera del alcance de este nivel).</li>
+    </ul>
+
+    <div class="aviso">
+      <b>Dos errores que aquí evitamos:</b><br>
+      ① Que a z pequeño el número <b>coincida</b> con el del Doppler <b>no</b> significa que la galaxia se <b>mueva por
+      el espacio</b> (como un coche que pita al alejarse): el Doppler sirve para <b>calcular</b>, pero
+      <b>cualitativamente es falso</b> —la galaxia casi no viaja; es el <b>espacio el que se estira</b>—. <i>(Su pequeño
+      movimiento propio —las velocidades peculiares que dispersaban el diagrama— sí es un Doppler real, pero es ruido,
+      no la señal de la expansión.)</i><br>
+      ② <b>No todo se expande:</b> los <b>sistemas ligados</b> —galaxias, el Sistema Solar, tú— los mantiene unida la
+      gravedad; solo crece el espacio <b>entre</b> ellos.
+    </div>
     </div>
   </details>
 
@@ -188,10 +220,10 @@
       <div class="tj-cab">2 · El cálculo: t ≈ 1/H₀ (con las unidades a la vista)</div>
       <ol class="conv" id="conv"></ol>
       <div class="ayudas">
-        <details class="ayuda"><summary>¿Qué es el tiempo de Hubble?</summary><div class="cont"><b>t ≈ 1/H₀</b>: el tiempo que habría pasado desde el Big Bang <b>si la expansión hubiera sido siempre igual</b>. Es una primera estimación de la edad del universo.</div></details>
+        <details class="ayuda"><summary>¿Qué es el tiempo de Hubble?</summary><div class="cont"><b>t ≈ 1/H₀</b>: una escala temporal que se obtiene <b>extrapolando linealmente</b> (de forma simplificada) la tasa de expansión <b>actual</b>. Es una primera estimación, <b>del orden</b> de la edad del universo.</div></details>
         <details class="ayuda"><summary>¿Por qué 1/H₀ da un tiempo?</summary><div class="cont">Porque H₀ es <b>velocidad ÷ distancia</b>; su inverso es <b>distancia ÷ velocidad = tiempo</b>. Las unidades lo confirman: al invertir km/s/Mpc y convertir el Mpc a km, los kilómetros se cancelan y queda un tiempo (segundos → años).</div></details>
       </div>
-      <div class="aviso">⚠ <b>t = 1/H₀ es una estimación muy buena de la edad</b> (el valor exacto difiere solo un poco). Lo que más cambia el número es <b>qué valor de H₀ se use</b>: lo verás en <b>Elaborate</b> (la tensión de Hubble).</div>
+      <div class="aviso">⚠ <b>t = 1/H₀ da el orden de la edad</b>, pero el valor preciso depende tanto del <b>valor de H₀</b> como de <b>cómo ha cambiado la expansión</b> a lo largo del tiempo (la historia de H(t)): lo verás en <b>Elaborate</b>.</div>
     </div>
 
     <div class="resultado" id="res"></div>
@@ -201,58 +233,32 @@
     </div>
   </details>
 
-  <!-- REBOBINA LA EXPANSIÓN (colapsable) -->
+  <!-- HISTORIA DEL UNIVERSO (colapsable) -->
   <details class="seccion">
-    <summary><span class="stit"><b>¿Por qué invertir H₀ da una edad? Rebobina la expansión</b><span class="prop">Al rebobinar, todas las galaxias convergen: 1/H₀ es la edad (no el viaje de la luz).</span></span></summary>
+    <summary><span class="stit"><b>La historia del universo: del Big Bang a hoy</b><span class="prop">Mueve el tiempo (adelante y atrás): del inicio denso y caliente a las galaxias de hoy.</span></span></summary>
     <div class="cuerpo">
-    <p>El diagrama mostró que <b>todas</b> las galaxias se alejan y las <b>lejanas más deprisa</b> (v ∝ d). ¿Estamos en
-    el centro? <b>No</b>: desde <b>cualquier</b> galaxia se vería exactamente lo mismo, así que lo que ocurre es que
-    <b>el espacio se expande</b> (sin centro). Y aquí está lo bueno: <b>invertir el ritmo</b> (1/H₀) no es solo cambiar
-    unidades, es <b>rebobinar</b> esa expansión hasta cuando todo estaba junto. Retrocede en el tiempo:</p>
+    <p>¿Y si recorremos <b>toda</b> la historia? Mueve el tiempo <b>hacia adelante</b> (y también <b>hacia atrás</b>): el
+    espacio empieza <b>diminuto, denso y caliente</b>; al <b>expandirse</b> se enfría y, con el tiempo, se forman las
+    primeras <b>galaxias</b>… hasta aparecer <b>nosotros</b>, que ya las vemos <b>muy lejos</b>.</p>
 
     <div class="grafico-wrap">
-      <svg id="rebobina" viewBox="0 0 720 150" role="img" aria-label="Las galaxias vuelven al mismo punto al retroceder en el tiempo"></svg>
+      <svg id="histo" viewBox="0 0 720 300" role="img" aria-label="La historia del universo: el espacio crece desde un estado denso y caliente y se forman las galaxias"></svg>
     </div>
-    <div class="rango-lbl"><span>hoy</span><span>Big Bang</span></div>
-    <input id="rebob" type="range" min="0" max="1" step="0.01" value="0">
-    <div class="resultado" id="resRebob"></div>
+    <div class="rango-lbl"><span>Big Bang (denso y caliente)</span><span>hoy</span></div>
+    <input id="tiempo" type="range" min="0" max="1" step="0.005" value="1">
+    <div class="resultado" id="resHist"></div>
 
     <div class="nota">
-      Como las <b>lejanas</b> van <b>proporcionalmente más rápido</b>, al rebobinar <b>todas llegan al mismo punto a la
-      vez</b>, hace <b>1/H₀</b>: ese instante es el <b>Big Bang</b>. Por eso <b>1/H₀ es la edad del universo</b> —el
-      tiempo desde que todo estaba junto—, y <b>no</b> el tiempo que tardó en llegarnos la luz de una galaxia (que sería
-      d/c, mucho menor).
+      No es una <b>explosión dentro</b> de un espacio que ya existía: es el <b>propio espacio</b> el que se expande. El
+      recuadro representa <b>todo</b> el espacio (no tiene «afuera» ni centro). Las galaxias —y <b>nosotros</b>— aparecen
+      <b>mucho después</b> del inicio.
     </div>
-    </div>
-  </details>
 
-  <!-- DOPPLER vs COSMOLOGICO (colapsable) -->
-  <details class="seccion">
-    <summary><span class="stit"><b>El corrimiento al rojo de la luz</b><span class="prop">Es el espacio que se estira (cosmológico), no un Doppler ordinario.</span></span></summary>
-    <div class="cuerpo">
-    <p>La luz de las galaxias nos llega <b>estirada hacia el rojo</b>, y la causa es la <b>misma para todas</b> —cercanas
-    y lejanas—: <b>el espacio por el que viaja se estira</b> mientras la luz está en camino, y estira con ella la onda.
-    Eso es el <b>corrimiento cosmológico</b>; siempre se debe a la <b>expansión del espacio</b>, no a que la galaxia
-    «vuele» a través de él.</p>
-
-    <h3>Entonces, ¿qué cambia entre una galaxia cercana y una lejana?</h3>
-    <p>Solo los <b>números</b>, no la causa:</p>
-    <ul style="margin:6px 0; padding-left:22px">
-      <li><b>Cercana (z pequeño):</b> el estiramiento es poco y la <b>fórmula del efecto Doppler</b>, v = c·z, da el
-      número correcto —por eso en Explore la usamos como <b>atajo</b> para obtener la velocidad—.</li>
-      <li><b>Lejana (z grande):</b> el estiramiento es enorme y esa fórmula <b>ya no vale</b> (daría velocidades mayores
-      que c); hay que usar la cosmología completa (queda para el modo experto).</li>
-    </ul>
-
-    <div class="aviso">
-      <b>Dos errores que aquí evitamos:</b><br>
-      ① Que a z pequeño el número <b>coincida</b> con el del Doppler <b>no</b> significa que la galaxia se <b>mueva por
-      el espacio</b> (como un coche que pita al alejarse): el Doppler sirve para <b>calcular</b>, pero
-      <b>cualitativamente es falso</b> —la galaxia casi no viaja; es el <b>espacio el que se estira</b>—. <i>(Su pequeño
-      movimiento propio —las velocidades peculiares que dispersaban el diagrama— sí es un Doppler real, pero es ruido,
-      no la señal de la expansión.)</i><br>
-      ② <b>No todo se expande:</b> los <b>sistemas ligados</b> —galaxias, el Sistema Solar, tú— los mantiene unida la
-      gravedad; solo crece el espacio <b>entre</b> ellos.
+    <div class="nota">
+      Rebobinar hasta ese inicio denso y caliente lleva, hace <b>≈ 1/H₀</b>, al <b>Big Bang</b>. Por eso <b>1/H₀ da el
+      orden de la edad del universo</b> —no el tiempo que tardó en llegarnos la luz de una galaxia (que sería d/c, mucho
+      menor)—. Al rebobinar, las distancias entre galaxias se reducen <b>todas a la vez</b>, sin un centro ni un punto del
+      que todo salga.
     </div>
     </div>
   </details>
@@ -328,34 +334,62 @@ h0.addEventListener('input',()=>{calc();});
 h0src.innerHTML='Introduce el <b>H₀</b> que mediste en el diagrama de Hubble (<b>Explore</b>). Como ejemplo partimos de <b>70</b>.';
 calc();
 
-/* ---------- rebobina la expansión (1/H₀ = edad) ---------- */
+/* ---------- helpers SVG ---------- */
 const SVGNS="http://www.w3.org/2000/svg";
 const el=(t,at)=>{const e=document.createElementNS(SVGNS,t);for(const k in at)e.setAttribute(k,at[k]);return e;};
-const svgR=document.getElementById('rebobina'), rebob=document.getElementById('rebob'), resRebob=document.getElementById('resRebob');
-const X0R=58, YR=62, SC=132, GALS=[1,2,3,4];   // nosotros a la izq; galaxias a distancias 1..4
-function dibujaRebobina(){
-  let H0=parseFloat(h0.value); if(!isFinite(H0)||H0<=0) H0=70;
-  const edad=Math.round(977.8/H0*1000/100)*100, s=parseFloat(rebob.value), f=1-s;
-  svgR.innerHTML='';
-  svgR.appendChild(el('line',{x1:X0R,y1:YR,x2:X0R+4*SC+56,y2:YR,stroke:'#ededed','stroke-width':1}));
-  // galaxias, con flecha de velocidad de recesión (∝ distancia)
-  GALS.forEach((d,i)=>{
-    const x=X0R+d*SC*f, al=10+d*11;
-    svgR.appendChild(el('line',{x1:x,y1:YR,x2:x+al,y2:YR,stroke:'#E65113','stroke-width':2}));
-    svgR.appendChild(el('polygon',{points:`${x+al},${YR} ${x+al-6},${YR-3.5} ${x+al-6},${YR+3.5}`,fill:'#E65113'}));
-    svgR.appendChild(el('circle',{cx:x,cy:YR,r:5,fill:'#E65113'}));
-    if(i===GALS.length-1){ const t=el('text',{x:x,y:YR-12,'text-anchor':'middle',fill:'#E65113','font-size':11}); t.textContent='galaxias (v ∝ distancia)'; svgR.appendChild(t); }
-  });
-  // nosotros (encima)
-  svgR.appendChild(el('circle',{cx:X0R,cy:YR,r:6,fill:'#1a1a1a'}));
-  const tn=el('text',{x:X0R,y:YR+28,'text-anchor':'middle',fill:'#1a1a1a','font-size':12,'font-weight':700}); tn.textContent='nosotros'; svgR.appendChild(tn);
-  // lectura
-  resRebob.innerHTML = s>=0.985
-    ? 'Hace <b>'+esN(edad)+' millones de años</b> (= 1/H₀): <b>todas juntas en el mismo punto</b> = el <b>Big Bang</b>.'
-    : 'Retrocediendo… hace <b>'+esN(Math.round(s*edad/100)*100)+' millones de años</b>.';
-}
-rebob.addEventListener('input',dibujaRebobina);
-dibujaRebobina();
+
+/* ---------- la historia del universo (inicio denso y caliente → galaxias → hoy), reversible ---------- */
+(function(){
+  var svg=document.getElementById('histo'), slider=document.getElementById('tiempo'), out=document.getElementById('resHist');
+  if(!svg||!slider) return;
+  var W=720, Hc=300;
+  var GALS=[
+    {fx:0.14,fy:0.30,tf:0.05},{fx:0.30,fy:0.68,tf:0.09},{fx:0.46,fy:0.20,tf:0.06},
+    {fx:0.60,fy:0.55,tf:0.11},{fx:0.74,fy:0.33,tf:0.07},{fx:0.86,fy:0.72,tf:0.13},
+    {fx:0.22,fy:0.50,tf:0.15},{fx:0.68,fy:0.82,tf:0.10},{fx:0.40,fy:0.84,tf:0.12},{fx:0.80,fy:0.16,tf:0.08}
+  ];
+  var US={fx:0.35,fy:0.38,tf:0.67};   // la Tierra, descentrada (para no sugerir un centro)
+  function lerp(a,b,t){return a+(b-a)*t;}
+  function hx(v){v=Math.max(0,Math.min(255,Math.round(v)));return (v<16?'0':'')+v.toString(16);}
+  function mix(c1,c2,t){return '#'+hx(lerp(c1[0],c2[0],t))+hx(lerp(c1[1],c2[1],t))+hx(lerp(c1[2],c2[2],t));}
+  function escala(t){ return 0.06+1.85*Math.pow(t,0.6); }   // crece de forma gradual; al final desborda el recuadro
+  function edadMa(){ var H0=parseFloat((document.getElementById('h0')||{}).value); if(!isFinite(H0)||H0<=0)H0=70; return Math.round(977.8/H0*1000/100)*100; }
+  function dibuja(){
+    var t=parseFloat(slider.value), a=escala(t);
+    var bw=a*560, bh=a*210, bx=W/2-bw/2, by=Hc/2-bh/2;
+    svg.innerHTML='';
+    svg.appendChild(el('rect',{x:0,y:0,width:W,height:Hc,fill:'#f6f6f6'}));
+    var fill=mix([247,150,60],[13,10,36],Math.min(1,a));
+    svg.appendChild(el('rect',{x:bx.toFixed(1),y:by.toFixed(1),width:bw.toFixed(1),height:bh.toFixed(1),rx:6,fill:fill}));
+    if(a<0.35) svg.appendChild(el('rect',{x:bx.toFixed(1),y:by.toFixed(1),width:bw.toFixed(1),height:bh.toFixed(1),rx:6,fill:'#ffd27f','fill-opacity':((0.35-a)/0.35*0.7).toFixed(2)}));
+    // rejilla del espacio (se estira con el recuadro)
+    var gc='rgba(255,255,255,'+(a>0.5?0.18:0.10).toFixed(2)+')';
+    for(var i=1;i<4;i++){ var gx=bx+bw*i/4; svg.appendChild(el('line',{x1:gx.toFixed(1),y1:by.toFixed(1),x2:gx.toFixed(1),y2:(by+bh).toFixed(1),stroke:gc,'stroke-width':1})); }
+    for(var j=1;j<3;j++){ var gy=by+bh*j/3; svg.appendChild(el('line',{x1:bx.toFixed(1),y1:gy.toFixed(1),x2:(bx+bw).toFixed(1),y2:gy.toFixed(1),stroke:gc,'stroke-width':1})); }
+    // galaxias (aparecen tras su tf)
+    GALS.forEach(function(g){ var op=Math.max(0,Math.min(1,(t-g.tf)/0.08)); if(op<=0) return;
+      var x=bx+g.fx*bw, y=by+g.fy*bh;
+      svg.appendChild(el('circle',{cx:x.toFixed(1),cy:y.toFixed(1),r:(2.5+op*1.5).toFixed(1),fill:'#ffe3b0','fill-opacity':op.toFixed(2)}));
+    });
+    // nosotros (al final) + "los vemos lejos"
+    var uop=Math.max(0,Math.min(1,(t-US.tf)/0.08));
+    if(uop>0){ var ux=bx+US.fx*bw, uy=by+US.fy*bh;
+      svg.appendChild(el('circle',{cx:ux.toFixed(1),cy:uy.toFixed(1),r:6,fill:'#bcdff5',stroke:'#ffffff','stroke-width':1.5,'fill-opacity':uop.toFixed(2)}));   // la Tierra: «un punto azul pálido»
+      var utx=el('text',{x:ux.toFixed(1),y:(uy-11).toFixed(1),'text-anchor':'middle',fill:'#ffffff','font-size':11,'font-weight':700,'fill-opacity':uop.toFixed(2)}); utx.textContent='nosotros'; svg.appendChild(utx);
+    }
+    // lectura (época + tiempo)
+    var ep = t<0.05 ? 'universo primitivo: denso y caliente, en expansión (aún sin galaxias)' :
+             t<0.20 ? 'se forman las primeras estrellas y galaxias' :
+             t<0.67 ? 'el espacio se expande: las galaxias se separan' :
+             t<0.90 ? 'aparecemos nosotros; el espacio sigue expandiéndose' :
+                      'vemos las demás galaxias muy lejos (algunas ya quedan fuera de lo observable)';
+    var ago=Math.round((1-t)*edadMa()/100)*100;
+    out.innerHTML = t>=0.985
+      ? 'Hoy: el universo tiene ≈ <b>'+edadMa().toLocaleString('es-ES')+' millones de años</b> — '+ep+'.'
+      : 'Hace <b>'+ago.toLocaleString('es-ES')+' millones de años</b> — '+ep+'.';
+  }
+  slider.addEventListener('input',dibuja); dibuja();
+})();
 
 /* ---------- calendario cósmico (la edad en perspectiva) ---------- */
 const EDAD_MA=13800;   // millones de años
@@ -417,12 +451,17 @@ $rc.addEventListener('input',pintaCal); pintaCal();
 /* ---------- Tu explicación: recuperar conjetura de Explore + revelar formalización ---------- */
 (function(){
   var box=document.getElementById('conjeturaPrev');
-  var etq={cj1:'El patrón que viste',cj2:'Qué crees que significa la pendiente',cj3:'Por qué algunas se salen',cj4:'Qué pasaría al rebobinar'};
+  var etq={
+    cj1:'¿Qué patrón viste en el diagrama?',
+    cj2:'¿Qué crees que significa la pendiente de la recta?',
+    cj3:'¿Por qué crees que algunas galaxias se salen de la recta?',
+    cj4:'Si «rebobinaras» el tiempo, ¿qué les pasaría a las galaxias?'
+  };
   var g=null; try{ g=JSON.parse(localStorage.getItem('cosmos5e_conjetura')||'null'); }catch(e){}
   if(g && (g.cj1||g.cj2||g.cj3||g.cj4)){
-    var h='<div class="nota"><b>Tus notas de Explore:</b><ul style="margin:8px 0 0;padding-left:20px">';
-    ['cj1','cj2','cj3','cj4'].forEach(function(k){ if(g[k]) h+='<li><b>'+etq[k]+':</b> '+String(g[k]).replace(/</g,'&lt;')+'</li>'; });
-    h+='</ul></div>';
+    var h='<div class="nota"><b>Tus notas de Explore</b> (lo que escribiste al medir):';
+    ['cj1','cj2','cj3','cj4'].forEach(function(k){ if(g[k]) h+='<div style="margin-top:9px"><div style="font-weight:600;color:var(--negro)">'+etq[k]+'</div><div style="white-space:pre-wrap;margin-top:2px">'+String(g[k]).replace(/</g,'&lt;')+'</div></div>'; });
+    h+='</div>';
     box.innerHTML=h;
   } else {
     box.innerHTML='<p class="instru">No encontramos tus notas de Explore en este dispositivo. No pasa nada: recuerda lo que pensaste y coméntalo.</p>';

@@ -118,8 +118,8 @@
 
 <div class="sub"><b>Explore · indagar (2 de 2).</b><br>
 <b class="od">Objetivo:</b> descubrir y medir el patrón entre velocidad y distancia.<br>
-<b class="od">Desarrollo:</b> construir el diagrama de Hubble con galaxias reales, ajustar la recta y obtener el valor de H₀ (sin interpretar todavía qué significa).</div>
-<div class="subfase"><a href="explore-espectro.html">1 · El corrimiento al rojo</a><span class="activo">2 · El diagrama de Hubble</span></div>
+<b class="od">Desarrollo:</b> construir el diagrama de distancia y velocidad de recesión con galaxias reales, ajustar la recta y medir su pendiente (sin interpretar todavía qué significa).</div>
+<div class="subfase"><a href="explore-espectro.html">1 · El corrimiento al rojo</a><span class="activo">2 · El diagrama distancia–velocidad</span></div>
 
 <main>
 
@@ -132,8 +132,9 @@
     <p>Estás en la <b>actividad central</b> de la secuencia. Cada punto del gráfico es una <b>galaxia real</b>: sabemos
     a qué <b>distancia</b> está (eje horizontal) y a qué <b>velocidad</b> se aleja de nosotros (eje vertical). Tu tarea
     es <b>indagar</b>: ¿hay algún <b>patrón</b> entre la distancia y la velocidad? Si lo hay, <b>mídelo</b> ajustando una
-    recta; su <b>pendiente</b> será tu medida (la llamaremos <b>H₀</b>). Qué <i>significa</i> ese número lo
-    <b>descubrirás tú</b> en la siguiente fase, <b>Explain</b>: aquí solo lo medimos.</p>
+    recta; su <b>pendiente</b> (la llamaremos <b>m</b>) será tu medida. Qué <i>significa</i> ese número y <i>cómo se
+    llama</i> lo <b>descubrirás tú</b> al final de esta página y en la siguiente fase, <b>Explain</b>: aquí primero
+    <b>observas y mides</b>.</p>
 
     <div class="nota">
       <b>¿Por qué no es trampa?</b> Las distancias no se han obtenido a partir de la velocidad, sino con métodos
@@ -143,9 +144,9 @@
 
     <h3>¿Qué vas a hacer?</h3>
     <ol class="pasos">
-      <li><b>Observa</b> la nube de puntos: ¿ves alguna tendencia?</li>
-      <li><b>Ajusta la recta</b> (deslizador «Tu H₀») para que pase lo mejor posible por los puntos.</li>
-      <li><b>Lee tu H₀</b>: es la pendiente de esa recta. Anótalo: lo usarás en Explain.</li>
+      <li><b>Observa</b> la nube de puntos: ¿ves alguna tendencia? ¿la siguen <b>todos</b> por igual?</li>
+      <li><b>Ajusta la recta</b> (deslizador «Tu pendiente m») para que pase lo mejor posible por los puntos.</li>
+      <li><b>Lee tu pendiente m</b> (la pendiente de esa recta) y anótala.</li>
     </ol>
   </div>
 
@@ -153,7 +154,7 @@
 
   <!-- GRÁFICO + CONTROLES (colapsable) -->
   <details class="seccion">
-    <summary><span class="stit"><b>Diagrama de Hubble</b><span class="prop">Ajusta la recta a los puntos y lee tu H₀ (la pendiente).</span></span></summary>
+    <summary><span class="stit"><b>Diagrama distancia–velocidad de recesión</b><span class="prop">Ajusta la recta a los puntos y lee tu pendiente (m).</span></span></summary>
     <div class="cuerpo">
     <div class="grafico-wrap">
       <svg id="grafico" viewBox="0 0 760 480" role="img"
@@ -166,7 +167,7 @@
 
     <div class="controles">
       <div class="control-h0">
-        <label for="h0">Tu H₀ (pendiente de la recta) — mueve el deslizador:</label>
+        <label for="h0">Tu pendiente m (de la recta) — mueve el deslizador:</label>
         <input type="range" id="h0" min="40" max="110" step="0.5" value="70">
       </div>
       <div class="h0-lectura">
@@ -178,57 +179,10 @@
       <button class="sec" id="btnFit">Pista: ajuste automático</button>
     </div>
 
-    <div class="nota" id="notaPec">
-      <b>¿Qué son los puntos grises?</b> Son galaxias <b>cercanas</b>. Su velocidad está «contaminada» por
-      movimientos locales (velocidades <b>peculiares</b>), así que se salen de la recta. Fíjate: la recta encaja bien con
-      las <b>lejanas</b> (naranjas) y peor con las cercanas. Por eso conviene ajustar mirando sobre todo las lejanas.
+    <div class="nota">
+      <b>Observa con atención.</b> ¿Siguen <b>todos</b> los puntos la recta por igual, o <b>algunos se desvían</b> más que
+      otros? Fíjate en <b>dónde</b> ocurre (¿cerca o lejos?) y tenlo en cuenta al responder las preguntas de abajo.
     </div>
-    </div>
-  </details>
-
-  <!-- LISTA DE GALAXIAS (colapsable) -->
-  <details class="seccion">
-    <summary><span class="stit"><b>Las 15 galaxias que estás usando</b><span class="prop">Los datos reales del diagrama: distancia, velocidad y H₀ individual.</span></span></summary>
-    <div class="cuerpo">
-    <p>Estos son los <b>datos reales</b> del gráfico. La columna <b>H₀ individual</b> (velocidad ÷ distancia) muestra qué
-    valor daría <b>cada galaxia por separado</b>: fíjate en que las <b>cercanas</b> (filas grises) dan valores muy dispares
-    —por sus velocidades peculiares—, mientras que las <b>lejanas</b> se agrupan en torno a un <b>valor común</b>. Por eso
-    conviene ajustar la recta mirando sobre todo las lejanas, no galaxia a galaxia.</p>
-    <div class="grafico-wrap">
-      <table class="tabla-gal">
-        <thead><tr>
-          <th>Galaxia</th><th class="num">Distancia (Mpc)</th><th class="num">Velocidad (km/s)</th><th class="num">H₀ individual (v/d)</th>
-        </tr></thead>
-        <tbody id="tablaGalaxias"></tbody>
-      </table>
-    </div>
-    <p class="fuente">Los datos proceden de <b>NED-D</b>, una base pública de la NASA/IPAC con miles de medidas de
-    distancia a galaxias. Para cada galaxia, la <b>distancia</b> es la <b>mediana</b> de sus medidas
-    <b>independientes del corrimiento al rojo</b> —obtenidas con Cefeidas, supernovas de tipo Ia, TRGB o Tully-Fisher—;
-    que sean independientes es justo lo que evita el círculo vicioso y hace que la relación entre velocidad y distancia se descubra de verdad.
-    La <b>velocidad</b> se calcula a partir del corrimiento al rojo con <b>v = c·z</b>. La <b>barra de error</b> de la
-    distancia mide cuánto discrepan entre sí esas medidas (la mitad de su rango central, con un mínimo del 5 %); la del
-    corrimiento al rojo es despreciable. Fuente: Steer et al. (2017). Puedes consultar los datos originales en la
-    <a href="https://ned.ipac.caltech.edu/Library/Distances/" target="_blank" rel="noopener">base NED-D</a> o descargar el
-    <a href="https://ned.ipac.caltech.edu/Archive/Distances/NED30.5.1-D-17.1.2-20200415.csv" target="_blank" rel="noopener">archivo CSV completo</a>.</p>
-    </div>
-  </details>
-
-  <!-- RESULTADO (colapsable) -->
-  <details class="seccion">
-    <summary><span class="stit"><b>Tu medida</b><span class="prop">El valor de H₀ que has obtenido; anótalo para Explain.</span></span></summary>
-    <div class="cuerpo">
-    <p>Has ajustado una recta a los datos. Su <b>pendiente</b> es tu medida —la llamaremos <b>H₀</b>—:</p>
-
-    <div class="resultado">
-      <div class="res-box acento">
-        <div class="val"><span id="rH0">70</span></div>
-        <div class="lbl">la pendiente de tu recta (km/s/Mpc)<br>tu medida (la llamaremos H₀)</div>
-      </div>
-    </div>
-
-    <p style="font-size:.9rem; color:var(--gris)"><b>Apunta tu H₀</b>: lo necesitarás en <b>Explain</b>. Todavía no sabemos
-    qué <i>significa</i> este número ni qué nos dice sobre el universo: eso es justo lo que vas a descubrir a continuación.</p>
     </div>
   </details>
 
@@ -255,7 +209,71 @@
     </div>
   </details>
 
-  <p class="nota-avanzar"><b>Guarda tus respuestas para poder continuar.</b><br>Antes de continuar, asegúrate de leer y entender todo.</p>
+  <p class="nota-avanzar" id="notaConj"><b>Guarda tus cuatro respuestas</b> para desvelar qué acabas de medir y poder continuar.</p>
+
+  <!-- REVELACIÓN (solo tras guardar la conjetura) -->
+  <div id="revelacion" hidden>
+
+    <div class="card">
+      <h2>Ahora sí: ¿qué era esa pendiente?</h2>
+      <p>Lo que acabas de medir —la <b>pendiente m</b> de la recta— tiene nombre: es la <b>constante de Hubble, H₀</b>
+      (en km/s por Mpc). Indica <b>cuánta velocidad de recesión gana una galaxia por cada unidad de distancia</b>. Qué
+      <i>significa</i> y qué podrás calcular con ella —nada menos que la <b>edad del universo</b>— es justo lo que verás
+      en <b>Explain</b>.</p>
+      <p>Y el <b>gráfico</b> también tiene nombre propio: es el histórico <b>diagrama de Hubble</b>, con el que Edwin
+      Hubble descubrió en 1929 que el universo se expande. Acabas de reconstruirlo tú.</p>
+      <div class="nota">
+        <b>¿Y los puntos que se desviaban?</b> Son las galaxias <b>cercanas</b> (ahora en gris). Su velocidad está
+        «contaminada» por <b>movimientos locales</b> (velocidades <b>peculiares</b>) comparables a su recesión, así que se
+        apartan de la recta. Las <b>lejanas</b> apenas los notan y marcan el patrón limpio: por eso conviene ajustar
+        mirando sobre todo a ellas. <b>Compara</b> esto con lo que escribiste en la tercera pregunta.
+      </div>
+    </div>
+
+    <!-- LISTA DE GALAXIAS (colapsable) -->
+    <details class="seccion">
+      <summary><span class="stit"><b>Las 15 galaxias que estás usando</b><span class="prop">Los datos reales: distancia, velocidad y H₀ individual (v/d).</span></span></summary>
+      <div class="cuerpo">
+      <p>Estos son los <b>datos reales</b> del gráfico. La columna <b>H₀ individual</b> (velocidad ÷ distancia) muestra qué
+      valor daría <b>cada galaxia por separado</b>: fíjate en que las <b>cercanas</b> (filas grises) dan valores muy dispares
+      —por sus velocidades peculiares—, mientras que las <b>lejanas</b> se agrupan en torno a un <b>valor común</b>. Por eso
+      conviene ajustar la recta mirando sobre todo las lejanas, no galaxia a galaxia.</p>
+      <div class="grafico-wrap">
+        <table class="tabla-gal">
+          <thead><tr>
+            <th>Galaxia</th><th class="num">Distancia (Mpc)</th><th class="num">Velocidad (km/s)</th><th class="num">H₀ individual (v/d)</th>
+          </tr></thead>
+          <tbody id="tablaGalaxias"></tbody>
+        </table>
+      </div>
+      <p class="fuente">Los datos proceden de <b>NED-D</b>, una base pública de la NASA/IPAC con miles de medidas de
+      distancia a galaxias. Para cada galaxia, la <b>distancia</b> es la <b>mediana</b> de sus medidas
+      <b>independientes del corrimiento al rojo</b> —obtenidas con Cefeidas, supernovas de tipo Ia, TRGB o Tully-Fisher—;
+      que sean independientes es justo lo que evita el círculo vicioso y hace que la relación entre velocidad y distancia se descubra de verdad.
+      La <b>velocidad</b> se calcula a partir del corrimiento al rojo con <b>v = c·z</b>. La <b>barra de error</b> de la
+      distancia mide cuánto discrepan entre sí esas medidas (la mitad de su rango central, con un mínimo del 5 %); la del
+      corrimiento al rojo es despreciable. Fuente: Steer et al. (2017). Puedes consultar los datos originales en la
+      <a href="https://ned.ipac.caltech.edu/Library/Distances/" target="_blank" rel="noopener">base NED-D</a> o descargar el
+      <a href="https://ned.ipac.caltech.edu/Archive/Distances/NED30.5.1-D-17.1.2-20200415.csv" target="_blank" rel="noopener">archivo CSV completo</a>.</p>
+      </div>
+    </details>
+
+    <!-- TU MEDIDA -->
+    <div class="card">
+      <h2>Tu medida de H₀</h2>
+      <p>La <b>pendiente</b> que ajustaste es tu valor de <b>H₀</b>:</p>
+      <div class="resultado">
+        <div class="res-box acento">
+          <div class="val"><span id="rH0">70</span></div>
+          <div class="lbl">tu H₀ (km/s/Mpc)<br>la pendiente de tu recta</div>
+        </div>
+      </div>
+      <p style="font-size:.9rem; color:var(--gris)"><b>Apunta tu H₀</b>: lo necesitarás en <b>Explain</b>, donde
+      descubrirás qué nos dice sobre el universo.</p>
+    </div>
+
+  </div><!-- /revelacion -->
+
   <div id="continuar"></div>
 
 </main>
@@ -316,15 +334,21 @@ function ejes(){
 }
 
 let rectaEl=null;
-function dibujarPuntos(resaltar){
+let puntos=[];
+function dibujarPuntos(){
   GALAXIAS.forEach(g=>{
     // barra de error de la distancia (horizontal). La de la velocidad es tan pequeña que cabe dentro del punto.
     svg.appendChild(el('line',{class:'barra-error',x1:px(g.d-g.de),y1:py(g.v),x2:px(g.d+g.de),y2:py(g.v)}));
-    const c=el('circle',{cx:px(g.d),cy:py(g.v),r:5.5,
-      class:(g.pec?('punto-pec'+(resaltar?' resaltar':'')):'punto-flujo')});
-    const tit=el('title',{}); tit.textContent=`${g.n}\nDistancia: ${g.d} Mpc · Velocidad: ${g.v} km/s\nH₀ individual = ${Math.round(g.v/g.d)} km/s/Mpc`;
+    // Durante la indagación todos los puntos iguales (sin categorizar): el alumno observa la dispersión sin pistas.
+    const c=el('circle',{cx:px(g.d),cy:py(g.v),r:5.5,class:'punto-flujo'});
+    const tit=el('title',{}); tit.textContent=`${g.n}\nDistancia: ${g.d} Mpc · Velocidad: ${g.v} km/s\nv/d = ${Math.round(g.v/g.d)} km/s/Mpc`;
     c.appendChild(tit); svg.appendChild(c);
+    puntos.push({g:g, c:c});
   });
+}
+/* Tras guardar la conjetura: se colorean las cercanas (y ya se explican las velocidades peculiares). */
+function revelarPuntos(){
+  puntos.forEach(function(p){ if(p.g.pec) p.c.setAttribute('class','punto-pec'); });
 }
 function dibujarRecta(h0){
   let dEnd=DMAX, vEnd=h0*DMAX;
@@ -351,7 +375,7 @@ function actualizar(h0){
 
 /* ---------- Init + eventos ---------- */
 ejes();
-dibujarPuntos(false);
+dibujarPuntos();
 
 /* Tabla de las 15 galaxias (se genera desde los mismos datos) */
 const tbody=document.getElementById('tablaGalaxias');
@@ -364,13 +388,15 @@ GALAXIAS.forEach(g=>{
     `<td class="num">${Math.round(g.v/g.d)}</td>`;
   tbody.appendChild(tr);
 });
+function guardarH0(v){ try{ localStorage.setItem('cosmos5e_h0', String(v)); }catch(e){} }
 const slider=document.getElementById('h0');
+try{ var _sh0=parseFloat(localStorage.getItem('cosmos5e_h0')); if(isFinite(_sh0)&&_sh0>0) slider.value=_sh0; }catch(e){}
 actualizar(parseFloat(slider.value));
-slider.addEventListener('input',()=>actualizar(parseFloat(slider.value)));
+slider.addEventListener('input',()=>{ var v=parseFloat(slider.value); actualizar(v); guardarH0(v); });
 
 document.getElementById('btnFit').addEventListener('click',()=>{
   const h0=Math.round(ajusteAuto()*2)/2;
-  slider.value=h0; actualizar(h0);
+  slider.value=h0; actualizar(h0); guardarH0(h0);
 });
 
 </script>
@@ -386,14 +412,23 @@ document.getElementById('btnFit').addEventListener('click',()=>{
   var msg=document.getElementById('cjMsg'), hecho=false;
   function todas(){ return campos.every(function(id){ return (((document.getElementById(id)||{}).value)||'').trim().length>0; }); }
   function mostrarContinuar(){ if(hecho||!window.Cosmos) return; Cosmos.pintarContinuar('continuar','explain.html','Ir a Explain: ¿qué significa?'); hecho=true; }
+  function revelar(scroll){
+    var rev=document.getElementById('revelacion'); if(rev) rev.hidden=false;
+    if(typeof revelarPuntos==='function') revelarPuntos();
+    var nc=document.getElementById('notaConj');
+    if(nc) nc.innerHTML='<b>Antes de continuar</b>, lee con atención lo que acabas de desvelar.';
+    mostrarContinuar();
+    if(scroll && rev) rev.scrollIntoView({behavior:'smooth',block:'start'});
+  }
   document.getElementById('cjSave').addEventListener('click',function(){
     if(!todas()){ msg.style.color='#b23b3b'; msg.textContent='Escribe una respuesta en las cuatro preguntas para poder continuar.'; return; }
     var o={}; campos.forEach(function(id){ o[id]=document.getElementById(id).value; });
     try{ localStorage.setItem('cosmos5e_conjetura', JSON.stringify(o)); }catch(e){}
+    try{ localStorage.setItem('cosmos5e_h0', String(parseFloat(document.getElementById('h0').value))); }catch(e){}
     msg.style.color=''; msg.textContent='Guardado ✓';
-    mostrarContinuar();
+    revelar(true);
   });
-  if(todas()) mostrarContinuar();  // si ya había respuestas guardadas, permite seguir
+  if(todas()) revelar(false);  // si ya había respuestas guardadas, muestra la revelación
 })();
 </script>
 </body>
