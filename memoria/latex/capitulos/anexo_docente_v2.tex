@@ -1,0 +1,547 @@
+\chapter{Materiales para el profesorado}\label{cap:anexo-docente}
+
+Este anexo reúne lo necesario para que cualquier docente pueda \textbf{implementar la secuencia} tal como se ha diseñado, sin depender del autor: la guía docente por sesión, el cuestionario conceptual con su clave, el conjunto de datos empleado y las rúbricas de evaluación. La \textbf{web interactiva} (\url{https://mrpiay.github.io/Cosmos5E/}) es el recurso central; cada actividad dispone de una \textbf{alternativa en papel} equivalente. Principio rector del modelo 5E: en Engage y Explore el profesorado \textbf{pregunta y recoge}, no explica; la formalización llega en Explain.
+
+\section*{Guía docente por sesión}
+
+Siete sesiones de 45 minutos, en 2º de Bachillerato. Datos exactos: diagrama de Hubble en \texttt{hubble.json} (15 galaxias, NED-D), espectro en \texttt{espectros.json} (H$\alpha$ en reposo 656,28 nm), cuestionario en \texttt{test\_conceptual\_v2.json} (15 ítems, pre $=$ post).
+
+Cada sesión se presenta como una \textbf{ficha lista para imprimir} (una por página), con la misma estructura: los datos de la sesión, el \textbf{guion} con sus tiempos, las \textbf{preguntas del docente}, qué \textbf{no revelar} aún y el \textbf{producto y la evaluación}. Cuando corresponde, la ficha remite en su \textbf{alternativa en papel} a las \textbf{hojas de trabajo imprimibles} del alumnado (Hojas~1--7), recogidas al final de este anexo.
+
+\textbf{Una precisión sobre las «preguntas del docente».} No son un instrumento de calificación ni pretenden evaluar al alumnado, sino un recurso para \textbf{enmarcar y conducir} el proceso 5E: hacer aflorar las ideas previas, provocar la reflexión, orientar la indagación y guiar la puesta en común, en coherencia con el principio de \emph{preguntar y recoger, no explicar}. La evaluación propiamente dicha recae en el \textbf{cuestionario pre-post} y en las \textbf{rúbricas}.
+
+\clearpage
+\begin{guiaficha}{Sesión 1 · Engage --- aflorar ideas, sin explicar}
+\begin{guiameta}
+\textbf{OA:} base para todos (prepara OA1).\\
+\textbf{Agrupamiento:} gran grupo y parejas.\\
+\textbf{Ideas previas:} ninguna específica.\\
+\textbf{Web:} \texttt{engage.html}.\\
+\textbf{Materiales:} proyector; un dispositivo por pareja; cuestionario impreso (opcional).
+\end{guiameta}
+
+\gdsec{Guion (45 min)}
+\begin{enumerate}[leftmargin=*, itemsep=2.5pt, topsep=1pt]
+  \item \gdmin{5 min} \textbf{Enganche:} proyectar la pregunta motriz ---¿tiene edad el universo?, ¿se puede determinar algo tan grande sin salir del aula?---.
+  \item \gdmin{13 min} \textbf{Cuestionario conceptual} (pre), individual, \textbf{sin corregir ni comentar} (es diagnóstico; corregir aquí adelantaría contenido). Cada pregunta se responde siempre, con la opción \emph{«No lo sé / no lo tengo claro»} para quien no lo tenga claro (así el pretest queda completo).
+  \item \gdmin{12 min} \textbf{Fase Engage en la web:} tarjetas de términos (pistas, no definiciones), línea de tiempo de la historia de la cosmología y planteamiento del reto.
+  \item \gdmin{10 min} \textbf{Paradoja de Olbers} (deslizador): provocar y recoger hipótesis, sin dar la solución.
+  \item \gdmin{5 min} \textbf{Cierre:} recoger la gran pregunta ---¿qué ha pasado desde el Big Bang y cuándo?---, que se responderá más adelante.
+\end{enumerate}
+
+\gdsec{Preguntas del docente}
+\begin{itemize}[leftmargin=*, itemsep=1.5pt, topsep=1pt]
+  \item ¿El universo siempre ha existido?
+  \item ¿Tiene centro?
+  \item ¿Vemos una galaxia lejana como es ahora o como era en el pasado?
+  \item ¿Podemos determinar su edad sin viajar?
+  \item ¿Qué observación nos diría si el universo cambia con el tiempo?
+  \item ¿Por qué es oscura la noche?
+\end{itemize}
+
+\gdsec{No revelar aún}
+La expansión, la ley de Hubble, la edad ni la solución de Olbers.
+
+\gdsec{Producto y evaluación}
+\noindent\textbf{Producto:} pretest respondido (línea base) e hipótesis iniciales.\\
+\textbf{Evaluación:} pretest (diagnóstico, no calificador; línea base del contraste pre-post); sin rúbrica.\\
+\textbf{Alternativa en papel:} cuestionario impreso (Hoja~1).
+\end{guiaficha}
+
+\clearpage
+\begin{guiaficha}{Sesión 2 · Explore --- medir el corrimiento al rojo}
+\begin{guiameta}
+\textbf{OA:} OA1, OA2.\\
+\textbf{Agrupamiento:} parejas.\\
+\textbf{Ideas previas:} onda y efecto Doppler (sonido); qué es un espectro.\\
+\textbf{Web:} \texttt{explore-espectro.html}.\\
+\textbf{Materiales:} un dispositivo por pareja; alternativa en papel (espectro impreso y regla).
+\end{guiameta}
+
+\gdsec{Guion (45 min)}
+\begin{enumerate}[leftmargin=*, itemsep=2.5pt, topsep=1pt]
+  \item \gdmin{5 min} \textbf{Repaso de distancias:} paralaje y candelas estándar, usadas como \emph{dato}.
+  \item \gdmin{5 min} \textbf{Planteamiento:} ¿qué información trae la luz de una galaxia?
+  \item \gdmin{20 min} \textbf{Medir $z$:} arrastrar la línea H$\alpha$ sobre una galaxia hipotética y ver cómo el desplazamiento da $z=\Delta\lambda/\lambda$ y $v=c\,z$. Cada pareja mide varios casos.
+  \item \gdmin{12 min} \textbf{Aplicar a galaxias reales:} con la \textbf{Hoja 2} (galaxias A--E), medir su $\lambda_{obs}$ y calcular $z$ y $v=c\,z$. En la web, la actividad es la galaxia hipotética; las velocidades de las 15 galaxias reales se usarán \emph{ya medidas} en el diagrama (sesión 3).
+  \item \gdmin{3 min} \textbf{Cierre:} anticipar la sesión siguiente (representar $v$ frente a $d$).
+\end{enumerate}
+
+\gdsec{Preguntas del docente}
+\begin{itemize}[leftmargin=*, itemsep=1.5pt, topsep=1pt]
+  \item ¿Qué le pasa a la longitud de onda?
+  \item ¿Qué significa una $z$ mayor?
+  \item ¿Todas las galaxias dan lo mismo?
+\end{itemize}
+
+\gdsec{No revelar aún}
+La ley de Hubble ni que «más lejos = más rápido»; el carácter cosmológico del corrimiento queda como pregunta abierta para Explain.
+
+\gdsec{Producto y evaluación}
+\noindent\textbf{Producto:} valores de $z$ y $v$ de varias galaxias (Hoja 2) y comprensión de la relación desplazamiento $\rightarrow z \rightarrow v$.\\
+\textbf{Evaluación:} Rúbrica~A (medida de $z$ y $v$).\\
+\textbf{Alternativa en papel:} espectro impreso con escala; medir $\Delta\lambda$ con regla (Hoja~2).
+\end{guiaficha}
+
+\clearpage
+\begin{guiaficha}{Sesión 3 · Explore --- el diagrama de Hubble y el patrón}
+\begin{guiameta}
+\textbf{OA:} OA3.\\
+\textbf{Agrupamiento:} parejas o pequeños grupos.\\
+\textbf{Ideas previas:} ajuste de una recta; sesión 2.\\
+\textbf{Web:} \texttt{explore-diagrama.html}.\\
+\textbf{Materiales:} un dispositivo por pareja; alternativa: banda elástica, datos en papel y regla.
+\end{guiameta}
+
+\gdsec{Guion (45 min)}
+\begin{enumerate}[leftmargin=*, itemsep=2.5pt, topsep=1pt]
+  \item \gdmin{5 min} \textbf{Presentar los datos:} las \textbf{15 galaxias reales} con su distancia y su velocidad \emph{ya medidas} (la velocidad, de su corrimiento al rojo, como en la sesión 2).
+  \item \gdmin{15 min} \textbf{Construir el diagrama:} representar $v$ frente a $d$ con las 15 galaxias.
+  \item \gdmin{15 min} \textbf{Ajustar la recta} y obtener la \textbf{pendiente} con su incertidumbre, sin llamarla aún «constante de Hubble»; observar que algunas galaxias se salen de la recta (sin explicarlo todavía).
+  \item \gdmin{8 min} \textbf{Recoger conjeturas} por escrito: ¿qué patrón ves?, ¿qué crees que significa la pendiente?, ¿por qué unas galaxias se salen?
+  \item \gdmin{2 min} \textbf{Cierre:} al guardar las conjeturas, la web \textbf{revela} que esa pendiente es $H_0$ y explica las galaxias dispersas (velocidades peculiares); se guarda para Explain.
+\end{enumerate}
+
+\gdsec{Preguntas del docente}
+\begin{itemize}[leftmargin=*, itemsep=1.5pt, topsep=1pt]
+  \item ¿Hay relación entre distancia y velocidad?
+  \item ¿Qué representa la pendiente?
+  \item ¿Qué harías con las que se salen?
+  \item ¿Qué pasaría al extrapolar hacia atrás?
+\end{itemize}
+
+\gdsec{No revelar aún}
+El nombre «ley de Hubble-Lemaître», que la pendiente es $H_0$ ni el sentido de extrapolar (el Big Bang).
+
+\gdsec{Producto y evaluación}
+\noindent\textbf{Producto:} diagrama, pendiente y conjetura escrita.\\
+\textbf{Evaluación:} Rúbrica~A (construcción del diagrama, obtención de $H_0$ e incertidumbre, tratamiento de datos, trabajo en equipo).\\
+\textbf{Alternativa en papel:} banda elástica (analogía de la expansión) y ajuste de recta con regla sobre la cuadrícula (Hoja~3).
+\end{guiaficha}
+
+\clearpage
+\begin{guiaficha}{Sesión 4 · Explain --- el alumnado explica, luego se formaliza}
+\begin{guiameta}
+\textbf{OA:} OA2, OA3, OA4.\\
+\textbf{Agrupamiento:} gran grupo e individual.\\
+\textbf{Ideas previas:} su pendiente y su conjetura (sesión 3).\\
+\textbf{Web:} \texttt{explain.html}.\\
+\textbf{Materiales:} proyector; un dispositivo por pareja.
+\end{guiameta}
+
+\gdsec{Guion (45 min)}
+\begin{enumerate}[leftmargin=*, itemsep=2.5pt, topsep=1pt]
+  \item \gdmin{10 min} \textbf{«Tu explicación»} (puesta en común): las parejas comparten sus conjeturas de Explore; el docente las recoge \textbf{sin corregir todavía}.
+  \item \gdmin{8 min} \textbf{Formalizar:} a partir de lo dicho, introducir la \textbf{ley de Hubble-Lemaître} ($v=H_0d$), que la \textbf{pendiente es $H_0$} (ritmo de expansión) y el sentido de \textbf{extrapolar linealmente} hacia atrás (las distancias se reducen a la vez, sin un punto privilegiado).
+  \item \gdmin{12 min} \textbf{De $H_0$ a la edad:} con la calculadora, cada alumno introduce \emph{su} $H_0$ y obtiene $t\approx1/H_0$, con la conversión de unidades a la vista.
+  \item \gdmin{8 min} \textbf{La historia del universo} (deslizador hacia atrás y adelante) y el \textbf{corrimiento cosmológico}: por qué no hay centro, cómo las galaxias ---y nosotros--- se forman más tarde, y por qué $1/H_0$ es $d/v$ (edad) y no $d/c$.
+  \item \gdmin{7 min} \textbf{Calendario cósmico:} situar la edad en perspectiva; responder la gran pregunta de Engage.
+\end{enumerate}
+
+\gdsec{Preguntas del docente}
+\begin{itemize}[leftmargin=*, itemsep=1.5pt, topsep=1pt]
+  \item ¿Por qué las lejanas van más rápido?
+  \item El corrimiento al rojo, ¿es un Doppler (la galaxia «vuela») o es el espacio el que se estira?
+  \item ¿Qué significa invertir $H_0$?
+  \item ¿$1/H_0$ es la edad del universo o el tiempo de viaje de la luz?
+\end{itemize}
+
+\gdsec{Producto y evaluación}
+\noindent\textbf{Producto:} estimación razonada de la edad (a partir de su $H_0$), con la conversión hecha.\\
+\textbf{Evaluación:} formativa (participación y puesta en común); sin rúbrica calificadora.\\
+\textbf{Alternativa en papel:} cálculo de $1/H_0$ con calculadora de mano y tabla de conversión de unidades (Hoja~4).
+\end{guiaficha}
+
+\clearpage
+\begin{guiaficha}{Sesión 5 · Elaborate --- del $H_0$ al tamaño observable}
+\begin{guiameta}
+\textbf{OA:} OA4.\\
+\textbf{Agrupamiento:} pequeños grupos.\\
+\textbf{Ideas previas:} su $H_0$ y su edad estimada.\\
+\textbf{Web:} \texttt{elaborate-tamano.html}.\\
+\textbf{Materiales:} un dispositivo por grupo.
+\end{guiameta}
+
+\gdsec{Guion (45 min)}
+\begin{enumerate}[leftmargin=*, itemsep=2.5pt, topsep=1pt]
+  \item \gdmin{8 min} \textbf{Del $H_0$ al radio de Hubble:} con el mismo $H_0$, calcular el \textbf{radio de Hubble} $R\approx c/H_0$ ($\sim$14\,000 millones de al) como \textbf{escala característica} de distancia (no el tamaño del universo observable).
+  \item \gdmin{14 min} \textbf{La sorpresa del tamaño:} con un esquema interactivo (elegir la distancia de la fuente, del vecindario al fondo de microondas) descubrir por qué el radio observable es mucho mayor ($\sim$46\,000 millones de al; el diámetro, $\sim$92\,000): la \textbf{razón distancia$\div$camino} crece con la distancia ---no es una regla fija--- porque el espacio siguió estirándose mientras la luz viajaba.
+  \item \gdmin{13 min} \textbf{Transferencia a casos nuevos:} ¿qué edad y tamaño obtiene un grupo con $H_0=65$?, ¿y con el valor de referencia $H_0=70$? Comparar y explicar las diferencias (esta discrepancia entre valores de $H_0$ es la \emph{tensión de Hubble}, que se debatirá en la sesión siguiente).
+  \item \gdmin{10 min} \textbf{Puesta en común:} el tamaño es una inferencia con supuestos.
+\end{enumerate}
+
+\gdsec{Preguntas del docente}
+\begin{itemize}[leftmargin=*, itemsep=1.5pt, topsep=1pt]
+  \item ¿Cómo usas $H_0$ para el tamaño?
+  \item Si tu compañero midió otro $H_0$, ¿obtiene otra edad?
+  \item ¿Por qué el radio observable es mayor que $c\times$edad?
+\end{itemize}
+
+\gdsec{Producto y evaluación}
+\noindent\textbf{Producto:} tamaño observable estimado y comparación entre distintos $H_0$.\\
+\textbf{Evaluación:} formativa.\\
+\textbf{Alternativa en papel:} cálculo del radio de Hubble ($c/H_0$) y del tamaño observable con calculadora de mano.
+\end{guiaficha}
+
+\clearpage
+\begin{guiaficha}{Sesión 6 · Elaborate --- los límites y la naturaleza de la ciencia}
+\begin{guiameta}
+\textbf{OA:} OA5, OA6, OA7.\\
+\textbf{Agrupamiento:} pequeños grupos y debate.\\
+\textbf{Ideas previas:} edad y tamaño estimados.\\
+\textbf{Web:} \texttt{elaborate-limites.html}.\\
+\textbf{Materiales:} proyector; un dispositivo por grupo.
+\end{guiameta}
+
+\gdsec{Guion (45 min)}
+\begin{enumerate}[leftmargin=*, itemsep=2.5pt, topsep=1pt]
+  \item \gdmin{10 min} \textbf{El alcance de $1/H_0$:} es una buena aproximación; lo que mueve la edad es qué $H_0$ se adopte.
+  \item \gdmin{12 min} \textbf{Tensión de Hubble:} dos $H_0$ ($\sim$67 frente a $\sim$73) $\rightarrow$ dos edades algo distintas (el efecto de cambiar $H_0$ ya se vio en la transferencia de la sesión 5). Debate: ¿qué significa que la ciencia aún debata el valor?
+  \item \gdmin{11 min} \textbf{$\Lambda$CDM en breve:} materia oscura («pesa» y gravita) frente a energía oscura («acelera»); $\sim$13\,800 millones de años. Distinguir ambos «oscuros».
+  \item \gdmin{12 min} \textbf{Horizontes (un paso más allá)} ---hasta dónde se podrá ver---; \textbf{debate «¿más rápido que la luz?»} (Hoja~5): más allá del horizonte las galaxias se alejan a más de $c$, pero \emph{no} viola la relatividad, porque es el \textbf{espacio} el que se expande, no un objeto moviéndose por él (la relatividad limita el movimiento \emph{a través} del espacio, no la expansión del espacio). Cierre sobre la naturaleza de la ciencia.
+\end{enumerate}
+
+\gdsec{Preguntas del docente}
+\begin{itemize}[leftmargin=*, itemsep=1.5pt, topsep=1pt]
+  \item ¿Qué edad sale con cada $H_0$?
+  \item ¿Es un error que haya dos valores?
+  \item ¿En qué se diferencian materia y energía oscura?
+  \item ¿Puede una galaxia alejarse de nosotros más deprisa que la luz? ¿Contradice la relatividad?
+\end{itemize}
+
+\gdsec{Producto y evaluación}
+\noindent\textbf{Producto:} argumentación sobre la tensión de Hubble a partir de su propia medida.\\
+\textbf{Evaluación:} formativa; prepara la dimensión de naturaleza de la ciencia de la Rúbrica~B.\\
+\textbf{Alternativa en papel:} \textbf{Hoja~5} (el \emph{ritmo de expansión máximo} que deja llegar la luz: el horizonte); además, sesión de debate con ficha proyectada del modelo $\Lambda$CDM.
+\end{guiaficha}
+
+\clearpage
+\begin{guiaficha}{Sesión 7 · Evaluate --- postest y producto}
+\begin{guiameta}
+\textbf{OA:} OA1--OA7.\\
+\textbf{Agrupamiento:} individual (postest) y grupos (producto).\\
+\textbf{Ideas previas:} todo el recorrido.\\
+\textbf{Web:} \texttt{evaluate.html}.\\
+\textbf{Materiales:} un dispositivo por alumno; proyector.
+\end{guiameta}
+
+\gdsec{Guion (45 min)}
+\begin{enumerate}[leftmargin=*, itemsep=2.5pt, topsep=1pt]
+  \item \gdmin{15 min} \textbf{Postest conceptual} (los 15 ítems del pre), individual, con retroalimentación al terminar y \textbf{contraste pre$\rightarrow$post}. Conviene detenerse en \textbf{por qué es errónea cada opción descartada}, no solo en cuál era la correcta: como los distractores son las ideas erróneas frecuentes, comprender \emph{por qué fallan} es lo que consolida el cambio conceptual.
+  \item \gdmin{10 min} \textbf{Repaso de la cadena} ($z\rightarrow v\rightarrow H_0\rightarrow$ edad $\rightarrow$ tamaño), \textbf{lectura de las ecuaciones} (origen y tipo; apartado~\ref{sec:ecuaciones}) y \textbf{verdadero/falso} (comprobación conceptual con retroalimentación; véase «Cuestionario de verdadero o falso»), con un breve \textbf{debate en grupo «el error que enseña»} ---elegir una afirmación falsa y argumentar por qué falla--- (Hoja~6).
+  \item \gdmin{15 min} \textbf{Producto final} (arranque): con el guion en línea, el alumnado prepara una presentación, un póster o un vídeo que explique el proceso (se termina fuera del aula si hace falta).
+  \item \gdmin{5 min} \textbf{Proyección} («y a partir de aquí…»): preguntas abiertas; el final es un principio.
+\end{enumerate}
+
+\gdsec{Preguntas del docente}
+\begin{itemize}[leftmargin=*, itemsep=1.5pt, topsep=1pt]
+  \item ¿Cómo hemos medido la edad y el tamaño?
+  \item ¿Qué clase de afirmación es cada ecuación?
+  \item ¿Por qué es errónea cada opción que descartaste? (entender el error vale tanto como acertar)
+  \item ¿Qué te queda por entender?
+\end{itemize}
+
+\gdsec{Producto y evaluación}
+\noindent\textbf{Producto:} postest respondido y producto final (con Rúbrica~B).\\
+\textbf{Evaluación:} postest (ganancia pre-post), \textbf{verdadero/falso} (evidencia de aprendizaje / autoevaluación, al margen del contraste pre-post) y \textbf{Rúbrica~B} para el producto.\\
+\textbf{Alternativa en papel:} postest impreso (Hoja~1); \textbf{verdadero/falso en papel} (Hoja~6), que incluye el \textbf{debate en grupo «el error que enseña»}; producto y autoevaluación (Hoja~7).
+\end{guiaficha}
+
+\clearpage
+
+\section*{Cuestionario conceptual (pre = post)}
+
+15 ítems de opción múltiple cuyos distractores son las ideas erróneas identificadas en la revisión (§3.5). Se administra sin cambios en Engage (pre, sin corrección) y en Evaluate (post, con retroalimentación y contraste). \textbf{Cada ítem se responde siempre} e incluye, además de las tres opciones, \emph{«No lo sé / no lo tengo claro»} (para quien no lo tenga claro; no puntúa), de modo que el pretest queda completo. La opción correcta se marca en \textbf{negrita}; en la web el orden de las opciones se baraja.
+
+\begin{enumerate}
+  \item Cuando decimos que el universo tiene unos 13\,800 millones de años, ¿a qué nos referimos?
+    \begin{itemize}\item A la edad de la Vía Láctea. \item \textbf{Al tiempo transcurrido desde el Big Bang, el inicio de la expansión del universo.} \item A la edad del Sol y del Sistema Solar. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item ¿Qué fue el Big Bang?
+    \begin{itemize}\item Una explosión que lanzó la materia a un espacio vacío que ya existía. \item \textbf{El inicio de la expansión de un universo muy caliente y denso, sin un centro ni un lugar donde «explotara».} \item La explosión de una estrella en el centro del universo. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item Si todas las galaxias se alejan de nosotros, ¿estamos en el centro del universo?
+    \begin{itemize}\item Sí, la Tierra ocupa el centro. \item \textbf{No: desde cualquier galaxia se vería lo mismo; a gran escala aumentan las distancias entre galaxias no ligadas, sin centro.} \item Sí, pero el centro está en la Vía Láctea. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item Al hablar del «tamaño del universo», ¿qué medimos en realidad?
+    \begin{itemize}\item El tamaño total, que tiene un borde definido. \item \textbf{El universo observable: la región cuya luz ha tenido tiempo de llegarnos.} \item La distancia a la galaxia más lejana que existe. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item La luz que recibimos de una galaxia fue emitida hace 1\,000 millones de años. La vemos\ldots
+    \begin{itemize}\item Tal como es ahora mismo. \item \textbf{Tal como era hace 1\,000 millones de años, cuando esa luz salió (mirar lejos es mirar al pasado).} \item Con 1\,000 millones de años de adelanto. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item Una línea que en reposo está en 656 nm aparece en 663 nm. El corrimiento al rojo $z$ es\ldots
+    \begin{itemize}\item La velocidad dividida por la distancia. \item \textbf{$z=\Delta\lambda/\lambda=(663-656)/656$.} \item El brillo comparado con una referencia. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item La luz de una galaxia lo bastante lejana llega desplazada al rojo (corrimiento cosmológico). ¿A qué se debe, principalmente?
+    \begin{itemize}\item Porque la galaxia vuela por el espacio, como una sirena que se aleja. \item \textbf{Porque el espacio se estiró mientras la luz viajaba.} \item Porque la luz se «cansa» al viajar. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item Representas $v$ frente a $d$ de muchas galaxias. ¿Qué patrón y qué es la pendiente?
+    \begin{itemize}\item Todas se alejan igual; la pendiente no significa nada. \item \textbf{Cuanto más lejos, más deprisa; la pendiente es la constante de Hubble $H_0$.} \item Las cercanas más deprisa; la pendiente es su tamaño. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item Si el universo se expande, ¿por qué no se expanden tu cuerpo, la Tierra o la Vía Láctea?
+    \begin{itemize}\item Sí lo hacen, pero tan despacio que no se nota. \item \textbf{Porque la gravedad (u otras fuerzas) vence la expansión; solo crece el espacio entre galaxias no ligadas.} \item Porque la expansión solo ocurre muy lejos. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item La estimación $t\approx1/H_0$ de la edad\ldots
+    \begin{itemize}\item Es el valor exacto y definitivo. \item \textbf{Es una buena aproximación: una extrapolación lineal simplificada de la tasa actual; el valor preciso depende de cómo ha variado la expansión.} \item Es siempre mucho mayor que la edad real. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item Si mides $H_0$ y calculas $1/H_0\approx14\,000$ millones de años, ¿qué representa?
+    \begin{itemize}\item El tiempo que tardó en llegarnos la luz de la galaxia más lejana. \item \textbf{Aproximadamente la edad del universo: el tiempo de Hubble, una escala temporal asociada a la tasa de expansión actual.} \item La distancia hasta el borde del universo. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item El radio de Hubble, $c/H_0$, vale $\sim$14\,000 millones de años-luz. ¿Qué es, y cómo se relaciona con el radio observable ($\sim$46\,000 millones de años-luz)?
+    \begin{itemize}\item \textbf{$c/H_0$ es una escala característica (el radio de Hubble), no el radio observable; este último es mayor porque el espacio se estiró mientras la luz viajaba.} \item Son lo mismo: $c/H_0$ es directamente el radio observable. \item El observable es siempre $c/H_0$ por tres, una regla fija. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item En el diagrama de Hubble, algunas galaxias cercanas se desvían bastante de la recta. ¿Cuál es la explicación más adecuada?
+    \begin{itemize}\item La ley de Hubble solo se aplica a algunas galaxias. \item \textbf{Las galaxias cercanas tienen velocidades peculiares comparables a su velocidad de recesión.} \item Sus distancias son necesariamente incorrectas. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item ¿Cómo conoce la ciencia la edad y el tamaño del universo?
+    \begin{itemize}\item Son datos medidos directamente y definitivos. \item \textbf{Son magnitudes inferidas con observaciones y modelos, con incertidumbre y revisables.} \item Son estimaciones sin base observacional. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item ¿Por qué es importante que las distancias del diagrama de Hubble se obtengan con métodos independientes del corrimiento al rojo?
+    \begin{itemize}\item \textbf{Porque si la distancia se calculara con la propia ley de Hubble, estaríamos suponiendo la relación que queremos comprobar (sería circular).} \item Porque las distancias independientes no tienen ninguna incertidumbre. \item Porque el corrimiento al rojo no se puede medir directamente. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+\end{enumerate}
+
+\section*{Cuestionario de verdadero o falso}
+
+Además del cuestionario conceptual ---que \emph{mide} el cambio pre-post--- y de las rúbricas, la fase Evaluate incluye un \textbf{cuestionario de verdadero o falso} que confronta las ideas erróneas nucleares. Es una \textbf{comprobación conceptual} que aporta \textbf{evidencia de aprendizaje} (autoevaluación con retroalimentación inmediata), al margen del contraste pre-post. Se sugiere que el docente entregue las afirmaciones \textbf{en papel} para recoger esa evidencia de aprendizaje y que, después, el alumnado las \textbf{compruebe en la app}, donde recibe la retroalimentación. Consta de nueve afirmaciones; la respuesta correcta se indica entre corchetes.
+
+\begin{enumerate}[leftmargin=*, itemsep=3pt]
+  \item «Que el cielo nocturno sea oscuro es una pista de que el universo tiene una edad, y no es infinito y eterno.» \textbf{[Verdadero]} --- paradoja de Olbers.
+  \item «El universo observable es todo el universo que existe.» \textbf{[Falso]} --- observable $\neq$ universo total.
+  \item «Que todas las galaxias se alejen de nosotros significa que la Tierra está en el centro del universo.» \textbf{[Falso]} --- la expansión no tiene centro.
+  \item «El corrimiento al rojo de las galaxias lejanas se debe a que el espacio se estira mientras su luz viaja, no a un Doppler corriente.» \textbf{[Verdadero]} --- corrimiento cosmológico $\neq$ Doppler ordinario.
+  \item «La expansión del universo no afecta a los sistemas unidos por la gravedad, como una galaxia o el Sistema Solar.» \textbf{[Verdadero]} --- solo crece el espacio entre sistemas no ligados.
+  \item «$1/H_0$ es el tiempo que ha tardado en llegarnos la luz de una galaxia.» \textbf{[Falso]} --- $1/H_0$ es una estimación de la edad, no un tiempo de viaje de la luz.
+  \item «La materia oscura y la energía oscura son dos nombres para la misma cosa.» \textbf{[Falso]} --- son conceptos distintos.
+  \item «La ciencia ya conoce con total certeza y sin ningún debate el valor de la constante de Hubble.» \textbf{[Falso]} --- tensión de Hubble; la ciencia es revisable.
+  \item «Ninguna galaxia puede alejarse de nosotros más deprisa que la luz.» \textbf{[Falso]} --- más allá del radio de Hubble, la expansión del espacio las aleja a más de $c$; es el espacio el que se estira (no un objeto por el espacio), y eso no viola la relatividad.
+\end{enumerate}
+
+\section*{Conjunto de datos empleado}
+
+\begin{itemize}
+  \item \textbf{Diagrama de Hubble} (\texttt{hubble.json}): 15 galaxias reales de 15 a 153 Mpc, con distancia obtenida por métodos \textbf{independientes del corrimiento al rojo} (NED-D; \textcite{steer2017}) y velocidad $v=c\,z$. El ajuste con las de flujo limpio ($v>3000$ km/s) da $H_0\approx70$ km/s/Mpc. Se incluyen galaxias cercanas dispersas para discutir las velocidades peculiares.
+  \item \textbf{Espectro} (\texttt{espectros.json}): línea H$\alpha$ del hidrógeno, con longitud de onda en reposo 656,28 nm.
+  \item \textbf{Cuestionario conceptual} (\texttt{test\_conceptual\_v2.json}): los 15 ítems anteriores, reutilizables en el pre y en el post.
+\end{itemize}
+
+\section*{Rúbricas de evaluación}
+
+Se emplean dos rúbricas, cada una con \textbf{cuatro niveles de logro} ---\textbf{inicial\,(1)}, \textbf{en proceso\,(2)}, \textbf{adecuado\,(3)} y \textbf{avanzado\,(4)}--- en cinco dimensiones: la \textbf{Rúbrica~A} evalúa el trabajo de indagación de la fase Explore (Tabla~\ref{tab:rubricaA}) y la \textbf{Rúbrica~B}, el producto final de la fase Evaluate (Tabla~\ref{tab:rubricaB}). En ambas, cada dimensión puntúa según el nivel alcanzado (1--4) y la \textbf{puntuación total} es la \textbf{suma de las cinco dimensiones} (de \textbf{5 a 20 puntos}).
+
+\begin{table}[ht]
+\centering
+\caption{Rúbrica A --- Trabajo de indagación (fase Explore).}\label{tab:rubricaA}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{2.2cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+\rowcolor{naranja}
+{\color{white}\textbf{Dimensión}} & {\color{white}\textbf{1. Inicial}} & {\color{white}\textbf{2. En proceso}} & {\color{white}\textbf{3. Adecuado}} & {\color{white}\textbf{4. Avanzado}} \\ \hline
+\textbf{Medida de $z$ y $v$} & No obtiene $z$ ni $v$. & Calcula $z=\Delta\lambda/\lambda$ con ayuda; algún error de unidades. & Obtiene $z$ y $v=c\,z$ correctamente. & Además explica el atajo $v=c\,z$ (a $z$ pequeño). \\ \hline
+\textbf{Construcción del diagrama} & No representa los datos. & Representa con ayuda; ejes imprecisos. & Construye el diagrama $v$--$d$ y ajusta la recta. & Ajuste cuidadoso; justifica el paso por el origen. \\ \hline
+\textbf{$H_{0}$ e incertidumbre} & No obtiene $H_{0}$. & $H_{0}$ aproximado, sin incertidumbre. & $H_{0}$ razonable, con incertidumbre estimada. & Discute qué puntos incluir en el ajuste y su efecto. \\ \hline
+\textbf{Tratamiento de los datos} & Ignora los puntos dispersos. & Los detecta, pero no los explica. & Los atribuye a las velocidades peculiares. & Justifica ajustar con las de flujo limpio. \\ \hline
+\textbf{Equipo y registro} & No registra ni reparte el trabajo. & Registro incompleto. & Registra el proceso y su conjetura. & Registro reproducible; anticipa preguntas para Explain. \\ \hline
+\end{tabularx}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{Rúbrica B --- Producto final (fase Evaluate).}\label{tab:rubricaB}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{2.2cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+\rowcolor{naranja}
+{\color{white}\textbf{Dimensión}} & {\color{white}\textbf{1. Inicial}} & {\color{white}\textbf{2. En proceso}} & {\color{white}\textbf{3. Adecuado}} & {\color{white}\textbf{4. Avanzado}} \\ \hline
+\textbf{Rigor conceptual} & Contiene ideas erróneas nucleares. & Correcto con imprecisiones aisladas. & Usa bien $z$, $H_{0}$, edad y tamaño. & Además matiza (observable $\neq$ total; $1/H_{0}$ aproximado). \\ \hline
+\textbf{Explicación del proceso} & Da el resultado sin explicar cómo. & Menciona pasos, con saltos lógicos. & Reconstruye la cadena $z \rightarrow v \rightarrow H_{0} \rightarrow$ edad $\rightarrow$ tamaño. & Explica por qué cada paso conduce al siguiente. \\ \hline
+\textbf{Naturaleza de la ciencia} & Presenta edad y tamaño como datos absolutos. & Los reconoce como medidas, sin límites. & Los trata como inferidos y aproximados; cita algún límite. & Discute incertidumbre y la tensión de Hubble. \\ \hline
+\textbf{Uso de la evidencia} & No apoya lo que dice en datos. & Usa los datos de forma superficial. & Apoya sus afirmaciones en su diagrama y medidas. & Integra los datos como argumento central. \\ \hline
+\textbf{Claridad y formato} & Confuso o inadecuado al medio. & Comprensible con esfuerzo. & Claro y adecuado al medio elegido. & Comunicación excelente, ajustada al público. \\ \hline
+\end{tabularx}
+\end{table}
+
+\section*{Hojas de trabajo imprimibles (alternativa en papel)}
+
+Estas hojas son la \textbf{alternativa en papel} de las actividades interactivas. No solo garantizan la \textbf{equidad} (permiten trabajar sin dispositivos), sino que constituyen un \textbf{registro y una evidencia física} de las respuestas y del trabajo del alumnado. Se presentan una por página, en blanco y negro. Constantes: $c \approx 300\,000$ km/s; $1$ Mpc $\approx 3{,}086\times10^{19}$ km; $1$ año $\approx 3{,}156\times10^{7}$ s.
+
+\hojatrabajo{1 · Engage y Evaluate}
+{\footnotesize \textbf{Cuestionario conceptual (pre\,/\,post).} Marca una casilla por pregunta. No es un examen: es tu punto de partida y, al final de la secuencia, verás cuánto has avanzado.}
+
+\vspace{6mm}
+\begin{enumerate}[leftmargin=*, itemsep=3pt]
+  \item Cuando decimos que el universo tiene unos 13\,800 millones de años, ¿a qué nos referimos?
+    \begin{itemize}[leftmargin=1.4em, label=$\square$, itemsep=0pt, topsep=1pt]\item A la edad de la Vía Láctea. \item Al tiempo transcurrido desde el Big Bang, el inicio de la expansión del universo. \item A la edad del Sol y del Sistema Solar. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item ¿Qué fue el Big Bang?
+    \begin{itemize}[leftmargin=1.4em, label=$\square$, itemsep=0pt, topsep=1pt]\item Una explosión que lanzó la materia a un espacio vacío que ya existía. \item El inicio de la expansión de un universo muy caliente y denso, sin un centro ni un lugar donde «explotara». \item La explosión de una estrella en el centro del universo. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item Si todas las galaxias se alejan de nosotros, ¿estamos en el centro del universo?
+    \begin{itemize}[leftmargin=1.4em, label=$\square$, itemsep=0pt, topsep=1pt]\item Sí, la Tierra ocupa el centro. \item No: desde cualquier galaxia se vería lo mismo; a gran escala aumentan las distancias entre galaxias no ligadas, sin centro. \item Sí, pero el centro está en la Vía Láctea. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item Al hablar del «tamaño del universo», ¿qué medimos en realidad?
+    \begin{itemize}[leftmargin=1.4em, label=$\square$, itemsep=0pt, topsep=1pt]\item El tamaño total, que tiene un borde definido. \item El universo observable: la región cuya luz ha tenido tiempo de llegarnos. \item La distancia a la galaxia más lejana que existe. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item La luz que recibimos de una galaxia fue emitida hace 1\,000 millones de años. La vemos\ldots
+    \begin{itemize}[leftmargin=1.4em, label=$\square$, itemsep=0pt, topsep=1pt]\item Tal como es ahora mismo. \item Tal como era hace 1\,000 millones de años, cuando esa luz salió (mirar lejos es mirar al pasado). \item Con 1\,000 millones de años de adelanto. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item Una línea que en reposo está en 656 nm aparece en 663 nm. El corrimiento al rojo $z$ es\ldots
+    \begin{itemize}[leftmargin=1.4em, label=$\square$, itemsep=0pt, topsep=1pt]\item La velocidad dividida por la distancia. \item $z=\Delta\lambda/\lambda=(663-656)/656$. \item El brillo comparado con una referencia. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item La luz de una galaxia lo bastante lejana llega desplazada al rojo (corrimiento cosmológico). ¿A qué se debe, principalmente?
+    \begin{itemize}[leftmargin=1.4em, label=$\square$, itemsep=0pt, topsep=1pt]\item Porque la galaxia vuela por el espacio, como una sirena que se aleja. \item Porque el espacio se estiró mientras la luz viajaba. \item Porque la luz se «cansa» al viajar. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item Representas $v$ frente a $d$ de muchas galaxias. ¿Qué patrón y qué es la pendiente?
+    \begin{itemize}[leftmargin=1.4em, label=$\square$, itemsep=0pt, topsep=1pt]\item Todas se alejan igual; la pendiente no significa nada. \item Cuanto más lejos, más deprisa; la pendiente es la constante de Hubble $H_0$. \item Las cercanas más deprisa; la pendiente es su tamaño. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item Si el universo se expande, ¿por qué no se expanden tu cuerpo, la Tierra o la Vía Láctea?
+    \begin{itemize}[leftmargin=1.4em, label=$\square$, itemsep=0pt, topsep=1pt]\item Sí lo hacen, pero tan despacio que no se nota. \item Porque la gravedad (u otras fuerzas) vence la expansión; solo crece el espacio entre galaxias no ligadas. \item Porque la expansión solo ocurre muy lejos. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item La estimación $t\approx1/H_0$ de la edad\ldots
+    \begin{itemize}[leftmargin=1.4em, label=$\square$, itemsep=0pt, topsep=1pt]\item Es el valor exacto y definitivo. \item Es una buena aproximación: una extrapolación lineal simplificada de la tasa actual; el valor preciso depende de cómo ha variado la expansión. \item Es siempre mucho mayor que la edad real. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item Si mides $H_0$ y calculas $1/H_0\approx14\,000$ millones de años, ¿qué representa?
+    \begin{itemize}[leftmargin=1.4em, label=$\square$, itemsep=0pt, topsep=1pt]\item El tiempo que tardó en llegarnos la luz de la galaxia más lejana. \item Aproximadamente la edad del universo: el tiempo de Hubble, una escala temporal asociada a la tasa de expansión actual. \item La distancia hasta el borde del universo. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item El radio de Hubble, $c/H_0$, vale $\sim$14\,000 millones de años-luz. ¿Qué es, y cómo se relaciona con el radio observable ($\sim$46\,000 millones de años-luz)?
+    \begin{itemize}[leftmargin=1.4em, label=$\square$, itemsep=0pt, topsep=1pt]\item $c/H_0$ es una escala característica (el radio de Hubble), no el radio observable; este último es mayor porque el espacio se estiró mientras la luz viajaba. \item Son lo mismo: $c/H_0$ es directamente el radio observable. \item El observable es siempre $c/H_0$ por tres, una regla fija. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item En el diagrama de Hubble, algunas galaxias cercanas se desvían bastante de la recta. ¿Cuál es la explicación más adecuada?
+    \begin{itemize}[leftmargin=1.4em, label=$\square$, itemsep=0pt, topsep=1pt]\item La ley de Hubble solo se aplica a algunas galaxias. \item Las galaxias cercanas tienen velocidades peculiares comparables a su velocidad de recesión. \item Sus distancias son necesariamente incorrectas. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item ¿Cómo conoce la ciencia la edad y el tamaño del universo?
+    \begin{itemize}[leftmargin=1.4em, label=$\square$, itemsep=0pt, topsep=1pt]\item Son datos medidos directamente y definitivos. \item Son magnitudes inferidas con observaciones y modelos, con incertidumbre y revisables. \item Son estimaciones sin base observacional. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+  \item ¿Por qué es importante que las distancias del diagrama de Hubble se obtengan con métodos independientes del corrimiento al rojo?
+    \begin{itemize}[leftmargin=1.4em, label=$\square$, itemsep=0pt, topsep=1pt]\item Porque si la distancia se calculara con la propia ley de Hubble, estaríamos suponiendo la relación que queremos comprobar (sería circular). \item Porque las distancias independientes no tienen ninguna incertidumbre. \item Porque el corrimiento al rojo no se puede medir directamente. \item \textit{No lo sé / no lo tengo claro.}\end{itemize}
+\end{enumerate}
+
+\hojatrabajo{2 · Explore}
+{\footnotesize \textbf{Espectro: mide el corrimiento al rojo.} La línea H$\alpha$ del hidrógeno está, en reposo, en $\lambda_0=656{,}28$ nm. En cada galaxia (A--E) esa línea aparece desplazada. Mide con la regla su $\lambda_{obs}$ en la escala y calcula $\Delta\lambda=\lambda_{obs}-\lambda_0$, $z=\Delta\lambda/\lambda_0$ y $v=c\,z$.}
+
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \draw[thick] (0,0)--(13,0);
+  \foreach \m in {0,0.2,...,13}{\draw (\m,0)--(\m,-0.07);}
+  \foreach \n in {655,656,...,668}{\draw ({\n-655},0)--({\n-655},-0.16); \node[below,font=\scriptsize] at ({\n-655},-0.18){\n};}
+  \draw[dashed] (1.28,0)--(1.28,1.5); \node[above,font=\scriptsize] at (1.28,1.5){$\lambda_0$};
+  \draw[very thick] (4.10,0)--(4.10,1.1); \node[above,font=\footnotesize\bfseries] at (4.10,1.1){A};
+  \draw[very thick] (4.63,0)--(4.63,1.1); \node[above,font=\footnotesize\bfseries] at (4.63,1.1){B};
+  \draw[very thick] (7.51,0)--(7.51,1.1); \node[above,font=\footnotesize\bfseries] at (7.51,1.1){C};
+  \draw[very thick] (8.76,0)--(8.76,1.1); \node[above,font=\footnotesize\bfseries] at (8.76,1.1){D};
+  \draw[very thick] (11.39,0)--(11.39,1.1); \node[above,font=\footnotesize\bfseries] at (11.39,1.1){E};
+  \node[below,font=\scriptsize] at (6.5,-0.7){longitud de onda $\lambda$ (nm)};
+\end{tikzpicture}
+\end{center}
+
+{\footnotesize Ejemplo (galaxia NGC 4639): si $\lambda_{obs}=658{,}51$ nm, entonces $\Delta\lambda=2{,}23$ nm, $z=0{,}0034$ y $v\approx1\,019$ km/s.}
+
+\medskip
+{\renewcommand{\arraystretch}{2.2}
+\noindent\begin{tabular}{|l|c|c|c|c|}\hline
+\textbf{Galaxia} & $\lambda_{obs}$ (nm) & $\Delta\lambda$ (nm) & $z=\Delta\lambda/\lambda_0$ & $v=c\,z$ (km/s) \\ \hline
+A (NGC 3370) & & & & \\ \hline
+B (NGC 3021) & & & & \\ \hline
+C (NGC 5468) & & & & \\ \hline
+D (IC 5179) & & & & \\ \hline
+E (NGC 4679) & & & & \\ \hline
+\end{tabular}}
+
+\hojatrabajo{3 · Explore}
+{\footnotesize \textbf{Construye el diagrama de Hubble.} Representa cada galaxia (distancia $d$, velocidad $v$) en la cuadrícula. Traza la recta que mejor se ajuste a las galaxias \textbf{lejanas} ($v>3\,000$ km/s; las cercanas se desvían por su movimiento propio) y estima su pendiente $H_0=v/d$.}
+
+\medskip
+{\footnotesize
+\noindent\begin{tabular}{|l|r|r||l|r|r|}\hline
+\textbf{Galaxia} & $d$ (Mpc) & $v$ (km/s) & \textbf{Galaxia} & $d$ (Mpc) & $v$ (km/s) \\ \hline
+NGC 4536 & 14,9 & 1\,808 & NGC 4679 & 58,3 & 4\,611 \\ \hline
+NGC 1316 & 17,8 & 1\,760 & UGC 00646 & 66,4 & 5\,318 \\ \hline
+NGC 1380 & 18,5 & 1\,877 & Coma (4889/74) & 94,0 & 6\,895 \\ \hline
+NGC 4639 & 22,1 & 1\,018 & UGC 12133 & 110,0 & 7\,423 \\ \hline
+NGC 3021 & 26,8 & 1\,541 & UGC 01993 & 113,0 & 8\,019 \\ \hline
+NGC 3370 & 27,4 & 1\,279 & UGC 07934 & 149,0 & 9\,624 \\ \hline
+IC 5179 & 43,3 & 3\,421 & UGC 12071 & 153,0 & 10\,372 \\ \hline
+NGC 5468 & 43,8 & 2\,842 & & & \\ \hline
+\end{tabular}}
+
+\medskip
+\begin{center}
+\begin{tikzpicture}
+  \foreach \d in {0,20,...,160}{\pgfmathsetmacro\xx{\d*0.075}\draw[gray!35] (\xx,0)--(\xx,8); \node[below,font=\scriptsize] at (\xx,0){\d};}
+  \foreach \v in {0,1000,...,11000}{\pgfmathsetmacro\yy{\v/1375}\draw[gray!35] (0,\yy)--(12,\yy);}
+  \foreach \v in {0,2000,...,10000}{\pgfmathsetmacro\yy{\v/1375}\node[left,font=\scriptsize] at (0,\yy){\v};}
+  \draw[thick,-{Stealth}] (0,0)--(12.6,0) node[right,font=\scriptsize]{$d$ (Mpc)};
+  \draw[thick,-{Stealth}] (0,0)--(0,8.6) node[above,font=\scriptsize]{$v$ (km/s)};
+\end{tikzpicture}
+\end{center}
+
+\noindent Pendiente estimada: $H_0 \approx$ \underline{\hspace{3cm}} km/s/Mpc.\par\medskip
+\noindent Mi conjetura (¿qué patrón ves?, ¿qué crees que significa la pendiente?):\par\vspace{3mm}
+\noindent\rule{\linewidth}{0.4pt}\par\vspace{5mm}\noindent\rule{\linewidth}{0.4pt}
+
+\hojatrabajo{4 · Explain}
+{\footnotesize \textbf{Calcula la edad del universo.} La edad se estima como $t\approx 1/H_0$. Para que $1/H_0$ dé un tiempo, hay que pasar los Mpc a km y los segundos a años. Sigue el \textbf{ejemplo} ($H_0=70$) y calcula \textbf{el tuyo}.}
+
+\medskip
+{\renewcommand{\arraystretch}{2.2}
+\noindent\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}p{5.4cm}|>{\raggedright\arraybackslash}p{3.9cm}|>{\raggedright\arraybackslash}X|}\hline
+\textbf{Paso} & \textbf{Ejemplo ($H_0=70$)} & \textbf{El tuyo ($H_0=$\,\rule{1.4cm}{0.4pt})} \\ \hline
+$t(\text{s})=\dfrac{3{,}086\times10^{19}}{H_0}$ & $\approx 4{,}41\times10^{17}$ s & \\ \hline
+$t(\text{años})=\dfrac{t(\text{s})}{3{,}156\times10^{7}}$ & $\approx 1{,}40\times10^{10}$ años & \\ \hline
+En miles de millones de años & $\approx 14\,000$ & \\ \hline
+\end{tabularx}}
+
+\vspace{9mm}
+\noindent\textbf{Interpreta:} ese número es una edad: ¿\textbf{la edad de qué}? ¿Y cómo lo sabes? (piensa en \emph{rebobinar} la expansión). ¿Qué \textbf{simplifica} esa fórmula sobre la expansión, que en realidad ha cambiado con el tiempo?
+\par\vspace{2mm}\noindent\rule{\linewidth}{0.4pt}\par\vspace{5mm}\noindent\rule{\linewidth}{0.4pt}
+\par\smallskip
+{\footnotesize (En \textbf{Elaborate} verás cuánto puede cambiar esta estimación y por qué.)}
+
+\hojatrabajo{5 · Elaborate}
+\noindent\textbf{¿Hasta dónde puede llegar la luz? El ritmo de expansión.}
+{\footnotesize En el modelo de la expansión, en cada paso la luz \textbf{avanza 1} (su velocidad; 1 unidad $\approx$ 1400 millones de años-luz, lo que recorre en un paso de $\sim$1400 millones de años) y el espacio \textbf{estira} toda distancia un ritmo $r$ (un \%, \textbf{proporcional} a la distancia). Un fotón que parte de una distancia $D$ \textbf{nos llega} solo si la expansión no supera su avance. En el caso límite la distancia no cambia: $(D-1)(1+r)=D$, de donde el \textbf{ritmo máximo} que aún deja llegar la luz es}
+\[ r_{\max}=\frac{1}{D-1}. \]
+\noindent Para cada objeto, calcula $r_{\max}$ y decide si su luz nos llega con el ritmo real ($\approx$10\,\%). Recuerda: $1$ unidad $\approx$ 1400 Mal, y ese 10\,\% \emph{no es arbitrario}: en un paso de $\sim$1400 M de años el universo crece de verdad $\sim$10\,\% ($1400/14\,000\approx0{,}1$, con $1/H_0\approx14\,000$ M de años).
+
+\medskip
+{\renewcommand{\arraystretch}{2.2}
+\noindent\begin{tabularx}{\linewidth}{|X|c|c|>{\centering\arraybackslash}p{2.4cm}|}\hline
+\textbf{Objeto (distancia hoy)} & $r_{\max}=\dfrac{1}{D-1}$ & \textbf{en \%} & \textbf{¿llega con el 10\,\%?} \\ \hline
+Galaxia lejana ($D=6$, $6\times1400=8400$ Mal) & & & \\ \hline
+En el horizonte ($D=11$, $11\times1400=15\,400$ Mal) & & & \\ \hline
+Galaxia lejanísima ($D=21$, $21\times1400=29\,400$ Mal) & & & \\ \hline
+\end{tabularx}}
+
+\vspace{7mm}
+\noindent\textbf{Interpreta:} cuanto más lejos está el objeto, ¿su ritmo máximo es \textbf{mayor} o \textbf{menor}? ¿A partir de qué distancia deja de llegarnos su luz con el 10\,\% real? Esa frontera es el \textbf{horizonte del modelo} ($15\,400$ Mal), \textbf{entre} el radio de Hubble ($\sim$14\,000) y el \textbf{horizonte de sucesos real} ($\sim$16\,000 Mal): el modelo simplificado acierta el orden sin forzarlo.
+\par\vspace{2mm}\noindent\rule{\linewidth}{0.4pt}\par\vspace{5mm}\noindent\rule{\linewidth}{0.4pt}
+
+\vspace{6mm}
+\noindent\textbf{Debate en grupo: ¿más rápido que la luz?} Una galaxia más allá del horizonte se aleja de nosotros \textbf{más deprisa que la luz}, y por eso la luz que emite \textbf{hoy} nunca nos llegará. ¿Contradice esto la relatividad, que dice que \textbf{nada} puede ir más rápido que la luz? Discutidlo y anotad vuestra conclusión.
+\par\vspace{2mm}\noindent\rule{\linewidth}{0.4pt}\par\vspace{5mm}\noindent\rule{\linewidth}{0.4pt}
+
+\hojatrabajo{6 · Evaluate}
+{\footnotesize \textbf{Verdadero o falso.} Marca V o F en cada afirmación. Entrégala y, después, compruébalas en la app (verás por qué).}
+
+\vspace{8mm}
+{\renewcommand{\arraystretch}{1.15}%
+\newcommand{\vfila}[1]{\begin{minipage}[c][11mm][c]{\linewidth}\raggedright #1\end{minipage}}%
+\noindent\begin{tabularx}{\linewidth}{|>{\centering\arraybackslash}m{0.8cm}|X|>{\centering\arraybackslash}m{1.5cm}|}\hline
+\# & \textbf{Afirmación} & \textbf{V\quad F} \\ \hline
+1 & \vfila{Que el cielo nocturno sea oscuro es una pista de que el universo tiene una edad, y no es infinito y eterno.} & $\square$\quad$\square$ \\ \hline
+2 & \vfila{El universo observable es todo el universo que existe.} & $\square$\quad$\square$ \\ \hline
+3 & \vfila{Que todas las galaxias se alejen de nosotros significa que la Tierra está en el centro del universo.} & $\square$\quad$\square$ \\ \hline
+4 & \vfila{El corrimiento al rojo de las galaxias lejanas se debe a que el espacio se estira mientras su luz viaja, no a un Doppler corriente.} & $\square$\quad$\square$ \\ \hline
+5 & \vfila{La expansión del universo no afecta a los sistemas unidos por la gravedad, como una galaxia o el Sistema Solar.} & $\square$\quad$\square$ \\ \hline
+6 & \vfila{$1/H_0$ es el tiempo que ha tardado en llegarnos la luz de una galaxia.} & $\square$\quad$\square$ \\ \hline
+7 & \vfila{La materia oscura y la energía oscura son dos nombres para la misma cosa.} & $\square$\quad$\square$ \\ \hline
+8 & \vfila{La ciencia ya conoce con total certeza y sin ningún debate el valor de la constante de Hubble.} & $\square$\quad$\square$ \\ \hline
+9 & \vfila{Ninguna galaxia puede alejarse de nosotros más deprisa que la luz.} & $\square$\quad$\square$ \\ \hline
+\end{tabularx}}
+
+\vspace{9mm}
+\noindent\textbf{En grupo: el error que enseña.} Las afirmaciones \textbf{falsas} de arriba son ideas erróneas frecuentes. Elegid una y debatid \textbf{por qué falla}: en ciencia, entender \emph{por qué} algo es falso vale tanto como saber lo correcto.
+
+\medskip
+\noindent Afirmación falsa elegida (n.\textsuperscript{o}): \underline{\hspace{1.4cm}}
+\par\smallskip
+\noindent ¿Por qué resulta creíble a primera vista?
+\par\vspace{2mm}\noindent\rule{\linewidth}{0.4pt}\par\vspace{5mm}\noindent\rule{\linewidth}{0.4pt}
+\par\smallskip
+\noindent ¿Por qué es en realidad falsa? (la idea correcta y en qué os apoyáis)
+\par\vspace{2mm}\noindent\rule{\linewidth}{0.4pt}\par\vspace{5mm}\noindent\rule{\linewidth}{0.4pt}
+\par\medskip
+\noindent\textit{Puesta en común: cada grupo defiende por qué su afirmación es errónea; el resto puede matizar o rebatir.}
+
+\hojatrabajo{7 · Evaluate}
+{\footnotesize \textbf{Producto final y autoevaluación.} \textbf{Tarea:} explica a otra persona cómo hemos medido la edad y el tamaño del universo. Elige el formato (presentación, póster o vídeo). Reconstruye la cadena $z\rightarrow v\rightarrow H_0\rightarrow$ edad $\rightarrow$ tamaño y no olvides los matices (observable $\neq$ total; $1/H_0$ es aproximado).}
+
+\medskip
+\noindent\textbf{Autoevaluación (Rúbrica B, Tabla~\ref{tab:rubricaB}).} Marca tu nivel en cada dimensión:
+
+\medskip
+{\renewcommand{\arraystretch}{1.6}
+\noindent\begin{tabular}{|l|c|c|c|c|}\hline
+\textbf{Dimensión} & 1 & 2 & 3 & 4 \\ \hline
+Rigor conceptual & $\square$ & $\square$ & $\square$ & $\square$ \\ \hline
+Explicación del proceso & $\square$ & $\square$ & $\square$ & $\square$ \\ \hline
+Naturaleza de la ciencia & $\square$ & $\square$ & $\square$ & $\square$ \\ \hline
+Uso de la evidencia & $\square$ & $\square$ & $\square$ & $\square$ \\ \hline
+Claridad y formato & $\square$ & $\square$ & $\square$ & $\square$ \\ \hline
+\end{tabular}}
+
+\medskip
+\noindent\textbf{Puntuación total} (suma de las cinco dimensiones, de 5 a 20): \underline{\hspace{3cm}}\ /\,20
+
+\medskip
+\noindent ¿Qué mejorarías si lo hicieras otra vez?\par\vspace{3mm}
+\noindent\rule{\linewidth}{0.4pt}\par\vspace{5mm}\noindent\rule{\linewidth}{0.4pt}

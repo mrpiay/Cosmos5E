@@ -1,2 +1,18 @@
 # copia de seguridad del logo original (sin recortar)
 logo_full.png
+
+# artefactos de compilacion LaTeX (memoria/latex)
+memoria/latex/**/*.aux
+memoria/latex/**/*.bbl
+memoria/latex/**/*.bcf
+memoria/latex/**/*.blg
+memoria/latex/**/*.lof
+memoria/latex/**/*.lot
+memoria/latex/**/*.log
+memoria/latex/**/*.out
+memoria/latex/**/*.toc
+memoria/latex/**/*.run.xml
+memoria/latex/**/*.synctex.gz
+memoria/latex/**/*.xdv
+memoria/latex/**/*.fdb_latexmk
+memoria/latex/**/*.fls

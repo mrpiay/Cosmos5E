@@ -1,0 +1,225 @@
+% !TeX program = xelatex
+\documentclass[10pt,a4paper]{report}
+%\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\addto\captionsspanish{\renewcommand{\tablename}{Tabla}\renewcommand{\listtablename}{Índice de tablas}}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2.75cm,right=2.6cm,top=3.5cm,bottom=3.5cm]{geometry}
+
+
+
+\usepackage{titletoc}
+% Keywords command
+
+\providecommand{\keywords}[1]
+{
+  \small
+  \textbf{\textit{Palabras clave:\hspace{0.3cm}}} #1
+}
+
+
+
+
+\usepackage[table]{xcolor}
+\definecolor{naranja}{HTML}{E65113}
+\usepackage[shortlabels]{enumitem}
+\definecolor{slcolor}{HTML}{E65113}
+\newcommand{\headlinecolor}{\color{slcolor}}
+\usepackage{titlesec}
+
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{-10pt}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%------------------COMANDOS PARA EL TIPO DE LETRA---------------------------%
+\usepackage{fontspec}
+\setsansfont{texgyreheros}[
+  Extension=.otf,
+  UprightFont=*-regular,
+  BoldFont=*-bold,
+  ItalicFont=*-italic,
+  BoldItalicFont=*-bolditalic ]
+\renewcommand{\familydefault}{\sfdefault}
+
+% --- Sin particion de palabras (guiones) en el texto ---
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\emergencystretch=3em
+\AtBeginDocument{\hyphenpenalty=10000\exhyphenpenalty=10000}
+
+% --- Todas las tablas a 8 pt (en tablas se permite guion para ajustar celdas estrechas) ---
+\usepackage{etoolbox}
+\newcommand{\tablasocho}{\fontsize{8}{9.6}\selectfont}
+\AtBeginEnvironment{tabular}{\tablasocho}
+\AtBeginEnvironment{tabularx}{\tablasocho}
+\AtBeginEnvironment{longtable}{\tablasocho}
+
+\titleformat{\chapter}[block]{\vspace{-3cm}\headlinecolor\Large\bfseries}{\thechapter.\hsp}{20pt}{\Large\bfseries}
+
+\titleformat{\section}[hang]{\large\bfseries}{\thesection}{0.6em}{}
+
+\titleformat{\subsection}[hang]{\normalsize\bfseries}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}[hang]{\small\bfseries\color{naranja}}{}{0pt}{\small\bfseries\color{naranja}}
+\titlespacing*{\subsubsection}{0pt}{7pt}{2pt}
+\titleformat{\appendix}[block]{\vspace{-3cm}\headlinecolor\Large\bfseries}{\thechapter.\hsp}{20pt}{\Large\bfseries}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------COMANDOS PARA TABLAS  E IMAGENES ---------------------%
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta}
+\usepackage[most]{tcolorbox}
+\newtcolorbox{fichafase}[1]{%
+  breakable, enhanced,
+  colback=white, colframe=naranja, boxrule=0.6pt, arc=2pt,
+  left=2mm, right=2mm, top=1.5mm, bottom=1.5mm,
+  before skip=9pt, after skip=9pt,
+  title={#1}, fonttitle=\bfseries, coltitle=white, colbacktitle=naranja,
+  toptitle=1mm, bottomtitle=1mm}
+% --- Fichas imprimibles de la guía docente (Anexo C) ---
+\newtcolorbox{guiaficha}[1]{%
+  breakable, enhanced,
+  colback=white, colframe=naranja, boxrule=1pt, arc=3pt,
+  left=3mm, right=3mm, top=2mm, bottom=2mm,
+  before skip=10pt, after skip=10pt,
+  title={#1}, fonttitle=\large\bfseries, coltitle=white, colbacktitle=naranja,
+  toptitle=1.6mm, bottomtitle=1.6mm}
+\newtcolorbox{guiameta}{%
+  enhanced, colback=naranja!7, colframe=naranja!35, boxrule=0.4pt, arc=2pt,
+  left=2mm, right=2mm, top=1mm, bottom=1mm, boxsep=1mm,
+  before skip=3pt, after skip=6pt}
+\newcommand{\gdsec}[1]{\par\smallskip{\normalsize\bfseries\color{naranja}#1}\par\nobreak\vspace{2pt}}
+\newcommand{\gdmin}[1]{{\color{naranja}\textbf{(#1)}}}
+% --- Hojas de trabajo imprimibles (sobrias, B/N) del Anexo C ---
+\newcommand{\hojatrabajo}[1]{\clearpage
+{\centering{\footnotesize\bfseries Secuencia Didáctica 5E para la Determinación de la Edad y el Tamaño del Universo}\\[6mm]{\Large\bfseries Hoja #1}\par}
+\vspace{7mm}\noindent{\footnotesize Nombre: \underline{\hspace{5.2cm}}\hfill Fecha: \underline{\hspace{2.6cm}}}\par\vspace{13mm}}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{pdflscape}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------COMANDOS PARA CABECERAS Y PIE DE PAGINA -----------------%
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15pt}
+
+\fancypagestyle{plain}{%
+  \renewcommand{\headrulewidth}{0pt}
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[R]{{\scriptsize\thepage\ de \pageref{LastPage}}}
+\fancyhead[L]{\tikz[remember picture,overlay]\node[opacity=0.4] at (-3mm, 10mm){\includegraphics[scale=0.18]{./Images/image3.png}};}
+\fancyheadoffset{0pt}
+}
+
+\pagestyle{plain}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------BIBLIOGRAFÍA EN APA (biblatex + biber) ------------------%
+\usepackage{caption}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=apa,language=spanish]{biblatex}
+\DeclareLanguageMapping{spanish}{spanish-apa}
+\addbibresource{Bibliografia_TFM_VIU_PIAY.bib}
+\usepackage[colorlinks=true,urlcolor=naranja,linkcolor=black,citecolor=black]{hyperref}
+
+
+%%%%%%-------------------+++++++++--INICIO DEL DOCUMENTO--+++++++++---------------------------%%%%%
+
+\begin{document}
+
+
+
+%------------------XXXX++++++ INICIO DE PORTADA  ++++++XXXXX-----------------%
+\begin{titlepage}
+
+\newgeometry{left=2.5cm, bottom=3cm, top=2cm, right=2.5cm}
+
+\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt] at (73.6mm, -124.25mm){\includegraphics{./Images/Picture_TitlePage.jpg}};
+
+{\sffamily
+\fontsize{25}{29}\fontseries{b}\selectfont
+\vspace{14cm}
+\raggedright
+\textbf{Secuencia Didáctica 5E para la Determinación de la Edad y el Tamaño del Universo}
+
+\bigskip
+
+\vfill
+\fontseries{m}\selectfont
+\begin{tabularx}{\textwidth} {
+  || >{\raggedright}X
+  || >{\raggedright}X
+  || >{\raggedright\arraybackslash}X || }
+ {\color{white}\textbf{Titulación:}}\\ {\color{black}Máster Universitario en Astronomía y Astrofísica}
+ & {\color{white}\textbf{Alumno:}}\\ {\color{black}Piay Pombo, Javier}\\ {\color{black}DNI: 35321428Y}
+ & {\color{white}\textbf{Convocatoria:}}\newline {\color{black}Segunda} \\
+ {\color{white}\textbf{Curso académico:}}\\ {\color{black}2025-2026}
+  & {\color{white}\textbf{Director del TFT:}}\\ {\color{black}García Salcedo, Ricardo}
+  & \\
+\end{tabularx}
+ }
+\end{titlepage}
+%--------------------XXXX++++++ FIN DE PORTADA  ++++++XXXXX-----------------%
+\tableofcontents
+\addcontentsline{toc}{chapter}{\listfigurename}
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoffigures
+\listoftables
+
+\newpage
+\begin{center}{\large\bfseries\abstractname}\end{center}
+\vspace{0.4cm}
+
+Este Trabajo de Fin de Máster presenta el diseño de una secuencia didáctica basada en el modelo 5E para la determinación de la edad y el tamaño del universo en 2º de Bachillerato. A partir de una revisión sistematizada de la literatura sobre la enseñanza de la cosmología moderna en secundaria ---90 fuentes analizadas con la herramienta Elicit Pro--- y de su cotejo con el currículo de Física de Pearson Edexcel International Advanced Level, se identifican los contenidos más viables, las estrategias más eficaces y las ideas erróneas que conviene abordar. Sobre esa base se articula una secuencia indagadora que conduce al alumnado, mediante la medida del corrimiento al rojo y la ley de Hubble-Lemaître, a estimar la edad y el tamaño del universo observable, revisando en el proceso sus nociones de espacio y de tiempo. Como soporte de la secuencia se propone además una web interactiva de acceso público que hace tangible todo el proceso ---de la medida del corrimiento al rojo a la constante de Hubble y, de ahí, a la edad y el tamaño del universo---, de modo que el alumnado obtenga sus propios resultados. El trabajo es de diseño; su validación mediante un estudio pre-post se prevé para una implementación posterior en el aula.
+
+\vspace{0.5cm}
+\keywords{edad y tamaño del universo; modelo 5E; ley de Hubble-Lemaître; cosmología; didáctica de la física; web interactiva; bachillerato}
+
+\newpage
+\section*{Agradecimientos}\label{sec:agradecimientos}
+A la Universidad Internacional de Valencia (VIU) y, en ella, a Elisa Nespoli, directora del Máster y coordinadora del módulo de Trabajo de Fin de Máster, y a Ricardo García Salcedo, director de este trabajo, por su orientación, su disponibilidad y el acompañamiento prestado durante este proceso. Gracias también por haber hecho de este máster un lugar al que siempre ha merecido la pena volver.
+
+En lo personal, este trabajo cierra una etapa iniciada hace quince años. Cursé este máster en su primera promoción (2010--2011) y el único requisito que quedó pendiente fue, precisamente, este Trabajo de Fin de Máster. Desde entonces intenté retomarlo en dos ocasiones, con temáticas muy distintas a la que finalmente ha dado lugar a esta memoria, pero en ninguna de ellas llegaron a darse las circunstancias necesarias para concluirlo. Con el paso del tiempo, el proyecto fue evolucionando, igual que lo hicieron mi trayectoria profesional, mis intereses y mi forma de entender la enseñanza de la física, hasta convertirse en el trabajo que hoy presento.
+
+Si algo simboliza terminarlo ahora no es tanto la constancia de quien nunca se detiene como la de una ilusión que ha permanecido intacta. Quince años después, el deseo de comprender, de enseñar y de seguir aprendiendo sobre el universo continúa siendo el mismo. Porque nunca es tarde para cerrar un camino que quedó abierto, y porque la curiosidad por el universo, afortunadamente, no entiende de plazos ni de calendarios.
+
+
+
+\newpage
+\section*{Declaración sobre el uso de inteligencia artificial generativa}\label{sec:declaracionIA}
+\addcontentsline{toc}{section}{Declaración sobre el uso de inteligencia artificial generativa}
+
+En la elaboración de este Trabajo de Fin de Máster se han empleado \textbf{herramientas de inteligencia artificial generativa} como apoyo, con conocimiento del director del trabajo y bajo la \textbf{dirección, la revisión y la responsabilidad última del autor}. Estas herramientas no han sustituido el criterio, las decisiones ni la autoría propios: todos los resultados se han \textbf{verificado, corregido y validado} antes de incorporarse. En concreto, se han utilizado para:
+
+\begin{itemize}
+  \item \textbf{Desarrollo de la web interactiva:} asistencia en el código (HTML, CSS y JavaScript) de la herramienta didáctica y en su \textbf{publicación con control de versiones} en un repositorio de GitHub, así como en su despliegue en línea.
+  \item \textbf{Edición y compilación local del documento \LaTeX:} apoyo en la redacción y la estructura de los capítulos, las tablas y las figuras (incluida la del flujo de la secuencia 5E) y en la resolución de incidencias de compilación con \mbox{XeLaTeX}.
+  \item \textbf{Tratamiento y análisis de datos astronómicos:} selección, a partir de la base pública NED, de galaxias con \textbf{distancias independientes del corrimiento al rojo}, y construcción del diagrama de Hubble y el ajuste de $H_{0}$ que sustentan la actividad central.
+  \item \textbf{Coherencia entre la memoria y la herramienta:} revisión cruzada para que las fichas de fase (capítulos 3 y 4) y la web didáctica compartan los mismos contenidos, terminología y secuencia.
+  \item \textbf{Refinamiento didáctico y revisión de rigor:} adecuación de las explicaciones al nivel de 2.\textsuperscript{o} de Bachillerato, anticipación de ideas previas y erróneas frecuentes y verificación de la corrección física de los contenidos (por ejemplo, el corrimiento al rojo como estiramiento del espacio frente al efecto Doppler, o el horizonte de sucesos evitando formulaciones imprecisas de recesión superlumínica).
+  \item \textbf{Revisión y reescritura de textos:} mejora de estilo, concisión y coherencia de párrafos redactados previamente por el autor.
+\end{itemize}
+
+En cuanto al \textbf{uso responsable}, no se han remitido a estas herramientas datos de carácter personal o sensible ni materiales protegidos por derechos de autor sin la debida autorización; los datos astronómicos empleados son de \textbf{acceso público} y se citan sus fuentes. Se han respetado los términos de uso de las herramientas y los principios éticos esenciales, sin orientarlas a producir una impresión contraria a la realidad de los resultados obtenidos ni a suplantar el trabajo propio. La declaración formal en el modelo institucional de la Universidad acompaña a este trabajo.
+
+%-------------------- CAPÍTULOS --------------------%
+\input{capitulos/cap1_v2}
+\input{capitulos/cap2_v2}
+\input{capitulos/cap3_v2}
+\input{capitulos/cap4_v2}
+\input{capitulos/cap5_v2}
+
+%-------------------- ANEXOS --------------------%
+\appendix
+\input{capitulos/anexos_v2}
+
+%-------------------- BIBLIOGRAFÍA --------------------%
+\printbibliography[heading=bibintoc]
+
+
+\end{document}
