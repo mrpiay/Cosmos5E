@@ -2,7 +2,7 @@
 
 Web interactiva de acompañamiento al Trabajo de Fin de Máster **«Secuencia Didáctica 5E para la Determinación de la Edad y el Tamaño del Universo»** — Máster Universitario en Astronomía y Astrofísica (VIU). **Alumno:** Javier Piay Pombo · **Director:** Ricardo García Salcedo · 2026.
 
-Una web **didáctica e interactiva** (HTML/CSS/JS puro, sin dependencias externas) que recorre las cinco fases del modelo **5E** para que el alumnado de 2.º de Bachillerato **mida por sí mismo** la edad y el tamaño del universo a partir de **datos reales de galaxias**.
+Una web **didáctica e interactiva** que recorre las cinco fases del modelo **5E** para que el alumnado de Bachillerato **determine por sí mismo** la edad y el tamaño del universo a partir de **datos reales de galaxias**.
 
 ## Uso
 

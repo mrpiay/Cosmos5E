@@ -1,7 +1,7 @@
 {
   "descripcion": "Espectros para medir el corrimiento al rojo (actividad Explore). Enfoque HIBRIDO: render esquematico limpio, pero con redshifts REALES de las galaxias del diagrama de Hubble (materiales/datos/hubble.json).",
   "metodo": "Cada galaxia lleva marcada la linea de emision H-alfa en su posicion observada lambda_obs = lambda_reposo*(1+z). El alumno mide lambda_obs, calcula z = (lambda_obs - lambda_reposo)/lambda_reposo y v = c*z. Ese v coincide (salvo redondeo) con el del diagrama de Hubble de la misma galaxia (campo v_diagrama_kms).",
-  "nota_didactica": "Render limpio (no el espectro crudo de SDSS, mas ruidoso) para 2 de Bachillerato; los NUMEROS son reales. Galaxias espirales: H-alfa en emision. Para elipticas/lenticulares (Fornax A, Coma) se usaria el doblete Ca II H&K en absorcion.",
+  "nota_didactica": "Render limpio (no el espectro crudo de SDSS, mas ruidoso) para Bachillerato; los NUMEROS son reales. Galaxias espirales: H-alfa en emision. Para elipticas/lenticulares (Fornax A, Coma) se usaria el doblete Ca II H&K en absorcion.",
   "constantes": {
     "c_kms": 299792.458
   },
