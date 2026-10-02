@@ -1,6 +1,6 @@
 # Cosmos5E
 
-Web interactiva de acompañamiento al Trabajo de Fin de Máster **«Secuencia Didáctica 5E para la Determinación de la Edad y el Tamaño del Universo»** — Máster Universitario en Astronomía y Astrofísica (VIU) · Javier Piay Pombo · 2026.
+Web interactiva de acompañamiento al Trabajo de Fin de Máster **«Secuencia Didáctica 5E para la Determinación de la Edad y el Tamaño del Universo»** — Máster Universitario en Astronomía y Astrofísica (VIU). **Alumno:** Javier Piay Pombo · **Director:** Ricardo García Salcedo · 2026.
 
 Una web **didáctica e interactiva** (HTML/CSS/JS puro, sin dependencias externas) que recorre las cinco fases del modelo **5E** para que el alumnado de 2.º de Bachillerato **mida por sí mismo** la edad y el tamaño del universo a partir de **datos reales de galaxias**.
 
@@ -15,13 +15,17 @@ Hay dos formas de usarla:
 
 Las cinco fases se recorren **en orden**: cada una se **desbloquea al completar la anterior**, para no adelantar lo que el alumnado debe descubrir por sí mismo.
 
+## Demostración y exportación
+
+Desde la página de inicio, el botón **Simulación (demo)** rellena automáticamente las respuestas y desbloquea todas las fases, para revisar la web completa sin tener que responder; en **Evaluate** se pueden **exportar los resultados** (CSV o JSON) identificados con un código anónimo. **Reiniciar la secuencia** deshace la demostración y borra los datos guardados en el dispositivo.
+
 ## Fases
 
 - **Engage** — plantea el reto y **aflora las ideas previas** con el cuestionario conceptual (pretest, sin dar respuestas todavía; cada pregunta se responde siempre, con la opción «No lo sé / no lo tengo claro»); la aventura de la cosmología y la paradoja de Olbers.
-- **Explore** *(2 partes)* — mide el corrimiento al rojo en un espectro y construye el **diagrama de Hubble** con galaxias reales para obtener tu **H₀** (la pendiente); registra tu conjetura, sin interpretarla aún.
-- **Explain** — primero **explicas** lo que encontraste; luego se formaliza la **ley de Hubble-Lemaître** y, con la calculadora paso a paso, obtienes la **edad** del universo; «rebobinar la expansión» y el **calendario cósmico**.
-- **Elaborate** *(2 partes)* — el **tamaño** observable (radio de Hubble y por qué el observable es mayor, ~46 000 millones de al) con una actividad de **transferencia**; y los **límites** de la medida: tensión de Hubble, modelo ΛCDM y horizontes.
-- **Evaluate** — **postest conceptual** (el mismo instrumento del inicio, con contraste antes/después), reconstrucción de la cadena de la medida, **lectura de las ecuaciones** y **producto final** con su rúbrica.
+- **Explore** *(2 partes)* — mide el corrimiento al rojo en un espectro y construye el **diagrama distancia–velocidad** con galaxias reales para medir su **pendiente**; registra tu conjetura y, al guardarla, se revela que esa pendiente es **H₀** (el histórico **diagrama de Hubble**).
+- **Explain** — primero **explicas** lo que encontraste; luego se formaliza la **ley de Hubble-Lemaître** y el corrimiento cosmológico y, con la calculadora paso a paso, obtienes la **edad** del universo (t ≈ 1/H₀); recorres **la historia del universo** (del Big Bang a hoy) y el **calendario cósmico**.
+- **Elaborate** *(2 partes)* — el **tamaño** observable: el **radio de Hubble** (c/H₀, una escala) y por qué el **radio observable** es mayor (~46 000 millones de al), con una actividad de **transferencia** a otros valores de H₀; y los **límites** de la medida: tensión de Hubble, modelo ΛCDM y horizontes.
+- **Evaluate** — **postest conceptual** (el mismo instrumento del inicio, con contraste antes/después), **cierre de las preguntas abiertas del principio**, reconstrucción de la cadena de la medida, **lectura de las ecuaciones**, **producto final** con su rúbrica y **exportación de los resultados** (CSV/JSON con código anónimo).
 
 ## Datos y fuentes
 
@@ -29,4 +33,4 @@ Datos y herramientas de acceso público: distancias del diagrama de Hubble de **
 
 ## Licencia y créditos
 
-Material del Trabajo de Fin de Máster de **Javier Piay Pombo** (Universidad Internacional de Valencia, VIU, 2026). El logotipo de la VIU pertenece a su titular.
+Material del Trabajo de Fin de Máster de **Javier Piay Pombo**, dirigido por **Ricardo García Salcedo** (Universidad Internacional de Valencia, VIU, 2026). El logotipo de la VIU pertenece a su titular.
