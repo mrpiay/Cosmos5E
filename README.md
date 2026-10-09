@@ -4,6 +4,8 @@ Web interactiva de acompañamiento al Trabajo de Fin de Máster **«Secuencia Di
 
 Una web **didáctica e interactiva** que recorre las cinco fases del modelo **5E** para que el alumnado de Bachillerato **determine por sí mismo** la edad y el tamaño del universo a partir de **datos reales de galaxias**.
 
+> **Versión `v1.0-TFM`** (octubre 2026) — primera versión estable: secuencia 5E completa, Modo estudiante/docente y la memoria del TFM. A partir de aquí solo se corregirán errores puntuales.
+
 ## La memoria del TFM
 
 El documento completo del trabajo (PDF) y sus fuentes LaTeX están en la carpeta **[`memoria/`](memoria/)**.
