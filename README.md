@@ -15,13 +15,16 @@ Hay dos formas de usarla:
 - **En línea:** abre directamente **[https://mrpiay.github.io/Cosmos5E/](https://mrpiay.github.io/Cosmos5E/)** en cualquier navegador.
 - **En local:** descarga el repositorio (botón **Code → Download ZIP**), descomprímelo y abre **`index.html`** con doble clic. No hay que instalar nada.
 
-## Recorrido guiado
+## Modo estudiante y Modo docente
 
-Las cinco fases se recorren **en orden**: cada una se **desbloquea al completar la anterior**, para no adelantar lo que el alumnado debe descubrir por sí mismo.
+Desde la página de inicio hay dos formas de acceso:
 
-## Demostración y exportación
+- **Modo estudiante** (el recorrido normal): las cinco fases se recorren **en orden** y cada una se **desbloquea al completar la anterior**, para no adelantar lo que el alumnado debe descubrir por sí mismo.
+- **Modo docente** (acceso con una **clave sencilla**): **libera la navegación** por todas las fases para que el profesorado pueda revisar la secuencia completa —instrucciones, recursos, instrumentos y productos esperados— antes de aplicarla. **No** rellena respuestas, **no** genera datos ni modifica el progreso: solo desbloquea el recorrido. La clave evita accesos accidentales del alumnado.
 
-Desde la página de inicio, el botón **Simulación (demo)** rellena automáticamente las respuestas y desbloquea todas las fases, para revisar la web completa sin tener que responder; en **Evaluate** se pueden **exportar los resultados** (CSV o JSON) identificados con un código anónimo. **Reiniciar la secuencia** deshace la demostración y borra los datos guardados en el dispositivo.
+## Exportación
+
+En **Evaluate** se pueden **exportar los resultados** (CSV o JSON) identificados con un código anónimo. **Reiniciar la secuencia** (desde el inicio) borra el progreso y las respuestas guardadas en el dispositivo.
 
 ## Fases
 

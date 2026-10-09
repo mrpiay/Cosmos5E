@@ -59,11 +59,6 @@
 
   <p style="text-align:center; margin:0 0 20px;"><a href="mapa.html" class="btn-mapa">↔ Ver el mapa del recorrido</a></p>
 
-  <div class="cta-inicio">
-    <p class="o-libre">Las fases se recorren <b>en orden</b> (Engage → Explore → Explain → Elaborate → Evaluate).<br>
-    Cada una se <b>desbloquea al completar la anterior</b> para no adelantar lo que debes descubrir por ti mismo.</p>
-  </div>
-
   <div class="rejilla">
 
     <a class="fase" href="engage.html">
@@ -113,17 +108,13 @@
 
   </div>
 
-  <div class="utilidades">
-    <button type="button" class="btn-mapa" onclick="if(confirm('Modo demostración: se rellenarán automáticamente todas las respuestas y reflexiones y se desbloquearán todas las fases, para poder ver la web completa y exportar un JSON. Se deshace con «Reiniciar». ¿Continuar?')){Cosmos.simular();}">▶ Simulación (demo)</button>
-    <button type="button" class="btn-mapa" onclick="if(confirm('¿Reiniciar la secuencia? Se borrarán el progreso y las respuestas guardadas en este dispositivo, y solo quedará disponible la fase 1 (Engage).')){Cosmos.reiniciar();}">↻ Reiniciar la secuencia</button>
-  </div>
+  <div class="utilidades" id="accesoModos" style="margin-top:26px;"></div>
 </main>
 
 <footer>
   <img class="logo-viu" src="logo.png" alt="Universidad Internacional de Valencia (VIU)">
 </footer>
 
-<script src="datos/test_conceptual_v2.js"></script>
 <script src="js/cosmos.js"></script>
 </body>
 </html>

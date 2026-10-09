@@ -179,7 +179,7 @@
       <details class="paso"><summary>4. ¿Cómo llegaste a la edad?</summary>
         <div class="cont"><b>Invirtiendo</b> H₀: t ≈ 1/H₀, el tiempo de Hubble. Al rebobinar, las distancias entre todas las galaxias se reducen a la vez (sin un punto central).</div></details>
       <details class="paso"><summary>5. ¿Cómo estimaste el tamaño?</summary>
-        <div class="cont">El radio de Hubble, R ≈ c/H₀ (~14 000 millones de años-luz), como primera estimación; el universo <b>observable</b> real es mayor (~46 000 millones), porque el espacio siguió estirándose mientras la luz viajaba.</div></details>
+        <div class="cont">El radio de Hubble, R ≈ c/H₀ (~14 000 millones de años-luz), una <b>escala de distancia característica</b>; el universo <b>observable</b> real es <b>otra magnitud, mayor</b> (~46 000 millones), porque el espacio siguió estirándose mientras la luz viajaba.</div></details>
     </div>
   </details>
 
@@ -302,7 +302,7 @@ const ECS=[
    ['Relación','Proporción directa: cuanto más lejos, más deprisa se aleja.'],
    ['Sentido','En d = 0, v = 0: no nos alejamos de nosotros mismos.'],
    ['Propósito','La pendiente de la recta es H₀: el número que obtuviste de tus datos.'],
-   ['Origen','Es una relación <b>empírica</b>: el patrón que Hubble observó en 1929, consistente con los modelos de expansión homogénea; su pendiente permite medir H₀.']],
+   ['Origen','Es una relación <b>empírica</b>: Lemaître la estableció teóricamente y la estimó por primera vez (1927), y Hubble estableció <b>observacionalmente</b> la relación distancia–velocidad (1929); es consistente con los modelos de expansión homogénea, y su pendiente permite medir H₀.']],
   explica:'es un hecho <b>medido</b>; que signifique que el universo se expande es una interpretación (el mejor modelo), no un teorema.'},
  {eq:'t ≈ 1 / H₀', tipo:'Aproximación',
   etapas:[
@@ -317,9 +317,9 @@ const ECS=[
    ['Símbolos','R = radio de Hubble (tamaño característico); c = velocidad de la luz; 1/H₀ = tiempo de Hubble.'],
    ['Relación','El tamaño es «lo que la luz recorre» en un tiempo de Hubble.'],
    ['Sentido','Fija un orden de magnitud: ~14 000 millones de años-luz.'],
-   ['Propósito','Estima hasta dónde llega, aproximadamente, el universo observable.'],
-   ['Origen','De combinar la velocidad de la luz con la edad estimada.']],
-  explica:'es una <b>cota</b> mínima; el universo observable real es mayor (~46 000 millones de años-luz), porque el espacio siguió estirándose.'}
+   ['Propósito','Es el <b>radio de Hubble</b>: una escala de distancia característica de la expansión actual, <b>distinta</b> del radio del universo observable.'],
+   ['Origen','De combinar la velocidad de la luz con el tiempo de Hubble (1/H₀).']],
+  explica:'es el <b>radio de Hubble</b>, una escala de distancia característica; el radio del universo <b>observable</b> es <b>otra magnitud</b>, mayor (~46 000 millones de años-luz), porque el espacio siguió estirándose.'}
 ];
 const TIPOS=['Definición','Observación','Aproximación'];
 const cont=document.getElementById('ecuaciones');
@@ -350,8 +350,8 @@ function clasifica(gi,btn){
 
 /* ---------- 4 · Verdadero o falso ---------- */
 const VF=[
- {t:'Que el cielo nocturno sea oscuro es una pista de que el universo tiene una edad, y no es infinito y eterno.', v:true,
-  e:'Si fuese infinito, eterno y estático, el cielo entero brillaría (paradoja de Olbers). Que la noche sea oscura indica que tiene una historia: una edad finita y estrellas que no brillan para siempre.'},
+ {t:'Que el cielo nocturno sea oscuro contradice la imagen de un universo eterno, estático y uniformemente lleno de estrellas.', v:true,
+  e:'Si el universo fuese eterno, estático y estuviera uniformemente poblado de estrellas, el cielo entero brillaría (paradoja de Olbers). Que la noche sea oscura indica que al menos una de esas hipótesis falla: el universo tiene una historia (una edad finita) y evoluciona. Por sí sola no demuestra que el universo sea finito.'},
  {t:'El universo observable es todo el universo que existe.', v:false,
   e:'El observable es solo la parte cuya luz ha tenido tiempo de llegarnos —la que «ya hemos visto encenderse»—; puede haber mucho más allá que aún no vemos.'},
  {t:'Que todas las galaxias se alejen de nosotros significa que la Tierra está en el centro del universo.', v:false,
