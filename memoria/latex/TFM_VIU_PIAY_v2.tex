@@ -36,12 +36,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %------------------COMANDOS PARA EL TIPO DE LETRA---------------------------%
 \usepackage{fontspec}
-\setsansfont{texgyreheros}[
-  Extension=.otf,
-  UprightFont=*-regular,
-  BoldFont=*-bold,
-  ItalicFont=*-italic,
-  BoldItalicFont=*-bolditalic ]
+% Fuente sans serif: TeX Gyre Heros cuando está disponible; respaldo compatible
+% para que el proyecto compile también fuera de Overleaf.
+\IfFontExistsTF{TeX Gyre Heros}{%
+  \setsansfont{TeX Gyre Heros}%
+}{%
+  \setsansfont{Liberation Sans}%
+}
 \renewcommand{\familydefault}{\sfdefault}
 
 % --- Sin particion de palabras (guiones) en el texto ---
@@ -100,6 +101,8 @@
 \usepackage{tabularx}
 \usepackage{longtable}
 \usepackage{pdflscape}
+\usepackage{pdfpages}
+\newcommand{\dagmark}{\textsuperscript{$\dagger$}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-----------------COMANDOS PARA CABECERAS Y PIE DE PAGINA -----------------%
@@ -175,7 +178,7 @@
 \begin{center}{\large\bfseries\abstractname}\end{center}
 \vspace{0.4cm}
 
-Este Trabajo de Fin de Máster presenta el diseño de una secuencia didáctica basada en el modelo 5E para la determinación de la edad y el tamaño del universo en 2º de Bachillerato. A partir de una revisión sistematizada de la literatura sobre la enseñanza de la cosmología moderna en secundaria ---90 fuentes analizadas con la herramienta Elicit Pro--- y de su cotejo con el currículo de Física de Pearson Edexcel International Advanced Level, se identifican los contenidos más viables, las estrategias más eficaces y las ideas erróneas que conviene abordar. Sobre esa base se articula una secuencia indagadora que conduce al alumnado, mediante la medida del corrimiento al rojo y la ley de Hubble-Lemaître, a estimar la edad y el tamaño del universo observable, revisando en el proceso sus nociones de espacio y de tiempo. Como soporte de la secuencia se propone además una web interactiva de acceso público que hace tangible todo el proceso ---de la medida del corrimiento al rojo a la constante de Hubble y, de ahí, a la edad y el tamaño del universo---, de modo que el alumnado obtenga sus propios resultados. El trabajo es de diseño; su validación mediante un estudio pre-post se prevé para una implementación posterior en el aula.
+Este Trabajo de Fin de Máster presenta el diseño de una secuencia didáctica basada en el modelo 5E para la determinación de la edad y el tamaño del universo en 2º de Bachillerato. A partir de una revisión exploratoria sistematizada de la literatura sobre la enseñanza de la cosmología moderna en secundaria ---90 fuentes superaron el cribado inicial y 78 conformaron finalmente el corpus analizado, con apoyo de Elicit Pro--- y de su cotejo con el currículo de Física de Pearson Edexcel International Advanced Level, se identifican contenidos viables, estrategias transferibles y dificultades conceptuales que conviene abordar. Sobre esa base se articula una secuencia indagadora que conduce al alumnado, mediante la medida del corrimiento al rojo y la relación de Hubble--Lemaître, a obtener $H_{0}$ y a interpretar el tiempo de Hubble $1/H_{0}$ y el radio de Hubble $c/H_{0}$ como escalas características, relacionándolos con la edad y el radio del universo observable y explicitando los límites de estas aproximaciones. Como soporte se desarrolla una web interactiva de acceso público que hace visible la cadena observación--medida--inferencia y permite que el alumnado obtenga sus propios resultados. El trabajo es de diseño; la evaluación empírica de la secuencia mediante un estudio pre--post se reserva para una implementación posterior en el aula.
 
 \vspace{0.5cm}
 \keywords{edad y tamaño del universo; modelo 5E; ley de Hubble-Lemaître; cosmología; didáctica de la física; web interactiva; bachillerato}
@@ -194,14 +197,14 @@ Si algo simboliza terminarlo ahora no es tanto la constancia de quien nunca se d
 \section*{Declaración sobre el uso de inteligencia artificial generativa}\label{sec:declaracionIA}
 \addcontentsline{toc}{section}{Declaración sobre el uso de inteligencia artificial generativa}
 
-En la elaboración de este Trabajo de Fin de Máster se han empleado \textbf{herramientas de inteligencia artificial generativa} como apoyo, con conocimiento del director del trabajo y bajo la \textbf{dirección, la revisión y la responsabilidad última del autor}. Estas herramientas no han sustituido el criterio, las decisiones ni la autoría propios: todos los resultados se han \textbf{verificado, corregido y validado} antes de incorporarse. En concreto, se han utilizado para:
+En la elaboración de este Trabajo de Fin de Máster se han empleado \textbf{herramientas de inteligencia artificial generativa} como apoyo, con conocimiento del director del trabajo y bajo la \textbf{dirección, la revisión y la responsabilidad última del autor}. Estas herramientas no han sustituido el criterio, las decisiones ni la autoría propios: todos los resultados se han \textbf{verificado, revisado y contrastado} antes de incorporarse. En concreto, se han utilizado para:
 
 \begin{itemize}
   \item \textbf{Desarrollo de la web interactiva:} asistencia en el código (HTML, CSS y JavaScript) de la herramienta didáctica y en su \textbf{publicación con control de versiones} en un repositorio de GitHub, así como en su despliegue en línea.
   \item \textbf{Edición y compilación local del documento \LaTeX:} apoyo en la redacción y la estructura de los capítulos, las tablas y las figuras (incluida la del flujo de la secuencia 5E) y en la resolución de incidencias de compilación con \mbox{XeLaTeX}.
   \item \textbf{Tratamiento y análisis de datos astronómicos:} selección, a partir de la base pública NED, de galaxias con \textbf{distancias independientes del corrimiento al rojo}, y construcción del diagrama de Hubble y el ajuste de $H_{0}$ que sustentan la actividad central.
   \item \textbf{Coherencia entre la memoria y la herramienta:} revisión cruzada para que las fichas de fase (capítulos 3 y 4) y la web didáctica compartan los mismos contenidos, terminología y secuencia.
-  \item \textbf{Refinamiento didáctico y revisión de rigor:} adecuación de las explicaciones al nivel de 2.\textsuperscript{o} de Bachillerato, anticipación de ideas previas y erróneas frecuentes y verificación de la corrección física de los contenidos (por ejemplo, el corrimiento al rojo como estiramiento del espacio frente al efecto Doppler, o el horizonte de sucesos evitando formulaciones imprecisas de recesión superlumínica).
+  \item \textbf{Refinamiento didáctico y revisión de rigor:} adecuación de las explicaciones al nivel de 2.\textsuperscript{o} de Bachillerato, anticipación de ideas previas y erróneas frecuentes y verificación de la corrección física de los contenidos (por ejemplo, el uso de $v\simeq cz$ como aproximación de bajo corrimiento al rojo, la distinción entre velocidades peculiares y expansión cosmológica, y la diferencia entre radio de Hubble y radio del universo observable).
   \item \textbf{Revisión y reescritura de textos:} mejora de estilo, concisión y coherencia de párrafos redactados previamente por el autor.
 \end{itemize}
 

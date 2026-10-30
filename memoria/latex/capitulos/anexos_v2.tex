@@ -97,7 +97,6 @@ Se recoge el conjunto de \textbf{fuentes} identificadas en la búsqueda explorat
 \end{enumerate}
 }
 
-
 \chapter{Las ecuaciones de la cosmología}\label{cap:anexo-ecuaciones}
 
 Anexo del apartado \emph{Las ecuaciones de la cosmología: metodología didáctica} (\S\ref{sec:ecuaciones}). Se aplica a cada ecuación el proceso de lectura descrito allí ---seis etapas: \textbf{Símbolos, Relación, Sentido, Propósito, Origen} y \textbf{Tipo}---. Aquí figuran únicamente las ecuaciones y su lectura; el método y su justificación están en el apartado.
@@ -109,108 +108,103 @@ Anexo del apartado \emph{Las ecuaciones de la cosmología: metodología didácti
 \begin{itemize}
   \item \textbf{Símbolos:} $\lambda$ = longitud de onda de una raya del espectro (nm); $\Delta\lambda$ = cuánto se ha desplazado esa raya respecto a su posición en reposo; $z$ = número sin unidades.
   \item \textbf{Relación:} cuanto más desplazada está la raya ($\Delta\lambda$ grande), mayor es $z$.
-  \item \textbf{Sentido:} $z>0$ si la luz se ha corrido hacia el rojo (longitudes mayores); $z<0$ hacia el azul.
-  \item \textbf{Propósito:} cuantifica \emph{cuánto} se ha «estirado» la luz que recibimos. Es la magnitud que el alumnado lee directamente en el espectro.
+  \item \textbf{Sentido:} $z>0$ si la luz se ha corrido hacia longitudes de onda mayores; $z<0$ hacia longitudes menores.
+  \item \textbf{Propósito:} cuantifica el desplazamiento relativo de la luz que recibimos.
   \item \textbf{Origen:} de la \textbf{espectroscopía}; comparamos la raya observada con la misma raya medida en el laboratorio.
-  \item \textbf{Tipo:} \textbf{[Definición]}. No hay nada que demostrar: es cómo \emph{decidimos} medir el desplazamiento.
+  \item \textbf{Tipo:} \textbf{[Definición]}.
 \end{itemize}
 
-\section*{2. De corrimiento a velocidad}
+\section*{2. De corrimiento a velocidad en el régimen de bajo $z$}
 
-\[ v = c\,z \]
+\[ v \simeq c\,z \]
 
 \begin{itemize}
-  \item \textbf{Símbolos:} $v$ = velocidad a la que se aleja la galaxia (km/s); $c$ = velocidad de la luz ($\approx 300\,000$ km/s); $z$ = el corrimiento anterior.
-  \item \textbf{Relación:} proporción directa: doble de $z$, doble de $v$.
-  \item \textbf{Sentido:} $z>0 \Rightarrow v>0$: se aleja.
-  \item \textbf{Propósito:} convierte lo que medimos ($z$) en algo físico (una velocidad).
-  \item \textbf{Origen:} del \textbf{efecto Doppler} (Doppler, 1842): una fuente que se aleja «estira» sus ondas, como el cambio de tono de una ambulancia que pasa.
-  \item \textbf{Tipo:} \textbf{[Aproximación]}. Solo vale para $z$ \textbf{pequeño} ($z\ll1$). Para galaxias muy lejanas ($z$ grande) daría $v>c$, señal de que la fórmula ha dejado de servir: el corrimiento cosmológico real no es un Doppler de velocidad, sino el \textbf{espacio que se estira}.
+  \item \textbf{Símbolos:} $v$ = velocidad de recesión asociada al flujo de Hubble en el régimen local (km/s); $c$ = velocidad de la luz ($\approx 300\,000$ km/s); $z$ = corrimiento al rojo.
+  \item \textbf{Relación:} para $z\ll1$, la relación entre $v$ y $z$ es aproximadamente lineal.
+  \item \textbf{Sentido:} un mayor corrimiento al rojo cosmológico corresponde, en este régimen, a una mayor velocidad de recesión asociada a la expansión; las velocidades peculiares pueden añadir una componente local.
+  \item \textbf{Propósito:} permite construir didácticamente el diagrama velocidad--distancia a partir del corrimiento al rojo de galaxias cercanas.
+  \item \textbf{Origen:} es la \textbf{aproximación cinemática de bajo corrimiento al rojo}; coincide a primer orden con la expresión Doppler no relativista, pero en cosmología su interpretación se realiza dentro del modelo de expansión y no implica que todo corrimiento al rojo sea un Doppler ordinario.
+  \item \textbf{Tipo:} \textbf{[Aproximación]}. Solo se emplea para $z\ll1$; para corrimientos grandes se requiere el tratamiento cosmológico completo.
 \end{itemize}
 
-\section*{3. La ley de Hubble}
+\section*{3. La ley de Hubble-Lemaître}
 
 \[ v = H_0\,d \]
 
 \begin{itemize}
-  \item \textbf{Símbolos:} $v$ = velocidad de recesión (km/s); $d$ = distancia a la galaxia (Mpc); $H_0$ = constante de Hubble (km/s por cada Mpc).
-  \item \textbf{Relación:} proporción directa: \textbf{cuanto más lejos, más deprisa se aleja}.
-  \item \textbf{Sentido:} $v>0$ y crece con la distancia para las galaxias suficientemente lejanas; en $d=0$, $v=0$ (no nos alejamos de nosotros mismos). Las cercanas pueden acercarse (Andrómeda, por ejemplo): en ellas dominan las velocidades propias.
-  \item \textbf{Propósito:} al representar $v$ frente a $d$ para muchas galaxias, los puntos forman una recta cuya \textbf{pendiente es $H_0$}. Ese es el número que el alumnado obtiene de sus datos.
-  \item \textbf{Origen:} es una \textbf{relación empírica} (observacional): el \textbf{patrón} que Hubble (1929) ---y antes Lemaître (1927), con los corrimientos que había medido Slipher--- observó al alinear los puntos, y que es \textbf{consistente con los modelos cosmológicos homogéneos de expansión}. Su pendiente permite medir $H_0$. Hoy se llama \textbf{ley de Hubble-Lemaître}.
-  \item \textbf{Tipo:} \textbf{[Observación]}. Es un hecho medido. Que \emph{signifique} que el universo se expande y que no hay centro es una \textbf{interpretación} (el modelo que mejor lo explica), no un teorema.
+  \item \textbf{Símbolos:} $v$ = velocidad de recesión asociada al flujo de Hubble (km/s); $d$ = distancia a la galaxia (Mpc); $H_0$ = constante de Hubble (km/s/Mpc).
+  \item \textbf{Relación:} en el régimen local, cuanto mayor es la distancia, mayor es aproximadamente la velocidad de recesión debida al flujo de Hubble.
+  \item \textbf{Sentido:} las galaxias cercanas pueden desviarse de la tendencia por velocidades peculiares.
+  \item \textbf{Propósito:} al representar $v$ frente a $d$ para muchas galaxias, la pendiente de la tendencia lineal proporciona una estimación de $H_0$.
+  \item \textbf{Origen:} relación establecida observacionalmente y consistente con los modelos cosmológicos homogéneos; Lemaître obtuvo la relación y una primera estimación en 1927 y Hubble mostró observacionalmente la correlación distancia--velocidad en 1929.
+  \item \textbf{Tipo:} \textbf{[Observación/modelización]}.
 \end{itemize}
 
-\section*{4. La edad del universo}
+\section*{4. El tiempo de Hubble y la edad}
 
-\[ t \approx \frac{1}{H_0} \]
+\[ t_H = \frac{1}{H_0} \]
 
 \begin{itemize}
-  \item \textbf{Símbolos:} $t$ = una estimación de la edad del universo; $H_0$ = la constante de Hubble.
-  \item \textbf{Relación:} inversa ---cuanto mayor es $H_0$, menor es la edad---. Y como $H_0$ se mide en «km/s por Mpc», que al simplificar es \textbf{1/tiempo}, su inverso $1/H_0$ tiene \textbf{unidades de tiempo} (el \emph{tiempo de Hubble}).
-  \item \textbf{Sentido:} un $H_0$ grande (expansión rápida) implica un universo más joven; uno pequeño, más viejo.
-  \item \textbf{Propósito:} una primera estimación de cuánto lleva el universo expandiéndose.
-  \item \textbf{Origen:} de \textbf{extrapolar linealmente} la expansión «hacia atrás»: a la tasa actual, el tiempo sería distancia/velocidad $=d/(H_0 d)=1/H_0$ (al rebobinar, las distancias entre galaxias se reducen a la vez, sin un punto privilegiado).
-  \item \textbf{Tipo:} \textbf{[Aproximación]}. Es una \textbf{extrapolación lineal simplificada} de la tasa de expansión actual: da un valor \textbf{del orden de la edad}, pero la edad precisa depende de \textbf{toda la historia de la expansión} $H(t)$ (la gravedad frenó; la energía oscura acelera).
+  \item \textbf{Símbolos:} $t_H$ = tiempo de Hubble; $H_0$ = constante de Hubble.
+  \item \textbf{Relación:} inversa: a mayor $H_0$, menor $t_H$.
+  \item \textbf{Sentido:} como $H_0$ tiene dimensiones de inverso de tiempo, $1/H_0$ define una escala temporal natural asociada a la expansión actual.
+  \item \textbf{Propósito:} proporcionar una escala temporal del orden de la edad del universo.
+  \item \textbf{Origen:} de extrapolar linealmente hacia atrás la relación de Hubble: $d/v=d/(H_0d)=1/H_0$.
+  \item \textbf{Tipo:} \textbf{[Aproximación]}. La edad precisa $t_0$ depende de toda la historia de expansión y de los parámetros cosmológicos; no es, en general, exactamente igual a $1/H_0$.
 \end{itemize}
 
-\section*{5. El tamaño observable}
+\section*{5. El radio de Hubble y el universo observable}
 
-\[ R \approx c\,t \approx \frac{c}{H_0} \]
+\[ R_H = \frac{c}{H_0} \]
 
 \begin{itemize}
-  \item \textbf{Símbolos:} $R$ = una escala característica de distancia (el radio de Hubble), \emph{no} el radio del universo observable; $c$ = velocidad de la luz; $t\approx1/H_0$ = el tiempo de Hubble.
-  \item \textbf{Relación:} el tamaño es «lo que la luz recorre» en el tiempo de Hubble.
-  \item \textbf{Sentido:} fija un orden de magnitud de esta escala ($\sim14\,000$ millones de años-luz).
-  \item \textbf{Propósito:} dar una escala de distancia característica de la expansión actual (el radio de Hubble), distinta del radio del universo observable.
-  \item \textbf{Origen:} de combinar la velocidad de la luz con el tiempo de Hubble ($1/H_0$).
-  \item \textbf{Tipo:} \textbf{[Aproximación]}. El radio del universo observable \textbf{real} es otra magnitud, mayor ($\sim46\,000$ millones de años-luz), porque el espacio siguió estirándose mientras la luz viajaba; el valor exacto requiere las ecuaciones de Friedmann.
+  \item \textbf{Símbolos:} $R_H$ = radio de Hubble; $c$ = velocidad de la luz; $H_0$ = constante de Hubble.
+  \item \textbf{Relación:} combina la velocidad de la luz con el tiempo de Hubble: $R_H=c\,t_H$.
+  \item \textbf{Sentido:} fija una escala característica de distancia asociada a la expansión actual ($\sim14\,000$ millones de años-luz para $H_0\sim70$ km/s/Mpc).
+  \item \textbf{Propósito:} introducir una escala de distancia cosmológica sencilla y compararla con otras escalas observables.
+  \item \textbf{Origen:} de combinar $c$ con $1/H_0$.
+  \item \textbf{Tipo:} \textbf{[Definición/escala característica]}. El radio comóvil actual del universo observable es otra magnitud ($\sim46\,000$ millones de años-luz en $\Lambda$CDM) y requiere considerar la historia completa de expansión.
 \end{itemize}
 
-Hasta aquí, las ecuaciones proceden directamente de las observaciones o de aproximaciones sencillas. Las que siguen pertenecen a otro nivel: surgen al aplicar la \textbf{relatividad general} ---la teoría que explica \emph{por qué} el universo se expande y cómo cambia esa expansión con el tiempo--- a un universo homogéneo. Son las \textbf{ecuaciones de Friedmann} (1922). La primera es la más importante de la cosmología moderna y también la más densa de este anexo: no hace falta dominar todos sus términos en una primera lectura, basta con entender qué representa cada uno. Estas cuatro últimas \textbf{no forman parte de lo que el alumnado calcula ni deriva} en la secuencia; se incluyen como \textbf{ampliación} y como ejemplo culminante del método de lectura ---son sus únicos casos de tipo \emph{Derivación}---.
+Hasta aquí, las ecuaciones proceden de definiciones, observaciones o aproximaciones sencillas. Las que siguen pertenecen a otro nivel: surgen al aplicar la \textbf{relatividad general} a un universo homogéneo. Estas cuatro últimas \textbf{no forman parte de lo que el alumnado calcula ni deriva} en la secuencia; se incluyen como \textbf{ampliación} y como ejemplo culminante del método de lectura.
 
 \section*{6. La ecuación de Friedmann (el ritmo de la expansión)}
 
 \[ H^{2}=\left(\frac{\dot a}{a}\right)^{2}=\frac{8\pi G}{3}\,\rho\;-\;\frac{k\,c^{2}}{a^{2}}\;+\;\frac{\Lambda c^{2}}{3} \]
 
 \begin{itemize}
-  \item \textbf{Símbolos:} $a$ = factor de escala ($a=1$ hoy); $H=\dot a/a$ = ritmo de expansión; $\rho$ = densidad de materia y energía; $k$ = constante de \textbf{geometría} ($k=+1$ cerrado, $0$ plano, $-1$ abierto); $\Lambda$ = constante cosmológica; $G$, $c$ = constantes de Newton y de la luz.
-  \item \textbf{Relación:} el ritmo de expansión ($H^2$) crece con la densidad $\rho$ y con $\Lambda$, y se modula con la curvatura $k$.
-  \item \textbf{Sentido:} el ritmo de expansión está gobernado por tres contribuciones que se suman: la \textbf{densidad} ($\rho$), la \textbf{curvatura} del espacio ($k$) y la \textbf{constante cosmológica} ($\Lambda$).
-  \item \textbf{Propósito:} describir cómo cambia la velocidad de expansión según lo que contiene el universo y qué forma tiene.
-  \item \textbf{Origen:} de la relatividad general (Friedmann, 1922).
-  \item \textbf{Tipo:} \textbf{[Derivación]}. De esta única ecuación salen las tres siguientes.
+  \item \textbf{Símbolos:} $a$ = factor de escala ($a=1$ hoy); $H=\dot a/a$ = ritmo de expansión; $\rho$ = densidad de materia y energía; $k$ = constante de curvatura; $\Lambda$ = constante cosmológica; $G$, $c$ = constantes de Newton y de la luz.
+  \item \textbf{Relación:} vincula el ritmo de expansión con la densidad, la curvatura y la constante cosmológica.
+  \item \textbf{Sentido:} la evolución de $H$ depende del contenido energético y de la geometría espacial del modelo.
+  \item \textbf{Propósito:} describir cómo evoluciona la expansión cosmológica.
+  \item \textbf{Origen:} relatividad general aplicada a un espacio-tiempo FLRW (Friedmann, 1922).
+  \item \textbf{Tipo:} \textbf{[Derivación]}.
 \end{itemize}
 
 \section*{7. La densidad crítica}
 
-\[ \rho_{c}=\frac{3H_{0}^{2}}{8\pi G} \]
+\[ \rho_{c} = \frac{3H_{0}^{2}}{8\pi G} \]
 
 \begin{itemize}
-  \item \textbf{Símbolos:} $\rho_c$ = densidad «de equilibrio»; $H_0$ = constante de Hubble; $G$ = constante de Newton.
-  \item \textbf{Relación:} depende \textbf{solo} de $H_0$: a mayor $H_0$, mayor densidad crítica.
-  \item \textbf{Sentido:} es la densidad que haría el espacio \textbf{plano} ($k=0$) en la ecuación de Friedmann.
-  \item \textbf{Propósito:} fijar el listón contra el que se compara la densidad real del universo. Su valor es minúsculo: \textbf{unos 5--6 átomos de hidrógeno por metro cúbico}.
-  \item \textbf{Origen:} de poner $k=0$ en la ecuación de Friedmann y despejar $\rho$.
+  \item \textbf{Símbolos:} $\rho_c$ = densidad crítica actual; $H_0$ = constante de Hubble; $G$ = constante de Newton.
+  \item \textbf{Relación:} $\rho_c\propto H_0^2$.
+  \item \textbf{Sentido:} es la densidad de referencia asociada a curvatura espacial nula en el caso estándar.
+  \item \textbf{Propósito:} normalizar las densidades cosmológicas.
+  \item \textbf{Origen:} ecuación de Friedmann evaluada para $k=0$.
   \item \textbf{Tipo:} \textbf{[Derivación]}.
 \end{itemize}
 
 \section*{8. El parámetro de densidad y la geometría}
 
-\[ \Omega=\frac{\rho}{\rho_{c}}\qquad\Longrightarrow\qquad
-\begin{cases}
-\Omega<1 & \text{abierto (curvatura negativa)}\\
-\Omega=1 & \text{plano}\\
-\Omega>1 & \text{cerrado (curvatura positiva)}
-\end{cases} \]
+\[ \Omega=\frac{\rho}{\rho_{c}} \]
 
 \begin{itemize}
-  \item \textbf{Símbolos:} $\Omega$ (omega) = cociente entre la densidad real $\rho$ y la crítica $\rho_c$. Número sin unidades.
-  \item \textbf{Relación:} más densidad que la crítica $\rightarrow \Omega>1$; menos $\rightarrow \Omega<1$; la justa $\rightarrow \Omega=1$.
-  \item \textbf{Sentido:} es una \textbf{balanza} que compara lo que hay ($\rho$) con lo justo para ser plano ($\rho_c$): más masa de la crítica $\rightarrow$ cerrado; menos $\rightarrow$ abierto; la justa $\rightarrow$ plano.
-  \item \textbf{Propósito:} determinar la \textbf{geometría} del universo. Las medidas (Planck) dan $\Omega\approx1$: \textbf{plano}. \emph{Ojo:} «plano» no significa 2D ni «como una hoja»; significa \textbf{sin curvatura} (los triángulos suman $180^\circ$, las paralelas no se cruzan); el espacio sigue siendo tridimensional.
-  \item \textbf{Origen:} de comparar el término de densidad con el de curvatura en la ecuación de Friedmann.
-  \item \textbf{Tipo:} \textbf{[Derivación]} (más una definición: la de $\Omega$).
+  \item \textbf{Símbolos:} $\Omega$ = cociente entre una densidad $\rho$ y la densidad crítica $\rho_c$.
+  \item \textbf{Relación:} es un número adimensional que permite comparar contribuciones de densidad con la escala crítica.
+  \item \textbf{Sentido:} en el caso simple en que se relaciona la densidad total con la curvatura, $\Omega_{\rm tot}=1$ corresponde a curvatura espacial nula; desviaciones de 1 se relacionan con curvatura no nula.
+  \item \textbf{Propósito:} expresar de forma adimensional la composición y, junto con el término de curvatura, caracterizar la geometría del modelo.
+  \item \textbf{Origen:} definición construida a partir de la densidad crítica.
+  \item \textbf{Tipo:} \textbf{[Definición/derivación]}.
 \end{itemize}
 
 \section*{9. La aceleración de la expansión}
@@ -218,49 +212,43 @@ Hasta aquí, las ecuaciones proceden directamente de las observaciones o de apro
 \[ \frac{\ddot a}{a}=-\frac{4\pi G}{3}\left(\rho+\frac{3p}{c^{2}}\right)+\frac{\Lambda c^{2}}{3} \]
 
 \begin{itemize}
-  \item \textbf{Símbolos:} $\ddot a/a$ = aceleración relativa de la expansión (su signo dice si se acelera o se frena); $\rho$ = densidad; $p$ = presión del contenido; $\Lambda$ = constante cosmológica.
-  \item \textbf{Relación:} el término de la materia resta (frena); el de $\Lambda$ suma (empuja). Gana quien sea mayor.
-  \item \textbf{Sentido:} una lucha entre dos términos. El de la \textbf{materia}, $-\frac{4\pi G}{3}(\rho+3p/c^2)$, \textbf{frena}; el de $\Lambda$, $+\frac{\Lambda c^2}{3}$, \textbf{empuja}. En relatividad general gravita la \textbf{combinación} $\rho+3p/c^2$ (no solo la densidad: también la presión). Si la presión es suficientemente negativa ---como ocurre para una constante cosmológica, $p=-\rho c^2$---, esa combinación resulta negativa y la expansión pasa a \textbf{acelerarse}.
-  \item \textbf{Propósito:} decir si el universo se frena o se acelera. Se mide (supernovas, 1998): \textbf{se acelera}.
-  \item \textbf{Origen:} de la relatividad general (Friedmann, 1922); la reinterpretación de $\Lambda$ como energía oscura, de Perlmutter, Riess y Schmidt (1998).
-  \item \textbf{Tipo:} \textbf{[Derivación]}. La historia de $\Lambda$ ---de «error» de Einstein a energía oscura--- se resume en la reseña que sigue.
+  \item \textbf{Símbolos:} $\ddot a/a$ = aceleración relativa de la expansión; $\rho$ = densidad; $p$ = presión; $\Lambda$ = constante cosmológica.
+  \item \textbf{Relación:} la densidad y la presión del contenido, junto con $\Lambda$, determinan el signo de la aceleración.
+  \item \textbf{Sentido:} una componente con presión suficientemente negativa puede contribuir a $\ddot a>0$.
+  \item \textbf{Propósito:} establecer si la expansión se acelera o desacelera dentro del modelo.
+  \item \textbf{Origen:} relatividad general aplicada a FLRW.
+  \item \textbf{Tipo:} \textbf{[Derivación]}.
 \end{itemize}
-
-\section*{Reseña histórica: la constante cosmológica $\Lambda$}
-
-El término $\Lambda$ tiene una historia reveladora. En 1917, antes de que se conociera la expansión, Einstein lo introdujo en sus ecuaciones para forzar un universo \textbf{estático}: una repulsión a gran escala que contrarrestara exactamente la atracción de la materia. El equilibrio, sin embargo, era \textbf{inestable} ---como un lápiz sobre su punta--- y sus propias ecuaciones, sin $\Lambda$, ya predecían un universo dinámico (Friedmann, 1922; Lemaître, 1927). Cuando Hubble observó la expansión en 1929, $\Lambda$ dejó de ser necesaria y Einstein la retiró, llamándola ---según la anécdota--- «el mayor error de su vida».
-
-El término, no obstante, regresó en 1998: el descubrimiento de la \textbf{expansión acelerada} (Perlmutter, Riess y Schmidt) exigía de nuevo algo que repeliera a gran escala, y $\Lambda$ reapareció reinterpretada como \textbf{energía oscura}. Pero con un cometido \emph{opuesto} ---ya no cancela la expansión para congelarla, sino que la \textbf{acelera}--- y con un valor \textbf{medido} ($\Omega_\Lambda \approx 0{,}68$), no ajustado a mano. Es una lección sobre la naturaleza de la ciencia: un término introducido por una razón equivocada acabó siendo real por razones que su autor no imaginó, sin que ello valide el modelo estático original.
 
 \section*{Tabla resumen}
 
 \begin{tabularx}{\textwidth}{|l|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
 \hline
 \textbf{Ecuación} & \textbf{Qué dice} & \textbf{Qué obtenemos} & \textbf{Tipo} & \textbf{Procedencia} \\ \hline
-$z=\Delta\lambda/\lambda$ & Cuánto se estira la luz & El corrimiento al rojo & Definición & Espectroscopía \\ \hline
-$v=c\,z$ & Corrimiento $\rightarrow$ velocidad & La velocidad de recesión & Aproximación ($z\ll1$) & Aproximación de bajo $z$ \\ \hline
-$v=H_0\,d$ & Más lejos, más rápido & $H_0$ y la expansión & Observación & Hubble-Lemaître (1927--29) \\ \hline
-$t\approx1/H_0$ & Edad del universo & La edad aproximada & Aproximación (extrapolación lineal) & Análisis dimensional \\ \hline
-$R\approx c/H_0$ & Radio de Hubble (escala) & Escala de distancia característica & Aproximación & Combinar $c$ y $t$ \\ \hline
-Friedmann ($H^2$) & Ritmo de expansión & La evolución de la expansión & Derivación & RG, Friedmann (1922) \\ \hline
-$\rho_c$ & Densidad de equilibrio & La densidad de referencia & Derivación & RG, Friedmann \\ \hline
-$\Omega=\rho/\rho_c$ & Geometría del espacio & La geometría del espacio & Derivación & RG, Friedmann \\ \hline
-Aceleración & Frena o acelera & Si se frena o se acelera & Derivación & RG, Friedmann (1922); energía oscura (1998) \\ \hline
+$z=\Delta\lambda/\lambda$ & Desplazamiento relativo de una línea & Corrimiento al rojo & Definición & Espectroscopía \\ \hline
+$v\simeq c\,z$ & Relación lineal a bajo $z$ & Velocidad de recesión aproximada & Aproximación ($z\ll1$) & Cinemática de bajo $z$ \\ \hline
+$v=H_0\,d$ & Relación distancia--recesión & $H_0$ & Observación/modelización & Hubble-Lemaître \\ \hline
+$t_H=1/H_0$ & Escala temporal de Hubble & Tiempo de Hubble & Aproximación/escala & Análisis dimensional \\ \hline
+$R_H=c/H_0$ & Escala de distancia de Hubble & Radio de Hubble & Definición/escala & Combinar $c$ y $t_H$ \\ \hline
+Friedmann ($H^2$) & Ritmo de expansión & Evolución de $H$ & Derivación & RG, Friedmann \\ \hline
+$\rho_c$ & Densidad crítica & Referencia de densidad & Derivación & Friedmann \\ \hline
+$\Omega=\rho/\rho_c$ & Densidad adimensional & Parámetros de densidad & Definición & Cosmología FLRW \\ \hline
+Aceleración & Signo de $\ddot a$ & Aceleración/desaceleración & Derivación & RG, FLRW \\ \hline
 \end{tabularx}
 
 \section*{Una cadena, no una colección}
 
-Estas nueve ecuaciones no son una colección de fórmulas independientes, sino una \textbf{cadena lógica}: se empieza midiendo el espectro de una galaxia, se obtiene su corrimiento al rojo, se traduce en velocidad y, junto con la distancia, en la ley de Hubble; de ahí salen la edad y el tamaño del universo y, finalmente, la relatividad general explica \emph{por qué} esa expansión evoluciona como lo hace.
+Estas nueve ecuaciones no son una colección de fórmulas independientes. En la secuencia se empieza midiendo el espectro de una galaxia, se obtiene su corrimiento al rojo, se usa una aproximación de bajo $z$ para construir la relación velocidad--distancia y se estima $H_0$. A partir de $H_0$ surgen el tiempo y el radio de Hubble como escalas características; la edad y las distancias cosmológicas precisas requieren después un modelo de la historia de expansión. Las ecuaciones de Friedmann proporcionan ese marco teórico en un nivel de ampliación.
 
 \section*{Referencias de procedencia}
 
 \begin{itemize}
-  \item \textbf{Einstein, A. (1915)} --- Relatividad general (marco de las ecuaciones de Friedmann).
+  \item \textbf{Einstein, A. (1915)} --- Relatividad general.
   \item \textbf{Friedmann, A. (1922)} --- Ecuaciones de un universo dinámico.
-  \item \textbf{Lemaître, G. (1927)} --- Relación velocidad-distancia.
-  \item \textbf{Hubble, E. (1929)} --- Evidencia observacional de la expansión.
-  \item \textbf{Perlmutter, Riess y Schmidt (1998)} --- Expansión acelerada / energía oscura.
-  \item \textbf{Colaboración Planck (2018--2020)} --- Valores actuales ($H_0$, $\Omega\approx1$, composición).
+  \item \textbf{Lemaître, G. (1927)} --- Relación velocidad-distancia y modelos en expansión.
+  \item \textbf{Hubble, E. (1929)} --- Relación observacional distancia--velocidad.
+  \item \textbf{Perlmutter, Riess y Schmidt (1998)} --- Evidencia de expansión acelerada mediante supernovas Ia.
+  \item \textbf{Colaboración Planck} --- Parámetros cosmológicos de referencia.
 \end{itemize}
 
 \input{capitulos/anexo_docente_v2}

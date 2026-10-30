@@ -16,3 +16,4 @@ memoria/latex/**/*.synctex.gz
 memoria/latex/**/*.xdv
 memoria/latex/**/*.fdb_latexmk
 memoria/latex/**/*.fls
+memoria/latex/**/*.pdf
