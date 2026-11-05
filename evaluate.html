@@ -299,11 +299,11 @@ const ECS=[
  {eq:'v = H₀ · d', tipo:'Observación',
   etapas:[
    ['Símbolos','v = velocidad de recesión (km/s); d = distancia (Mpc); H₀ = constante de Hubble (km/s por Mpc).'],
-   ['Relación','Proporción directa: cuanto más lejos, más deprisa se aleja.'],
+   ['Relación','Proporción aproximadamente directa: cuanto más lejos, más deprisa se aleja.'],
    ['Sentido','En d = 0, v = 0: no nos alejamos de nosotros mismos.'],
    ['Propósito','La pendiente de la recta es H₀: el número que obtuviste de tus datos.'],
    ['Origen','Es una relación <b>empírica</b>: Lemaître la estableció teóricamente y la estimó por primera vez (1927), y Hubble estableció <b>observacionalmente</b> la relación distancia–velocidad (1929); es consistente con los modelos de expansión homogénea, y su pendiente permite medir H₀.']],
-  explica:'es un hecho <b>medido</b>; que signifique que el universo se expande es una interpretación (el mejor modelo), no un teorema.'},
+  explica:'es una <b>relación establecida con datos</b>; que signifique que el universo se expande es la interpretación que da el modelo.'},
  {eq:'t<sub>H</sub> = 1 / H₀', tipo:'Aproximación',
   etapas:[
    ['Símbolos','t<sub>H</sub> = tiempo de Hubble; H₀ = constante de Hubble.'],
@@ -345,7 +345,7 @@ function clasifica(gi,btn){
     else if(b===btn) b.classList.add('no');
   });
   document.getElementById('fb'+gi).innerHTML =
-    (elegido===correcto ? '✓ <b>Correcto.</b> ' : 'Es una <b>'+correcto.toLowerCase()+'</b>: ') + ECS[gi].explica;
+    (elegido===correcto ? '✓ <b>Correcto:</b> ' : 'Es una <b>'+correcto.toLowerCase()+'</b>: ') + ECS[gi].explica;
 }
 
 /* ---------- 4 · Verdadero o falso ---------- */
