@@ -134,7 +134,7 @@
       "enunciado": "Una línea que en reposo está en 656 nm aparece en 663 nm. El corrimiento al rojo se obtiene como…",
       "opciones": [
         {
-          "texto": "la velocidad dividida por la distancia (v/d);",
+          "texto": "v/d;",
           "correcta": false,
           "feedback": "Eso sería la constante de Hubble (v/d), no z."
         },
@@ -227,7 +227,7 @@
       "oa": "OA5",
       "concepto": "t_H = 1/H0 es una aproximación (extrapolación lineal)",
       "etiqueta": "¿Es exacta la edad estimada?",
-      "enunciado": "La estimación t_H = 1/H₀…",
+      "enunciado": "La estimación t<sub>H</sub> = 1/H₀…",
       "opciones": [
         {
           "texto": "es la edad exacta y definitiva del universo;",
@@ -254,7 +254,7 @@
       "enunciado": "Si calculas 1/H₀ ≈ 14 mil millones de años, ese número representa…",
       "opciones": [
         {
-          "texto": "el tiempo de viaje de la luz de la galaxia más lejana del diagrama;",
+          "texto": "el tiempo de viaje de la luz de la galaxia más lejana;",
           "correcta": false,
           "feedback": "Eso sería d/c (tiempo de viaje de la luz), mucho menor y distinto."
         },
@@ -275,7 +275,7 @@
       "oa": "OA4",
       "concepto": "c/H0 es el radio de Hubble, no el radio observable",
       "etiqueta": "Radio de Hubble y universo observable",
-      "enunciado": "El radio de Hubble R_H = c/H₀ ∼ 14 Gly (unos 14 000 millones de años-luz)…",
+      "enunciado": "El radio de Hubble R<sub>H</sub> = c/H₀ ∼ 14 Gly…",
       "opciones": [
         {
           "texto": "es una escala característica asociada a la expansión actual y no es el radio del universo observable, cuyo valor comóvil actual es ∼46 Gly en ΛCDM;",
