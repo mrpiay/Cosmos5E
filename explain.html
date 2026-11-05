@@ -478,6 +478,9 @@ $rc.addEventListener('input',pintaCal); pintaCal();
     verWrap.hidden=false;
   });
   if(mi && mi.value.trim()) verWrap.hidden=false;   // si ya estaba guardada, permite revelar
+  // Modo docente (navegación libre): mostrar directamente el botón de revelar, sin exigir escribir ni guardar.
+  var _docente=false; try{ _docente = localStorage.getItem('cosmos5e_modo')==='consulta'; }catch(e){}
+  if(_docente){ verWrap.hidden=false; var _nota=document.querySelector('.nota-avanzar'); if(_nota) _nota.hidden=true; }
 
   var btn=document.getElementById('btnVer'), form=document.getElementById('formalizacion'), msg=document.getElementById('verMsg');
   btn.addEventListener('click',function(){
@@ -496,6 +499,8 @@ $rc.addEventListener('input',pintaCal); pintaCal();
     function verContinuar(){ if(hecho||!window.Cosmos) return; Cosmos.pintarContinuar('continuar','elaborate-tamano.html','Ir a Elaborate: el tamaño del universo'); hecho=true; }
     if(btnG) btnG.addEventListener('click', function(){ if(mi && mi.value.trim()) verContinuar(); });
     try{ var prev=localStorage.getItem('cosmos5e_explicacion'); if(prev && prev.trim()) verContinuar(); }catch(e){}
+    // Modo docente (navegación libre): permitir continuar sin guardar.
+    if(window.Cosmos && !Cosmos.esGuiado()) verContinuar();
   })();
 </script>
 </body>

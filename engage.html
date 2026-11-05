@@ -325,6 +325,8 @@ olbUpdate();
     var hecho=false;
     function verContinuar(){ if(hecho) return; Cosmos.pintarContinuar('continuar','explore-espectro.html','Empezar a medir en Explore'); hecho=true; }
     Cosmos.renderDiagnostico('diagnostico','pre', verContinuar);  // el botón aparece solo tras guardar (o recuperar) el diagnóstico
+    // Modo docente (navegación libre): mostrar "continuar" sin exigir guardar el cuestionario.
+    if(window.Cosmos && !Cosmos.esGuiado()){ verContinuar(); var _n=document.querySelector('.nota-avanzar'); if(_n) _n.hidden=true; }
   })();
 </script>
 </body>

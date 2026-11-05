@@ -430,6 +430,7 @@ document.getElementById('btnFit').addEventListener('click',()=>{
     revelar(true);
   });
   if(todas()) revelar(false);  // si ya había respuestas guardadas, muestra la revelación
+  if(window.Cosmos && !Cosmos.esGuiado()) revelar(false);  // Modo docente (navegación libre): revelar y permitir continuar sin rellenar
 })();
 </script>
 </body>
