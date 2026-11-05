@@ -185,7 +185,7 @@
 
   <!-- Lectura de ecuaciones -->
   <details class="seccion">
-    <summary><span class="stit"><b>Lee las ecuaciones que has usado</b><span class="prop">Clasifica cada fórmula por su origen y su tipo: definición, observación o aproximación.</span></span></summary>
+    <summary><span class="stit"><b>Lee las ecuaciones que has usado</b><span class="prop">Clasifica cada fórmula por su origen y su tipo: definición, observación, aproximación o derivación.</span></span></summary>
     <div class="cuerpo">
       <p>Entender una ecuación no es solo saber calcular con ella: es saber <b>leerla</b>. Para cada una de las que empleaste, recorre estos cinco apartados —despliégalos uno a uno— y luego decide qué tipo de afirmación es. Cada apartado responde a una pregunta:</p>
       <ul class="etapas-def">
@@ -321,7 +321,7 @@ const ECS=[
    ['Origen','De combinar la velocidad de la luz con el tiempo de Hubble (1/H₀).']],
   explica:'es el <b>radio de Hubble</b>, una escala de distancia característica; el radio del universo <b>observable</b> es <b>otra magnitud</b>, mayor (~46 000 millones de años-luz), porque el espacio siguió estirándose.'}
 ];
-const TIPOS=['Definición','Observación','Aproximación'];
+const TIPOS=['Definición','Observación','Aproximación','Derivación'];
 const cont=document.getElementById('ecuaciones');
 ECS.forEach((e,gi)=>{
   const et=e.etapas.map(p=>`<details class="et"><summary>${p[0]}</summary><div class="et-c">${p[1]}</div></details>`).join('');

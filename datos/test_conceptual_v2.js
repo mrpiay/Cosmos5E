@@ -154,22 +154,22 @@ window.TEST_CONCEPTUAL = {
     {
       "id": 7,
       "oa": "OA2",
-      "concepto": "El corrimiento al rojo cosmológico no es Doppler ordinario",
-      "etiqueta": "Por qué la luz llega «enrojecida»",
-      "enunciado": "La luz de una galaxia lo bastante lejana nos llega desplazada hacia el rojo (corrimiento cosmológico). ¿A qué se debe, principalmente?",
+      "concepto": "El corrimiento al rojo cosmológico no es un Doppler ordinario",
+      "etiqueta": "Interpretación del corrimiento al rojo",
+      "enunciado": "En una galaxia suficientemente lejana, ¿cuál es la interpretación principal del corrimiento al rojo observado?",
       "opciones": [
         {
-          "texto": "Porque la galaxia se mueve a gran velocidad a través del espacio, como una sirena que se aleja.",
+          "texto": "Es únicamente un Doppler ordinario, debido al movimiento de la galaxia a través de un espacio estático.",
           "correcta": false,
-          "feedback": "Idea errónea: el enrojecimiento cosmológico se debe sobre todo al estiramiento del espacio, no a que la galaxia 'vuele' por él (su pequeño movimiento propio sí es un Doppler real, pero es mucho menor)."
+          "feedback": "Idea errónea: no es solo un Doppler ordinario por moverse a través de un espacio estático; domina la expansión cosmológica. v=c·z es un atajo válido a bajo z."
         },
         {
-          "texto": "Porque el espacio se ha estirado mientras la luz viajaba, estirando también su longitud de onda.",
+          "texto": "Está dominado por la expansión cosmológica; las velocidades peculiares pueden añadir una contribución local.",
           "correcta": true,
-          "feedback": "Correcto: es corrimiento al rojo cosmológico (estiramiento del espacio). v=c·z es solo un atajo a z pequeño."
+          "feedback": "Correcto: el corrimiento lo domina la expansión cosmológica; las velocidades peculiares solo añaden una contribución local (y explican parte de la dispersión del diagrama)."
         },
         {
-          "texto": "Porque la luz pierde energía y «se cansa» al recorrer distancias enormes.",
+          "texto": "La luz pierde energía y «se cansa» al recorrer distancias enormes.",
           "correcta": false,
           "feedback": "La hipótesis de la 'luz cansada' está descartada por las observaciones."
         }
