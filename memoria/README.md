@@ -4,7 +4,7 @@ Trabajo de Fin de Máster **«Secuencia Didáctica 5E para la Determinación de 
 
 ## Leer la memoria
 
-- **PDF:** [`TFM_VIU_PIAY_v2.pdf`](TFM_VIU_PIAY_v2.pdf) — documento completo (87 páginas).
+- **PDF:** [`TFM_VIU_PIAY_v2.pdf`](TFM_VIU_PIAY_v2.pdf) — documento completo (74 páginas).
 
 ## Fuentes LaTeX
 

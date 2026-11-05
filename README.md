@@ -2,13 +2,19 @@
 
 Web interactiva de acompañamiento al Trabajo de Fin de Máster **«Secuencia Didáctica 5E para la Determinación de la Edad y el Tamaño del Universo»** — Máster Universitario en Astronomía y Astrofísica (VIU). **Alumno:** Javier Piay Pombo · **Director:** Ricardo García Salcedo · 2026.
 
-Una web **didáctica e interactiva** que recorre las cinco fases del modelo **5E** para que el alumnado de Bachillerato **determine por sí mismo** la edad y el tamaño del universo a partir de **datos reales de galaxias**.
+Una web **didáctica e interactiva** que recorre las cinco fases del modelo **5E** para que el alumnado de Bachillerato **reconstruya cómo se estiman** la edad y el tamaño del universo a partir de **datos reales de galaxias**.
 
-> **Versión `v1.0-TFM`** (octubre 2026) — primera versión estable: secuencia 5E completa, Modo estudiante/docente y la memoria del TFM. A partir de aquí solo se corregirán errores puntuales.
+<p align="center">
+  <a href="https://mrpiay.github.io/Cosmos5E/"><img src="captura-portada.png" alt="Portada de la web Cosmos5E" width="340"></a>
+</p>
+
+> **Versión `v1.0-TFM`** (depósito: octubre 2026; web actualizada en noviembre 2026) — primera versión estable: secuencia 5E completa, Modo estudiante/docente y la memoria del TFM. Desde el depósito solo se corrigen erratas puntuales.
 
 ## La memoria del TFM
 
 El documento completo del trabajo (PDF) y sus fuentes LaTeX están en la carpeta **[`memoria/`](memoria/)**.
+
+**Para el profesorado:** la **guía de las siete sesiones**, el **cuestionario conceptual** con su clave de corrección y las **dos rúbricas** (indagación y producto final) están en el **Anexo C** de la memoria.
 
 ## Uso
 
@@ -22,7 +28,7 @@ Hay dos formas de usarla:
 Desde la página de inicio hay dos formas de acceso:
 
 - **Modo estudiante** (el recorrido normal): las cinco fases se recorren **en orden** y cada una se **desbloquea al completar la anterior**, para no adelantar lo que el alumnado debe descubrir por sí mismo.
-- **Modo docente** (acceso con una **clave sencilla**): **libera la navegación** por todas las fases para que el profesorado pueda revisar la secuencia completa —instrucciones, recursos, instrumentos y productos esperados— antes de aplicarla. **No** rellena respuestas, **no** genera datos ni modifica el progreso: solo desbloquea el recorrido. La clave evita accesos accidentales del alumnado.
+- **Modo docente** (acceso con una **clave sencilla**): **libera la navegación** por todas las fases para que el profesorado pueda revisar la secuencia completa —instrucciones, recursos, instrumentos y productos esperados— antes de aplicarla. **No** rellena respuestas, **no** genera datos ni modifica el progreso: solo desbloquea el recorrido. La clave es **`docente`** (sencilla, solo para evitar accesos accidentales del alumnado).
 
 ## Exportación
 
@@ -42,4 +48,8 @@ Datos y herramientas de acceso público: distancias del diagrama de Hubble de **
 
 ## Licencia y créditos
 
-Material del Trabajo de Fin de Máster de **Javier Piay Pombo**, dirigido por **Ricardo García Salcedo** (Universidad Internacional de Valencia, VIU, 2026). El logotipo de la VIU pertenece a su titular.
+Material del Trabajo de Fin de Máster de **Javier Piay Pombo**, dirigido por **Ricardo García Salcedo** (Universidad Internacional de Valencia, VIU, 2026).
+
+- **Código** (HTML/CSS/JS): licencia **[MIT](LICENSE)**.
+- **Contenidos** (textos, materiales didácticos, cuestionario y rúbricas): licencia **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.es)** — se pueden reutilizar y adaptar citando la autoría.
+- El **logotipo de la VIU** pertenece a su titular y queda **excluido** de estas licencias.
