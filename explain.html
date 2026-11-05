@@ -318,14 +318,14 @@ function calc(){
   let H0=parseFloat(h0.value); if(!isFinite(H0)||H0<=0) H0=70;
   const seg=KMPMPC/H0, anos=seg/SPYR, mill=Math.round(anos/1e6/100)*100;
   const lineas=[
-    ['t = 1 / H₀ = 1 Mpc / ('+esN(H0)+' km/s)','Invertimos el ritmo de expansión: un megapársec dividido por la velocidad que le corresponde.'],
+    ['t<sub>H</sub> = 1 / H₀ = 1 Mpc / ('+esN(H0)+' km/s)','Invertimos el ritmo de expansión: un megapársec dividido por la velocidad que le corresponde.'],
     ['= (3,086·10¹⁹ km) / ('+esN(H0)+' km/s)','Escribimos el megapársec en kilómetros (1 Mpc = 3,086·10¹⁹ km) para que se cancelen los km.'],
     ['= <b>'+exp(seg)+' s</b>','Al cancelarse los km queda un tiempo, en segundos.'],
     ['= '+exp(seg)+' s ÷ (3,156·10⁷ s/año)','Pasamos de segundos a años (1 año ≈ 3,156·10⁷ s).'],
-    ['≈ '+exp(anos)+' años ≈ <b>'+esN(mill)+' millones de años</b>','La edad estimada del universo: el tiempo de Hubble.']
+    ['≈ '+exp(anos)+' años ≈ <b>'+esN(mill)+' millones de años</b>','El tiempo de Hubble: una escala temporal del orden de la edad del universo.']
   ];
   conv.innerHTML=lineas.map(l=>`<li><div class="f">${l[0]}</div><div class="c">${l[1]}</div></li>`).join('');
-  res.innerHTML='Edad estimada del universo ≈ <b>'+esN(mill)+' millones de años</b> &nbsp;(≈ '+esN(mill/1000)+' mil millones de años)';
+  res.innerHTML='Tiempo de Hubble ≈ <b>'+esN(mill)+' millones de años</b> &nbsp;(≈ '+esN(mill/1000)+' mil millones de años)';
   return mill;
 }
 h0.addEventListener('input',()=>{calc();});
