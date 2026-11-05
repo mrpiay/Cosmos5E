@@ -2,7 +2,7 @@
 window.TEST_CONCEPTUAL = {
   "meta": {
     "titulo": "Cuestionario conceptual pre/post",
-    "descripcion": "Mismo instrumento en Engage (pre, sin corrección) y Evaluate (post, con retroalimentación). Distractores = ideas erróneas de la revisión (Cap. 2/3). 15 ítems de opción múltiple.",
+    "descripcion": "Mismo instrumento en Engage (pre, sin corrección) y Evaluate (post, con retroalimentación). Enunciados y opciones alineados con el Anexo C de la memoria. 15 ítems de opción múltiple.",
     "version": "v2",
     "n_items": 15
   },
@@ -15,14 +15,14 @@ window.TEST_CONCEPTUAL = {
       "enunciado": "Cuando decimos que el universo tiene unos 13 800 millones de años, ¿a qué nos referimos?",
       "opciones": [
         {
-          "texto": "A la edad de la Vía Láctea, nuestra galaxia.",
+          "texto": "A la edad de la Vía Láctea.",
           "correcta": false,
           "feedback": "La edad del universo no es la de una galaxia concreta: es la de todo el cosmos desde su origen."
         },
         {
-          "texto": "Al tiempo transcurrido desde el Big Bang, el inicio de la expansión del universo.",
+          "texto": "Al tiempo transcurrido desde el estado temprano caliente y denso asociado al Big Bang y la evolución expansiva posterior.",
           "correcta": true,
-          "feedback": "Correcto: es el tiempo desde el inicio de la expansión, no la edad de ningún astro concreto."
+          "feedback": "Correcto: es el tiempo desde ese estado temprano caliente y denso, no la edad de ningún astro concreto."
         },
         {
           "texto": "A la edad del Sol y del Sistema Solar.",
@@ -36,22 +36,22 @@ window.TEST_CONCEPTUAL = {
       "oa": "OA4",
       "concepto": "El Big Bang no es una explosión en el espacio",
       "etiqueta": "El Big Bang",
-      "enunciado": "¿Qué fue el Big Bang?",
+      "enunciado": "¿Qué describe mejor el Big Bang?",
       "opciones": [
         {
-          "texto": "Una gran explosión que lanzó la materia hacia afuera en un espacio vacío que ya existía.",
+          "texto": "Una explosión que lanzó materia desde un punto hacia un espacio vacío preexistente.",
           "correcta": false,
-          "feedback": "Idea errónea habitual: el Big Bang no fue una explosión EN un espacio que ya existía; describe el inicio de la expansión de un universo muy caliente y denso."
+          "feedback": "Idea errónea: el Big Bang no fue una explosión EN un espacio que ya existía."
         },
         {
-          "texto": "El inicio de la expansión de un universo muy caliente y denso, sin un centro ni un lugar donde «explotara».",
+          "texto": "Un estado temprano extremadamente caliente y denso y la evolución expansiva posterior, sin un centro espacial privilegiado.",
           "correcta": true,
-          "feedback": "Correcto: no fue una explosión en un punto, sino un estado temprano muy caliente y denso cuya expansión describe el modelo, sin un centro."
+          "feedback": "Correcto: un estado temprano muy caliente y denso cuya expansión describe el modelo, sin un centro."
         },
         {
-          "texto": "La explosión de una estrella supermasiva en el centro del universo.",
+          "texto": "La explosión de una estrella en el centro del universo.",
           "correcta": false,
-          "feedback": "Ni fue una estrella ni hubo un 'centro'."
+          "feedback": "Ni fue una estrella ni hubo un «centro»."
         }
       ]
     },
@@ -60,20 +60,20 @@ window.TEST_CONCEPTUAL = {
       "oa": "OA4",
       "concepto": "El universo no tiene centro ni borde",
       "etiqueta": "¿Tiene centro el universo?",
-      "enunciado": "Si todas las galaxias se alejan de nosotros, ¿significa que estamos en el centro del universo?",
+      "enunciado": "Si a gran escala las galaxias no ligadas se alejan unas de otras, ¿significa que estamos en el centro del universo?",
       "opciones": [
         {
-          "texto": "Sí, la Tierra ocupa el centro desde el que todo se expande.",
+          "texto": "Sí, la Tierra ocupa el centro.",
           "correcta": false,
           "feedback": "Idea errónea: desde cualquier galaxia se vería lo mismo. No hay un centro privilegiado."
         },
         {
-          "texto": "No: desde cualquier galaxia se vería lo mismo; a gran escala aumentan las distancias entre las galaxias no ligadas, sin que haya un centro.",
+          "texto": "No; en una expansión aproximadamente homogénea distintos observadores comóviles describen el mismo patrón sin un centro privilegiado.",
           "correcta": true,
-          "feedback": "Correcto: la expansión no tiene centro; cualquier observador ve alejarse a las demás."
+          "feedback": "Correcto: la expansión no tiene centro; cualquier observador comóvil ve alejarse a las demás."
         },
         {
-          "texto": "Sí, pero el centro está en la Vía Láctea, no en la Tierra.",
+          "texto": "Sí, pero el centro está en la Vía Láctea.",
           "correcta": false,
           "feedback": "Sigue suponiendo un centro, que no existe."
         }
@@ -84,22 +84,22 @@ window.TEST_CONCEPTUAL = {
       "oa": "OA4",
       "concepto": "Universo observable frente a universo total",
       "etiqueta": "El tamaño del universo",
-      "enunciado": "Cuando hablamos del «tamaño del universo», ¿qué medimos en realidad?",
+      "enunciado": "Cuando hablamos del «tamaño del universo» en esta secuencia, ¿qué magnitud se discute?",
       "opciones": [
         {
-          "texto": "El tamaño total del universo, que tiene un borde definido.",
+          "texto": "El tamaño total del universo, que tiene un borde conocido.",
           "correcta": false,
           "feedback": "Idea errónea: no conocemos borde ni tamaño total; podría ser infinito."
         },
         {
-          "texto": "El universo observable: la región cuya luz ha tenido tiempo de llegarnos.",
+          "texto": "El tamaño del universo observable, no el del universo total.",
           "correcta": true,
           "feedback": "Correcto: siempre medimos lo observable; del universo total no sabemos ni tamaño ni borde."
         },
         {
-          "texto": "La distancia hasta la galaxia más lejana que existe.",
+          "texto": "La distancia a la galaxia más lejana que existe.",
           "correcta": false,
-          "feedback": "No es 'la más lejana que existe', sino hasta donde su luz ha podido llegarnos."
+          "feedback": "No es «la más lejana que existe», sino hasta donde su luz ha podido llegarnos."
         }
       ]
     },
@@ -108,20 +108,20 @@ window.TEST_CONCEPTUAL = {
       "oa": "OA2",
       "concepto": "Mirar lejos es mirar al pasado (look-back time)",
       "etiqueta": "Ver galaxias muy lejanas",
-      "enunciado": "La luz que recibimos de una galaxia fue emitida hace 1 000 millones de años. La vemos…",
+      "enunciado": "La luz que recibimos de una galaxia fue emitida hace 1 000 millones de años. La observamos…",
       "opciones": [
         {
-          "texto": "Tal y como es ahora mismo.",
+          "texto": "tal como es ahora mismo;",
           "correcta": false,
           "feedback": "No: la luz que recibimos salió hace mucho tiempo."
         },
         {
-          "texto": "Tal y como era hace 1 000 millones de años, cuando esa luz salió: mirar lejos es mirar al pasado.",
+          "texto": "tal como era cuando emitió esa luz; mirar lejos implica mirar al pasado;",
           "correcta": true,
-          "feedback": "Correcto: la vemos como era cuando su luz partió (look-back time). En un universo en expansión, la distancia actual es otra cosa."
+          "feedback": "Correcto: la vemos como era cuando su luz partió (look-back time)."
         },
         {
-          "texto": "Con 1 000 millones de años de adelanto sobre su estado real.",
+          "texto": "con 1 000 millones de años de adelanto;",
           "correcta": false,
           "feedback": "Es al revés: la vemos con retraso, no con adelanto."
         }
@@ -132,20 +132,20 @@ window.TEST_CONCEPTUAL = {
       "oa": "OA2",
       "concepto": "Medida del corrimiento al rojo z = Δλ/λ",
       "etiqueta": "Medir el corrimiento al rojo (z)",
-      "enunciado": "En el espectro de una galaxia, una línea que en reposo está en 656 nm aparece en 663 nm. El corrimiento al rojo z se calcula como…",
+      "enunciado": "Una línea que en reposo está en 656 nm aparece en 663 nm. El corrimiento al rojo se obtiene como…",
       "opciones": [
         {
-          "texto": "La velocidad de la galaxia dividida por su distancia.",
+          "texto": "la velocidad dividida por la distancia (v/d);",
           "correcta": false,
           "feedback": "Eso sería la constante de Hubble (v/d), no z."
         },
         {
-          "texto": "La diferencia de longitud de onda dividida por la de reposo: z = Δλ/λ = (663−656)/656.",
+          "texto": "z = (663 − 656) / 656;",
           "correcta": true,
-          "feedback": "Correcto: z es el desplazamiento relativo de la línea, adimensional."
+          "feedback": "Correcto: z = Δλ/λ es el desplazamiento relativo de la línea, adimensional."
         },
         {
-          "texto": "El brillo de la galaxia comparado con una de referencia.",
+          "texto": "el brillo respecto de una referencia;",
           "correcta": false,
           "feedback": "z se mide sobre la posición de las líneas, no sobre el brillo."
         }
@@ -159,9 +159,9 @@ window.TEST_CONCEPTUAL = {
       "enunciado": "En una galaxia suficientemente lejana, ¿cuál es la interpretación principal del corrimiento al rojo observado?",
       "opciones": [
         {
-          "texto": "Es únicamente un Doppler ordinario, debido al movimiento de la galaxia a través de un espacio estático.",
+          "texto": "Es únicamente un Doppler ordinario debido al movimiento de la galaxia a través de un espacio estático.",
           "correcta": false,
-          "feedback": "Idea errónea: no es solo un Doppler ordinario por moverse a través de un espacio estático; domina la expansión cosmológica. v=c·z es un atajo válido a bajo z."
+          "feedback": "Idea errónea: no es solo un Doppler ordinario; domina la expansión cosmológica. v = c·z es un atajo válido a bajo z."
         },
         {
           "texto": "Está dominado por la expansión cosmológica; las velocidades peculiares pueden añadir una contribución local.",
@@ -169,9 +169,9 @@ window.TEST_CONCEPTUAL = {
           "feedback": "Correcto: el corrimiento lo domina la expansión cosmológica; las velocidades peculiares solo añaden una contribución local (y explican parte de la dispersión del diagrama)."
         },
         {
-          "texto": "La luz pierde energía y «se cansa» al recorrer distancias enormes.",
+          "texto": "La luz pierde energía por «cansancio» durante el viaje.",
           "correcta": false,
-          "feedback": "La hipótesis de la 'luz cansada' está descartada por las observaciones."
+          "feedback": "La hipótesis de la «luz cansada» está descartada por las observaciones."
         }
       ]
     },
@@ -180,20 +180,20 @@ window.TEST_CONCEPTUAL = {
       "oa": "OA3",
       "concepto": "Ley de Hubble-Lemaître: pendiente = H0",
       "etiqueta": "La ley de Hubble",
-      "enunciado": "Representas la velocidad de recesión frente a la distancia de muchas galaxias. ¿Qué patrón esperas y qué representa la pendiente de la recta?",
+      "enunciado": "Al representar velocidad de recesión frente a distancia para muchas galaxias, ¿qué patrón se espera a bajo z y qué representa la pendiente?",
       "opciones": [
         {
-          "texto": "Todas se alejan a la misma velocidad; la pendiente no significa nada.",
+          "texto": "Todas se alejan con la misma velocidad; la pendiente no tiene interpretación.",
           "correcta": false,
           "feedback": "No: la velocidad depende de la distancia."
         },
         {
-          "texto": "Cuanto más lejos está una galaxia, más deprisa se aleja; la pendiente es la constante de Hubble H0.",
+          "texto": "La velocidad aumenta aproximadamente de forma lineal con la distancia y la pendiente es H₀.",
           "correcta": true,
-          "feedback": "Correcto: v = H0·d, y la pendiente del diagrama es H0."
+          "feedback": "Correcto: v = H₀·d, y la pendiente del diagrama es H₀."
         },
         {
-          "texto": "Las galaxias más cercanas se alejan más deprisa; la pendiente es su tamaño.",
+          "texto": "Las cercanas se alejan más deprisa y la pendiente es el tamaño de las galaxias.",
           "correcta": false,
           "feedback": "Es al revés (las lejanas van más rápido) y la pendiente no es un tamaño."
         }
@@ -204,70 +204,70 @@ window.TEST_CONCEPTUAL = {
       "oa": "OA3",
       "concepto": "Los sistemas ligados no se expanden",
       "etiqueta": "La expansión y las cosas cotidianas",
-      "enunciado": "Si el universo se expande, ¿por qué no se expanden también tu cuerpo, la Tierra o la Vía Láctea?",
+      "enunciado": "Si el universo se expande, ¿por qué no se expanden apreciablemente tu cuerpo, la Tierra o una galaxia ligada?",
       "opciones": [
         {
-          "texto": "Sí se expanden, pero tan despacio que no lo notamos.",
+          "texto": "Sí se expanden al mismo ritmo que el universo.",
           "correcta": false,
-          "feedback": "Idea errónea: los sistemas ligados no participan apreciablemente de la expansión, porque las fuerzas que los unen dominan a esas escalas."
+          "feedback": "Idea errónea: los sistemas ligados no participan apreciablemente de la expansión."
         },
         {
-          "texto": "Porque en los sistemas unidos por la gravedad (u otras fuerzas) esa unión vence a la expansión; solo se separa el espacio entre galaxias no ligadas.",
+          "texto": "A esas escalas dominan las interacciones que mantienen ligado el sistema; no siguen apreciablemente el flujo de Hubble.",
           "correcta": true,
-          "feedback": "Correcto: la expansión solo domina a gran escala, entre galaxias no ligadas."
+          "feedback": "Correcto: la gravedad (u otras fuerzas) vence a la expansión; solo se separa el espacio entre galaxias no ligadas."
         },
         {
-          "texto": "Porque la expansión solo ocurre muy lejos, más allá de nuestra galaxia.",
+          "texto": "Porque la expansión solo ocurre a partir de una distancia fija del observador.",
           "correcta": false,
-          "feedback": "La expansión ocurre en todas partes, pero la gravedad la vence localmente."
+          "feedback": "La expansión ocurre en todas partes, pero las uniones locales la vencen."
         }
       ]
     },
     {
       "id": 10,
       "oa": "OA5",
-      "concepto": "t ≈ 1/H0 es una aproximación (extrapolación lineal)",
+      "concepto": "t_H = 1/H0 es una aproximación (extrapolación lineal)",
       "etiqueta": "¿Es exacta la edad estimada?",
-      "enunciado": "La estimación t ≈ 1/H0 para la edad del universo…",
+      "enunciado": "La estimación t_H = 1/H₀…",
       "opciones": [
         {
-          "texto": "Es el valor exacto y definitivo de la edad.",
+          "texto": "es la edad exacta y definitiva del universo;",
           "correcta": false,
-          "feedback": "Idea errónea: es una aproximación, no un valor exacto."
+          "feedback": "Idea errónea: es una escala temporal, no un valor exacto."
         },
         {
-          "texto": "Es una buena aproximación: corresponde a una extrapolación lineal simplificada de la tasa actual; el valor preciso depende de cómo ha variado la expansión.",
+          "texto": "es el tiempo de Hubble, una escala temporal obtenida al extrapolar linealmente el ritmo actual; la edad precisa depende de la historia de expansión;",
           "correcta": true,
-          "feedback": "Correcto: por eso el valor que dan los modelos (≈13 800 Ma) difiere algo de 1/H0."
+          "feedback": "Correcto: por eso el valor que dan los modelos (≈13 800 Ma) difiere algo de 1/H₀."
         },
         {
-          "texto": "Es siempre mucho mayor que la edad real del universo.",
+          "texto": "es siempre mucho mayor que la edad cosmológica;",
           "correcta": false,
-          "feedback": "La diferencia es pequeña; no es 'mucho mayor'."
+          "feedback": "La diferencia es pequeña; no es «mucho mayor»."
         }
       ]
     },
     {
       "id": 11,
       "oa": "OA4",
-      "concepto": "Significado de 1/H0 (edad = d/v, no d/c)",
+      "concepto": "Significado de 1/H0 (escala temporal, no la edad exacta)",
       "etiqueta": "Qué significa 1/H₀",
-      "enunciado": "Si mides H₀ y calculas 1/H₀ ≈ 14 000 millones de años, ¿qué representa ese número?",
+      "enunciado": "Si calculas 1/H₀ ≈ 14 mil millones de años, ese número representa…",
       "opciones": [
         {
-          "texto": "El tiempo que ha tardado en llegarnos la luz de la galaxia más lejana del diagrama.",
+          "texto": "el tiempo de viaje de la luz de la galaxia más lejana del diagrama;",
           "correcta": false,
           "feedback": "Eso sería d/c (tiempo de viaje de la luz), mucho menor y distinto."
         },
         {
-          "texto": "Aproximadamente la edad del universo: es el tiempo de Hubble, una escala temporal asociada a la tasa de expansión actual.",
+          "texto": "el tiempo de Hubble: una escala temporal del orden de la edad del universo, no la edad exacta;",
           "correcta": true,
-          "feedback": "Correcto: es una escala de tiempo (d/v), del orden de la edad del universo; al rebobinar, las distancias entre galaxias se reducen a la vez."
+          "feedback": "Correcto: es una escala de tiempo (d/v), del orden de la edad del universo, no su valor exacto."
         },
         {
-          "texto": "La distancia hasta el borde del universo.",
+          "texto": "la distancia hasta un borde físico del universo;",
           "correcta": false,
-          "feedback": "Es un tiempo, no una distancia; y no hay 'borde'."
+          "feedback": "Es un tiempo, no una distancia; y no hay «borde»."
         }
       ]
     },
@@ -276,22 +276,22 @@ window.TEST_CONCEPTUAL = {
       "oa": "OA4",
       "concepto": "c/H0 es el radio de Hubble, no el radio observable",
       "etiqueta": "Radio de Hubble y universo observable",
-      "enunciado": "El radio de Hubble, c/H₀, vale ~14 000 millones de años-luz. ¿Qué es, y cómo se relaciona con el radio del universo observable (~46 000 millones de años-luz)?",
+      "enunciado": "El radio de Hubble R_H = c/H₀ ∼ 14 Gly (unos 14 000 millones de años-luz)…",
       "opciones": [
         {
-          "texto": "c/H₀ es una escala característica (el radio de Hubble), no el radio observable: este último (~46 000 Mal) es mayor porque el espacio se estiró mientras la luz viajaba.",
+          "texto": "es una escala característica asociada a la expansión actual y no es el radio del universo observable, cuyo valor comóvil actual es ∼46 Gly en ΛCDM;",
           "correcta": true,
-          "feedback": "Correcto: c/H₀ (~14 Gly) es el radio de Hubble; el radio observable (~46 Gly) resulta de la historia de la expansión."
+          "feedback": "Correcto: c/H₀ (~14 Gly) es el radio de Hubble; el radio observable (~46 Gly) resulta de la historia de expansión."
         },
         {
-          "texto": "Son lo mismo: c/H₀ es directamente el radio del universo observable.",
+          "texto": "es exactamente el radio del universo observable;",
           "correcta": false,
-          "feedback": "Idea errónea: c/H₀ es el radio de Hubble; el observable (~46 Gly) es una magnitud distinta y mayor."
+          "feedback": "Idea errónea: el observable (~46 Gly) es una magnitud distinta y mayor."
         },
         {
-          "texto": "El observable es siempre c/H₀ multiplicado por 3, una regla fija.",
+          "texto": "debe multiplicarse siempre por un factor universal de 3,3 para obtener el radio observable;",
           "correcta": false,
-          "feedback": "No hay una regla fija de ×3: ese factor sale de la historia de la expansión del modelo."
+          "feedback": "No hay un factor fijo: ese cociente sale de la historia de la expansión del modelo."
         }
       ]
     },
@@ -300,20 +300,20 @@ window.TEST_CONCEPTUAL = {
       "oa": "OA3",
       "concepto": "Velocidades peculiares: la dispersión del diagrama de Hubble",
       "etiqueta": "La dispersión del diagrama",
-      "enunciado": "En el diagrama de Hubble, algunas galaxias cercanas se desvían bastante de la recta. ¿Cuál es la explicación más adecuada?",
+      "enunciado": "En un diagrama de Hubble algunas galaxias cercanas se apartan de la recta. ¿Cuál es la explicación más adecuada?",
       "opciones": [
         {
-          "texto": "La ley de Hubble solo se aplica a algunas galaxias.",
+          "texto": "La relación de Hubble solo se cumple para algunas galaxias elegidas.",
           "correcta": false,
-          "feedback": "No: la ley vale en general; a distancias pequeñas otros movimientos pesan más."
+          "feedback": "No: la relación vale en general; a distancias pequeñas otros movimientos pesan más."
         },
         {
-          "texto": "Las galaxias cercanas tienen velocidades peculiares (movimientos propios) que pueden ser comparables a su velocidad de recesión por la expansión.",
+          "texto": "Sus velocidades peculiares pueden ser comparables con la componente debida a la expansión y aumentar la dispersión.",
           "correcta": true,
-          "feedback": "Correcto: a corta distancia la recesión es pequeña y las velocidades peculiares la enmascaran; por eso se dispersan."
+          "feedback": "Correcto: a corta distancia la recesión es pequeña y las velocidades peculiares la enmascaran."
         },
         {
-          "texto": "Sus distancias son necesariamente incorrectas.",
+          "texto": "Las distancias de cualquier punto que se aparte de la recta son necesariamente erróneas.",
           "correcta": false,
           "feedback": "No tienen por qué estar mal medidas: la dispersión se debe sobre todo a las velocidades peculiares."
         }
@@ -324,20 +324,20 @@ window.TEST_CONCEPTUAL = {
       "oa": "OA7",
       "concepto": "Naturaleza de la ciencia: magnitudes inferidas y revisables",
       "etiqueta": "Cómo lo sabe la ciencia",
-      "enunciado": "¿Cuál de estas afirmaciones describe mejor cómo la ciencia conoce la edad y el tamaño del universo?",
+      "enunciado": "¿Cuál describe mejor cómo la ciencia conoce la edad y las escalas del universo?",
       "opciones": [
         {
-          "texto": "Son datos medidos directamente y definitivos, que no cambiarán.",
+          "texto": "Son datos observados directamente y ya definitivos.",
           "correcta": false,
-          "feedback": "Idea errónea: no se miden 'directamente' ni son definitivos."
+          "feedback": "Idea errónea: no se miden «directamente» ni son definitivos."
         },
         {
-          "texto": "Son magnitudes inferidas a partir de observaciones y modelos, con incertidumbre, y pueden revisarse al mejorar los datos.",
+          "texto": "Se infieren a partir de observaciones, modelos y aproximaciones; poseen incertidumbres y pueden revisarse con nueva evidencia.",
           "correcta": true,
           "feedback": "Correcto: la ciencia infiere, aproxima y revisa (p. ej. la tensión de Hubble)."
         },
         {
-          "texto": "Son estimaciones sin base observacional, casi opiniones.",
+          "texto": "Son estimaciones sin base observacional.",
           "correcta": false,
           "feedback": "Tienen una base observacional sólida; no son opiniones."
         }
@@ -348,20 +348,20 @@ window.TEST_CONCEPTUAL = {
       "oa": "OA3",
       "concepto": "Distancias independientes del corrimiento al rojo (no circularidad)",
       "etiqueta": "Por qué distancias independientes",
-      "enunciado": "¿Por qué es importante que las distancias usadas para construir el diagrama de Hubble se hayan obtenido con métodos independientes del corrimiento al rojo?",
+      "enunciado": "¿Por qué las distancias usadas para construir el diagrama deben obtenerse por métodos independientes del corrimiento al rojo?",
       "opciones": [
         {
-          "texto": "Porque si la distancia se calculara con la propia ley de Hubble, estaríamos suponiendo de antemano la relación que queremos comprobar (sería circular).",
+          "texto": "Porque calcularlas previamente con la propia relación de Hubble introduciría circularidad: supondríamos la relación que queremos contrastar.",
           "correcta": true,
           "feedback": "Correcto: usar distancias independientes evita el razonamiento circular; así la relación v–d se descubre de verdad."
         },
         {
-          "texto": "Porque las distancias independientes no tienen ninguna incertidumbre.",
+          "texto": "Porque una distancia independiente nunca tiene incertidumbre.",
           "correcta": false,
-          "feedback": "No: también tienen incertidumbre (sus barras de error); lo clave es que no dependen del corrimiento al rojo."
+          "feedback": "No: también tienen incertidumbre; lo clave es que no dependen del corrimiento al rojo."
         },
         {
-          "texto": "Porque el corrimiento al rojo no se puede medir directamente.",
+          "texto": "Porque el corrimiento al rojo no puede medirse observacionalmente.",
           "correcta": false,
           "feedback": "El corrimiento al rojo sí se mide directamente del espectro; la cuestión es evitar la circularidad."
         }
