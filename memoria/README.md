@@ -2,9 +2,12 @@
 
 Trabajo de Fin de Máster **«Secuencia Didáctica 5E para la Determinación de la Edad y el Tamaño del Universo»** — Máster Universitario en Astronomía y Astrofísica (VIU). **Alumno:** Javier Piay Pombo · **Director:** Ricardo García Salcedo · 2026.
 
+> **Edición v1.1 (corregida).** La versión **oficialmente depositada** no se modifica; esta edición del repositorio incorpora las erratas y mejoras detectadas tras el depósito. Detalle en [`correcciones_post_deposito.md`](correcciones_post_deposito.md).
+
 ## Leer la memoria
 
-- **PDF:** [`TFM_VIU_PIAY_v2.pdf`](TFM_VIU_PIAY_v2.pdf) — documento completo (74 páginas).
+- **PDF:** [`TFM_VIU_PIAY_v2.pdf`](TFM_VIU_PIAY_v2.pdf) — documento completo (74 páginas), edición v1.1.
+- **Correcciones:** [`correcciones_post_deposito.md`](correcciones_post_deposito.md) — erratas y mejoras aplicadas tras el depósito.
 
 ## Fuentes LaTeX
 
